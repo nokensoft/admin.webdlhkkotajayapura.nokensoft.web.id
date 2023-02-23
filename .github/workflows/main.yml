@@ -8,6 +8,9 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
+     - name: Copy .env
+       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        
       - uses: actions/checkout@v3
       - name: FTP-Deploy-Action
       
@@ -23,8 +26,7 @@ jobs:
         with:
           php-version: '8.1'
             
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+   
 
       - name: Install Dependencies
         run: composer update --ignore-platform-reqs
