@@ -15,7 +15,7 @@ jobs:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.1'
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
@@ -24,13 +24,11 @@ jobs:
       run: php artisan key:generate
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
-    - name: 📂 Sync files
-      uses: burnett01/rsync-deployments@5.2.1
+    - name: 📂 Sync Files
+      uses: SamKirkland/web-deploy@v1
       with:
-        switches: -avzr --delete --exclude=".git" --exclude=".github"
-        path: /
-        remote_path: ${{ secrets.DEPLOY_PATH }}
-        remote_host: ${{ secrets.DEPLOY_HOST }}
-        remote_user: ${{ secrets.DEPLOY_USER }}
-        remote_key: ${{ secrets.DEPLOY_KEY }}
-        remote_port: 21
+        target-server: ${{ secrets.DEPLOY_HOST }}
+        remote-user: ${{ secrets.DEPLOY_USER }}
+        private-ssh-key: ${{ secrets.DEPLOY_KEY}} 
+        destination-path: ${{ secrets.DEPLOY_PATH }}
+        ssh-port: 21
