@@ -31,7 +31,7 @@ jobs:
       - name: 📂 Sync files
         uses: dennisameling/ftp-upload-action@v1
         with:
-          server: ${{ secrets.DEPLOY_HOST }}
+          server: 103.16.198.153
           username: ${{ secrets.DEPLOY_USER }}
           password: ${{ secrets.DEPLOY_KEY }}
           server_dir: ${{ secrets.DEPLOY_PATH }}
