@@ -29,8 +29,9 @@ jobs:
         run: php artisan key:generate
                
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@2.0.0
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        uses: dennisameling/ftp-upload-action@v1
+        with:
+          server: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          password: ${{ secrets.DEPLOY_KEY }}
+          server_dir: ${{ secrets.DEPLOY_PATH }}
