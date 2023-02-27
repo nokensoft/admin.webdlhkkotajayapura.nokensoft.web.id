@@ -1,37 +1,19 @@
-name: 🚀 Deploy website on push
+name: Publish website to CPanel
 on:
   push:
-    branches: [ "main" ]
-
+    branches:
+      - main
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action 
+    runs-on: ubuntu-latest 
     steps:
-      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-        with:
-          php-version: '8.1'
-      - uses: actions/checkout@v2.3.2
-
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-     
-      - name: Install Dependencies
-        run: composer update --ignore-platform-reqs
-     
-      - name: Directory Permissions
-        run: chmod -R 777 storage bootstrap/cache
-        
-      - name: Generate storage link
-        run: php artisan storage:link
-       
-      - name: Generate key
-        run: php artisan key:generate
-               
-      - name: 📂 Sync files
-        uses: dennisameling/ftp-upload-action@v1
-        with:
-          server: 103.16.198.153
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_KEY }}
-          server_dir: ${{ secrets.DEPLOY_PATH }}
+    - uses: actions/checkout@v2.1.0 
+      with:
+        fetch-depth: 2 
+    - name: FTP-Deploy-Action 
+      uses: Samkirkland/FTP-Deploy-Action@3.1.1 
+      with:
+        ftp-server: ${{secrets.FTP_SERVER}}
+        ftp-username: ${{secrets. FTP_USERNAME}}
+        ftp-password: ${{ secrets. FTP_PASSWORD}}
