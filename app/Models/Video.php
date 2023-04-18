@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Video extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ["title","embed","status","created_by","updated_by","deleted_by"];
+    public $guarded = [];
 
 }

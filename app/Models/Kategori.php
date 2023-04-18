@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Kategori extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $fillable = ["title","deskripsi","katakunci","image","status","slug","created_by","updated_by","deleted_by"];
+    public $guarded = [];
 }
  

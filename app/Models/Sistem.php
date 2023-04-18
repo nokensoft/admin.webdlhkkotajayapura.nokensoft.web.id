@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sistem extends Model
 {
     use HasFactory;
-    protected $fillable = ["pemilik","title","tagline","icon","logo","favicon","email","phone","address","facebook","twitter","instagram","youtube","tiktok","whatsapp"];
+    public $guarded = [];
 }
 
  

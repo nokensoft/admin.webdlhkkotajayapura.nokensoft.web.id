@@ -9,17 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Person extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $fillable =[
-
-        'name',
-        'email',
-        'phone',
-        'address',
-        'devisi',
-        'jabatan',
-        'no',
-        'status',
-        'image',];
+    public $guarded = [];
 }
 
 

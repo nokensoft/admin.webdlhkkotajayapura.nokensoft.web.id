@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Album extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ["title","subtitle","status","slug","created_by","updated_by","deleted_by"];
+    public $guarded = [];
 
 }
  

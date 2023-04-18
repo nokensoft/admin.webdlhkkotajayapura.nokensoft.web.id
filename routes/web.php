@@ -19,14 +19,23 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::check()){
+        return redirect()->route('dashboard');
+    }else{
+        return  view('auth.login');
+    }
+
 });
 
-// Auth::routes();
 Auth::routes(['register' => false]);
 
-Route::redirect('/register', '/login');
+// Route::redirect('/register', '/login');
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
@@ -39,6 +48,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
 });
+
+
 
 
 

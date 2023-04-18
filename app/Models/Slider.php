@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Slider extends Model
 {
     use HasFactory, SoftDeletes;
-
-    protected $fillable = [
-        'title', 'subtitle','image','status','created_by','updated_by'
-    ];
+    public $guarded = [];
+    
 }
