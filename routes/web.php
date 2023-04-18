@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -41,13 +42,12 @@ Route::group(['middleware' => ['auth','web']], function() {
         Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
         Route::resource('roles', RoleController::class);
-        Route::resource('users', UserController::class);
+        // Route::resource('users', UserController::class);
         Route::resource('products', ProductController::class);
 
         // Peran ADMIN
         Route::group(['middleware' => ['role:administrator']], function () {
-
-
+            Route::resource('users', UserController::class);
         });
 
         // Peran editor
