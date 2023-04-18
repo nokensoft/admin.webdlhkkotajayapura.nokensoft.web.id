@@ -67,7 +67,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name','name')->all();
+        $roles = Role::pluck('display_name','display_name')->all();
         return view('panel.admin.pages.users.create',compact('roles'));
     }
 
@@ -118,7 +118,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('admin.pages.users.show',compact('user'));
+        return view('panel.admin.pages.users.show',compact('user'));
     }
 
     /**
@@ -194,7 +194,7 @@ class UserController extends Controller
         $jumlahtrash = User::onlyTrashed()->count();
         $jumlahdraft = User::where('status', 0)->count();
         $datapublish = User::where('status', 1)->count();
-        return view('pane.admin.pages.users.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('panel.admin.pages.users.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function restore($id){

@@ -9,24 +9,24 @@
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                            <li class="breadcrumb-item active">artikel</li>
+                                            <li class="breadcrumb-item active">Created Users</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">artikel</h4>
+                                    <h4 class="page-title"></h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
                         @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> Ada Form Yang Belum diisi.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> Ada Form Yang Belum diisi.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <div class="row">
                             <div class="col-lg-12">
@@ -38,45 +38,41 @@
                                         @csrf
 
                                         <div class="mb-3">
-        <label for="name" class="form-label">Nama <span class="text-danger">*</span></label>
-        {!! Form::text('name',null,['required','id'=>'name','class'=>'form-control','placeholder'=>'Nama']) !!}
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-        {!! Form::text('email',null,['required','id'=>'email','class'=>'form-control','placeholder'=>'Email']) !!}
-        </div>
+                                            <label for="name" class="form-label">Nama <span class="text-danger">*</span></label>
+                                            {!! Form::text('name',null,['required','id'=>'name','class'=>'form-control','placeholder'=>'Nama']) !!}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                            {!! Form::text('email',null,['required','id'=>'email','class'=>'form-control','placeholder'=>'Email']) !!}
+                                        </div>
 
-    <div class="mb-3">
-        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-        {!! Form::password('password',['required','id'=>'password','class'=>'form-control','placeholder'=>'Password']) !!}
-</div>
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                            {!! Form::password('password',['required','id'=>'password','class'=>'form-control','placeholder'=>'Password']) !!}
+                                        </div>
 
-    <div class="mb-3">
-        <label for="confirm-password" class="form-label">Konfirmasi Password <span class="text-danger">*</span></label>
-        {!! Form::password('confirm-password',['required','id'=>'confirm-password','class'=>'form-control','placeholder'=>'Konfirmasi Password']) !!}
-        </div>
+                                    <div class="mb-3">
+                                        <label for="confirm-password" class="form-label">Konfirmasi Password <span class="text-danger">*</span></label>
+                                        {!! Form::password('confirm-password',['required','id'=>'confirm-password','class'=>'form-control','placeholder'=>'Konfirmasi Password']) !!}
+                                    </div>
 
-    <div class="mb-3">
-        <label for="roles" class="form-label">Roles <span class="text-danger">*</span></label>
-        {!! Form::select('roles[]',$roles,[],['required','id'=>'roles','class'=>'form-control select2','multiple'=>'multiple']) !!}
-        </div>
+                                    <div class="mb-3">
+                                        <label for="roles" class="form-label">Roles <span class="text-danger">*</span></label>
+                                        {!! Form::select('roles',$roles,[],['required','id'=>'roles','class'=>'form-control',]) !!}
+                                    </div>
 
-        <div class="mb-3">
-        <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
+                                    <div class="mb-3">
+                                        <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
 
-        {!! Form::select('status', [''=>'Status  ...','1'=>'Aktif','0'=>'draft'], null,['class'=>'form-control select2','id'=>'status','required']) !!}
+                                        {!! Form::select('status', [''=>'Status  ...','1'=>'Aktif','0'=>'draft'], null,['class'=>'form-control select2','id'=>'status','required']) !!}
+                                    </div>
 
-    </div>
-
-
-        <div class="col-3">
-<div class="button-list pe-xl-4 d-grid mb-3">
-<button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-
-
-</div>
-</div> <!-- end col -->
-{!! Form::close() !!}
+                                    <div class="col-3">
+                                        <div class="button-list pe-xl-4 d-grid mb-3">
+                                            <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
+                                        </div>
+                                    </div> <!-- end col -->
+        {!! Form::close() !!}
 </div>
 </div> <!-- end card -->
 

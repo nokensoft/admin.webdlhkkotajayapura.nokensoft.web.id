@@ -1,5 +1,5 @@
-<?php 
- 
+<?php
+
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\KategoriController;
 use App\Http\Controllers\admin\ArtikelController;
@@ -14,7 +14,7 @@ use App\Http\Controllers\admin\PersonController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\ProductController;
- 
+
 
 Route::prefix('app')->middleware('auth')->group(function () {
     Route::get('/', function () {
@@ -53,7 +53,7 @@ Route::prefix('app')->middleware('auth')->group(function () {
 
 
 
- 
+
 
    Route::controller(SliderController::class)->group(function(){
     Route::get('slider','index')->name('app.slider');
@@ -69,7 +69,7 @@ Route::prefix('app')->middleware('auth')->group(function () {
 });
 
 
- 
+
 
 
 Route::controller(KategoriController::class)->group(function(){
@@ -103,13 +103,13 @@ Route::controller(ArtikelController::class)->group(function(){
 
 Route::controller(GambarArtikelController::class)->group(function(){
     Route::get('artikel/{id}/gambar','index')->name('app.artikel.gambar');
- 
-     
+
+
     Route::post('artikel/gambar','store')->name('app.artikel.gambar.store');
- 
+
     Route::put('artikel/gambar/{id}/primary','update')->name('app/artikel/gambar/primary');
     Route::delete('artikel/gambar/{id}/destroy','destroy')->name('app.artikel.gambar.destroy');
-    
+
 });
 
 
@@ -158,13 +158,13 @@ Route::controller(AlbumController::class)->group(function(){
 
 Route::controller(FotoController::class)->group(function(){
     Route::get('album/{id}/foto','index')->name('app.album.foto');
- 
-     
+
+
     Route::post('album/foto','store')->name('app.album.foto.store');
- 
+
     Route::put('album/foto/{id}/primary','update')->name('app/album/foto/primary');
     Route::delete('album/foto/{id}/destroy','destroy')->name('app.album.foto.destroy');
-    
+
 });
 
 
@@ -188,15 +188,15 @@ Route::controller(SistemController::class)->group(function(){
     Route::get('sistem/icon','icon')->name('app.sistem.icon');
     Route::put('sistem/icon/{id}','updateicon')->name('app.sistem.icon.update');
     Route::put('sistem/logo/{id}','updatelogo')->name('app.sistem.logo.update');
-   
+
     Route::get('sistem/{id}/edit','edit')->name('app.sistem.edit');
     Route::put('sistem/{id}','update')->name('app.sistem.update');
 
-   
+
 });
 
 
-Route::controller(PersonController::class)->group(function(){ 
+Route::controller(PersonController::class)->group(function(){
     Route::get('person','index')->name('app.person');
     Route::get('person/draft','draft')->name('app.person.draft');
     Route::get('person/create','create')->name('app.person.create');
@@ -211,7 +211,7 @@ Route::controller(PersonController::class)->group(function(){
 
 
 
-Route::controller(RoleController::class)->group(function(){ 
+Route::controller(RoleController::class)->group(function(){
     Route::get('role','index')->name('app.role');
     Route::get('role/draft','draft')->name('app.role.draft');
     Route::get('role/create','create')->name('app.role.create');

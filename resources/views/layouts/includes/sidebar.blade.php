@@ -135,7 +135,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="{{route('app.users')}}">
                     <span class="badge bg-pink float-end">New</span>
                     <i data-feather="users"></i>
                     <span> Users </span>

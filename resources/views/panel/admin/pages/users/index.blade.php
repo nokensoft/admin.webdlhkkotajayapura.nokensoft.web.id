@@ -23,7 +23,7 @@
                                 <div class="card">
                                 <div class="card-body">
                                         <!-- Left sidebar -->
-                                        @include('admin.pages.users.menu')
+                                        @include('panel.admin.pages.users.menu')
                                     <!-- End Left sidebar -->
 
                                     <div class="inbox-rightbar">
