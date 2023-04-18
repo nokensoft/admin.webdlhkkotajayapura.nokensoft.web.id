@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
     <div class="row">
@@ -6,23 +6,21 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">UBold</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Extra Pages</a></li>
-                        <li class="breadcrumb-item active">Starter</li>
+                        <li class="breadcrumb-item active"><a href="javascript: void(0);">Dashboard</a></li>
                     </ol>
-                    /div>
-                <h4 class="page-title">Starter</h4>
+                </div>
+                <h4 class="page-title">Dashboard {{ implode('',Auth::user()->roles()->pluck('display_name')->toArray()) }}</h4>
             </div>
         </div>
-    </div>  
+    </div>
     @if (Auth::user()->hasRole('administrator'))
-        
+
     @elseif (Auth::user()->hasRole('editor'))
-        
+
     @elseif (Auth::user()->hasRole('author'))
 
 
-    @endif 
+    @endif
   <!--end wrapper-->
 
   @stop

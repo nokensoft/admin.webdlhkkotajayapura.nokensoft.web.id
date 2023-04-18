@@ -36,24 +36,24 @@ class RoleUserSeeder extends Seeder
             'name' => 'author',
             'display_name' => 'Author',
         ]);
-        
+
 
         $admin = User::create([
-            'name' => 'Hardik Savani', 
+            'name' => 'Hardik Savani',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678')
         ]);
         $admin->assignRole($adminRole);
 
         $editor = User::create([
-            'name' => 'Johan', 
+            'name' => 'Johan',
             'email' => 'editor@gmail.com',
             'password' => bcrypt('johan@1234')
         ]);
         $editor->assignRole($editorRole);
 
         $author = User::create([
-            'name' => 'Janzen', 
+            'name' => 'Janzen',
             'email' => 'author@gmail.com',
             'password' => bcrypt('author@1234')
         ]);

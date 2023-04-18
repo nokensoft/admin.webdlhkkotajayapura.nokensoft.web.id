@@ -30,23 +30,37 @@ Route::get('/', function () {
     }else{
         return  view('auth.login');
     }
-
 });
 
 Auth::routes([
     'register' => false
 ]);
 
-// Route::redirect('/register', '/login');
-//Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 Route::group(['middleware' => ['auth','web']], function() {
-   
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
-    Route::resource('roles', RoleController::class);
-    Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
+        Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+        Route::resource('roles', RoleController::class);
+        Route::resource('users', UserController::class);
+        Route::resource('products', ProductController::class);
+
+        // Peran ADMIN
+        Route::group(['middleware' => ['role:administrator']], function () {
+
+
+        });
+
+        // Peran editor
+        Route::group(['middleware' => ['role:editor']], function () {
+
+
+        });
+
+        // Peran author
+        Route::group(['middleware' => ['role:author']], function () {
+
+
+        });
 
 
 });
