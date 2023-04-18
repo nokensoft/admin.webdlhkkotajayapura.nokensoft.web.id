@@ -33,20 +33,22 @@ Route::get('/', function () {
 
 });
 
-Auth::routes(['register' => false]);
+Auth::routes([
+    'register' => false
+]);
 
 // Route::redirect('/register', '/login');
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => ['auth']], function() {
-    Route::get('/home', function () {
-        return view('admin.pages.starter');
-    });
-
+Route::group(['middleware' => ['auth','web']], function() {
+   
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+
+
 });
 
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
@@ -12,10 +14,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -24,8 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->hasRole('administrator')){
+            return view('panel.dashboard');
 
+        } elseif(Auth::user()->hasRole('author')){
+            return view('panel.dashboard');
 
-        return view('home');
+        } elseif(Auth::user()->hasRole('editor')){
+            return view('panel.dashboard');
+        } 
     }
 }
