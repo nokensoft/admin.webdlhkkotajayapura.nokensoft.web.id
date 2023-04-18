@@ -16,7 +16,7 @@ class SistemController extends Controller
     public function index()
     {
         $data = Sistem::find(1);
-        return view('admin.pages.sistem.index',compact('data'));
+        return view('panel.admin.pages.sistem.index',compact('data'));
     }
 
     /**
@@ -32,13 +32,13 @@ class SistemController extends Controller
     public function logo()
     {
         $data = Sistem::find(1);
-        return view('admin.pages.sistem.logo',compact('data'));
+        return view('panel.admin.pages.sistem.logo',compact('data'));
     }
 
     public function icon()
     {
         $data = Sistem::find(1);
-        return view('admin.pages.sistem.icon',compact('data'));
+        return view('panel.admin.pages.sistem.icon',compact('data'));
     }
 
     /**
@@ -71,8 +71,8 @@ class SistemController extends Controller
      */
     public function edit($id)
     {
-       
-       
+
+
     }
 
     /**
@@ -85,27 +85,22 @@ class SistemController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-         
             'email' => 'email',
             'phone' => 'numeric',
-            
-            
         ],
         [
             'email.email' => 'Email tidak valid',
             'phone.numeric' => 'No. Telepon tidak valid',
-            
+
         ]);
 
         // Auth::user()->id;
         $sistem = $request->all();
-     
-
         $sistem = Sistem::find($id);
         $sistem->pemilik = $request->pemilik;
         $sistem->title = $request->title;
         $sistem->tagline = $request->tagline;
-        
+
         $sistem->email = $request->email;
         $sistem->phone = $request->phone;
         $sistem->address = $request->address;
@@ -115,7 +110,7 @@ class SistemController extends Controller
         $sistem->youtube = $request->youtube;
         $sistem->tiktok = $request->tiktok;
         $sistem->whatsapp = $request->whatsapp;
-        
+
         $sistem->save();
 
         if($sistem){
@@ -125,32 +120,32 @@ class SistemController extends Controller
             alert()->warning('Gagal', 'Gagal!!')->autoclose(1500);
             return redirect()->back();
         }
-        
+
 
     }
 
     public function updateicon(Request $request)
     {
         $request->validate([
-         
+
             'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
-            
-            
+
+
         ],
         [
             'image.required' => 'Icon tidak boleh kosong',
             'image.image' => 'Icon harus berupa gambar',
             'image.mimes' => 'Icon harus berupa gambar dengan format png,jpg,jpeg',
             'image.max' => 'Icon maksimal 2MB',
-            
+
         ]);
 
         $filename  = 'nokensoft'.'-'.date('Y-m-d-H-i-s').$request->file('image')->getClientOriginalName();
-    
+
         $request->file('image')->storeAs('public/resource/icon/',$filename);
-            
+
            $url = ('storage/resource/icon/'.$filename);
-           
+
         $sistem = Sistem::find(1);
         $sistem->icon = $url;
         $sistem->save();
@@ -159,7 +154,7 @@ class SistemController extends Controller
             alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
             return redirect()->back();
 
-        
+
         }
     }
 
@@ -167,25 +162,25 @@ class SistemController extends Controller
     public function updatelogo(Request $request)
     {
         $request->validate([
-         
+
             'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
-            
-            
+
+
         ],
         [
             'image.required' => 'Logo tidak boleh kosong',
             'image.image' => 'Logo harus berupa gambar',
             'image.mimes' => 'logo harus berupa gambar dengan format png,jpg,jpeg',
             'image.max' => 'Logo maksimal 2MB',
-            
+
         ]);
 
         $filename  = 'nokensoft'.'-'.date('Y-m-d-H-i-s').$request->file('image')->getClientOriginalName();
-    
+
         $request->file('image')->storeAs('public/resource/logo/',$filename);
-            
+
            $url = ('storage/resource/logo/'.$filename);
-           
+
         $sistem = Sistem::find(1);
         $sistem->logo = $url;
         $sistem->save();
@@ -194,7 +189,7 @@ class SistemController extends Controller
             alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
             return redirect()->back();
 
-        
+
         }
     }
 

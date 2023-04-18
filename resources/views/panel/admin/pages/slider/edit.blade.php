@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">Slider</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
                         @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -35,7 +35,7 @@
                                         <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">FORM</h5>
                                         {!! Form::model($data,array('url'=>'app/slider/'.$data->id,'method'=>'put','files'=>'true'))!!}
                                 @csrf
-    
+
 
                                         <div class="mb-3">
                                             <label for="product-name" class="form-label">Title <span class="text-danger">*</span></label>
@@ -48,33 +48,33 @@
                                             {!! Form::text('subtitle',null,['required','id'=>'subtitle','class'=>'form-control','placeholder'=>'Subtitle', 'required']) !!}
                                         </div>
 
-                                        
 
-                                      
+
+
 
                                         <div class="mb-3">
                                             <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
                                             <!-- <select class="form-control select2" name="status" id="status" required>
                                                 <option>Select</option>
-                                                 
+
                                                     <option value="1">Aktif</option>
                                                     <option value="SH2">Draft</option>
-                                                     
+
 
                                             </select> -->
 
                                             {!! Form::select('status', [''=>'Status  ...','1'=>'Aktif','0'=>'draft'], null,['class'=>'form-control select2','id'=>'status','required']) !!}
 
                                         </div>
- 
 
-                                      
+
+
                                     </div>
                                 </div> <!-- end card -->
                             </div> <!-- end col -->
 
                             <div class="col-lg-6">
-                                
+
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="text-uppercase mt-0 mb-3 bg-light p-2">Gambar</h5>
@@ -87,7 +87,7 @@
                                     </div>
                                 </div> <!-- end col-->
 
-                              
+
 
                             </div> <!-- end col-->
                         </div>
@@ -100,8 +100,8 @@
                             <div class="col-3">
                                 <div class="button-list pe-xl-4 d-grid mb-3">
                                 <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                
-                                    
+
+
                                 </div>
                             </div> <!-- end col -->
                         </div>
@@ -114,7 +114,7 @@
  <!-- Plugins css-->
  <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-       
+
         <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />

@@ -1,15 +1,14 @@
 <?php
-    
+
 namespace App\Http\Controllers\admin;
-    
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
-use DB;
-use Hash;
 use Illuminate\Support\Arr;
-    
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     /**
@@ -34,11 +33,11 @@ class UserController extends Controller
         $jumlahtrash = User::onlyTrashed()->count();
         $jumlahdraft = User::where('status', 0)->count();
         $datapublish = User::where('status', 1)->count();
-        return view('admin.pages.users.index',compact('data','jumlahtrash','jumlahdraft','datapublish'))
+        return view('panel.admin.pages.users.index',compact('data','jumlahtrash','jumlahdraft','datapublish'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
 
 
-           
+
     }
 
     public function draft(Request $request)
@@ -57,10 +56,10 @@ class UserController extends Controller
         $jumlahtrash = User::onlyTrashed()->count();
         $jumlahdraft = User::where('status', 0)->count();
         $datapublish = User::where('status', 1)->count();
-        return view('admin.pages.users.index',compact('data','jumlahtrash','jumlahdraft','datapublish'))
+        return view('panel.admin.pages.users.index',compact('data','jumlahtrash','jumlahdraft','datapublish'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -69,9 +68,9 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name','name')->all();
-        return view('admin.pages.users.create',compact('roles'));
+        return view('panel.admin.pages.users.create',compact('roles'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -96,25 +95,20 @@ class UserController extends Controller
             'password.same' => 'Password tidak sama',
             'roles.required' => 'Role tidak boleh kosong',
             'status.required' => 'Status tidak boleh kosong',
-
-
-
-
-
         ]
-            
+
     );
-    
+
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-    
+
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
-    
+
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
         return redirect()->route('app.users');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -126,7 +120,7 @@ class UserController extends Controller
         $user = User::find($id);
         return view('admin.pages.users.show',compact('user'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -138,10 +132,10 @@ class UserController extends Controller
         $user = User::find($id);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
-    
-        return view('admin.pages.users.edit',compact('user','roles','userRole'));
+
+        return view('panel.admin.pages.users.edit',compact('user','roles','userRole'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -157,26 +151,26 @@ class UserController extends Controller
             'password' => 'same:confirm-password',
             'roles' => 'required'
         ]);
-    
+
         $input = $request->all();
-        if(!empty($input['password'])){ 
+        if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
         }else{
-            $input = Arr::except($input,array('password'));    
+            $input = Arr::except($input,array('password'));
         }
-    
+
         $user = User::find($id);
         $user->update($input);
-        DB::table('model_has_roles')->where('model_id',$id)->delete();
-    
+        Hash::table('model_has_roles')->where('model_id',$id)->delete();
+
         $user->assignRole($request->input('roles'));
-    
+
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
         return redirect()->route('app.users');
     }
 
-   
-    
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -185,14 +179,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
         $data = User::findOrFail($id);
- $data->status = 0;
+        $data->status = 0;
         $data->save();
-        
         User::find($id)->delete();
-
-        
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
         return redirect()->back();
     }
@@ -204,7 +194,7 @@ class UserController extends Controller
         $jumlahtrash = User::onlyTrashed()->count();
         $jumlahdraft = User::where('status', 0)->count();
         $datapublish = User::where('status', 1)->count();
-        return view('admin.pages.users.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('pane.admin.pages.users.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function restore($id){

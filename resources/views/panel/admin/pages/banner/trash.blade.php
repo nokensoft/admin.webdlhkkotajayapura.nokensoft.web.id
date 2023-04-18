@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">banner</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
@@ -27,18 +27,18 @@
                                                 <a href="{{ url('app/banner') }}" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Kembali</a>
                                             </div>
                                             <div class="col-sm-8">
-                                                
+
                                             </div><!-- end col-->
                                         </div>
-                
+
                                         <div class="table-responsive">
-<!-- 									 
+<!--
                                                 @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif -->
-     
+
     <table class="table table-bordered">
         <tr>
             <th>No</th>
@@ -53,20 +53,20 @@
             <td><img src="{{ url($data->image)}}" alt="image" class="img-fluid img-thumbnail" width="100"></td>
             <td>{{ $data->title }}</td>
             <td>
-                
+
             <form action="{{ url('app/banner/restore',$data->id) }}" method="POST">
         @csrf
         <button type="submit" class="btn btn-success">Restore</button>
         </form>
             </td>
             <td>
-          
+
                 <form action="{{ url('app/banner/delete',$data->id) }}" method="POST">
-     
-                     
+
+
                     @csrf
                     @method('DELETE')
-        
+
                     <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
                 </form>
             </td>
@@ -79,27 +79,27 @@
                                         </div>
                                         {!! $datas->links() !!}
                                     </div> <!-- end card-body-->
-                                  
+
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
-                          
+
                             </div>
                         </div>
-                      
+
                         <!-- end row -->
-                       
+
   <!--end wrapper-->
 
   @stop
-  
+
 
 
   @push('script-footer')
-    
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
- 
+
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           event.preventDefault();
@@ -123,7 +123,7 @@
             }
         });
       });
-  
-</script>    
+
+</script>
 
   @endpush

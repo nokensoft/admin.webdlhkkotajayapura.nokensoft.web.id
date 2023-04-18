@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">pengaturan sistem</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
                         @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -27,7 +27,7 @@
         </ul>
     </div>
 @endif
- 
+
 
                         <div class="row">
                             <div class="col-lg-12">
@@ -36,7 +36,7 @@
                                         <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">FORM</h5>
                                         {!! Form::model($data,array('url'=>'app/sistem/'.$data->id,'method'=>'put','files'=>'true'))!!}
                                 @csrf
-    
+
     <div class="mb-3">
         <label for="pemilik" class="form-label">Pemilik/Instansi <span class="text-danger">*</span></label>
         {!! Form::text('pemilik',null,['id'=>'pemilik','class'=>'form-control','placeholder'=>'Pemilik/Instansi']) !!}
@@ -51,9 +51,9 @@
         {!! Form::text('tagline',null,['id'=>'tagline','class'=>'form-control','placeholder'=>'Tagline']) !!}
         </div>
 
-       
 
-        
+
+
 
         <div class="mb-3">
         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
@@ -100,16 +100,16 @@
         {!! Form::text('whatsapp',null,['id'=>'whatsapp','class'=>'form-control','placeholder'=>'Whatsapp']) !!}
         </div>
 
-        
-      
 
 
-  
+
+
+
 </div>
 </div> <!-- end card -->
 </div> <!-- end col -->
 
- 
+
 </div>
 <!-- end row -->
 <!--end wrapper-->
@@ -129,7 +129,7 @@
 </div>
 
 {!! Form::close() !!}
-   
+
 
 
   @stop
@@ -137,7 +137,7 @@
  <!-- Plugins css-->
  <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-       
+
         <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
@@ -149,7 +149,7 @@
    <script src="{{ asset('assets/admin/assets/js/vendor.min.js')}}"></script>
    <script src="{{ asset('assets/admin/assets/libs/select2/js/select2.min.js')}}"></script>
         <!-- Quill js -->
-        <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>  
+        <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
    <!-- Init js -->
 
      <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
@@ -161,7 +161,7 @@
         <!-- Init js-->
         <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
-      
+
   <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function () {

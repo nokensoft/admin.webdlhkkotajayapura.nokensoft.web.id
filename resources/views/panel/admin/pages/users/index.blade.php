@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">users</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
@@ -32,17 +32,17 @@
                                         @else
                                     <form action="{{ url('app/users') }}" method="get">
                                         @endif
-                                  
+
 <div class="input-group mb-3">
   <input type="search" name="s" class="form-control" placeholder="Search">
   <button type="submit" class="btn btn-primary">Search</button>
 </div>
 </form>
 
-                                        
+
 
                                         <div class="mt-3">
-                                      
+
 <table class="table table-bordered">
  <tr>
    <th>No</th>
@@ -64,7 +64,7 @@
       @endif
     </td>
     <td>
-       
+
        <a class="btn btn-primary" href="{{ route('app.users.edit',$user->id) }}">Edit</a>
         {!! Form::open(['method' => 'DELETE','route' => ['app.users.destroy', $user->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
@@ -78,21 +78,20 @@
 
                                         {!! $data->render() !!}
                                         <!-- end row-->
-                                    </div> 
+                                    </div>
                                     <!-- end inbox-rightbar-->
 
                                     <div class="clearfix"></div>
                                     </div>
-                                  
+
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
-                          
+
                             </div>
                         </div>
-                      
+
                         <!-- end row -->
-                       
+
   <!--end wrapper-->
 
   @stop
-  

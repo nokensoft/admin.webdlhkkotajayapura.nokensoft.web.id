@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">Customers</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
@@ -27,10 +27,10 @@
                                                 <a href="javascript:void(0);" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Tambah data</a>
                                             </div>
                                             <div class="col-sm-8">
-                                                
+
                                             </div><!-- end col-->
                                         </div>
-                
+
                                         <div class="table-responsive">
 										<div class="input-group">
                                                     <input type="text" class="form-control" placeholder="Cari Berdasarkan Judul" aria-label="Recipient's username">
@@ -45,7 +45,7 @@
                                                         </th>
                                                         <th>Judul</th>
                                                         <th>Tanggal</th>
-                                                         
+
                                                         <th>Status</th>
                                                         <th style="width: 5%;">Action</th>
                                                     </tr>
@@ -54,7 +54,7 @@
                                                     <tr>
                                                         <td>
                                                             1
-                                                        
+
                                                         <td>
                                                           nama 1
                                                         </td>
@@ -64,7 +64,7 @@
                                                         <td>
                                                             <span class="badge badge-soft-success">Active</span>
                                                         </td>
-                    
+
                                                         <td>
                                                             <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
                                                             <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="action-icon"> <i class="mdi mdi-delete"></i></a>
@@ -90,28 +90,28 @@
                                             </div>
                                         </div>
                                                     </tr>
-                                                    
+
                                                     <tr>
                                                         <td>
                                                             2
                                                         </td>
                                                         <td class="table-user">
-                                                          Nama 
+                                                          Nama
                                                         </td>
                                                         <td>
                                                             215-302-3376
                                                         </td>
-                                                       
+
                                                         <td>
                                                             <span class="badge badge-soft-success">Active</span>
                                                         </td>
-                    
+
                                                         <td>
                                                             <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
                                                             <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
                                                         </td>
                                                     </tr>
-                                                     
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -123,4 +123,3 @@
   <!--end wrapper-->
 
   @stop
-  

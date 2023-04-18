@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">Icon</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
@@ -37,7 +37,7 @@
         </ul>
     </div>
 @endif
-            
+
                                     {!! Form::model($data,array('url'=>'app/sistem/icon/'.$data->id,'method'=>'put','files'=>'true'))!!}
                                 @csrf
 <!-- Icon -->
@@ -45,7 +45,7 @@
 <div class="card">
 <div class="card-body">
 <div class="mb-3">
-        
+
 <h4>Icon</h4>
         <div class="mb-3">
         <label for="favicon" class="form-label">Favicon <span class="text-danger">*</span></label>
@@ -62,7 +62,7 @@
 </div>
 
 
- 
+
 
 <div class="col-3">
 <div class="button-list pe-xl-4 d-grid mb-3">
@@ -71,27 +71,26 @@
 
 </div>
 </div> <!-- end col -->
- 
+
 {!! Form::close() !!}
                                         <!-- end row-->
-                                    </div> 
+                                    </div>
                                     <!-- end inbox-rightbar-->
-                                  
+
                                     <div class="clearfix"></div>
                                     </div>
-                                  
+
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
-                          
+
                             </div>
                         </div>
-                      
+
                         <!-- end row -->
 
- 
-   
-                       
+
+
+
   <!--end wrapper-->
 
   @stop
-  

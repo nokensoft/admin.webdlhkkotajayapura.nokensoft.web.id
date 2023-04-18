@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Video;
 use Alert;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
 class VideoController extends Controller
 {
     /**
@@ -31,11 +32,11 @@ class VideoController extends Controller
         $jumlahtrash = Video::onlyTrashed()->count();
         $jumlahdraft = Video::where('status', 0)->count();
         $datapublish = Video::where('status', 1)->count();
-        
 
-        return view('admin.pages.video.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
 
-        
+        return view('panel.admin.pages.video.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
 
 
     }
@@ -55,11 +56,11 @@ class VideoController extends Controller
         $jumlahtrash = Video::onlyTrashed()->count();
         $jumlahdraft = Video::where('status', 0)->count();
         $datapublish = Video::where('status', 1)->count();
-        
 
-        return view('admin.pages.video.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
 
-        
+        return view('panel.admin.pages.video.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
 
 
     }
@@ -71,7 +72,7 @@ class VideoController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.video.create');
+        return view('panel.admin.pages.video.create');
     }
 
     /**
@@ -120,7 +121,7 @@ class VideoController extends Controller
     public function edit($id)
     {
         $data = Video::find($id);
-        return view('admin.pages.video.edit',compact('data'));
+        return view('panel.admin.pages.video.edit',compact('data'));
 
     }
 
@@ -172,9 +173,9 @@ class VideoController extends Controller
         $jumlahtrash = Video::onlyTrashed()->count();
         $jumlahdraft = Video::where('status', 0)->count();
         $datapublish = Video::where('status', 1)->count();
-        
 
-        return view('admin.pages.video.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        return view('panel.admin.pages.video.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
 
     }
 
@@ -209,7 +210,7 @@ class VideoController extends Controller
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
         return redirect()->back();
     }
-    
+
 
 
 

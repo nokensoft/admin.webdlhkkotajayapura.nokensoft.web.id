@@ -5,10 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Halaman;
-use Image;
-use Alert;
-use Storage;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 class HalamanController extends Controller
 {
@@ -32,12 +31,12 @@ class HalamanController extends Controller
         $jumlahtrash = Halaman::onlyTrashed()->count();
         $jumlahdraft = Halaman::where('status', 0)->count();
         $datapublish = Halaman::where('status', 1)->count();
-        
 
-        return view('admin.pages.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        return view('panel.admin.pages.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    
+
     public function draft()
     {
         $datas = Halaman::where([
@@ -53,9 +52,9 @@ class HalamanController extends Controller
         $jumlahtrash = Halaman::onlyTrashed()->count();
         $jumlahdraft = Halaman::where('status', 0)->count();
         $datapublish = Halaman::where('status', 1)->count();
-        
 
-        return view('admin.pages.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        return view('panel.admin.pages.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -65,11 +64,11 @@ class HalamanController extends Controller
      */
     public function create()
     {
-       
 
-       
-    
-        return view('admin.pages.halaman.create');
+
+
+
+        return view('panel.admin.pages.halaman.create');
     }
 
     /**
@@ -86,8 +85,6 @@ class HalamanController extends Controller
             'konten' => 'required',
             'katakunci' => 'required',
             'status' => 'required',
-          
-            
         ]);
 
         $tahun = date("Y");
@@ -96,54 +93,45 @@ class HalamanController extends Controller
         if(!empty( $request->file('image'))){
 
             $filename  = 'nokensoft'.'-'.date('Y-m-d-H-i-s').$request->file('image')->getClientOriginalName();
-   
+
         //    Input::file('foto')->move(public_path().'/source/upload',$filename);
-           
+
         //$request->file('image')->storeAs('public/resource/halamans/'.date('Y').'/'.date('M'),$filename);
         $request->file('image')->storeAs('public/resource/halamans/'.$tahun.'/'.$bulan,$filename);
            //    $image->storeAs('public/resource/sliders', $image->hashName());
            $url = ('storage/resource/halamans/'.$tahun.'/'.$bulan.'/'.$filename);
-   
-            
 
            $data = $request->all();
            $data = Halaman::create([
-              
-              
              'image'=> $url,
              'title' => $request->title,
              'deskripsi' => $request->deskripsi,
-            'konten' => $request->konten,
-            'katakunci' => $request->katakunci,
+             'konten' => $request->konten,
+             'katakunci' => $request->katakunci,
              'status' => $request->status,
              'slug' => Str::slug($request->title),
              'created_by' => Auth::user()->id,
               'updated_by' => Auth::user()->id,
-            
             ]);
-   
-        } else
-        {
+
+        } else {
             $data = $request->all();
             $data = Halaman::create([
-               
-               
-             
               'title' => $request->title,
               'deskripsi' => $request->deskripsi,
-             'konten' => $request->konten,
-             'katakunci' => $request->katakunci,
+              'konten' => $request->konten,
+              'katakunci' => $request->katakunci,
               'status' => $request->status,
               'slug' => Str::slug($request->title),
               'created_by' => Auth::user()->id,
-               'updated_by' => Auth::user()->id,
-             
+              'updated_by' => Auth::user()->id,
+
              ]);
         }
 
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
               return redirect('app/halaman');
-        
+
     }
 
     /**
@@ -166,8 +154,7 @@ class HalamanController extends Controller
     public function edit($id)
     {
         $data = Halaman::whereId($id)->first();
-
-        return view('admin.pages.halaman.edit',compact('data'));
+        return view('panel.admin.pages.halaman.edit',compact('data'));
     }
 
     /**
@@ -185,71 +172,55 @@ class HalamanController extends Controller
             'konten' => 'required',
             'katakunci' => 'required',
             'status' => 'required',
-          
-            
         ]);
-
         $tahun = date("Y");
         $bulan = date("M");
 
         if(!empty( $request->file('image'))){
-
             $filename  = 'nokensoft'.'-'.date('Y-m-d-H-i-s').$request->file('image')->getClientOriginalName();
-   
-        //    Input::file('foto')->move(public_path().'/source/upload',$filename);
-           
-        //$request->file('image')->storeAs('public/resource/halamans/'.date('Y').'/'.date('M'),$filename);
-        $request->file('image')->storeAs('public/resource/halamans/'.$tahun.'/'.$bulan,$filename);
-           //    $image->storeAs('public/resource/sliders', $image->hashName());
-           $url = ('storage/resource/halamans/'.$tahun.'/'.$bulan.'/'.$filename);
-   
-           $datalama = Halaman::findOrFail($id);
-           if($datalama->image){
-            \File::delete($datalama->image);
-             
+            // Input::file('foto')->move(public_path().'/source/upload',$filename);
+            //$request->file('image')->storeAs('public/resource/halamans/'.date('Y').'/'.date('M'),$filename);
+            $request->file('image')->storeAs('public/resource/halamans/'.$tahun.'/'.$bulan,$filename);
+            //    $image->storeAs('public/resource/sliders', $image->hashName());
+            $url = ('storage/resource/halamans/'.$tahun.'/'.$bulan.'/'.$filename);
+
+            $datalama = Halaman::findOrFail($id);
+            if($datalama->image){
+                File::delete($datalama->image);
+
         }
-       
+
         //dd($datalama->image);
 
         $data = $request->all();
            $data = array(
-              
-              
-            'image'=> $url,
-            'title' => $request->title,
-            'deskripsi' => $request->deskripsi,
-           'konten' => $request->konten,
-           'katakunci' => $request->katakunci,
-            'status' => $request->status,
-            'slug' => Str::slug($request->title),
-          
-             'updated_by' => Auth::user()->id,
-            
+                'image'=> $url,
+                'title' => $request->title,
+                'deskripsi' => $request->deskripsi,
+                'konten' => $request->konten,
+                'katakunci' => $request->katakunci,
+                'status' => $request->status,
+                'slug' => Str::slug($request->title),
+                'updated_by' => Auth::user()->id,
             );
             $Halaman = Halaman::find($id);
             $Halaman->update($data);
-                 } else
-        {
-            
-            $data = array(
-              
-              
-                
-                'title' => $request->title,
-                'deskripsi' => $request->deskripsi,
-               'konten' => $request->konten,
-               'katakunci' => $request->katakunci,
-                'status' => $request->status,
-                'slug' => Str::slug($request->title),
-              
-                 'updated_by' => Auth::user()->id,
-                
-                );
-                $Halaman = Halaman::find($id);
-                $Halaman->update($data);
-        }
+                 } else {
 
-        alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
+                    $data = array(
+                        'title' => $request->title,
+                        'deskripsi' => $request->deskripsi,
+                        'konten' => $request->konten,
+                        'katakunci' => $request->katakunci,
+                        'status' => $request->status,
+                        'slug' => Str::slug($request->title),
+                        'updated_by' => Auth::user()->id,
+                    );
+                    $Halaman = Halaman::find($id);
+                    $Halaman->update($data);
+                }
+
+             alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
               return redirect('app/halaman');
     }
 
@@ -262,10 +233,6 @@ class HalamanController extends Controller
     public function destroy($id)
     {
         $data = Halaman::find($id);
-       
-        
-        
-
         if($data->delete()) {
             //return success with Api Resource
             alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
@@ -273,17 +240,12 @@ class HalamanController extends Controller
         }
     }
 
-
-
-
     public function trash()
     {
         $datas = Halaman::onlyTrashed()->paginate(5);
         $jumlahtrash = Halaman::onlyTrashed()->count();
         $jumlahdraft = Halaman::where('status', 0)->count();
         $datapublish = Halaman::where('status', 1)->count();
-        
-
         return view('admin.pages.halaman.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -295,24 +257,17 @@ class HalamanController extends Controller
         return redirect()->route('app.halaman');
     }
 
-
-
     public function delete($id)
     {
         $data = Halaman::onlyTrashed()->findOrFail($id);
-        
         //dd($data);
         if($data->image){
-            \File::delete($data->image);
-             
-            
+            File::delete($data->image);
         }
-        
         $data->forceDelete();
-    
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
         return to_route('app.halaman.trash');
-        
+
     }
 
 

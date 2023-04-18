@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Album;
 use Image;
 use Alert;
+use Illuminate\Support\Facades\Auth;
 use Storage;
-use Auth;
 use Illuminate\Support\Str;
 
 class AlbumController extends Controller
@@ -33,11 +33,11 @@ class AlbumController extends Controller
         $jumlahtrash = Album::onlyTrashed()->count();
         $jumlahdraft = Album::where('status', 0)->count();
         $datapublish = Album::where('status', 1)->count();
-        
 
-        return view('admin.pages.album.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
 
-        
+        return view('panel.admin.pages.album.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
     }
 
 
@@ -58,11 +58,11 @@ class AlbumController extends Controller
         $jumlahtrash = Album::onlyTrashed()->count();
         $jumlahdraft = Album::where('status', 0)->count();
         $datapublish = Album::where('status', 1)->count();
-        
 
-        return view('admin.pages.album.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
 
-        
+        return view('panel.admin.pages.album.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
     }
 
 
@@ -75,8 +75,8 @@ class AlbumController extends Controller
      */
     public function create()
     {
-       
-        return view('admin.pages.album.create');
+
+        return view('panel.admin.pages.album.create');
     }
 
     /**
@@ -90,20 +90,19 @@ class AlbumController extends Controller
         $request->validate([
             'title' => 'required',
             'subtitle' => 'required',
-         
+
             'status' => 'required',
         ]);
- 
+
 
         $album = new Album();
-       
         $album->title = $request->title;
         $album->subtitle = $request->subtitle;
         $album->status = $request->status;
         $album->slug = Str::slug($request->title);
         $album->created_by = Auth::user()->id;
         $album->updated_by = Auth::user()->id;
-       
+
         $album->save();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
         return redirect()->route('app.album');
@@ -129,7 +128,7 @@ class AlbumController extends Controller
     public function edit($id)
     {
         $data = Album::find($id);
-        return view('admin.pages.album.edit',compact('data'));
+        return view('panel.admin.pages.album.edit',compact('data'));
     }
 
     /**
@@ -141,24 +140,24 @@ class AlbumController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+
         $request->validate([
             'title' => 'required',
             'subtitle' => 'required',
-         
+
             'status' => 'required',
         ]);
- 
+
 
         $album = Album::find($id);
-       
+
         $album->title = $request->title;
         $album->subtitle = $request->subtitle;
         $album->status = $request->status;
         $album->slug = Str::slug($request->title);
-         
+
         $album->updated_by = Auth::user()->id;
-       
+
         $album->save();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
         return redirect()->route('app.album');
@@ -185,9 +184,9 @@ class AlbumController extends Controller
         $jumlahtrash = Album::onlyTrashed()->count();
         $jumlahdraft = Album::where('status', 0)->count();
         $datapublish = Album::where('status', 1)->count();
-        
-        return view('admin.pages.album.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
-        
+
+        return view('panel.admin.pages.album.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
     }
 
     public function restore($id){

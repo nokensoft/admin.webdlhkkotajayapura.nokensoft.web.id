@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
     <div class="row">
@@ -142,7 +142,7 @@
                                             </div>
                                         </div>
                                         <h4 class="header-title mb-3">Inbox</h4>
-    
+
                                         <div class="inbox-widget" data-simplebar style="max-height: 407px;">
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/user-2.jpg" class="rounded-circle" alt=""></div>
@@ -168,7 +168,7 @@
                                                     <a href="javascript:(0);" class="btn btn-sm btn-link text-info font-13"> Reply </a>
                                                 </p>
                                             </div>
-    
+
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/user-5.jpg" class="rounded-circle" alt=""></div>
                                                 <p class="inbox-item-author">Shahedk</p>
@@ -185,7 +185,7 @@
                                                     <a href="javascript:(0);" class="btn btn-sm btn-link text-info font-13"> Reply </a>
                                                 </p>
                                             </div>
-    
+
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/user-3.jpg" class="rounded-circle" alt=""></div>
                                                 <p class="inbox-item-author">Stillnotdavid</p>
@@ -242,7 +242,7 @@
                                             <form name="todo-form" id="todo-form" class="needs-validation mt-3" novalidate>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <input type="text" id="todo-input-text" name="todo-input-text" class="form-control" 
+                                                        <input type="text" id="todo-input-text" name="todo-input-text" class="form-control"
                                                             placeholder="Add new todo" required>
                                                         <div class="invalid-feedback">
                                                             Please enter your task name
@@ -356,10 +356,10 @@
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div> <!-- end row -->
-                        
+
                                 </div>
                             </div>
-                        </div>   
+                        </div>
   <!--end wrapper-->
 
   @stop
@@ -378,5 +378,5 @@
 <script src="{{ asset('assets/admin/assets/js/pages/jquery.todo.js')}}"></script>
 
 <!-- Dashboard init JS -->
-<script src="{{ asset('assets/admin/assets/js/pages/dashboard-3.init.js')}}"></script>  
+<script src="{{ asset('assets/admin/assets/js/pages/dashboard-3.init.js')}}"></script>
   @endpush

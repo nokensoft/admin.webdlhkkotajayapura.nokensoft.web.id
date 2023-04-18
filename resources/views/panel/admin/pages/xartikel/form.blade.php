@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">Customers</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-lg-6">
@@ -103,7 +103,7 @@
                             </div> <!-- end col -->
 
                             <div class="col-lg-6">
-                                
+
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="text-uppercase mt-0 mb-3 bg-light p-2">Product Images</h5>
@@ -181,4 +181,3 @@
         <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
         @endonce
     @endpush
-  

@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">Slider</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
                         @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -35,8 +35,8 @@
                                         <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">FORM</h5>
                                         {!! Form::model($data,array('url'=>'app/banner/'.$data->id,'method'=>'put','files'=>'true'))!!}
                                 @csrf
-    
-    
+
+
 
                                 <div class="mb-3">
         <label for="product-name" class="form-label">Title <span class="text-danger">*</span></label>
@@ -55,18 +55,18 @@
         <!-- <input type="text" id="subtitle" name="subtitle" class="form-control" placeholder="Sub Title" required> -->
         {!! Form::text('link',null,['required','id'=>'link','class'=>'form-control','placeholder'=>'link', 'required']) !!}
     </div>
-    
 
-  
+
+
 
     <div class="mb-3">
         <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
         <!-- <select class="form-control select2" name="status" id="status" required>
             <option>Select</option>
-             
+
                 <option value="1">Aktif</option>
                 <option value="SH2">Draft</option>
-                 
+
 
         </select> -->
 
@@ -75,7 +75,7 @@
     </div>
 
 
-  
+
 </div>
 </div> <!-- end card -->
 </div> <!-- end col -->
@@ -121,7 +121,7 @@
  <!-- Plugins css-->
  <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-       
+
         <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />

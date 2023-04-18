@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">Logo</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
@@ -36,7 +36,7 @@
             @endforeach
         </ul>
     </div>
-@endif    
+@endif
 
 
 <!-- Logo -->
@@ -55,7 +55,7 @@
 
     <img src="{{ url($data->logo)}}" alt="icon" class="img-fluid img-thumbnail" width="200">
 
-    @endif       
+    @endif
 
 
 </div>
@@ -64,43 +64,42 @@
 <div class="button-list pe-xl-4 d-grid mb-3">
 <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
 </div>
-</div>   
-
-</div>
-</div>
-</div>
 </div>
 
- 
+</div>
+</div>
+</div>
+</div>
+
+
 <!-- end logo -->
-        
+
 {!! Form::close() !!}
 
 
- 
 
-                                        
+
+
                                         <!-- end row-->
-                                    </div> 
+                                    </div>
                                     <!-- end inbox-rightbar-->
 
                                     <div class="clearfix"></div>
                                     </div>
-                                  
+
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
-                          
+
                             </div>
                         </div>
-                      
+
                         <!-- end row -->
 
 
 
 
-   
-                       
+
+
   <!--end wrapper-->
 
   @stop
-  

@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -16,13 +16,13 @@
                                     <h4 class="page-title">Gambar</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
-                                    
+
                                 <div class="card-body">
                                             <!-- Left sidebar -->
                                             @if ($errors->any())
@@ -44,7 +44,7 @@
                                         </div>
                                         @endif
 
-                                          
+
        <div class="inbox-leftbar">
        <a href="{{ url('app/album') }}" class="btn btn-info w-100 waves-effect waves-light mb-2"><i class="mdi mdi-arrow-left-box me-2"></i> Album</a>
        <div class="card bg-secondary text-white">
@@ -53,20 +53,20 @@
                                     <div class="card-body">
                                         <h5 class="card-title text-white">Menambah Gambar</h5>
                                         <p class="card-text">Max 1 MB</p>
-                                            
+
                                         <input type="file" class="custom-file-input" id="image" name="image">
                                     </div>
-                                    
+
                                 </div>
                                 <div class="mb-3">
-        
+
         <!-- <input type="text" id="subtitle" name="subtitle" class="form-control" placeholder="Sub Title" required> -->
         {!! Form::text('keterangan',null,['required','id'=>'keterangan','class'=>'form-control','placeholder'=>'Keterangan', 'required']) !!}
     </div>
     <input type="hidden" id="album_id" name="album_id" value="{{$data->id}}">
 <button type="submit" class="btn btn-primary w-100 waves-effect waves-light mb-2"><i class="mdi mdi-plus-circle me-2"></i> Tambah data</button>
 {!! Form::close() !!}
-     
+
 
 
 
@@ -82,18 +82,18 @@
 </div>
 </form>
 
-                                        
+
 
                                         <div class="mt-3">
                                         <table class="table table-bordered">
-                                            
+
         <tr>
             <th>No</th>
             <th>Gambar</th>
-            
+
             <th>Keterangan</th>
-           
-          
+
+
             <th>Cover </th>
             <th>Action</th>
         </tr>
@@ -102,31 +102,31 @@
             <td>{{ ++$i }}</td>
             <td>   <img src="{{ url($gambar->image)}}" alt="image" class="img-fluid img-thumbnail" width="100"></td>
              <td>{{Str::limit($gambar->keterangan, 20)}}</td>
-              
+
             <td>
             {!! Form::model($data,array('url'=>'app/album/foto/'.$gambar->id.'/primary/','method'=>'put','files'=>'true'))!!}
                                 @csrf
-                
+
                 @if($gambar->status == 1)
                 <button type="submit" class="btn btn-primary">Cover</button>
                 @else
-      
+
                <button type="submit" class="btn btn-secondary" >Jadikan Cover</button>
                 @endif
-                   
-        
-                 
+
+
+
                     {!! Form::close() !!}
 </td> <td>
             <form action="{{ route('app.album.foto.destroy',$gambar->id) }}" method="POST">
                 @csrf
                     @method('DELETE')
-                
-      
-                   
-     
-                   
-        
+
+
+
+
+
+
                     <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete'>  Delete</button>
                 </form>
             </td>
@@ -139,20 +139,20 @@
 
                                         {!! $gambars->links() !!}
                                         <!-- end row-->
-                                    </div> 
+                                    </div>
                                     <!-- end inbox-rightbar-->
 
                                     <div class="clearfix"></div>
                                     </div>
-                                  
+
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
-                          
+
                             </div>
                         </div>
-                      
+
                         <!-- end row -->
-                       
+
   <!--end wrapper-->
 
   @stop
@@ -160,11 +160,11 @@
 
 
   @push('script-footer')
-    
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
- 
+
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           event.preventDefault();
@@ -188,7 +188,7 @@
             }
         });
       });
-  
-</script>    
+
+</script>
 
   @endpush

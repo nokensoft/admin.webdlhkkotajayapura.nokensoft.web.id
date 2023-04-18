@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">artikel</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
                         @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> Ada Form Yang Belum diisi.<br><br>
@@ -33,16 +33,16 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">FORM</h5>
-                                         
-                                       
+
+
 {!! Form::model($role, ['method' => 'put','route' => ['app.role.update', $role->id]]) !!}
                                         @csrf
                                         <div class="mb-3">
         <label for="name" class="form-label">Nama <span class="text-danger">*</span></label>
         {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
     </div>
-     
-   
+
+
     <div class="mb-3">
         <label for="roles" class="form-label">Roles <span class="text-danger">*</span></label>
           <br>
@@ -53,7 +53,7 @@
             @endforeach
         </div>
 
-   
+
 
         <div class="col-3">
 <div class="button-list pe-xl-4 d-grid mb-3">
@@ -68,20 +68,20 @@
 
 </div> <!-- end col -->
 
- 
+
 </div>
 <!-- end row -->
 <!--end wrapper-->
- 
+
 
 
   @stop
-  
+
 @push('script-header')
  <!-- Plugins css-->
  <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-       
+
         <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
@@ -93,7 +93,7 @@
    <script src="{{ asset('assets/admin/assets/js/vendor.min.js')}}"></script>
    <script src="{{ asset('assets/admin/assets/libs/select2/js/select2.min.js')}}"></script>
         <!-- Quill js -->
-        <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>  
+        <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
    <!-- Init js -->
 
      <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
@@ -105,7 +105,7 @@
         <!-- Init js-->
         <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
-      
+
   <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function () {

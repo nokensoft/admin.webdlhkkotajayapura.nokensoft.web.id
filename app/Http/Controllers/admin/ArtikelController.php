@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Artikel;
 use Image;
 use Alert;
+use Illuminate\Support\Facades\Auth;
 use Storage;
-use Auth;
 use Illuminate\Support\Str;
 class ArtikelController extends Controller
 {
@@ -32,9 +32,9 @@ class ArtikelController extends Controller
         $jumlahtrash = Artikel::onlyTrashed()->count();
         $jumlahdraft = Artikel::where('status', 0)->count();
         $datapublish = Artikel::where('status', 1)->count();
-        
 
-        return view('admin.pages.artikel.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        return view('panel.admin.pages.artikel.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
@@ -53,11 +53,11 @@ class ArtikelController extends Controller
         $jumlahtrash = Artikel::onlyTrashed()->count();
         $jumlahdraft = Artikel::where('status', 0)->count();
         $datapublish = Artikel::where('status', 1)->count();
-        
 
-        return view('admin.pages.artikel.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
-  
-        
+
+        return view('panel.admin.pages.artikel.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
     }
 
     /**
@@ -67,7 +67,7 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.artikel.create');
+        return view('panel.admin.pages.artikel.create');
     }
 
     /**
@@ -78,24 +78,24 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
             'title' => 'required',
             'deskripsi' => 'required',
             'konten' => 'required',
             'katakunci' => 'required',
             'status' => 'required',
-            'kategori_id' => 'required', 
-            
+            'kategori_id' => 'required',
+
         ]);
 
         // Auth::user()->id;
         $data = $request->all();
 
         $data = array(
-              
-              
-            
+
+
+
             'title' => $request->title,
             'deskripsi' => $request->deskripsi,
             'konten' => $request->konten,
@@ -105,7 +105,7 @@ class ArtikelController extends Controller
                'created_by' => Auth::user()->id,
                 'updated_by' => Auth::user()->id,
                 'kategori_id' => $request->kategori_id,
-           
+
            );
            $Artikel = Artikel::create($data);
 
@@ -114,7 +114,7 @@ class ArtikelController extends Controller
     }
 
 
-    
+
 
     /**
      * Display the specified resource.
@@ -136,7 +136,7 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         $data = Artikel::findOrFail($id);
-        return view('admin.pages.artikel.edit', compact('data'));
+        return view('panel.admin.pages.artikel.edit', compact('data'));
     }
 
     /**
@@ -148,34 +148,34 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+
         $request->validate([
             'title' => 'required',
             'deskripsi' => 'required',
             'konten' => 'required',
             'katakunci' => 'required',
             'status' => 'required',
-            'kategori_id' => 'required', 
-            
+            'kategori_id' => 'required',
+
         ]);
 
         // Auth::user()->id;
         $data = $request->all();
 
         $data = array(
-              
-              
-            
+
+
+
             'title' => $request->title,
             'deskripsi' => $request->deskripsi,
             'konten' => $request->konten,
              'katakunci' => $request->katakunci,
             'status' => $request->status,
                'slug' => Str::slug($request->title),
-              
+
                 'updated_by' => Auth::user()->id,
                 'kategori_id' => $request->kategori_id,
-           
+
            );
            $Artikel = Artikel::findOrFail($id);
            $Artikel->update($data);
@@ -192,7 +192,7 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-       
+
         $data = Artikel::findOrFail($id);
         $data->delete();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
@@ -207,13 +207,8 @@ class ArtikelController extends Controller
         $jumlahtrash = Artikel::onlyTrashed()->count();
         $jumlahdraft = Artikel::where('status', 0)->count();
         $datapublish = Artikel::where('status', 1)->count();
-        
-
-        return view('admin.pages.artikel.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('panel.admin.pages.artikel.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-
-
-
 
     public function restore($id){
         $data = Artikel::onlyTrashed()->where('id',$id);

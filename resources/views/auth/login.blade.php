@@ -35,13 +35,13 @@
                             <div class="auth-logo">
                                 <a href="index.html" class="logo logo-dark text-center">
                                     <span class="logo-lg">
-                                        <img src="assets/images/logo-dark.png" alt="" height="22">
+                                        <img src="{{asset('assets/admin/assets/images/logo-dark.png')}}" alt="" height="22">
                                     </span>
                                 </a>
 
                                 <a href="index.html" class="logo logo-light text-center">
                                     <span class="logo-lg">
-                                        <img src="assets/images/logo-light.png" alt="" height="22">
+                                        <img src="{{asset('assets/admin/assets/images/logo-light.png')}}" alt="" height="22">
                                     </span>
                                 </a>
                             </div>
@@ -100,9 +100,9 @@
                         <!-- end form-->
 
                         <!-- Footer-->
-                        <footer class="footer footer-alt">
+                        {{-- <footer class="footer footer-alt">
                             <p class="text-muted">Don't have an account? <a href="auth-register-2.html" class="text-muted ms-1"><b>Sign Up</b></a></p>
-                        </footer>
+                        </footer> --}}
 
                     </div> <!-- end .card-body -->
                 </div> <!-- end .align-items-center.d-flex.h-100-->

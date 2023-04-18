@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">artikel</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
                         <!-- @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -35,8 +35,8 @@
                                         <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">FORM</h5>
                                         {!! Form::model($data,array('url'=>'app/artikel/'.$data->id,'method'=>'put','files'=>'true'))!!}
                                 @csrf
-    
-    
+
+
                                 <div class="mb-3">
         <label for="product-name" class="form-label">Title <span class="text-danger">*</span></label>
         {!! Form::text('title',null,['required','id'=>'title','class'=>'form-control','placeholder'=>'Title']) !!}
@@ -44,7 +44,7 @@
     <div class="mb-3">
         <label for="product-konten" class="form-label">Konten <span class="text-danger">*</span></label>
          <textarea name="konten" class="ckeditor form-control" id="konten" cols="30" rows="10">{{ $data->konten }}</textarea>
-        
+
     </div>
 
     <div class="mb-3">
@@ -62,25 +62,25 @@
 
     <div class="mb-3">
         <label for="Kategori" class="form-label">Kategori <span class="text-danger">*</span></label>
-        
+
         {!! Form::select('kategori_id', [''=>'Pilih kategori']+App\Models\Kategori::pluck('title','id')->all(), null,['required','class'=>'form-control']) !!}
 
     </div>
 
     <div class="mb-3">
         <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
-        
+
         {!! Form::select('status', [''=>'Status  ...','1'=>'Aktif','0'=>'draft'], null,['class'=>'form-control select2','id'=>'status','required']) !!}
 
     </div>
 
 
-  
+
 </div>
 </div> <!-- end card -->
 </div> <!-- end col -->
 
- 
+
 </div>
 <!-- end row -->
 <!--end wrapper-->
@@ -95,23 +95,23 @@
 
 </div>
 </div> <!-- end col -->
-</div> 
+</div>
 </div>
 
 </div>
-      
-         
-{!! Form::close() !!}   
 
 
-      
+{!! Form::close() !!}
+
+
+
 
   @stop
   @push('script-header')
  <!-- Plugins css-->
  <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-       
+
         <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
@@ -123,7 +123,7 @@
    <script src="{{ asset('assets/admin/assets/js/vendor.min.js')}}"></script>
    <script src="{{ asset('assets/admin/assets/libs/select2/js/select2.min.js')}}"></script>
         <!-- Quill js -->
-        <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>  
+        <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
    <!-- Init js -->
 
      <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
@@ -135,7 +135,7 @@
         <!-- Init js-->
         <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
-      
+
   <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function () {

@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use Image;
 use Alert;
-use Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 class SliderController extends Controller
 {
     /**
@@ -32,13 +33,13 @@ class SliderController extends Controller
             }]
         ])->where('status',1)->latest()->paginate(5);
         // $datas = Slider::where('status',1)->latest()->paginate(5);
-        
+
         $jumlahtrash = Slider::onlyTrashed()->count();
         $jumlahdraft = Slider::where('status', 0)->count();
-    
-        return view('admin.pages.slider.index',compact('datas','jumlahtrash','jumlahdraft')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        return view('panel.admin.pages.slider.index',compact('datas','jumlahtrash','jumlahdraft')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-    
+
     public function draft(Request $request)
     {
         // $datas = Slider::where('status',1)->when(request()->q, function($datas) {
@@ -56,13 +57,13 @@ class SliderController extends Controller
             }]
         ])->where('status',0)->latest()->paginate(5);
         // $datas = Slider::where('status',1)->latest()->paginate(5);
-        
+
         $jumlahtrash = Slider::onlyTrashed()->count();
         $jumlahdraft = Slider::where('status', 0)->count();
-    
-        return view('admin.pages.slider.index',compact('datas','jumlahtrash','jumlahdraft')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        return view('panel.admin.pages.slider.index',compact('datas','jumlahtrash','jumlahdraft')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-  
+
 
     /**
      * Show the form for creating a new resource.
@@ -71,7 +72,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.slider.create');
+        return view('panel.admin.pages.slider.create');
     }
 
     /**
@@ -82,34 +83,34 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
             'title' => 'required',
             'subtitle' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'required',
         ]);
-    
+
         //upload image
         $image = $request->file('image');
         $image->storeAs('public/resource/sliders', $image->hashName());
-    
+
         //create slider
         $slider = Slider::create([
             'image'=> $image->hashName(),
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'status' => $request->status,
-             
+
         ]);
-    
+
         if ($slider) {
             alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
         }
 
-        
+
         return redirect('app/slider');
-   
+
     }
 
 
@@ -137,7 +138,7 @@ class SliderController extends Controller
     {
         $data = Slider::whereId($id)->first();
 
-      return view('admin.pages.slider.edit',compact('data'));
+      return view('panel.admin.pages.slider.edit',compact('data'));
     }
 
     /**
@@ -146,38 +147,38 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     * 
+     *
      */
     public function update(Request $request, $id)
     {
         if(!empty( $request->file('image'))){
 
             $filename  = 'nokensoft'.'-'.date('Y-m-d-H-i-s').$request->file('image')->getClientOriginalName();
-   
+
         //    Input::file('foto')->move(public_path().'/source/upload',$filename);
 
         $request->file('image')->storeAs('public/resource/sliders',$filename);
            //    $image->storeAs('public/resource/sliders', $image->hashName());
-   
+
            $datalama = Slider::findOrFail($id);
            if($datalama->image){
-            \File::delete($datalama->image);
-             
+            File::delete($datalama->image);
+
         }
 
            $data = $request->all();
            $data = array(
-              
-              
+
+
              'image'=> $filename,
              'title' => $request->title,
              'subtitle' => $request->subtitle,
              'status' => $request->status,
-            
+
             );
-   
-   
-   
+
+
+
      $Slider = Slider::find($id);
         $Slider->update($data);
              }
@@ -187,10 +188,10 @@ class SliderController extends Controller
                     'title' => $request->title,
                     'subtitle' => $request->subtitle,
                     'status' => $request->status,);
-   
-   
-   
-   
+
+
+
+
      $Slider = Slider::find($id);
         $Slider->update($data);
               }
@@ -206,17 +207,17 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-     
+
         $data = Slider::find($id);
-       
-        
-        
+
+
+
 
         if($data->delete()) {
             //return success with Api Resource
             alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
         }
-        
+
     }
 
 
@@ -225,7 +226,7 @@ class SliderController extends Controller
 {
     $datas = Slider::onlyTrashed()->paginate(10);
 
-    return view('admin.pages.slider.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+    return view('panel.admin.pages.slider.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
 }
 
 
@@ -236,7 +237,7 @@ public function restore($id)
 {
     $data = Slider::onlyTrashed()->findOrFail($id);
     $data->restore();
-    
+
     return to_route('app.slider.trash')->with('success','Data restored successfully');
 }
 
@@ -246,19 +247,19 @@ public function restore($id)
 public function delete($id)
 {
     $data = Slider::onlyTrashed()->findOrFail($id);
-    
+
     //dd($data);
     if($data->image){
-        \Storage::delete('public/resource/sliders/'.$data->image);
-         
-        
+        Storage::delete('public/resource/sliders/'.$data->image);
+
+
     }
-    
+
     $data->forceDelete();
 
     alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
     return to_route('app.slider.trash');
-    
+
 }
 
 }

@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,15 +15,15 @@
                                     <h4 class="page-title">artikel</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                 <div class="card-body">
                                         <!-- Left sidebar -->
-                                        @include('admin.pages.sistem.menu')
+                                        @include('panel.admin.pages.sistem.menu')
                                     <!-- End Left sidebar -->
                                     <div class="inbox-rightbar">
                                     @if ($errors->any())
@@ -36,13 +36,13 @@
         </ul>
     </div>
 @endif
-                                        
 
-                                   
+
+
                                         <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">FORM</h5>
                                         {!! Form::model($data,array('url'=>'app/sistem/'.$data->id,'method'=>'put','files'=>'true'))!!}
                                 @csrf
-    
+
     <div class="mb-3">
         <label for="pemilik" class="form-label">Pemilik/Instansi <span class="text-danger">*</span></label>
         {!! Form::text('pemilik',null,['id'=>'pemilik','class'=>'form-control','placeholder'=>'Pemilik/Instansi']) !!}
@@ -57,9 +57,9 @@
         {!! Form::text('tagline',null,['id'=>'tagline','class'=>'form-control','placeholder'=>'Tagline']) !!}
         </div>
 
-       
 
-        
+
+
 
         <div class="mb-3">
         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
@@ -106,12 +106,12 @@
         {!! Form::text('whatsapp',null,['id'=>'whatsapp','class'=>'form-control','placeholder'=>'Whatsapp']) !!}
         </div>
 
-        
-      
 
 
- 
- 
+
+
+
+
 <div class="col-3">
 <div class="button-list pe-xl-4 d-grid mb-3">
 <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
@@ -119,30 +119,29 @@
 
 </div>
 </div> <!-- end col -->
- 
+
 {!! Form::close() !!}
 
-                                        
+
                                         <!-- end row-->
-                                    </div> 
+                                    </div>
                                     <!-- end inbox-rightbar-->
 
                                     <div class="clearfix"></div>
                                     </div>
-                                  
+
                                 </div> <!-- end card-->
                                               <!-- end row -->
 
-   
+
                             </div> <!-- end col -->
-                          
+
                             </div>
-                            
+
                         </div>
-                      
-          
-                       
+
+
+
   <!--end wrapper-->
 
   @stop
-  

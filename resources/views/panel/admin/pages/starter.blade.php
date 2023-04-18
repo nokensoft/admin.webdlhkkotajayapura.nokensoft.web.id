@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
     <div class="row">
@@ -14,7 +14,7 @@
                                     <h4 class="page-title">Starter</h4>
                                 </div>
                             </div>
-                        </div>   
+                        </div>
   <!--end wrapper-->
 
   @stop

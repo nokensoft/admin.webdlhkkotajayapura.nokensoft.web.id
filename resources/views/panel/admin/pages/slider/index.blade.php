@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,8 +15,8 @@
                                     <h4 class="page-title">Slider</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
@@ -28,15 +28,15 @@
                                     <a href="{{ url('app/slider/create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2"><i class="mdi mdi-plus-circle me-2"></i> Tambah data</a>
 
                                         <div class="mail-list mt-4">
-                                           
-                                      
+
+
                                             <a href="{{ url('app/slider/draft') }}"><i class="dripicons-document me-2"></i>Draft<span class="badge badge-soft-info float-end ms-2">{{$jumlahdraft}}</span></a>
-                                             
+
                                             <a href="{{ url('app/slider/trash') }}"><i class="dripicons-trash me-2"></i>Trash <span class="badge badge-soft-info float-end ms-2">{{$jumlahtrash}}</span></a>
-                                
+
                                         </div>
 
-                                   
+
 
                                     </div>
                                     <!-- End Left sidebar -->
@@ -50,7 +50,7 @@
 </div>
 </form>
 
-                                        
+
 
                                         <div class="mt-3">
                                         <table class="table table-bordered">
@@ -71,14 +71,14 @@
             <td>{{ $data->status }}</td>
             <td>
                 <form action="{{ url('app/slider',$data->id) }}" method="POST">
-     
-                
-      
+
+
+
                     <a class="btn btn-primary" href="{{ url('app/slider/'.$data->id.'/edit') }}">Edit</a>
-     
+
                     @csrf
                     @method('DELETE')
-        
+
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
@@ -91,21 +91,20 @@
 
                                         {!! $datas->links() !!}
                                         <!-- end row-->
-                                    </div> 
+                                    </div>
                                     <!-- end inbox-rightbar-->
 
                                     <div class="clearfix"></div>
                                     </div>
-                                  
+
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
-                          
+
                             </div>
                         </div>
-                      
+
                         <!-- end row -->
-                       
+
   <!--end wrapper-->
 
   @stop
-  

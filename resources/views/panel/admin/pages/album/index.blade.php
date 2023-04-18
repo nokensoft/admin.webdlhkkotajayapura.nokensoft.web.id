@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.base_panel')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -15,15 +15,15 @@
                                     <h4 class="page-title">album</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                 <div class="card-body">
                                         <!-- Left sidebar -->
-                                        @include('admin.pages.album.menu')
+                                        @include('panel.admin.pages.album.menu')
                                     <!-- End Left sidebar -->
 
                                     <div class="inbox-rightbar">
@@ -32,41 +32,41 @@
                                         @else
                                     <form action="{{ url('app/album') }}" method="get">
                                         @endif
-                                  
+
 <div class="input-group mb-3">
   <input type="search" name="s" class="form-control" placeholder="Search">
   <button type="submit" class="btn btn-primary">Search</button>
 </div>
 </form>
 
-                                        
+
 
                                         <div class="mt-3">
                                         <table class="table table-bordered">
         <tr>
             <th>No</th>
-            
+
             <th>Title</th>
-           
-          
+
+
             <th width="280px">Action</th>
         </tr>
         @foreach ($datas as $data)
         <tr>
             <td>{{ ++$i }}</td>
              <td>{{Str::limit($data->title, 20)}}</td>
-              
+
             <td>
                 <form action="{{ url('app/album',$data->id) }}" method="POST">
-     
-                
+
+
                 <a class="btn btn-info" href="{{ url('app/album/'.$data->id.'/gambar') }}">Gambar</a>
-                
+
                     <a class="btn btn-primary" href="{{ url('app/album/'.$data->id.'/edit') }}">Edit</a>
-     
+
                     @csrf
                     @method('DELETE')
-        
+
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
@@ -79,21 +79,20 @@
 
                                         {!! $datas->links() !!}
                                         <!-- end row-->
-                                    </div> 
+                                    </div>
                                     <!-- end inbox-rightbar-->
 
                                     <div class="clearfix"></div>
                                     </div>
-                                  
+
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
-                          
+
                             </div>
                         </div>
-                      
+
                         <!-- end row -->
-                       
+
   <!--end wrapper-->
 
   @stop
-  

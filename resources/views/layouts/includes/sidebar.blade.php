@@ -135,6 +135,14 @@
             </li>
 
             <li>
+                <a href="#">
+                    <span class="badge bg-pink float-end">New</span>
+                    <i data-feather="users"></i>
+                    <span> Users </span>
+                </a>
+            </li>
+
+            <li>
                 <a href="#sidebarEmail" data-bs-toggle="collapse">
                     <i data-feather="mail"></i>
                     <span> Email </span>
@@ -158,13 +166,7 @@
                 </div>
             </li>
 
-            <li>
-                <a href="apps-social-feed.html">
-                    <span class="badge bg-pink float-end">Hot</span>
-                    <i data-feather="rss"></i>
-                    <span> Social Feed </span>
-                </a>
-            </li>
+
 
             <li>
                 <a href="apps-companies.html">
