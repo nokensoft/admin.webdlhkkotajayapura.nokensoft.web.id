@@ -34,59 +34,7 @@
                             </a>
                         </li>
 
-                        <li class="dropdown d-none d-lg-inline-block topbar-dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fe-grid noti-icon"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-lg dropdown-menu-end">
 
-                                <div class="p-lg-1">
-                                    <div class="row g-0">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/admin/assets/images/brands/slack.png')}}" alt="slack">
-                                                <span>Slack</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/admin/assets/images/brands/github.png')}}" alt="Github">
-                                                <span>GitHub</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/admin/assets/images/brands/dribbble.png')}}" alt="dribbble">
-                                                <span>Dribbble</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="row g-0">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/admin/assets/images/brands/bitbucket.png')}}" alt="bitbucket">
-                                                <span>Bitbucket</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/admin/assets/images/brands/dropbox.png')}}" alt="dropbox">
-                                                <span>Dropbox</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/admin/assets/images/brands/g-suite.png')}}" alt="G Suite">
-                                                <span>G Suite</span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </li>
 
 
 
@@ -182,8 +130,16 @@
                         </li>
 
                         <li class="dropdown notification-list topbar-dropdown">
-                            <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="{{ asset('assets/admin/assets/images/users/user-6.jpg')}}" alt="user-image" class="rounded-circle">
+                            <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
+                                data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                aria-expanded="false">
+                                @if (Auth::user()->picture)
+                                <img src="{{asset('file/users')}}/{{Auth::user()->picture}}" alt="allal"
+                                class="rounded-circle">
+                                @else
+                                <img src="{{ asset('assets/admin/assets/images/users/user-6.jpg')}}"
+                                alt="user-image" class="rounded-circle">
+                                @endif
                                 <span class="pro-user-name ms-1">
                                 {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
                                 </span>

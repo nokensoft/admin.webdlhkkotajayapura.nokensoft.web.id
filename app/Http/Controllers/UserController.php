@@ -8,6 +8,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -52,7 +53,7 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|same:confirm-password',
                 'role_id' => 'required',
-               
+
             ]);
 
         if ($validator->fails() ) {
@@ -105,10 +106,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::pluck('name','name')->all();
-        $userRole = $user->roles->pluck('name','name')->all();
-
-        return view('panel.admin.users.edit',compact('user','roles','userRole'));
+        $roles = Role::all();
+        return view('panel.admin.users.edit',compact('user','roles'));
     }
 
     /**
@@ -125,7 +124,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
-            'roles' => 'required'
+            'role_id' => 'required'
         ]);
 
     if ($validator->fails() ) {
@@ -136,8 +135,8 @@ class UserController extends Controller
             $account->name = $request->name;
             $account->email = $request->email;
             $account->slug = Str::slug($request->name);
-            if (!$request->password) {
-                $account->password = bcrypt($request->password);
+            if ($request->password) {
+                $account->password = Hash::make($request->password);
             }
             if ($request->picture) {
                 $imageName = time() . '.' . $request->picture->extension();
@@ -149,7 +148,7 @@ class UserController extends Controller
                 $request->picture->move(public_path('file/users'), $imageName);
             }
             $account->update();
-            $account->syncRoles(explode(',', $request->roles));
+            $account->syncRoles(explode(',', $request->role_id));
             Alert::toast('User updated successfully', 'success');
             return redirect()->route('users.index');
         } catch (\Throwable $th) {
@@ -169,11 +168,18 @@ class UserController extends Controller
     public function destroy($id)
     {
         try {
-            User::find($id)->delete();
-            Alert::toast('User deleted successfully', 'success');
+            $user = User::find($id);
+            $path = public_path('file/users/' . $user->picture);
+
+            if (file_exists($path)) {
+                File::delete($path);
+            }
+            $user->delete();
+            Alert::toast('Your data has been successfully deleted', 'success');
             return redirect()->back();
-        } catch (\Throwable $th) {
-            Alert::toast('Failed', 'error');
+        } catch (\Throwable $e) {
+            Alert::toast('Failed', ['error' => $e->getMessage()], 'error');
+            return redirect()->back();
         }
 
     }

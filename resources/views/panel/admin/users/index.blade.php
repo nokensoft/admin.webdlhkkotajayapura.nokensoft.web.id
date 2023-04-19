@@ -23,7 +23,7 @@
                                     <div class="card-body">
                                         <div class="inbox-leftbar">
                                             <a href="{{ route('users.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
-                                                <i class="mdi mdi-plus-circle me-2"></i> Tambah data</a>
+                                                <i class="mdi mdi-plus-circle me-2"></i> Tambah Pengguna</a>
                                             </div>
                                         <div class="inbox-rightbar">
                                             <form action="{{ url('app/users') }}" method="get">
@@ -38,20 +38,20 @@
                                                 <tr>
                                                     <th class="text-center">No</th>
                                                     <th>Avatar</th>
-                                                    <th>Name</th>
+                                                    <th>Nama</th>
                                                     <th>Email</th>
-                                                    <th>Roles</th>
-                                                    <th width="280px">Action</th>
+                                                    <th>Peran</th>
+                                                    <th >Action</th>
                                                 </tr>
                                                 @foreach ($data as $key => $user)
                                                 <tr>
                                                     <td class="text-center">{{ ++$i }}</td>
                                                     <td class="align-middle">
-                                                        @if ($user->avatar)
-                                                        <img src="{{asset('file/users')}}/{{$user->avatar}}" alt="allal"
+                                                        @if ($user->picture)
+                                                        <img src="{{asset('file/users')}}/{{$user->picture}}" alt="allal"
                                                         class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
                                                         @else
-                                                        <img src="{{asset('assets/admin/assets/images/users/user-6.jpg')}}" alt="allal"
+                                                        <img src="{{asset('assets/admin/assets/images/image-not.png')}}" alt="allal"
                                                         class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
                                                         @endif
                                                     </td>
@@ -59,15 +59,27 @@
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ implode('',$user->roles()->pluck('display_name')->toArray()) }}</td>
                                                     <td>
-                                                        <a class="btn btn-light" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-account-details mr-1"></i></a>
-                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-account-edit text-warning"></i></a>
+                                                        <a class="btn btn-light" href="{{ route('users.show',$user->id) }}">
+                                                            <i class="mdi mdi-account-details mr-1"></i>
+                                                        </a>
+                                                        @if (Auth::id() == $user->id)
+                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->id) }}">
+                                                            <i class="mdi mdi-account-edit text-warning"></i>
+                                                        </a>
+                                                        @else
+                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->id) }}">
+                                                            <i class="mdi mdi-account-edit text-warning"></i>
+                                                        </a>
+                                                        {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                                                        {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
+                                                         {!! Form::close() !!}
+                                                        @endif
+
+
                                                         {{-- <a href="#" class="btn btn-light" data-toggle="modal" data-target="#modal_delete_{{$user->id}}">
                                                             <i class="mdi mdi-trash-can text-danger"></i>
                                                         </a> --}}
 
-                                                         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>
 
