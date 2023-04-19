@@ -51,7 +51,8 @@ class UserController extends Controller
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|same:confirm-password',
-                'role_id' => 'required'
+                'role_id' => 'required',
+               
             ]);
 
         if ($validator->fails() ) {
@@ -64,19 +65,19 @@ class UserController extends Controller
                 $account->password = bcrypt($request->password);
                 $account->slug = Str::slug($request->name);
 
-                // $posterName = time() . '.' . $request->avatar->extension();
-                // $path = public_path('file/users');
-                // if (!empty($account->avatar) && file_exists($path . '/' . $account->avatar)) :
-                //     unlink($path . '/' . $account->avatar);
-                // endif;
-                // $account->avatar = $posterName;
-                // $request->avatar->move(public_path('file/users'), $posterName);
-
+                $posterName = time().'.'.$request->picture->extension();
+                $path = public_path('file/users');
+                    if(!empty($account->picture) && file_exists($path.'/'.$account->picture)) :
+                        unlink($path.'/'.$account->picture);
+                    endif;
+                $account->picture = $posterName;
                 $account->save();
+                $request->picture->move(public_path('file/users'), $posterName);
                 $account->assignRole($request->role_id);
                 Alert::toast('User created successfully', 'success');
                 return redirect()->route('users.index');
             } catch (\Throwable $th) {
+                dd($th);
                 Alert::toast('Failed', 'error');
                 return redirect()->back();
             }
@@ -138,14 +139,14 @@ class UserController extends Controller
             if (!$request->password) {
                 $account->password = bcrypt($request->password);
             }
-            if($request->avatar){
-                $posterName = time() . '.' . $request->avatar->extension();
+            if ($request->picture) {
+                $imageName = time() . '.' . $request->picture->extension();
                 $path = public_path('file/users');
-                if (!empty($account->avatar) && file_exists($path . '/' . $account->avatar)) :
-                    unlink($path . '/' . $account->avatar);
+                if (!empty($account->picture) && file_exists($path . '/' . $account->picture)) :
+                    unlink($path . '/' . $account->picture);
                 endif;
-                $account->avatar = $posterName;
-                $request->avatar->move(public_path('file/users'), $posterName);
+                $account->picture = $imageName;
+                $request->picture->move(public_path('file/users'), $imageName);
             }
             $account->update();
             $account->syncRoles(explode(',', $request->roles));

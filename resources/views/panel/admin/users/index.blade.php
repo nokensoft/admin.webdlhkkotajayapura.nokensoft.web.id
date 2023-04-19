@@ -37,6 +37,7 @@
                                                 <table class="table table-bordered">
                                                 <tr>
                                                     <th class="text-center">No</th>
+                                                    <th>Avatar</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Roles</th>
@@ -45,17 +46,59 @@
                                                 @foreach ($data as $key => $user)
                                                 <tr>
                                                     <td class="text-center">{{ ++$i }}</td>
+                                                    <td class="align-middle">
+                                                        @if ($user->avatar)
+                                                        <img src="{{asset('file/users')}}/{{$user->avatar}}" alt="allal"
+                                                        class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                                        @else
+                                                        <img src="{{asset('assets/admin/assets/images/users/user-6.jpg')}}" alt="allal"
+                                                        class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                                        @endif
+                                                    </td>
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ implode('',$user->roles()->pluck('display_name')->toArray()) }}</td>
                                                     <td>
-                                                        <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-                                                        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                                                        <a class="btn btn-light" href="{{ route('users.show',$user->id) }}"><i class="mdi mdi-account-details mr-1"></i></a>
+                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->id) }}"><i class="mdi mdi-account-edit text-warning"></i></a>
+                                                        {{-- <a href="#" class="btn btn-light" data-toggle="modal" data-target="#modal_delete_{{$user->id}}">
+                                                            <i class="mdi mdi-trash-can text-danger"></i>
+                                                        </a> --}}
+
                                                          {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
                                                              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                                          {!! Form::close() !!}
                                                     </td>
                                                 </tr>
+
+                                                 <!-- MODAL TRANSH -->
+                                                    <div class="modal fade" id="modal_delete_{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-sm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title" id="mySmallModalLabel">Are You sure want to Delete?</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                </div>
+                                                                <div class="modal-body text-center">
+                                                                    <form action="{{route('users.destroy',$user->id)}}" method="POST">
+                                                                        @method('DELETE')
+                                                                        @csrf
+                                                                        <input type="hidden" name="status" value="trash">
+                                                                        <button type="submit" class="btn btn-danger">
+                                                                            <i class="fas fa-trash"></i>
+                                                                            Trash
+                                                                        </button>
+                                                                        <button type="submit" class="btn btn-light" data-dismiss="modal" aria-hidden="true">
+                                                                            <i class="fas fa-arrow-left"></i>
+                                                                            Cancel
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div><!-- /.modal-content -->
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div><!-- /.modal -->
+                                                    <!-- END MODAL TRANSH -->
+
                                                 @endforeach
                                                 </table>
                                             </div>

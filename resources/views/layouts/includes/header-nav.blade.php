@@ -273,8 +273,8 @@
                             </a>
                             <!-- End mobile menu toggle-->
                         </li>
-                <!-- Jalan Pintas-->
-                        <li class="dropdown d-none d-xl-block">
+                        @if (Auth::user()->hasRole('administrator'))
+                            <li class="dropdown d-none d-xl-block">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 Jalan Pintas
                                 <i class="mdi mdi-chevron-down"></i>
@@ -313,7 +313,13 @@
                                 </a>
 
                             </div>
-                        </li>
+                            </li>
+                        @elseif (Auth::user()->hasRole('editor'))
+
+                        @elseif (Auth::user()->hasRole('author'))
+
+                        @endif
+                        <!-- Jalan Pintas-->
 
 
                     </ul>
