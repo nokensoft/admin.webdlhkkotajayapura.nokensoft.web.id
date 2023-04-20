@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://webdlhkkotajayapura.nokensoft.web.id/admin'),
+    'url' => env('APP_URL', 'https://admin-web-dlhk-kota-jayapura.herokuapp.com'),
 
     'asset_url' => env('ASSET_URL'),
 
