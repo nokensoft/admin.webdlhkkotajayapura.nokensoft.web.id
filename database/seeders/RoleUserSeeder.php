@@ -18,47 +18,52 @@ class RoleUserSeeder extends Seeder
     {
         app()['cache']->forget('spatie.permission.cache');
 
+        // ASIGN ROLES
         $adminRole = Role::create(
             [
-            'guard_name' => 'web',
-            'name' => 'administrator',
-            'display_name' => 'Administrator',
+            'guard_name'        => 'web',
+            'name'              => 'administrator',
+            'display_name'      => 'Administrator',
         ]);
+
         $editorRole = Role::create(
             [
-            'guard_name' => 'web',
-            'name' => 'editor',
-            'display_name' => 'Editor',
+            'guard_name'        => 'web',
+            'name'              => 'editor',
+            'display_name'      => 'Editor',
         ]);
+
         $authorRole = Role::create(
             [
-            'guard_name' => 'web',
-            'name' => 'author',
-            'display_name' => 'Author',
+            'guard_name'        => 'web',
+            'name'              => 'author',
+            'display_name'      => 'Author',
         ]);
 
-
+        // ADMIN
         $admin = User::create([
-            'name' => 'Hardik Savani',
-            'slug' => 'hardik-savani',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('12345678')
+            'name'              => 'Admin',
+            'slug'              => 'admin',
+            'email'             => 'admin@gmail.com',
+            'password'          => bcrypt('admin@gmail.com')
         ]);
         $admin->assignRole($adminRole);
 
+        // EDITOR
         $editor = User::create([
-            'name' => 'Johan',
-            'slug' => 'johan',
-            'email' => 'editor@gmail.com',
-            'password' => bcrypt('johan@1234')
+            'name'              => 'Editor',
+            'slug'              => 'Editor',
+            'email'             => 'editor@gmail.com',
+            'password'          => bcrypt('editor@gmail.com')
         ]);
         $editor->assignRole($editorRole);
 
+        // AUTHOR
         $author = User::create([
-            'name' => 'Janzen',
-            'slug' => 'janzen',
-            'email' => 'author@gmail.com',
-            'password' => bcrypt('author@1234')
+            'name'              => 'Author',
+            'slug'              => 'author',
+            'email'             => 'author@gmail.com',
+            'password'          => bcrypt('author@gmail.com')
         ]);
         $author->assignRole($authorRole);
 
