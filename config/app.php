@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://webdlhkkotajayapura.nokensoft.web.id/admin'),
+    'url' => env('APP_URL', 'https://adminpanel-dhlk-kota-jayapura.herokuapp.com'),
 
-    'asset_url' => env('ASSET_URL'),
+    'asset_url' => env('https://adminpanel-dhlk-kota-jayapura.herokuapp.com'),
 
     /*
     |--------------------------------------------------------------------------
