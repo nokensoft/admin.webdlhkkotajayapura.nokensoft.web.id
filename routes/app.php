@@ -36,18 +36,18 @@ Route::prefix('app')->middleware('auth')->group(function () {
     // Route::resource('products', ProductController::class)->name('app.products');
 
 
-    Route::controller(UserController::class)->group(function(){
-        Route::get('users','index')->name('app.users');
-        Route::get('users/draft','draft')->name('app.users.draft');
-        Route::get('users/create','create')->name('app.users.create');
-        Route::post('users','store')->name('app.users.store');
-        Route::get('users/{id}/edit','edit')->name('app.users.edit');
-        Route::put('users/{id}','update')->name('app.users.update');
-        Route::delete('users/{id}','destroy')->name('app.users.destroy');
-        Route::get('users/trash','trash')->name('app.users.trash');
-        Route::post('users/restore/{id}','restore')->name('app.users.restore');
-        Route::delete('users/delete/{id}','delete')->name('app.users.delete');
-    });
+    // Route::controller(UserController::class)->group(function(){
+    //     Route::get('users','index')->name('app.users');
+    //     Route::get('users/draft','draft')->name('app.users.draft');
+    //     Route::get('users/create','create')->name('app.users.create');
+    //     Route::post('users','store')->name('app.users.store');
+    //     Route::get('users/{id}/edit','edit')->name('app.users.edit');
+    //     Route::put('users/{id}','update')->name('app.users.update');
+    //     Route::delete('users/{id}','destroy')->name('app.users.destroy');
+    //     Route::get('users/trash','trash')->name('app.users.trash');
+    //     Route::post('users/restore/{id}','restore')->name('app.users.restore');
+    //     Route::delete('users/delete/{id}','delete')->name('app.users.delete');
+    // });
 
 
 

@@ -37,9 +37,9 @@ Auth::routes([
     'register' => false
 ]);
 
-Route::group(['middleware' => ['auth','web']], function() {
+Route::group(['prefix' => '/apps/dashboard', 'middleware' => ['web', 'auth']], function () {
 
-        Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+        Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
         Route::resource('roles', RoleController::class);
         // Route::resource('users', UserController::class);
