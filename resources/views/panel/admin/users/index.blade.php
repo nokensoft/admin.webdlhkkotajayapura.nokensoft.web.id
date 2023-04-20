@@ -8,10 +8,10 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                            <li class="breadcrumb-item active">users</li>
+                                            <li class="breadcrumb-item active">Pengguna</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">users</h4>
+                                    <h4 class="page-title">Pengguna</h4>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                                     <th>Nama</th>
                                                     <th>Email</th>
                                                     <th>Peran</th>
-                                                    <th >Action</th>
+                                                    <th class="text-center">Opsi</th>
                                                 </tr>
                                                 @foreach ($data as $key => $user)
                                                 <tr>
@@ -58,7 +58,7 @@
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ implode('',$user->roles()->pluck('display_name')->toArray()) }}</td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <a class="btn btn-light" href="{{ route('users.show',$user->slug) }}">
                                                             <i class="mdi mdi-account-details mr-1"></i>
                                                         </a>

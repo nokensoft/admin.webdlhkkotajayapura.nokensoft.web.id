@@ -21,7 +21,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="inbox-leftbar">
-                    <a href="{{ route('categories-berita.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
+                    <a href="{{ route('categories-news.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
                         <i class="mdi mdi-plus-circle me-2"></i> Tambah Kategori</a>
                     </div>
                 <div class="inbox-rightbar">
@@ -38,7 +38,7 @@
                             <th class="text-center">No</th>
                             <th>Judul</th>
                             <th>Slug</th>
-                            <th class="text-center">Action</th>
+                            <th class="text-center">Opsi</th>
                         </tr>
                         @foreach ($data as $key => $kategori)
                         <tr>
@@ -46,10 +46,10 @@
                             <td>{{ $kategori->name }}</td>
                             <td>{{ $kategori->slug }}</td>
                             <td class="text-center"> 
-                                <a class="btn btn-light" href="{{ route('categories-berita.edit',$kategori->slug) }}">
+                                <a class="btn btn-light" href="{{ route('categories-news.edit',$kategori->slug) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
-                                {!! Form::open(['method' => 'DELETE','route' => ['categories-berita.destroy', $kategori->id],'style'=>'display:inline']) !!}
+                                {!! Form::open(['method' => 'DELETE','route' => ['categories-news.destroy', $kategori->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
                                  {!! Form::close() !!}
                                 
@@ -71,7 +71,7 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <form action="{{route('users.destroy',$kategori->id)}}" method="POST">
+                                            <form action="{{route('categories-news.destroy',$kategori->id)}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <input type="hidden" name="status" value="trash">

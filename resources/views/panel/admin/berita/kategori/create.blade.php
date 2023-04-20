@@ -11,7 +11,7 @@
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                                 <li class="breadcrumb-item">Manage New</li>
-                                <li class="breadcrumb-item"><a href="{{route('categories-berita.index')}}">Kategori</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('categories-news.index')}}">Kategori</a></li>
                                 <li class="breadcrumb-item active">Tambah</li>
                             </ol>
                         </div>
@@ -36,7 +36,7 @@
                    <div class="col-lg-12">
                         <div class="card-body">
                             
-                            <form action="{{route('categories-berita.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('categories-news.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="md-3">
                                     <label for="name" class="form-label">Judul Kategori <span class="text-danger">*</span></label>
@@ -48,7 +48,7 @@
                                     <div class="col">
                                         <div class="card-box">
                                             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                            <a href="{{ route('categories-berita.index') }}" class="btn btn-light">Kembali</a>
+                                            <a href="{{ route('categories-news.index') }}" class="btn btn-light">Kembali</a>
                                         </div>
                                     </div> <!-- end col -->
                                 </div>

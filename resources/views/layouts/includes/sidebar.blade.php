@@ -140,10 +140,10 @@
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('categories-berita.index') }}">Categories</a>
+                                <a href="{{ route('categories-news.index') }}">Categories</a>
                             </li>
                             <li>
-                                <a href="#">News</a>
+                                <a href="{{ route('news.index') }}">News</a>
                             </li>
                         </ul>
                     </div>
@@ -169,18 +169,18 @@
                 </li>
 
                 <li>
-                    <a href="#sidebarCrm" data-bs-toggle="collapse">
+                    <a href="#sidebarEmail" data-bs-toggle="collapse">
                         <i data-feather="coffee"></i>
-                        <span> News </span>
+                        <span> Manage News </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarCrm">
+                    <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">Categories</a>
+                                <a href="{{ route('categories-news.index') }}">Categories</a>
                             </li>
                             <li>
-                                <a href="#">Posts</a>
+                                <a href="{{ route('news.index') }}">News</a>
                             </li>
                         </ul>
                     </div>
@@ -207,7 +207,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ route('news.index') }}">
                         <i data-feather="coffee"></i>
                         <span> News </span>
                     </a>

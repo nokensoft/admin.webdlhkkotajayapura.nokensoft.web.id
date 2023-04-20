@@ -51,6 +51,7 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|same:confirm-password',
                 'role_id' => 'required',
+                'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
 
             ]);
 
@@ -73,10 +74,10 @@ class UserController extends Controller
                 $account->save();
                 $request->picture->move(public_path('file/users'), $posterName);
                 $account->assignRole($request->role_id);
-                Alert::toast('User created successfully', 'success');
+                Alert::toast('Pengguna Berhasil dibuat!', 'success');
                 return redirect()->route('users.index');
             } catch (\Throwable $th) {
-                Alert::toast('Failed', 'error');
+                Alert::toast('Gagal', 'error');
                 return redirect()->back();
             }
         }
@@ -121,7 +122,8 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
-            'role_id' => 'required'
+            'role_id' => 'required',
+            'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
         ]);
 
     if ($validator->fails() ) {
@@ -146,7 +148,7 @@ class UserController extends Controller
             }
             $account->update();
             $account->syncRoles(explode(',', $request->role_id));
-            Alert::toast('User updated successfully', 'success');
+            Alert::toast('Pengguna Berhasil diperbarui!', 'success');
             return redirect()->route('users.index');
         } catch (\Throwable $th) {
             dd($th);
@@ -172,7 +174,7 @@ class UserController extends Controller
                 File::delete($path);
             }
             $user->delete();
-            Alert::toast('Your data has been successfully deleted', 'success');
+            Alert::toast('Pengguna Berhasil dihapus', 'success');
             return redirect()->back();
         } catch (\Throwable $e) {
             Alert::toast('Failed', ['error' => $e->getMessage()], 'error');

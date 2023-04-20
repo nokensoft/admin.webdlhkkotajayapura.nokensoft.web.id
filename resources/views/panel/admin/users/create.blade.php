@@ -11,10 +11,10 @@
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                                 <li class="breadcrumb-item"><a href="{{route('users.index')}}">Users</a></li>
-                                <li class="breadcrumb-item active">Tambah Pengguna</li>
+                                <li class="breadcrumb-item active">Tambah</li>
                             </ol>
                         </div>
-                        <h4 class="page-title"></h4>
+                        <h4 class="page-title">Tambah Pengguna</h4>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,6 @@
                 <div class="card">
                    <div class="col-lg-12">
                         <div class="card-body">
-                            <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">Tambah Pengguna</h5>
                             <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
 

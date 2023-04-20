@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('beritas', function (Blueprint $table) {
+            $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->string('title')->nullable();

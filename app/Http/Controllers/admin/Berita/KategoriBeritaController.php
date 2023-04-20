@@ -54,7 +54,7 @@ class KategoriBeritaController extends Controller
                     $kategori->slug = Str::slug($request->name);
                     $kategori->save();
                     Alert::toast('Kategori Berhasil dibuat!', 'success');
-                    return redirect()->route('categories-berita.index');
+                    return redirect()->route('categories-news.index');
                 } catch (\Throwable $th) {
                     Alert::toast('Gagal', 'error');
                     return redirect()->back();
@@ -106,7 +106,7 @@ class KategoriBeritaController extends Controller
                     $kategori->slug = Str::slug($request->name);
                     $kategori->update();
                     Alert::toast('Kategori Berhasil diperbarui!', 'success');
-                    return redirect()->route('categories-berita.index');
+                    return redirect()->route('categories-news.index');
                 } catch (\Throwable $th) {
                     Alert::toast('Gagal', 'error');
                     return redirect()->back();
@@ -125,7 +125,7 @@ class KategoriBeritaController extends Controller
         try {
             $ketegori = KategoriBerita::find($id);
             $ketegori->delete();
-            Alert::toast('Your data has been successfully deleted', 'success');
+            Alert::toast('Kategori Berhasil dihapus', 'success');
             return redirect()->back();
         } catch (\Throwable $th) {
             Alert::toast('Failed', ['error' => $th->getMessage()], 'error');
