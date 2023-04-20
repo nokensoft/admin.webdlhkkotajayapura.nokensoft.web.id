@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -78,7 +76,6 @@ class UserController extends Controller
                 Alert::toast('User created successfully', 'success');
                 return redirect()->route('users.index');
             } catch (\Throwable $th) {
-                dd($th);
                 Alert::toast('Failed', 'error');
                 return redirect()->back();
             }
@@ -93,7 +90,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::where('slug',$id)->first();
         return view('panel.admin.users.show',compact('user'));
     }
 
@@ -105,7 +102,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $user = User::where('slug',$id)->first();
         $roles = Role::all();
         return view('panel.admin.users.edit',compact('user','roles'));
     }

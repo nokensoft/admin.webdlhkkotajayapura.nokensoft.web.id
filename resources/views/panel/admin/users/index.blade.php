@@ -59,15 +59,15 @@
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ implode('',$user->roles()->pluck('display_name')->toArray()) }}</td>
                                                     <td>
-                                                        <a class="btn btn-light" href="{{ route('users.show',$user->id) }}">
+                                                        <a class="btn btn-light" href="{{ route('users.show',$user->slug) }}">
                                                             <i class="mdi mdi-account-details mr-1"></i>
                                                         </a>
                                                         @if (Auth::id() == $user->id)
-                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->id) }}">
+                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->slug) }}">
                                                             <i class="mdi mdi-account-edit text-warning"></i>
                                                         </a>
                                                         @else
-                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->id) }}">
+                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->slug) }}">
                                                             <i class="mdi mdi-account-edit text-warning"></i>
                                                         </a>
                                                         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}

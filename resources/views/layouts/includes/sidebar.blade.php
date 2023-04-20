@@ -140,7 +140,7 @@
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">Categories</a>
+                                <a href="{{ route('categories-berita.index') }}">Categories</a>
                             </li>
                             <li>
                                 <a href="#">News</a>

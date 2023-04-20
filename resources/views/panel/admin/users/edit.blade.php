@@ -109,7 +109,9 @@
                                                 <div class="col">
                                                     <div class="card-box">
                                                         <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                                        <a href="{{ route('users.index') }}" class="btn btn-light">Kembali</a>
+                                                        <a href="{{ route('users.index') }}" class="btn btn-light">
+                                                            <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                                                        </a>
                                                     </div>
                                                 </div> <!-- end col -->
                                             </div>
@@ -119,7 +121,7 @@
                                </div>
                             </div>
                         </div>
-z
+
                     </div>
 <!-- end row -->
 <!--end wrapper-->

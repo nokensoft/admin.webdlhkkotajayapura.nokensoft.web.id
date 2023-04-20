@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Berita\KategoriBeritaController;
 use App\Http\Controllers\admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,7 @@ Route::group(['prefix' => '/apps/dashboard', 'middleware' => ['web', 'auth']], f
         // Peran ADMIN
         Route::group(['middleware' => ['role:administrator']], function () {
             Route::resource('users', UserController::class);
+            Route::resource('categories-berita', KategoriBeritaController::class)->except('show');
         });
 
         // Peran editor

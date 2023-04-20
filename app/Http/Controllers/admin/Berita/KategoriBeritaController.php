@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin\Berita;
 
 use App\Http\Controllers\Controller;
+use App\Models\Berita\KategoriBerita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class KategoriBeritaController extends Controller
 {
@@ -12,9 +16,12 @@ class KategoriBeritaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        $data = KategoriBerita::orderBy('id','DESC')->paginate(5);
+        return view('panel.admin.berita.kategori.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +31,7 @@ class KategoriBeritaController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.admin.berita.kategori.create');
     }
 
     /**
@@ -35,7 +42,24 @@ class KategoriBeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),
+            ['name' => 'required']);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withInput($request->all())->withErrors($validator);
+            } else {
+                try {
+                    $kategori = new KategoriBerita();
+                    $kategori->name = $request->name;
+                    $kategori->slug = Str::slug($request->name);
+                    $kategori->save();
+                    Alert::toast('Kategori Berhasil dibuat!', 'success');
+                    return redirect()->route('categories-berita.index');
+                } catch (\Throwable $th) {
+                    Alert::toast('Gagal', 'error');
+                    return redirect()->back();
+                }
+            }
     }
 
     /**
@@ -46,7 +70,7 @@ class KategoriBeritaController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**
@@ -57,7 +81,8 @@ class KategoriBeritaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategori = KategoriBerita::where('slug',$id)->first();
+        return view('panel.admin.berita.kategori.edit',compact('kategori'));
     }
 
     /**
@@ -69,7 +94,24 @@ class KategoriBeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),
+            ['name' => 'required',]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withInput($request->all())->withErrors($validator);
+            } else {
+                try {
+                    $kategori = KategoriBerita::find($id);
+                    $kategori->name = $request->name;
+                    $kategori->slug = Str::slug($request->name);
+                    $kategori->update();
+                    Alert::toast('Kategori Berhasil diperbarui!', 'success');
+                    return redirect()->route('categories-berita.index');
+                } catch (\Throwable $th) {
+                    Alert::toast('Gagal', 'error');
+                    return redirect()->back();
+                }
+            }
     }
 
     /**
@@ -80,6 +122,14 @@ class KategoriBeritaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $ketegori = KategoriBerita::find($id);
+            $ketegori->delete();
+            Alert::toast('Your data has been successfully deleted', 'success');
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            Alert::toast('Failed', ['error' => $th->getMessage()], 'error');
+            return redirect()->back();
+        }
     }
 }

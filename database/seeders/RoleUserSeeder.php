@@ -40,6 +40,7 @@ class RoleUserSeeder extends Seeder
 
         $admin = User::create([
             'name' => 'Hardik Savani',
+            'slug' => 'hardik-savani',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678')
         ]);
@@ -47,6 +48,7 @@ class RoleUserSeeder extends Seeder
 
         $editor = User::create([
             'name' => 'Johan',
+            'slug' => 'johan',
             'email' => 'editor@gmail.com',
             'password' => bcrypt('johan@1234')
         ]);
@@ -54,6 +56,7 @@ class RoleUserSeeder extends Seeder
 
         $author = User::create([
             'name' => 'Janzen',
+            'slug' => 'janzen',
             'email' => 'author@gmail.com',
             'password' => bcrypt('author@1234')
         ]);
