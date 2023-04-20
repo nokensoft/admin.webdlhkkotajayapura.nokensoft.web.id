@@ -7,8 +7,8 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                            <li class="breadcrumb-item active">Pengguna</li>
+                                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                                            <li class="breadcrumb-item active">Mengelola Pengguna</li>
                                         </ol>
                                     </div>
                                     <h4 class="page-title">Pengguna</h4>
@@ -22,7 +22,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="inbox-leftbar">
-                                            <a href="{{ route('users.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
+                                            <a href="{{ route('pengguna.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
                                                 <i class="mdi mdi-plus-circle me-2"></i> Tambah Pengguna</a>
                                             </div>
                                         <div class="inbox-rightbar">
@@ -59,18 +59,18 @@
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ implode('',$user->roles()->pluck('display_name')->toArray()) }}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-light" href="{{ route('users.show',$user->slug) }}">
+                                                        <a class="btn btn-light" href="{{ route('pengguna.show',$user->slug) }}">
                                                             <i class="mdi mdi-account-details mr-1"></i>
                                                         </a>
                                                         @if (Auth::id() == $user->id)
-                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->slug) }}">
+                                                        <a class="btn btn-light" href="{{ route('pengguna.edit',$user->slug) }}">
                                                             <i class="mdi mdi-account-edit text-warning"></i>
                                                         </a>
                                                         @else
-                                                        <a class="btn btn-light" href="{{ route('users.edit',$user->slug) }}">
+                                                        <a class="btn btn-light" href="{{ route('pengguna.edit',$user->slug) }}">
                                                             <i class="mdi mdi-account-edit text-warning"></i>
                                                         </a>
-                                                        {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                                                        {!! Form::open(['method' => 'DELETE','route' => ['pengguna.destroy', $user->id],'style'=>'display:inline']) !!}
                                                         {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
                                                          {!! Form::close() !!}
                                                         @endif
@@ -92,7 +92,7 @@
                                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                                 </div>
                                                                 <div class="modal-body text-center">
-                                                                    <form action="{{route('users.destroy',$user->id)}}" method="POST">
+                                                                    <form action="{{route('pengguna.destroy',$user->id)}}" method="POST">
                                                                         @method('DELETE')
                                                                         @csrf
                                                                         <input type="hidden" name="status" value="trash">

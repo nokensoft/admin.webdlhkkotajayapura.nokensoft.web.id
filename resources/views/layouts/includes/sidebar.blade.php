@@ -51,12 +51,10 @@
         <div id="sidebar-menu">
 
             <ul id="side-menu">
-
-                <li class="menu-title">Navigation</li>
                 <li>
                     <a href="{{route('dashboard')}}">
                         <i data-feather="calendar"></i>
-                        <span> Dashboard </span>
+                        <span> Dasbor </span>
                     </a>
                 </li>
                 <li>
@@ -124,26 +122,25 @@
                 </li>
 
                 <li>
-                    <a href="{{route('users.index')}}">
-                        <span class="badge bg-pink float-end">New</span>
+                    <a href="{{route('pengguna.index')}}">
                         <i data-feather="users"></i>
-                        <span> Manage Users </span>
+                        <span> Mengelola Pengguna</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#sidebarEmail" data-bs-toggle="collapse">
                         <i data-feather="coffee"></i>
-                        <span> Manage News </span>
+                        <span> Mengelola Berita</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('categories-news.index') }}">Categories</a>
+                                <a href="{{ route('kategori-berita.index') }}">Kategori</a>
                             </li>
                             <li>
-                                <a href="{{ route('news.index') }}">News</a>
+                                <a href="{{ route('berita.index') }}">Berita</a>
                             </li>
                         </ul>
                     </div>
@@ -158,29 +155,26 @@
         <div id="sidebar-menu">
 
             <ul id="side-menu">
-
-                <li class="menu-title">Navigation</li>
-
                 <li>
                     <a href="{{route('dashboard')}}">
                         <i data-feather="calendar"></i>
-                        <span> Dashboard </span>
+                        <span> Dasbor </span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#sidebarEmail" data-bs-toggle="collapse">
                         <i data-feather="coffee"></i>
-                        <span> Manage News </span>
+                        <span> Mengelola Berita </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('categories-news.index') }}">Categories</a>
+                                <a href="{{ route('kategori-berita.index') }}">Kategori</a>
                             </li>
                             <li>
-                                <a href="{{ route('news.index') }}">News</a>
+                                <a href="{{ route('berita.index') }}">Berita</a>
                             </li>
                         </ul>
                     </div>
@@ -196,20 +190,17 @@
         <div id="sidebar-menu">
 
             <ul id="side-menu">
-
-                <li class="menu-title">Navigation</li>
-
                 <li>
                     <a href="{{route('dashboard')}}">
                         <i data-feather="calendar"></i>
-                        <span> Dashboard </span>
+                        <span> Dasbor </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('news.index') }}">
+                    <a href="{{ route('berita.index') }}">
                         <i data-feather="coffee"></i>
-                        <span> News </span>
+                        <span> Berita </span>
                     </a>
                 </li>
             </ul>

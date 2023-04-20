@@ -9,8 +9,8 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{route('users.index')}}">Users</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Mengelola Pengguna</a></li>
                                 <li class="breadcrumb-item active">Tambah</li>
                             </ol>
                         </div>
@@ -34,7 +34,7 @@
                 <div class="card">
                    <div class="col-lg-12">
                         <div class="card-body">
-                            <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('pengguna.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="row">
@@ -53,17 +53,17 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                                <label for="password" class="form-label">Kata Sandi <span class="text-danger">*</span></label>
                                                 {!! Form::password('password',['required','id'=>'password','class'=>'form-control','placeholder'=>'Password']) !!}
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="confirm-password" class="form-label">Konfirmasi Password <span class="text-danger">*</span></label>
+                                                <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi <span class="text-danger">*</span></label>
                                             {!! Form::password('confirm-password',['required','id'=>'confirm-password','class'=>'form-control','placeholder'=>'Konfirmasi Password']) !!}
                                             </div>
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="role_id" class="form-label">Roles <span class="text-danger">*</span></label>
+                                            <label for="role_id" class="form-label">Peran <span class="text-danger">*</span></label>
                                             {!! Form::select('role_id',$roles,[],['required','id'=>'role_id','class'=>'form-control']) !!}
                                         </div>
                                     </div> <!-- end col -->
@@ -71,21 +71,16 @@
                                     <div class="col-md-6">
                                         <div class="card-box">
                                             <div class="mb-3">
-                                                <label for="pic">Profile Picture</label>
+                                                <label for="pic">Foto Profil</label>
                                                 <div class="d-block mb-3">
                                                     <img src="{{asset('assets/admin/assets/images/upload.png')}}" id="preview-picture"
                                                     alt="Profile Picture" class="img-thumbnail w-50">
                                                 </div>
-
-                                                <label for="time" >Choose a profile picture</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="picture" id="picture">
-                                                    <label class="custom-file-label" for="picture">Choose a picture</label>
+                                                        <input type="file" class="custom-file-input" name="picture" id="picture">
+                                                        <label class="custom-file-label" for="picture">Pilih Foto Profil</label>
                                                     </div>
-                                                    @error('picture')
-                                                        <p class="form-text text-danger text-xs mt-1"><small>{{$message}}</small></p>
-                                                    @enderror
                                                 </div>
                                             </div>
                                         </div> <!-- end card group -->
@@ -97,7 +92,7 @@
                                     <div class="col">
                                         <div class="card-box">
                                             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                            <a href="{{ route('users.index') }}" class="btn btn-light">
+                                            <a href="{{ route('pengguna.index') }}" class="btn btn-light">
                                                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                             </a>
                                         </div>

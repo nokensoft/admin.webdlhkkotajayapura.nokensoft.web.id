@@ -21,7 +21,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="inbox-leftbar">
-                    <a href="{{ route('categories-news.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
+                    <a href="{{ route('kategori-berita.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
                         <i class="mdi mdi-plus-circle me-2"></i> Tambah Kategori</a>
                     </div>
                 <div class="inbox-rightbar">
@@ -45,16 +45,13 @@
                             <td class="text-center">{{ ++$i }}</td>
                             <td>{{ $kategori->name }}</td>
                             <td>{{ $kategori->slug }}</td>
-                            <td class="text-center"> 
-                                <a class="btn btn-light" href="{{ route('categories-news.edit',$kategori->slug) }}">
+                            <td class="text-center">
+                                <a class="btn btn-light" href="{{ route('kategori-berita.edit',$kategori->slug) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
-                                {!! Form::open(['method' => 'DELETE','route' => ['categories-news.destroy', $kategori->id],'style'=>'display:inline']) !!}
+                                {!! Form::open(['method' => 'DELETE','route' => ['kategori-berita.destroy', $kategori->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
                                  {!! Form::close() !!}
-                                
-
-
                                 {{-- <a href="#" class="btn btn-light" data-toggle="modal" data-target="#modal_delete_{{$kategori->id}}">
                                     <i class="mdi mdi-trash-can text-danger"></i>
                                 </a> --}}
@@ -71,7 +68,7 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <form action="{{route('categories-news.destroy',$kategori->id)}}" method="POST">
+                                            <form action="{{route('kategori-berita.destroy',$kategori->id)}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <input type="hidden" name="status" value="trash">

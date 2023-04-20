@@ -54,7 +54,7 @@ class KategoriBeritaController extends Controller
                     $kategori->slug = Str::slug($request->name);
                     $kategori->save();
                     Alert::toast('Kategori Berhasil dibuat!', 'success');
-                    return redirect()->route('categories-news.index');
+                    return redirect()->route('kategori-berita.index');
                 } catch (\Throwable $th) {
                     Alert::toast('Gagal', 'error');
                     return redirect()->back();
@@ -70,7 +70,7 @@ class KategoriBeritaController extends Controller
      */
     public function show($id)
     {
-        // 
+        //
     }
 
     /**
@@ -106,7 +106,7 @@ class KategoriBeritaController extends Controller
                     $kategori->slug = Str::slug($request->name);
                     $kategori->update();
                     Alert::toast('Kategori Berhasil diperbarui!', 'success');
-                    return redirect()->route('categories-news.index');
+                    return redirect()->route('kategori-berita.index');
                 } catch (\Throwable $th) {
                     Alert::toast('Gagal', 'error');
                     return redirect()->back();

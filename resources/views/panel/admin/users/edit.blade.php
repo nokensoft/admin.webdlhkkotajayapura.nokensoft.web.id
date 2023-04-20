@@ -7,12 +7,12 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">App</a></li>
-                                            <li class="breadcrumb-item"><a href="{{route('users.index')}}">Users</a></li>
-                                            <li class="breadcrumb-item active">Edit Pengguna</li>
+                                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                                            <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Mengelola Pengguna</a></li>
+                                            <li class="breadcrumb-item active">Sunting</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title"></h4>
+                                    <h4 class="page-title">Sunting Pengguna</h4>
                                 </div>
                             </div>
                         </div>
@@ -32,8 +32,8 @@
                             <div class="card">
                                <div class="col-lg-12">
                                     <div class="card-body">
-                                        <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">Edit Pengguna</h5>
-                                        <form action="{{route('users.update',$user->id)}}" method="POST" enctype="multipart/form-data">
+                                        <h5 class="mb-3"></h5>
+                                        <form action="{{route('pengguna.update',$user->id)}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
 
@@ -53,17 +53,17 @@
 
                                                     <div class="row mb-3">
                                                         <div class="col-md-6">
-                                                            <label for="password" class="form-label">Password </label>
+                                                            <label for="password" class="form-label">Kata Sandi </label>
                                                             {!! Form::password('password',['id'=>'password','class'=>'form-control','placeholder'=>'Password']) !!}
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="confirm-password" class="form-label">Konfirmasi Password</label>
+                                                            <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi</label>
                                                             {!! Form::password('confirm-password',['id'=>'confirm-password','class'=>'form-control','placeholder'=>'Konfirmasi Password']) !!}
                                                         </div>
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label for="role_id" class="form-label">Roles <span class="text-danger">*</span></label>
+                                                        <label for="role_id" class="form-label">Peran <span class="text-danger">*</span></label>
                                                         <select id="role_id" name="role_id" class="form-control">
 
                                                             @foreach ($roles as $role)
@@ -80,7 +80,7 @@
                                                 <div class="col-md-6">
                                                     <div class="card-box">
                                                         <div class="mb-3">
-                                                            <label for="pic">Profile Picture</label>
+                                                            <label for="pic">Foto Profil</label>
                                                             <div class="d-block mb-3">
                                                                 @if ($user->picture)
                                                                 <img src="{{asset('file/users')}}/{{$user->picture}}" alt="allal"
@@ -92,12 +92,9 @@
                                                             </div>
                                                             <div class="input-group">
                                                                 <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" name="picture" id="picture">
-                                                                <label class="custom-file-label" for="picture">Choose a picture</label>
+                                                                    <input type="file" class="custom-file-input" name="picture" id="picture">
+                                                                    <label class="custom-file-label" for="picture">Pilih Foto Profil</label>
                                                                 </div>
-                                                                @error('picture')
-                                                                    <p class="form-text text-danger text-xs mt-1"><small>{{$message}}</small></p>
-                                                                @enderror
                                                             </div>
                                                         </div>
                                                     </div> <!-- end card group -->
@@ -109,7 +106,7 @@
                                                 <div class="col">
                                                     <div class="card-box">
                                                         <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                                        <a href="{{ route('users.index') }}" class="btn btn-light">
+                                                        <a href="{{ route('pengguna.index') }}" class="btn btn-light">
                                                             <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                                         </a>
                                                     </div>

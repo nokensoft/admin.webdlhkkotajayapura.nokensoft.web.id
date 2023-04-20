@@ -6,9 +6,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item">Manage New</li>
-                    <li class="breadcrumb-item active">Berita</li>
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                    <li class="breadcrumb-item active">Mengelola Berita</li>
                 </ol>
             </div>
             <h4 class="page-title">Berita</h4>
@@ -21,7 +20,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="inbox-leftbar">
-                    <a href="{{ route('news.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
+                    <a href="{{ route('berita.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
                         <i class="mdi mdi-plus-circle me-2"></i> Tambah Berita</a>
                     </div>
                 <div class="inbox-rightbar">
@@ -41,7 +40,7 @@
                             <th>Konten</th>
                             <th>Kategori</th>
                             <th>Status</th>
-                            <th>Author</th>
+                            <th>Pengarang</th>
                             <th class="text-center" width="280px">Opsi</th>
                         </tr>
                         @foreach ($data as $key => $berita)
@@ -65,17 +64,17 @@
                             <th> {{ $berita->kategori->name }} </th>
                             <th> {{ $berita->status }} </th>
                             <th> {{ $berita->author->name }} </th>
-                            <td class="text-center"> 
-                                <a class="btn btn-light" href="{{ route('news.show',$berita->slug) }}">
+                            <td class="text-center">
+                                <a class="btn btn-light" href="{{ route('berita.show',$berita->slug) }}">
                                     <i class="mdi mdi-eye text-dark"></i>
                                 </a>
-                                <a class="btn btn-light" href="{{ route('news.edit',$berita->slug) }}">
+                                <a class="btn btn-light" href="{{ route('berita.edit',$berita->slug) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
-                                {!! Form::open(['method' => 'DELETE','route' => ['news.destroy', $berita->id],'style'=>'display:inline']) !!}
+                                {!! Form::open(['method' => 'DELETE','route' => ['berita.destroy', $berita->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
                                  {!! Form::close() !!}
-                                
+
 
 
                                 {{-- <a href="#" class="btn btn-light" data-toggle="modal" data-target="#modal_delete_{{$berita->id}}">
@@ -94,7 +93,7 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <form action="{{route('categories-news.destroy',$berita->id)}}" method="POST">
+                                            <form action="{{route('berita.destroy',$berita->id)}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <input type="hidden" name="status" value="trash">

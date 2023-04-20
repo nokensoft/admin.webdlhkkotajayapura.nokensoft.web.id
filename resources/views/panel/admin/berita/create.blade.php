@@ -9,9 +9,8 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                <li class="breadcrumb-item">Manage New</li>
-                                <li class="breadcrumb-item"><a href="{{ route('news.index') }}"></a>Berita</li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('berita.index') }}"></a>Mengelola Berita</li>
                                 <li class="breadcrumb-item active">Tambah</li>
                             </ol>
                         </div>
@@ -36,7 +35,7 @@
                    <div class="col-lg-12">
                         <div class="card-body">
                             <h1></h1>
-                            <form action="{{route('news.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('berita.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="row">
@@ -49,7 +48,7 @@
                                             <label for="name" class="form-label">Konten <span class="text-danger">*</span></label>
                                             <textarea name="body" class="form-control" rows="8" placeholder="Isi konten">{{ old('body') }}</textarea>
                                         </div>
-                                
+
                                         <div class="mb-3">
                                             <label for="role_id" class="form-label">Kategori <span class="text-danger">*</span></label>
                                             {!! Form::select('category_id',$kategori,[],['required','id'=>'category_id','class'=>'form-control']) !!}
@@ -66,7 +65,7 @@
                                     <div class="col-md-4">
                                         <div class="card-box">
                                             <div class="mb-3">
-                                                <label for="pic">Image <span class="text-danger">*</span></label>
+                                                <label for="pic">Gambar <span class="text-danger">*</span></label>
                                                 <div class="d-block mb-3">
                                                     <img src="{{asset('assets/admin/assets/images/upload.png')}}" id="preview-image"
                                                     alt="Profile Picture" class="img-thumbnail w-50">
@@ -75,7 +74,7 @@
                                                 <div class="input-group">
                                                     <div class="custom-file">
                                                     <input type="file" class="custom-file-input" name="image" id="image">
-                                                    
+
                                                     </div>
                                                     @error('picture')
                                                         <p class="form-text text-danger text-xs mt-1"><small>{{$message}}</small></p>
@@ -91,7 +90,7 @@
                                     <div class="col">
                                         <div class="card-box">
                                             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                            <a href="{{ route('news.index') }}" class="btn btn-light">
+                                            <a href="{{ route('berita.index') }}" class="btn btn-light">
                                                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                             </a>
                                         </div>

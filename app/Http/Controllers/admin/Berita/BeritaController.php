@@ -78,7 +78,7 @@ class BeritaController extends Controller
                     $berita->save();
                     $request->image->move(public_path('file/berita'), $posterName);
                     Alert::toast('Berita Berhasil dibuat!', 'success');
-                    return redirect()->route('news.index');
+                    return redirect()->route('berita.index');
                 } catch (\Throwable $th) {
                     dd($th);
                     Alert::toast('Gagal', 'error');
@@ -153,7 +153,7 @@ class BeritaController extends Controller
                     }
                     $berita->update();
                     Alert::toast('Berita Berhasil diperbarui!', 'success');
-                    return redirect()->route('news.index');
+                    return redirect()->route('berita.index');
                 } catch (\Throwable $th) {
                     Alert::toast('Gagal', 'error');
                     return redirect()->back();

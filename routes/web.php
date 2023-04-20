@@ -39,7 +39,7 @@ Auth::routes([
     'register' => false
 ]);
 
-Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], function () {
+Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function () {
 
         Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
@@ -47,23 +47,24 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], functi
         // Route::resource('users', UserController::class);
         Route::resource('products', ProductController::class);
 
+        Route::resource('kategori-berita', KategoriBeritaController::class)->except('show');
+        Route::resource('berita', BeritaController::class);
+
         // Peran ADMIN
         Route::group(['middleware' => ['role:administrator']], function () {
-            Route::resource('users', UserController::class);
-            Route::resource('categories-news', KategoriBeritaController::class)->except('show');
-            Route::resource('news', BeritaController::class);
+            Route::resource('pengguna', UserController::class);
+
         });
 
         // Peran editor
         Route::group(['middleware' => ['role:editor']], function () {
-            Route::resource('categories-news', KategoriBeritaController::class)->except('show');
-            Route::resource('news', BeritaController::class);
+
 
         });
 
         // Peran author
         Route::group(['middleware' => ['role:author']], function () {
-            Route::resource('news', BeritaController::class);
+
 
         });
 

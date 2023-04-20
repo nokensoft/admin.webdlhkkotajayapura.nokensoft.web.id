@@ -9,8 +9,8 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{route('users.index')}}">Manage Users</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Mengelola Pengguna</a></li>
                                 <li class="breadcrumb-item active">Detail</li>
                             </ol>
                         </div>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <!-- end page title -->
-            
+
             <div class="row">
                 <div class="card">
                    <div class="col-lg-12">
@@ -55,7 +55,7 @@
                                                     <img src="{{asset('file/users')}}/{{ $user->picture }}" id="preview-picture"
                                                     alt="Profile Picture" class="img-thumbnail w-50">
                                                     @endif
-                                                </div>   
+                                                </div>
                                             </div>
                                         </div> <!-- end card group -->
                                     </div>
@@ -64,8 +64,11 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="card-box">
-                                        <a href="{{ route('users.index') }}" class="btn btn-light">
-                                         <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                                        <a href="{{ route('pengguna.edit',['pengguna' => $user->slug]) }}" class="btn btn-warning">
+                                            <i class="mdi mdi-account-edit mr-1"></i>Sunting
+                                        </a>
+                                        <a href="{{ route('pengguna.index') }}" class="btn btn-light">
+                                            <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                         </a>
                                     </div>
                                 </div> <!-- end col -->
@@ -73,9 +76,9 @@
                         </div>
                    </div>
                 </div>
-                
+
             </div>
-           
+
     </div> <!-- end card -->
 
 </div> <!-- end col -->
