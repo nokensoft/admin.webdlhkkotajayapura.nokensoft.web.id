@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
-            $table->id();
+        Schema::create('beritas', function (Blueprint $table) {
             $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->mediumText('body')->nullable();
-             $table->string('image')->nullable();
-             $table->enum('status',['publish','draft'])->default('draft')->nullable();
-            $table->softDeletes();
+            $table->string('image')->nullable();
+            $table->enum('status',['publish','draft'])->default('draft')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('kategori_beritas')->onUpdate('cascade')->onDelete('cascade');
+
+           
         });
     }
 
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('beritas');
     }
 };
