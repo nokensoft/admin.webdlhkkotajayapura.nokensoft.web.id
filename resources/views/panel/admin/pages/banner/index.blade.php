@@ -22,7 +22,7 @@
                             <div class="col-12">
                                 <div class="card">
                                 <div class="card-body">
-                                        <!-- Left sidebar -->
+                                    <!-- Left sidebar -->
                                         @include('panel.admin.pages.banner.menu')
                                     <!-- End Left sidebar -->
 

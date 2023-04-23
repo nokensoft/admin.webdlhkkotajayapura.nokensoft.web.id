@@ -14,35 +14,27 @@ use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // INDEX
     public function index(Request $request)
     {
         $data = Berita::orderBy('id','DESC')->paginate(5);
-        return view('panel.admin.berita.index',compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+
+        
+        $jumlahtrash = Berita::onlyTrashed()->count();
+        $jumlahdraft = Berita::where('status', 'draft')->count();
+        $datapublish = Berita::where('status', 'publish')->count();
+
+        return view('panel.admin.berita.index',compact('data', 'jumlahtrash', 'jumlahdraft', 'datapublish'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // CREATE
     public function create()
     {
         $kategori = KategoriBerita::pluck('name','id');
         return view('panel.admin.berita.create',compact('kategori'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // STORE
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),
@@ -87,24 +79,14 @@ class BeritaController extends Controller
             }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // SHOW
     public function show($id)
     {
         $berita = Berita::where('slug',$id)->first();
         return view('panel.admin.berita.show',compact('berita'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // EDIT
     public function edit($id)
     {
         $kategori = KategoriBerita::all();
@@ -112,13 +94,7 @@ class BeritaController extends Controller
         return view('panel.admin.berita.edit',compact('kategori','berita'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // UPDATE
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),
@@ -161,12 +137,7 @@ class BeritaController extends Controller
             }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // DESTROY
     public function destroy($id)
     {
         try {

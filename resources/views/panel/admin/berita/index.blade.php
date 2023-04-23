@@ -19,10 +19,12 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <div class="inbox-leftbar">
-                    <a href="{{ route('berita.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
-                        <i class="mdi mdi-plus-circle me-2"></i> Tambah Berita</a>
-                    </div>
+                
+                <!-- Left sidebar -->
+                @include('panel.admin.berita.menu')
+                <!-- End Left sidebar -->
+
+
                 <div class="inbox-rightbar">
                     <form action="{{ url('app/users') }}" method="get">
                         <div class="input-group mb-3">

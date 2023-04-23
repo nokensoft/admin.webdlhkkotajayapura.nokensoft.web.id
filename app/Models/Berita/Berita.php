@@ -5,10 +5,11 @@ namespace App\Models\Berita;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Berita extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     public $guarded = [];
 
     public function kategori(){
