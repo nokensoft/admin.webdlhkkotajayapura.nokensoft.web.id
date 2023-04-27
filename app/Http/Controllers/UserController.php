@@ -71,6 +71,7 @@ class UserController extends Controller
                         unlink($path.'/'.$account->picture);
                     endif;
                 $account->picture = $posterName;
+
                 $account->save();
                 $request->picture->move(public_path('file/users'), $posterName);
                 $account->assignRole($request->role_id);
@@ -138,6 +139,7 @@ class UserController extends Controller
                 $account->password = Hash::make($request->password);
             }
             if ($request->picture) {
+
                 $imageName = time() . '.' . $request->picture->extension();
                 $path = public_path('file/users');
                 if (!empty($account->picture) && file_exists($path . '/' . $account->picture)) :
