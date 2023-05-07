@@ -3,13 +3,17 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Login</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
+        <title> {{ $pengaturan->judul_situs }} </title>
+        <meta property="og:locale" content="id_ID" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{ $pengaturan->judul_situs }}" />
+        <meta property="og:description" content="{{ $pengaturan->deskripsi_situs }}" />
+        <meta property="og:site_name" content="{{ $pengaturan->judul_situs }}" />
+        <meta property="og:image" content="{{ asset('file/cms/image/logo/'.$pengaturan->logo)}}" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.ico')}}">
+
+                <!-- App favicon -->
+                <link rel="shortcut icon" href="{{ asset('file/cms/image/favicon/'. $pengaturan->favicon)}}">
 
 		<!-- Bootstrap css -->
 		<link href="{{ asset('assets/admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -33,23 +37,29 @@
                         <!-- Logo -->
                         <div class="auth-brand text-center text-lg-start">
                             <div class="auth-logo">
-                                <a href="index.html" class="logo logo-dark text-center">
-                                    <span class="logo-lg">
-                                        <img src="{{asset('assets/admin/assets/images/logo-dark.png')}}" alt="" height="22">
-                                    </span>
+                                <a href="#" class="logo logo-dark text-center">
+                                    @if(!$pengaturan->logo_situs)
+                                        <img src="{{asset('assets/admin/assets/images/logo-dark.png')}}" alt="" height="55">
+                                    @else
+                                        <img src="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo_situs }}" alt="" height="88">
+                                        <span class="logo-lg-text-dark">{{ $pengaturan->judul_situs  }}</span>
+                                    @endif
                                 </a>
 
-                                <a href="index.html" class="logo logo-light text-center">
-                                    <span class="logo-lg">
-                                        <img src="{{asset('assets/admin/assets/images/logo-light.png')}}" alt="" height="22">
-                                    </span>
+                                <a href="#" class="logo logo-light text-center">
+                                    @if(!$pengaturan->logo)
+                                    <img src="{{asset('assets/admin/assets/images/logo-light.png')}}" alt="" height="55">
+                                    @else
+                                        <img src="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo }}" alt="" height="88">
+                                        <span class="logo-lg-text-dark">{{ $pengaturan->judul_situs  }}</span>
+                                    @endif
                                 </a>
                             </div>
                         </div>
 
                         <!-- title-->
-                        <h4 class="mt-0">Sign In</h4>
-                        <p class="text-muted mb-4">Enter your email address and password to access account.</p>
+                        <h4 class="mt-0">Masuk</h4>
+                        <p class="text-muted mb-4">Masukkan alamat email dan kata sandi Anda untuk mengakses panel.</p>
 
                         <!-- form -->
                         <form method="POST" action="{{ route('login') }}">
@@ -57,19 +67,20 @@
 
                         <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Email address</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" placeholder="Masukan alamat email" required autocomplete="email" autofocus>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
                             <div class="mb-3">
-                                <a href="auth-recoverpw-2.html" class="text-muted float-end"><small>Forgot your password?</small></a>
+                                <a href="" class="text-muted float-end"><small>Lupa Kata Sandi?</small></a>
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input type="password" id="password" placeholder="Masukan kata sandi "
+                                    class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                     <div class="input-group-text" data-password="false">
                                         <span class="password-eye"></span>
                                     </div>
@@ -87,13 +98,13 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Ingat saya') }}
                                     </label>
                                 </div>
                             </div>
                         </div>
                             <div class="text-center d-grid">
-                                <button class="btn btn-primary" type="submit">Log In </button>
+                                <button class="btn btn-primary" type="submit">Masuk </button>
                             </div>
 
                         </form>

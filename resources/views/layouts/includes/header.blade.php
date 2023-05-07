@@ -1,4 +1,5 @@
-<link rel="shortcut icon" href="{{ asset('assets/admin/assets/images/favicon.ico')}}">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('file/cms/image/favicon/'.$pengaturan->favicon)}}">
 @stack('script-header')
 <!-- Bootstrap css -->
 <link href="{{ asset('assets/admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />

@@ -3,13 +3,13 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Panel - DLHK</title>
+        <title> {{ $pengaturan->judul_situs }} </title>
         <meta property="og:locale" content="id_ID" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="LoremIpsum" />
-        <meta property="og:description" content="LoremIpsum" />
-        <meta property="og:site_name" content="LoremIpsum" />
-        <meta property="og:image" content="{{ asset('assets/admin/assets/images/favicon.ico')}}" />
+        <meta property="og:title" content="{{ $pengaturan->judul_situs }}" />
+        <meta property="og:description" content="{{ $pengaturan->deskripsi_situs }}" />
+        <meta property="og:site_name" content="{{ $pengaturan->judul_situs }}" />
+        <meta property="og:image" content="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo_situs }}" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">

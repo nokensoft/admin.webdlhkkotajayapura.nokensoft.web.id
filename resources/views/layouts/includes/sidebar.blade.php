@@ -149,7 +149,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ route('app.pengaturan') }}">
                         <i data-feather="settings"></i>
                         <span> Pengaturan</span>
                     </a>

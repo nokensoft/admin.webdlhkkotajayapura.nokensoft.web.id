@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\HalamanController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\admin\FotoController;
+use App\Http\Controllers\Admin\PengaturanControlller;
 use App\Http\Controllers\admin\VideoController;
 use App\Http\Controllers\admin\SistemController;
 use App\Http\Controllers\admin\PersonController;
@@ -49,24 +50,31 @@ Route::prefix('app')->middleware('auth')->group(function () {
     //     Route::delete('users/delete/{id}','delete')->name('app.users.delete');
     // });
 
+    Route::controller(PengaturanControlller::class)->group(function(){
+
+        Route::get('pengaturan','index')->name('app.pengaturan');
+        Route::get('pengaturan/{id}/detail','show')->name('app.pengaturan.show');
+        Route::get('pengaturan/{id}/ubah','edit')->name('app.pengaturan.edit');
+        Route::put('pengaturan/update/{id}','update')->name('app.pengaturan.update');
+
+    });
 
 
 
 
 
-
-   Route::controller(SliderController::class)->group(function(){
-    Route::get('slider','index')->name('app.slider');
-    Route::get('slider/draft','draft')->name('app.slider.draft');
-    Route::get('slider/create','create')->name('app.slider.create');
-    Route::post('slider','store')->name('app.slider.store');
-    Route::get('slider/{id}/edit','edit')->name('app.slider.edit');
-    Route::put('slider/{id}','update')->name('app.slider.update');
-    Route::delete('slider/{id}','destroy')->name('app.slider.destroy');
-    Route::get('slider/trash','trash')->name('app.slider.trash');
-    Route::post('slider/restore/{id}','restore')->name('app.slider.restore');
-    Route::delete('slider/delete/{id}','delete')->name('app.slider.delete');
-});
+    Route::controller(SliderController::class)->group(function(){
+        Route::get('slider','index')->name('app.slider');
+        Route::get('slider/draft','draft')->name('app.slider.draft');
+        Route::get('slider/create','create')->name('app.slider.create');
+        Route::post('slider','store')->name('app.slider.store');
+        Route::get('slider/{id}/edit','edit')->name('app.slider.edit');
+        Route::put('slider/{id}','update')->name('app.slider.update');
+        Route::delete('slider/{id}','destroy')->name('app.slider.destroy');
+        Route::get('slider/trash','trash')->name('app.slider.trash');
+        Route::post('slider/restore/{id}','restore')->name('app.slider.restore');
+        Route::delete('slider/delete/{id}','delete')->name('app.slider.delete');
+    });
 
 
 
