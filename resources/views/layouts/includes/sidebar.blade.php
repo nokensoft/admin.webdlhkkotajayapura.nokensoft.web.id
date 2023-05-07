@@ -121,12 +121,7 @@
                     </div>
                 </li>
 
-                <li>
-                    <a href="{{route('pengguna.index')}}">
-                        <i data-feather="users"></i>
-                        <span> Mengelola Pengguna</span>
-                    </a>
-                </li>
+
 
                 <li>
                     <a href="#sidebarEmail" data-bs-toggle="collapse">
@@ -144,6 +139,20 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+
+                <li>
+                    <a href="{{route('pengguna.index')}}">
+                        <i data-feather="users"></i>
+                        <span> Mengelola Pengguna</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i data-feather="settings"></i>
+                        <span> Pengaturan</span>
+                    </a>
                 </li>
 
             </ul>
