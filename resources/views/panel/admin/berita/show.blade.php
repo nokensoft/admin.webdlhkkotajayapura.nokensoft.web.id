@@ -69,8 +69,8 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="card-box">
-                                            <a href="{{ route('berita.edit',['berita' => $berita->slug]) }}" class="btn btn-warning">
-                                                <i class="mdi mdi-pencil mr-1"></i>Sunting
+                                            <a href="{{ route('berita.edit',['beritum'=> $berita->slug]) }}" class="btn btn-warning">
+                                                <i class="mdi mdi-pencil mr-1"></i>Ubah
                                             </a>
                                             <a href="{{ route('berita.index') }}" class="btn btn-light">
                                                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali

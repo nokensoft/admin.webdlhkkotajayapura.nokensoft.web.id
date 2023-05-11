@@ -19,7 +19,7 @@ class BeritaController extends Controller
     {
         $data = Berita::orderBy('id','DESC')->paginate(5);
 
-        
+
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahdraft = Berita::where('status', 'draft')->count();
         $datapublish = Berita::where('status', 'publish')->count();

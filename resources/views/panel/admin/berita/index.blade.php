@@ -19,7 +19,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                
+
                 <!-- Left sidebar -->
                 @include('panel.admin.berita.menu')
                 <!-- End Left sidebar -->
@@ -67,14 +67,14 @@
                             <th> {{ $berita->status }} </th>
                             <th> {{ $berita->author->name }} </th>
                             <td class="text-center">
-                                <a class="btn btn-light" href="{{ route('berita.show',$berita->slug) }}">
+                                <a class="btn btn-sm btn-light" href="{{ route('berita.show',['beritum' => $berita->slug]) }}">
                                     <i class="mdi mdi-eye text-dark"></i>
                                 </a>
-                                <a class="btn btn-light" href="{{ route('berita.edit',$berita->slug) }}">
+                                <a class="btn btn-sm btn-light" href="{{ route('berita.edit',['beritum' => $berita->slug]) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
                                 {!! Form::open(['method' => 'DELETE','route' => ['berita.destroy', $berita->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
+                                {!! Form::submit('Hapus', ['class' => 'btn btn-sm btn-danger']) !!}
                                  {!! Form::close() !!}
 
 
