@@ -15,21 +15,15 @@ return new class extends Migration
     {
         Schema::create('halamen', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('konten');
-            $table->string('deskripsi')->nullable();
-            $table->string('katakunci')->nullable();
-            $table->string('image')->nullable();
-            $table->string('status');
-            $table->string('slug');
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
-            $table->string('deleted_by')->nullable();
-          
-
-            $table->timestamps();
+            $table->string('judul_halaman')->nullable();
+            $table->longText('konten')->nullable();
+            $table->string('gambar_cover')->nullable();
+            $table->bigInteger('created_by')->unsigned()->nullable();
+            $table->string('slug')->nullable();
+            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
             $table->softDeletes();
-             
+            $table->timestamps();
+            $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

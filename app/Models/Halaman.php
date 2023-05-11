@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Halaman extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory,SoftDeletes;
     public $guarded = [];
-    
+
+    public function user(){
+        return $this->belongsTo(User::class,'created_by');
+    }
 }

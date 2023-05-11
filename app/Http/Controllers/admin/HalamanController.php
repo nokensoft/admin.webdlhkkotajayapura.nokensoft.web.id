@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Halaman;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
+
 class HalamanController extends Controller
 {
     /**
@@ -19,18 +23,18 @@ class HalamanController extends Controller
     public function index()
     {
         $datas = Halaman::where([
-            ['title', '!=', Null],
+            ['judul_halaman', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
-                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('judul_halaman', 'LIKE', '%' . $s . '%')
                         // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
-        ])->where('status',1)->latest()->paginate(5);
+        ])->where('status','Publish')->latest()->paginate(5);
         $jumlahtrash = Halaman::onlyTrashed()->count();
-        $jumlahdraft = Halaman::where('status', 0)->count();
-        $datapublish = Halaman::where('status', 1)->count();
+        $jumlahdraft = Halaman::where('status', 'Draft')->count();
+        $datapublish = Halaman::where('status', 'Publish')->count();
 
 
         return view('panel.admin.pages.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -40,21 +44,25 @@ class HalamanController extends Controller
     public function draft()
     {
         $datas = Halaman::where([
-            ['title', '!=', Null],
+            ['judul_halaman', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
-                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('judul_halaman', 'LIKE', '%' . $s . '%')
                         // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
-        ])->where('status',0)->latest()->where('deleted_at', NULL)->paginate(5);
+        ])->where('status','Draft')->latest()->paginate(5);
         $jumlahtrash = Halaman::onlyTrashed()->count();
-        $jumlahdraft = Halaman::where('status', 0)->count();
-        $datapublish = Halaman::where('status', 1)->count();
+        $jumlahdraft = Halaman::where('status', 'Draft')->count();
+        $datapublish = Halaman::where('status', 'Publish')->count();
 
-
-        return view('panel.admin.pages.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('panel.admin.pages.halaman.index',compact(
+            'datas',
+            'jumlahtrash',
+            'jumlahdraft',
+            'datapublish'
+        )) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -64,9 +72,6 @@ class HalamanController extends Controller
      */
     public function create()
     {
-
-
-
 
         return view('panel.admin.pages.halaman.create');
     }
@@ -79,59 +84,48 @@ class HalamanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'deskripsi' => 'required',
-            'konten' => 'required',
-            'katakunci' => 'required',
-            'status' => 'required',
-        ]);
-
-        $tahun = date("Y");
-        $bulan = date("M");
-
-        if(!empty( $request->file('image'))){
-
-            $filename  = 'nokensoft'.'-'.date('Y-m-d-H-i-s').$request->file('image')->getClientOriginalName();
-
-        //    Input::file('foto')->move(public_path().'/source/upload',$filename);
-
-        //$request->file('image')->storeAs('public/resource/halamans/'.date('Y').'/'.date('M'),$filename);
-        $request->file('image')->storeAs('public/resource/halamans/'.$tahun.'/'.$bulan,$filename);
-           //    $image->storeAs('public/resource/sliders', $image->hashName());
-           $url = ('storage/resource/halamans/'.$tahun.'/'.$bulan.'/'.$filename);
-
-           $data = $request->all();
-           $data = Halaman::create([
-             'image'=> $url,
-             'title' => $request->title,
-             'deskripsi' => $request->deskripsi,
-             'konten' => $request->konten,
-             'katakunci' => $request->katakunci,
-             'status' => $request->status,
-             'slug' => Str::slug($request->title),
-             'created_by' => Auth::user()->id,
-              'updated_by' => Auth::user()->id,
-            ]);
-
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul_halaman'             => 'required',
+                'konten'                    => 'required',
+                'gambar_cover'              => 'image|mimes:png,jpeg,jpg|max:4096',
+                'status'                    => 'required',
+            ],[
+                'judul_halaman.required'    => 'Judul halaman tidak boleh kosong',
+                'konten.required'           => 'Konten halaman tidak boleh kosong',
+                'status.required'           => 'Status tidak boleh kosong',
+                'gambar_cover.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+            ]
+        );
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
-            $data = $request->all();
-            $data = Halaman::create([
-              'title' => $request->title,
-              'deskripsi' => $request->deskripsi,
-              'konten' => $request->konten,
-              'katakunci' => $request->katakunci,
-              'status' => $request->status,
-              'slug' => Str::slug($request->title),
-              'created_by' => Auth::user()->id,
-              'updated_by' => Auth::user()->id,
+            try {
+               $halaman = new Halaman();
+               $halaman->judul_halaman = $request->judul_halaman;
+               $halaman->konten = $request->konten;
+               $halaman->status = $request->status;
+               $halaman->slug = Str::slug($request->judul_halaman);
+               $halaman->created_by = Auth::user()->id;
 
-             ]);
+               if ($request->gambar_cover) {
+                    $imageName = Str::slug(12). '.' . $request->gambar_cover->extension();
+                    $path = public_path('file/halaman');
+                    if (!empty($halaman->gambar_cover) && file_exists($path . '/' . $halaman->gambar_cover)) :
+                        unlink($path . '/' . $halaman->gambar_cover);
+                    endif;
+                    $halaman->gambar_cover = $imageName;
+                    $request->gambar_cover->move(public_path('file/halaman'), $imageName);
+               }
+               $halaman->save();
+               Alert::toast('Halaman Berhasil dibuat!', 'success');
+               return redirect()->route('app.halaman');
+            } catch (\Throwable $th) {
+                Alert::toast('Gagal', 'error');
+                return redirect()->back();
+            }
         }
-
-        alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-              return redirect('app/halaman');
-
     }
 
     /**
@@ -142,7 +136,8 @@ class HalamanController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Halaman::where('slug',$id)->first();
+        return view('panel.admin.pages.halaman.show',compact('data'));
     }
 
     /**
@@ -153,7 +148,7 @@ class HalamanController extends Controller
      */
     public function edit($id)
     {
-        $data = Halaman::whereId($id)->first();
+        $data = Halaman::where('slug',$id)->first();
         return view('panel.admin.pages.halaman.edit',compact('data'));
     }
 
@@ -166,62 +161,48 @@ class HalamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'deskripsi' => 'required',
-            'konten' => 'required',
-            'katakunci' => 'required',
-            'status' => 'required',
-        ]);
-        $tahun = date("Y");
-        $bulan = date("M");
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul_halaman'             => 'required',
+                'konten'                    => 'required',
+                'gambar_cover'              => 'image|mimes:png,jpeg,jpg|max:4096',
+                'status'                    => 'required',
+            ],[
+                'judul_halaman.required'    => 'Judul halaman tidak boleh kosong',
+                'konten.required'           => 'Konten halaman tidak boleh kosong',
+                'status.required'           => 'Status tidak boleh kosong',
+                'gambar_cover.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+            ]
+        );
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+               $halaman = Halaman::find($id);
+               $halaman->judul_halaman = $request->judul_halaman;
+               $halaman->konten = $request->konten;
+               $halaman->status = $request->status;
+               $halaman->slug = Str::slug($request->judul_halaman);
+               $halaman->created_by = Auth::user()->id;
 
-        if(!empty( $request->file('image'))){
-            $filename  = 'nokensoft'.'-'.date('Y-m-d-H-i-s').$request->file('image')->getClientOriginalName();
-            // Input::file('foto')->move(public_path().'/source/upload',$filename);
-            //$request->file('image')->storeAs('public/resource/halamans/'.date('Y').'/'.date('M'),$filename);
-            $request->file('image')->storeAs('public/resource/halamans/'.$tahun.'/'.$bulan,$filename);
-            //    $image->storeAs('public/resource/sliders', $image->hashName());
-            $url = ('storage/resource/halamans/'.$tahun.'/'.$bulan.'/'.$filename);
-
-            $datalama = Halaman::findOrFail($id);
-            if($datalama->image){
-                File::delete($datalama->image);
-
+               if ($request->gambar_cover) {
+                    $imageName = Str::slug(12). '.' . $request->gambar_cover->extension();
+                    $path = public_path('file/halaman');
+                    if (!empty($halaman->gambar_cover) && file_exists($path . '/' . $halaman->gambar_cover)) :
+                        unlink($path . '/' . $halaman->gambar_cover);
+                    endif;
+                    $halaman->gambar_cover = $imageName;
+                    $request->gambar_cover->move(public_path('file/halaman'), $imageName);
+               }
+               $halaman->update();
+               Alert::toast('Halaman Berhasil diperbarui!', 'success');
+               return redirect()->route('app.halaman');
+            } catch (\Throwable $th) {
+                Alert::toast('Gagal', 'error');
+                return redirect()->back();
+            }
         }
-
-        //dd($datalama->image);
-
-        $data = $request->all();
-           $data = array(
-                'image'=> $url,
-                'title' => $request->title,
-                'deskripsi' => $request->deskripsi,
-                'konten' => $request->konten,
-                'katakunci' => $request->katakunci,
-                'status' => $request->status,
-                'slug' => Str::slug($request->title),
-                'updated_by' => Auth::user()->id,
-            );
-            $Halaman = Halaman::find($id);
-            $Halaman->update($data);
-                 } else {
-
-                    $data = array(
-                        'title' => $request->title,
-                        'deskripsi' => $request->deskripsi,
-                        'konten' => $request->konten,
-                        'katakunci' => $request->katakunci,
-                        'status' => $request->status,
-                        'slug' => Str::slug($request->title),
-                        'updated_by' => Auth::user()->id,
-                    );
-                    $Halaman = Halaman::find($id);
-                    $Halaman->update($data);
-                }
-
-             alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-              return redirect('app/halaman');
     }
 
     /**
@@ -235,7 +216,7 @@ class HalamanController extends Controller
         $data = Halaman::find($id);
         if($data->delete()) {
             //return success with Api Resource
-            alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
+            alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
             return redirect()->back();
         }
     }
@@ -244,9 +225,9 @@ class HalamanController extends Controller
     {
         $datas = Halaman::onlyTrashed()->paginate(5);
         $jumlahtrash = Halaman::onlyTrashed()->count();
-        $jumlahdraft = Halaman::where('status', 0)->count();
-        $datapublish = Halaman::where('status', 1)->count();
-        return view('admin.pages.halaman.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        $jumlahdraft = Halaman::where('status', 'Draf')->count();
+        $datapublish = Halaman::where('status', 'Publish')->count();
+        return view('panel.admin.pages.halaman.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 

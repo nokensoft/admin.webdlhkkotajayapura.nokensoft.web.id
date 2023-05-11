@@ -10,34 +10,20 @@
                     <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
                     <li class="breadcrumb-item">Halaman</li>
-                    <li class="breadcrumb-item active">Ubah</li>
+                    <li class="breadcrumb-item active">Detail</li>
                 </ol>
             </div>
-            <h4 class="page-title">Ubah</h4>
+            <h4 class="page-title">Detail</h4>
         </div>
     </div>
 </div>
 <!-- end page title -->
-@if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Whoops!</strong>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-
-                <!-- <form action="{{ url('app/halaman') }}" method="POST" enctype="multipart/form-data"> -->
-                {!! Form::model($data,array('url'=>'app/halaman/'.$data->id,'method'=>'put','files'=>'true'))!!}
-                @csrf
-                @method('put')
 
                 <div class="mb-3">
                     <label for="product-name" class="form-label">Title <span class="text-danger">*</span></label>
@@ -83,14 +69,17 @@
 <div class="row">
     <div class="card">
         <div class="card-body">
-            <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
+            <a href="{{ route('app.halaman.edit',$data->slug) }}"
+                class="btn btn-lg btn-outline-dark waves-effect waves-light">
+                <i class="fe-edit"></i> Edit
+            </a>
             <a href="{{ route('app.halaman') }}" class="btn btn-light">
                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
             </a>
         </div>
     </div>
 </div>
-{!! Form::close() !!}
+
 
 @stop
 

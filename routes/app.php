@@ -127,6 +127,7 @@ Route::controller(HalamanController::class)->group(function(){
     Route::get('halaman/create','create')->name('app.halaman.create');
     Route::post('halaman','store')->name('app.halaman.store');
     Route::get('halaman/{id}/edit','edit')->name('app.halaman.edit');
+    Route::get('halaman/{id}/detail','show')->name('app.halaman.show');
     Route::put('halaman/{id}','update')->name('app.halaman.update');
     Route::delete('halaman/{id}','destroy')->name('app.halaman.destroy');
     Route::get('halaman/trash','trash')->name('app.halaman.trash');

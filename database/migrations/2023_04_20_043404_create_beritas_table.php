@@ -25,10 +25,10 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('kategori_beritas')->onUpdate('cascade')->onDelete('cascade');
-            
+
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
-            
+
             $table->string('deleted_at')->nullable();
 
 
