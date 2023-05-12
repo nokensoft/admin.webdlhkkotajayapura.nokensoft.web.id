@@ -76,7 +76,7 @@
                             <nav class="rs-menu">
                                 <ul class="nav-menu">
                                     <li class="rs-mega-menu mega-rs">
-                                        <a href="#beranda">Beranda</a>
+                                        <a href="/">Beranda</a>
                                     </li>
                                     <li class="rs-mega-menu mega-rs menu-item-has-children">
                                         <a href="#profil">Profil</a>

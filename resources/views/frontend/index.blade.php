@@ -23,8 +23,9 @@
                     <h2 class=" title new-title">Sekilas Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura
                     </h2>
                     <div class="new-desc">
-                        <p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
-                        <p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
+                        <p>
+                            {{ $pengaturan->deskripsi_situs }}
+                        </p>
                     </div>
                     <!-- button play -->
                     <a href="#" class="btn btn-lg btn-success mt-3">

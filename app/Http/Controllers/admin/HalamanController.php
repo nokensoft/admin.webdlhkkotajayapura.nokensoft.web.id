@@ -107,7 +107,6 @@ class HalamanController extends Controller
                $halaman->konten = $request->konten;
                $halaman->status = $request->status;
                $halaman->slug = Str::slug($request->judul_halaman);
-               $halaman->created_by = Auth::user()->id;
 
                if ($request->gambar_cover) {
                     $imageName = Str::slug(12). '.' . $request->gambar_cover->extension();
@@ -184,7 +183,6 @@ class HalamanController extends Controller
                $halaman->konten = $request->konten;
                $halaman->status = $request->status;
                $halaman->slug = Str::slug($request->judul_halaman);
-               $halaman->created_by = Auth::user()->id;
 
                if ($request->gambar_cover) {
                     $imageName = Str::slug(12). '.' . $request->gambar_cover->extension();

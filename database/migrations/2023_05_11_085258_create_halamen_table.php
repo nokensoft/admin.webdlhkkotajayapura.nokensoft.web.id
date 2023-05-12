@@ -18,12 +18,11 @@ return new class extends Migration
             $table->string('judul_halaman')->nullable();
             $table->longText('konten')->nullable();
             $table->string('gambar_cover')->nullable();
-            $table->bigInteger('created_by')->unsigned()->nullable();
             $table->string('slug')->nullable();
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 
