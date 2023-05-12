@@ -17,14 +17,44 @@ class BeritaController extends Controller
     // INDEX
     public function index(Request $request)
     {
-        $data = Berita::orderBy('id','DESC')->paginate(5);
+        $data = Berita::where([
 
+            [function ($query) {
+                if (($s = request()->s)) {
+                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status','publish')->latest()->paginate(5);
 
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahdraft = Berita::where('status', 'draft')->count();
         $datapublish = Berita::where('status', 'publish')->count();
 
         return view('panel.admin.berita.index',compact('data', 'jumlahtrash', 'jumlahdraft', 'datapublish'))->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+
+    public function draft(){
+
+        $datas = Berita::where([
+            ['title', '!=', Null],
+            [function ($query) {
+                if (($s = request()->s)) {
+                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status','draft')->latest()->paginate(5);
+        $jumlahtrash = Berita::onlyTrashed()->count();
+        $jumlahdraft = Berita::where('status', 'draft')->count();
+        $datapublish = Berita::where('status', 'publish')->count();
+
+
+        return view('panel.admin.berita.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
     }
 
     // CREATE

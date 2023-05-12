@@ -26,7 +26,7 @@
 
 
                 <div class="inbox-rightbar">
-                    <form action="{{ url('app/users') }}" method="get">
+                    <form action="{{ url('app/berita') }}" method="get">
                         <div class="input-group mb-3">
                             <input type="search" name="s" class="form-control" placeholder="Search">
                             <button type="submit" class="btn btn-primary">Search</button>
@@ -45,7 +45,7 @@
                             <th>Pengarang</th>
                             <th class="text-center" width="280px">Opsi</th>
                         </tr>
-                        @foreach ($data as $key => $berita)
+                        @foreach ($data as  $berita)
                         <tr>
                             <td class="text-center">{{ ++$i }}</td>
                             <th>
@@ -67,13 +67,13 @@
                             <th> {{ $berita->status }} </th>
                             <th> {{ $berita->author->name }} </th>
                             <td class="text-center">
-                                <a class="btn btn-sm btn-light" href="{{ route('berita.show',['beritum' => $berita->slug]) }}">
+                                <a class="btn btn-sm btn-light" href="">
                                     <i class="mdi mdi-eye text-dark"></i>
                                 </a>
-                                <a class="btn btn-sm btn-light" href="{{ route('berita.edit',['beritum' => $berita->slug]) }}">
+                                <a class="btn btn-sm btn-light" href="">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
-                                {!! Form::open(['method' => 'DELETE','route' => ['berita.destroy', $berita->id],'style'=>'display:inline']) !!}
+                                {!! Form::open(['method' => 'DELETE','route' => ['app.berita.destroy', $berita->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Hapus', ['class' => 'btn btn-sm btn-danger']) !!}
                                  {!! Form::close() !!}
 
@@ -86,33 +86,6 @@
                             </td>
                         </tr>
 
-                         <!-- MODAL TRANSH -->
-                            <div class="modal fade" id="modal_delete_{{$berita->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-sm">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title" id="mySmallModalLabel">Are You sure want to Delete?</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        </div>
-                                        <div class="modal-body text-center">
-                                            <form action="{{route('berita.destroy',$berita->id)}}" method="POST">
-                                                @method('DELETE')
-                                                @csrf
-                                                <input type="hidden" name="status" value="trash">
-                                                <button type="submit" class="btn btn-danger">
-                                                    <i class="fas fa-trash"></i>
-                                                    Trash
-                                                </button>
-                                                <button type="submit" class="btn btn-light" data-dismiss="modal" aria-hidden="true">
-                                                    <i class="fas fa-arrow-left"></i>
-                                                    Cancel
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
-                            <!-- END MODAL TRANSH -->
 
                         @endforeach
                         </table>

@@ -21,7 +21,7 @@
             <!-- end page title -->
             @if ($errors->any())
                 <div class="alert alert-danger">
-                    <strong>Whoops!</strong><br><br>
+                    <strong>Whoops!</strong>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -35,7 +35,7 @@
                    <div class="col-lg-12">
                         <div class="card-body">
                             <h1></h1>
-                            <form action="{{route('berita.update',['berita' => $berita->id])}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('berita.update',['beritum' => $berita->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="row">

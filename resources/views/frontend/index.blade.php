@@ -51,7 +51,7 @@
 
 <!-- Berita Terbaru Start -->
 <div id="berita" class="rs-blog main-home modify1 pb-100 pt-100 md-pt-70 md-pb-70">
-    @include('frontend.pages.berita')
+    @include('frontend.pages.berita',['berita' => $berita])
 </div>
 <!-- Berita Terbaru End -->
 

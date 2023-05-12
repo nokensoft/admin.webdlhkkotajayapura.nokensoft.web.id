@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\GambarArtikelController;
 use App\Http\Controllers\admin\HalamanController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\AlbumController;
+use App\Http\Controllers\Admin\Berita\BeritaController;
 use App\Http\Controllers\admin\FotoController;
 use App\Http\Controllers\Admin\PengaturanControlller;
 use App\Http\Controllers\admin\VideoController;
@@ -18,9 +19,12 @@ use App\Http\Controllers\admin\ProductController;
 
 
 Route::prefix('app')->middleware('auth')->group(function () {
+
     Route::get('/', function () {
         return view('admin.pages.beranda');
     });
+
+
 
     // Route::get('/beranda', function () {
     //     return view('admin.pages.beranda');
@@ -59,7 +63,18 @@ Route::prefix('app')->middleware('auth')->group(function () {
 
     });
 
-
+    Route::controller(BeritaController::class)->group(function(){
+        Route::get('berita','index')->name('app.berita');
+        Route::get('berita/draft','draft')->name('app.berita.draft');
+        Route::get('berita/create','create')->name('app.berita.create');
+        Route::post('berita','store')->name('app.berita.store');
+        Route::get('berita/{id}/edit','edit')->name('app.berita.edit');
+        Route::put('berita/{id}','update')->name('app.berita.update');
+        Route::delete('berita/{id}','destroy')->name('app.berita.destroy');
+        Route::get('berita/trash','trash')->name('app.berita.trash');
+        Route::post('berita/restore/{id}','restore')->name('app.berita.restore');
+        Route::delete('berita/delete/{id}','delete')->name('app.berita.delete');
+    });
 
 
 

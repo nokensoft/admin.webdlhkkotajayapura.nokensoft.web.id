@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Models\Berita\Berita;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -28,11 +29,8 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    if(Auth::check()){
-        return redirect()->route('dashboard');
-    }else{
-        return  view('frontend.index');
-    }
+    $berita = Berita::orderBy('id','desc')->paginate(6);
+    return  view('frontend.index',compact('berita'));
 });
 
 Auth::routes([
@@ -47,8 +45,8 @@ Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function 
         // Route::resource('users', UserController::class);
         Route::resource('products', ProductController::class);
 
-        Route::resource('kategori-berita', KategoriBeritaController::class)->except('show');
-        Route::resource('berita', BeritaController::class);
+        // Route::resource('kategori-berita', KategoriBeritaController::class)->except('show');
+        // Route::resource('berita', BeritaController::class);
 
         // Peran ADMIN
         Route::group(['middleware' => ['role:administrator']], function () {

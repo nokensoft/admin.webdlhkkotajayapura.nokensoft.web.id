@@ -132,10 +132,10 @@
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('kategori-berita.index') }}">Kategori</a>
+                                <a href="#">Kategori</a>
                             </li>
                             <li>
-                                <a href="{{ route('berita.index') }}">Berita</a>
+                                <a href="{{ route('app.berita') }}">Berita</a>
                             </li>
                         </ul>
                     </div>

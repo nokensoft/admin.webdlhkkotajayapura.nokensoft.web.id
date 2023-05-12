@@ -14,21 +14,29 @@
         data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="false"
         data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="false"
         data-md-device="3" data-md-device-nav="false" data-md-device-dots="false">
+
+
+        @foreach ($berita as $data )
+
+
         <div class="blog-item">
             <div class="image-part">
+                @if(!$data->image)
                 <img src="{{ asset('assets/frontend/assets/images/dlhk/berita/01.jpg') }}" alt="">
+                @else
+
+                @endif
             </div>
             <div class="blog-content">
                 <div class="blog-meta">
                     <span class="date"><i class="fa fa-calendar-check-o"></i> 06 Maret 2023</span>
-                    <span class="admin"><i class="fa fa-user"></i> admin</span>
+                    <span class="admin"><i class="fa fa-user"></i>{{ $data->author->name ?? '' }}</span>
                 </div>
-                <h3 class="title"><a href="blog-single.html">Fokus Pembangunan Sektor Bisnis Dengan Petani
-                        Budidaya Pangan Lokal</a></h3>
+                <h3 class="title"><a href=""> {{ $data->title }} </a></h3>
                 <div class="btn-btm">
                     <div class="cat-list">
                         <ul class="post-categories">
-                            <li><a href="#">Bisnis</a></li>
+                            <li><a href="#">{{ $data->kategori->name ?? '' }}</a></li>
                         </ul>
                     </div>
                     <div class="rs-view-btn">
@@ -37,8 +45,10 @@
                 </div>
             </div>
         </div>
+
+        @endforeach
         <!-- .blog-item end -->
-        <div class="blog-item">
+        {{-- <div class="blog-item">
             <div class="image-part">
                 <img src="{{ asset('assets/frontend/assets/images/dlhk/berita/02.jpg') }}" alt="">
             </div>
@@ -60,9 +70,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- .blog-item end -->
-        <div class="blog-item">
+        </div> --}}
+
+        {{-- <div class="blog-item">
             <div class="image-part">
                 <img src="{{ asset('assets/frontend/assets/images/dlhk/berita/03.jpg') }}" alt="">
             </div>
@@ -85,7 +95,7 @@
                 </div>
             </div>
         </div>
-        <!-- .blog-item end -->
+
         <div class="blog-item">
             <div class="image-part">
                 <img src="{{ asset('assets/frontend/assets/images/dlhk/berita/04.jpg') }}" alt="">
@@ -108,8 +118,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- .blog-item end -->
+        </div> --}}
+
     </div>
 
     <div class="text-center mt-5">

@@ -73,6 +73,7 @@
                         <li><a href="#">Agenda Kegiatan</a></li>
                         <li><a href="#">Berita</a></li>
                         <li><a href="#">Kontak</a></li>
+                        <li><a href="{{ route('login') }}">Masuk</a></li>
                     </ul>
                 </div>
             </div>
