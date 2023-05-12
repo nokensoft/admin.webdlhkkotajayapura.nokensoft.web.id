@@ -80,16 +80,21 @@
                                     </li>
                                     <li class="rs-mega-menu mega-rs menu-item-has-children">
                                         <a href="#profil">Profil</a>
+
+
                                         <ul class="mega-menu">
                                             <li class="mega-menu-container">
                                                 <div class="mega-menu-innner">
+                                                    @foreach ($halaman as $page )
                                                     <div class="single-megamenu">
-                                                        <ul class="sub-menu">
-                                                            <li><a href="#">Visi & Misi</a> </li>
-                                                            <li><a href="#">Struktur Organisasi</a> </li>
+
+                                                        <ul class="sub-menu last-sub-menu">
+                                                            <li><a href="{{ route('halaman.method',['method' => $page->slug]) }}">{{ $page->judul_halaman }}</a> </li>
                                                         </ul>
                                                     </div>
-                                                    <div class="single-megamenu">
+                                                    @endforeach
+
+                                                    {{-- <div class="single-megamenu">
                                                         <ul class="sub-menu last-sub-menu">
                                                             <li><a href="#">Bidang Layanan</a> </li>
                                                             <li><a href="#">Tugas Pokok & Fungsi</a> </li>
@@ -100,7 +105,8 @@
                                                             <li><a href="#">Profil Pimpinan</a> </li>
                                                             <li><a href="#">Profil Pejabat</a> </li>
                                                         </ul>
-                                                    </div>
+                                                    </div> --}}
+
                                                 </div>
                                             </li>
                                         </ul> <!-- //.mega-menu -->

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Berita\BeritaController;
 use App\Http\Controllers\Admin\Berita\KategoriBeritaController;
 use App\Http\Controllers\admin\UserController as AdminUserController;
+use App\Http\Controllers\Frontend\HalamanController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -32,6 +33,8 @@ Route::get('/', function () {
     $berita = Berita::orderBy('id','desc')->paginate(6);
     return  view('frontend.index',compact('berita'));
 });
+
+Route::get('/halaman/{method}', [HalamanController::class, 'index'])->name('halaman.method');
 
 Auth::routes([
     'register' => false

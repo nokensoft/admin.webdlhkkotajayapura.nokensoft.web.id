@@ -29,7 +29,7 @@
             </div>
             <div class="blog-content">
                 <div class="blog-meta">
-                    <span class="date"><i class="fa fa-calendar-check-o"></i> 06 Maret 2023</span>
+                    <span class="date"><i class="fa fa-calendar-check-o"></i>{{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }}</span>
                     <span class="admin"><i class="fa fa-user"></i>{{ $data->author->name ?? '' }}</span>
                 </div>
                 <h3 class="title"><a href=""> {{ $data->title }} </a></h3>
