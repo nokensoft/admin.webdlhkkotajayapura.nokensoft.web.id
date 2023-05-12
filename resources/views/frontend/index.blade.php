@@ -66,7 +66,7 @@
                 </h1>
             </div>
             <div class="col-lg-4 mx-auto">
-                <img src="assets/images/dlhk/banner/1.png" alt="Logo Kota Jayapura Green">
+                <img src="{{ asset('/assets/frontend/assets/images/dlhk/banner/1.png') }}" alt="Logo Kota Jayapura Green">
             </div>
         </div>
     </div>
@@ -102,19 +102,19 @@
             data-ipad-device2="3" data-ipad-device-nav2="false" data-ipad-device-dots2="false"
             data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
             <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="assets/images/dlhk/link-terkait/05.png" alt=""></a>
+                <a href="#"><img src="{{ asset('assets/frontend/assets/images/dlhk/link-terkait/05.png') }}" alt=""></a>
             </div>
             <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="assets/images/dlhk/link-terkait/04.png" alt=""></a>
+                <a href="#"><img src="{{ asset('assets/frontend/assets/images/dlhk/link-terkait/04.png') }}" alt=""></a>
             </div>
             <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="assets/images/dlhk/link-terkait/03.png" alt=""></a>
+                <a href="#"><img src="{{ asset('assets/frontend/assets/images/dlhk/link-terkait/03.png') }}" alt=""></a>
             </div>
             <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="assets/images/dlhk/link-terkait/01.png" alt=""></a>
+                <a href="#"><img src="{{ asset('assets/frontend/assets/images/dlhk/link-terkait/01.png') }}" alt=""></a>
             </div>
             <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="assets/images/dlhk/link-terkait/02.png" alt=""></a>
+                <a href="#"><img src="{{ asset('assets/frontend/assets/images/dlhk/link-terkait/02.png') }}" alt=""></a>
             </div>
         </div>
     </div>
@@ -128,7 +128,7 @@
             <div class="row y-middle text-white pt-50">
                 <div class="col-lg-8 mx-auto text-center">
 
-                    <img src="assets/images/dlhk/banner/1.png" alt="Logo Kota Jayapura Green" width="300px">
+                    <img src="{{ asset('assets/frontend/assets/images/dlhk/banner/1.png') }}" alt="Logo Kota Jayapura Green" width="300px">
 
                     <h1 class="title text-white h1 fw-bold">Menjaga lingkungan bukan hanya <br> angan-angan, tapi tindakan.</h1>
                     <p class="pt-20">

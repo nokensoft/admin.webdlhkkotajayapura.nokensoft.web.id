@@ -10,7 +10,7 @@
     <div class="row y-middle">
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/1.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/1.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h4 class="title">RPPLH</h4>
                 </div>
@@ -24,7 +24,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/2.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/2.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h4 class="title">IKLH</h4>
                 </div>
@@ -37,7 +37,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/3.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/3.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h4 class="title">HPSN</h4>
                 </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/4.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/4.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h4 class="title">AMDAL</h4>
                 </div>
@@ -63,7 +63,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/1.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/1.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h4 class="title">KEHATI</h4>
                 </div>
@@ -76,7 +76,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/2.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/2.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h3 class="title">KONSERVASI ENERGI</h3>
                 </div>
@@ -89,7 +89,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/3.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/3.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h4 class="title">MEKANISME PERIJINAN</h4>
                 </div>
@@ -102,7 +102,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/4.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/4.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h4 class="title">IZIN LINGKUNGAN</h4>
                 </div>
@@ -115,7 +115,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-30">
             <div class="degree-wrap">
-                <img src="assets/images/dlhk/informasi-lingkungan/1.jpg" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/informasi-lingkungan/1.jpg') }}" alt="">
                 <div class="title-part mt-0">
                     <h4 class="title">PENGELOLAAN B3</h4>
                 </div>

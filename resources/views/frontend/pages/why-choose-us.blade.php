@@ -2,7 +2,7 @@
     <div class="row align-items-center">
         <div class="col-lg-6 js-tilt md-mb-40">
             <div class="img-part">
-                <img src="assets/images/dlhk/banner/2.png" alt="">
+                <img src="{{ asset('assets/frontend/assets/images/dlhk/banner/2.png') }}" alt="">
 
             </div>
         </div>
@@ -18,7 +18,7 @@
 
             <div class="services-part mb-20">
                 <div class="services-icon">
-                    <img src="assets/images/choose/home12/icon/1.png" alt="">
+                    <img src="{{ asset('assets/frontend/assets/images/choose/home12/icon/1.png') }}" alt="">
                 </div>
                 <div class="services-text">
                     <h2 class="title"> Kunjungi Website DLHK Kota Jayapura</h2>
@@ -27,7 +27,7 @@
             </div>
             <div class="services-part mb-20">
                 <div class="services-icon">
-                    <img src="assets/images/choose/home12/icon/2.png" alt="">
+                    <img src="{{ asset('assets/frontend/assets/images/choose/home12/icon/2.png') }}" alt="">
                 </div>
                 <div class="services-text">
                     <h2 class="title"> Melengkapi Form Online Permintaan Data</h2>
@@ -36,7 +36,7 @@
             </div>
             <div class="services-part">
                 <div class="services-icon">
-                    <img src="assets/images/choose/home12/icon/3.png" alt="">
+                    <img src="{{ asset('assets/frontend/assets/images/choose/home12/icon/3.png') }}" alt="">
                 </div>
                 <div class="services-text">
                     <h2 class="title">Dapatkan Data Melalui Email</h2>
