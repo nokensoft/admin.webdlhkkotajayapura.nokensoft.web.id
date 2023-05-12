@@ -65,9 +65,7 @@
                     </a>
                     <div class="collapse" id="sidebarEcommerce">
                         <ul class="nav-second-level">
-                        <li>
-                                <a href="{{ url('/app/kategori')}}">Kategori</a>
-                            </li>
+
                             <li>
                                 <a href="{{ url('/app/artikel')}}">Artikel</a>
                             </li>
@@ -132,7 +130,7 @@
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">Kategori</a>
+                                <a href="{{ route('app.kategori') }}">Kategori</a>
                             </li>
                             <li>
                                 <a href="{{ route('app.berita') }}">Berita</a>

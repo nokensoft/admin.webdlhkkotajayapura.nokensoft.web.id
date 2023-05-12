@@ -9,8 +9,7 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                    <li class="breadcrumb-item">Berita</li>
-                    <li class="breadcrumb-item active">Trash</li>
+                    <li class="breadcrumb-item active">kategori</li>
                 </ol>
             </div>
             <h4 class="page-title">Trash</h4>
@@ -25,44 +24,44 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ url('app/berita') }}" class="btn btn-danger mb-2"><i
-                            class="mdi mdi-arrow-left me-2"></i> Kembali
-                        </a>
+                        <a href="{{ url('app/kategori') }}" class="btn btn-danger mb-2"><i
+                                class="mdi mdi-arrow-left me-2"></i> Kembali</a>
                     </div>
+                    <div class="col-sm-8">
 
+                    </div><!-- end col-->
                 </div>
 
                 <div class="table-responsive">
 
-
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
-                            <th>Title</th>
-                            <th class="text-center" width="210px">Opsi</th>
+
+                            <th>Nama Kategoru</th>
+
+                            <th width="280px">Opsi</th>
                         </tr>
                         @foreach ($datas as $data)
                         <tr>
                             <td>{{ ++$i }}</td>
-                            <td>{{ $data->title }}</td>
-                            <td class="text-center">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <form action="{{ url('app/berita/restore',$data->id) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-sm btn-success">Restore</button>
-                                        </form>
-                                    </div>
-                                    <div class="col-6">
-                                        <form action="{{ url('app/berita/delete',$data->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
 
-                                            <button type="submit" class="btn btn-sm btn-danger ms-1 show_confirm" data-toggle="tooltip"
-                                                title='Delete'>Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
+                            <td>{{ $data->name }}</td>
+
+                            <td>
+                                <form action="{{ url('app/kategori/restore',$data->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Restore</button>
+                                </form>
+                                <form action="{{ url('app/kategori/delete',$data->id) }}" method="POST">
+
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip"
+                                        title='Delete'>Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

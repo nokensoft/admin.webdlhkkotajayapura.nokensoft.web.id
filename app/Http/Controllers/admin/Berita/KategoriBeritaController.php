@@ -19,27 +19,48 @@ class KategoriBeritaController extends Controller
     public function index(Request $request)
     {
 
-        $data = KategoriBerita::orderBy('id','DESC')->paginate(5);
-        return view('panel.admin.berita.kategori.index',compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $datas = KategoriBerita::where([
+
+            [function ($query) use ($request) {
+                if (($s = $request->s)) {
+                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status','publish')->latest()->paginate(5);
+        $jumlahtrash = KategoriBerita::onlyTrashed()->count();
+        $jumlahdraft = KategoriBerita::where('status', 'draft')->count();
+        $datapublish = KategoriBerita::where('status', 'publish')->count();
+        return view('panel.admin.berita.kategori.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function draft(Request $request)
+    {
+        $datas = KategoriBerita::where([
+
+            [function ($query) use ($request) {
+                if (($s = $request->s)) {
+                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status','draft')->paginate(5);
+        // $datas = kategori::where('status',1)->latest()->paginate(5);
+
+        $jumlahtrash = KategoriBerita::onlyTrashed()->count();
+        $jumlahdraft = KategoriBerita::where('status', 'draft')->count();
+        $datapublish = KategoriBerita::where('status', 'publish')->count();
+        return view('panel.admin.berita.kategori.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+
     public function create()
     {
         return view('panel.admin.berita.kategori.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),
@@ -62,23 +83,8 @@ class KategoriBeritaController extends Controller
             }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $kategori = KategoriBerita::where('slug',$id)->first();
@@ -103,6 +109,7 @@ class KategoriBeritaController extends Controller
                 try {
                     $kategori = KategoriBerita::find($id);
                     $kategori->name = $request->name;
+                    $kategori->status = $request->status;
                     $kategori->slug = Str::slug($request->name);
                     $kategori->update();
                     Alert::toast('Kategori Berhasil diperbarui!', 'success');
@@ -114,22 +121,35 @@ class KategoriBeritaController extends Controller
             }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    public function trash(){
+        $datas = KategoriBerita::onlyTrashed()->paginate(10);
+        return view('panel.admin.berita.kategori.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+     }
+
     public function destroy($id)
     {
-        try {
-            $ketegori = KategoriBerita::find($id);
-            $ketegori->delete();
-            Alert::toast('Kategori Berhasil dihapus', 'success');
-            return redirect()->back();
-        } catch (\Throwable $th) {
-            Alert::toast('Failed', ['error' => $th->getMessage()], 'error');
-            return redirect()->back();
-        }
+        $data = KategoriBerita::findOrFail($id);
+        $data->delete();
+        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+        return redirect()->route('app.kategori');
     }
+
+    public function restore($id){
+        $data = KategoriBerita::onlyTrashed()->where('id',$id);
+        $data->restore();
+        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+        return redirect()->route('app.kategori');
+
+
+     }
+
+
+     public function delete($id){
+        $data = KategoriBerita::onlyTrashed()->where('id',$id);
+        $data->forceDelete();
+        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+        return redirect()->route('app.kategori.trash');
+     }
+
 }

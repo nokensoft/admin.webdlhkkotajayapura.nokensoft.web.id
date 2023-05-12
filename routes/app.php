@@ -1,34 +1,25 @@
 <?php
 
 use App\Http\Controllers\admin\SliderController;
-use App\Http\Controllers\admin\KategoriController;
 use App\Http\Controllers\admin\ArtikelController;
 use App\Http\Controllers\admin\GambarArtikelController;
 use App\Http\Controllers\admin\HalamanController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\Admin\Berita\BeritaController;
+use App\Http\Controllers\Admin\Berita\KategoriBeritaController;
 use App\Http\Controllers\admin\FotoController;
 use App\Http\Controllers\Admin\PengaturanControlller;
 use App\Http\Controllers\admin\VideoController;
 use App\Http\Controllers\admin\SistemController;
 use App\Http\Controllers\admin\PersonController;
 use App\Http\Controllers\admin\RoleController;
-use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\admin\ProductController;
+
 
 
 Route::prefix('app')->middleware('auth')->group(function () {
 
-    Route::get('/', function () {
-        return view('admin.pages.beranda');
-    });
 
-
-
-    // Route::get('/beranda', function () {
-    //     return view('admin.pages.beranda');
-    // });
     Route::get('/artikel', function () {
         return view('admin.pages.artikel.list');
     });
@@ -36,23 +27,7 @@ Route::prefix('app')->middleware('auth')->group(function () {
         return view('admin.pages.artikel.form');
     });
 
-    // Route::resource('roles', RoleController::class)->name('app.roles');
-   // Route::resource('users', UserController::class);
-    // Route::resource('products', ProductController::class)->name('app.products');
 
-
-    // Route::controller(UserController::class)->group(function(){
-    //     Route::get('users','index')->name('app.users');
-    //     Route::get('users/draft','draft')->name('app.users.draft');
-    //     Route::get('users/create','create')->name('app.users.create');
-    //     Route::post('users','store')->name('app.users.store');
-    //     Route::get('users/{id}/edit','edit')->name('app.users.edit');
-    //     Route::put('users/{id}','update')->name('app.users.update');
-    //     Route::delete('users/{id}','destroy')->name('app.users.destroy');
-    //     Route::get('users/trash','trash')->name('app.users.trash');
-    //     Route::post('users/restore/{id}','restore')->name('app.users.restore');
-    //     Route::delete('users/delete/{id}','delete')->name('app.users.delete');
-    // });
 
     Route::controller(PengaturanControlller::class)->group(function(){
 
@@ -69,6 +44,7 @@ Route::prefix('app')->middleware('auth')->group(function () {
         Route::get('berita/create','create')->name('app.berita.create');
         Route::post('berita','store')->name('app.berita.store');
         Route::get('berita/{id}/edit','edit')->name('app.berita.edit');
+        Route::get('berita/{id}/detail','show')->name('app.berita.show');
         Route::put('berita/{id}','update')->name('app.berita.update');
         Route::delete('berita/{id}','destroy')->name('app.berita.destroy');
         Route::get('berita/trash','trash')->name('app.berita.trash');
@@ -76,6 +52,18 @@ Route::prefix('app')->middleware('auth')->group(function () {
         Route::delete('berita/delete/{id}','delete')->name('app.berita.delete');
     });
 
+    Route::controller(KategoriBeritaController::class)->group(function(){
+        Route::get('kategori','index')->name('app.kategori');
+        Route::get('kategori/draft','draft')->name('app.kategori.draft');
+        Route::get('kategori/create','create')->name('app.kategori.create');
+        Route::post('kategori','store')->name('app.kategori.store');
+        Route::get('kategori/{id}/edit','edit')->name('app.kategori.edit');
+        Route::put('kategori/{id}','update')->name('app.kategori.update');
+        Route::delete('kategori/{id}','destroy')->name('app.kategori.destroy');
+        Route::get('kategori/trash','trash')->name('app.kategori.trash');
+        Route::post('kategori/restore/{id}','restore')->name('app.kategori.restore');
+        Route::delete('kategori/delete/{id}','delete')->name('app.kategori.delete');
+    });
 
 
     Route::controller(SliderController::class)->group(function(){
@@ -95,18 +83,6 @@ Route::prefix('app')->middleware('auth')->group(function () {
 
 
 
-Route::controller(KategoriController::class)->group(function(){
-    Route::get('kategori','index')->name('app.kategori');
-    Route::get('kategori/draft','draft')->name('app.kategori.draft');
-    Route::get('kategori/create','create')->name('app.kategori.create');
-    Route::post('kategori','store')->name('app.kategori.store');
-    Route::get('kategori/{id}/edit','edit')->name('app.kategori.edit');
-    Route::put('kategori/{id}','update')->name('app.kategori.update');
-    Route::delete('kategori/{id}','destroy')->name('app.kategori.destroy');
-    Route::get('kategori/trash','trash')->name('app.kategori.trash');
-    Route::post('kategori/restore/{id}','restore')->name('app.kategori.restore');
-    Route::delete('kategori/delete/{id}','delete')->name('app.kategori.delete');
-});
 
 
 

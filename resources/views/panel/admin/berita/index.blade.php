@@ -41,9 +41,8 @@
                             <th>Judul</th>
                             <th>Konten</th>
                             <th>Kategori</th>
-                            <th>Status</th>
                             <th>Pengarang</th>
-                            <th class="text-center" width="280px">Opsi</th>
+                            <th class="text-center" width="210px">Opsi</th>
                         </tr>
                         @foreach ($data as  $berita)
                         <tr>
@@ -64,13 +63,13 @@
                                 {{ Str::limit($berita->body, 10) }}
                             </td>
                             <th> {{ $berita->kategori->name }} </th>
-                            <th> {{ $berita->status }} </th>
+
                             <th> {{ $berita->author->name }} </th>
                             <td class="text-center">
-                                <a class="btn btn-sm btn-light" href="">
+                                <a class="btn btn-sm btn-light" href="{{ route('app.berita.show',['id'=> $berita->slug]) }}">
                                     <i class="mdi mdi-eye text-dark"></i>
                                 </a>
-                                <a class="btn btn-sm btn-light" href="">
+                                <a class="btn btn-sm btn-light" href="{{ route('app.berita.edit',['id'=> $berita->slug]) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
                                 {!! Form::open(['method' => 'DELETE','route' => ['app.berita.destroy', $berita->id],'style'=>'display:inline']) !!}

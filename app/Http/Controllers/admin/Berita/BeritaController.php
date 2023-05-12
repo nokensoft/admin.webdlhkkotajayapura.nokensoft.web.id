@@ -37,7 +37,7 @@ class BeritaController extends Controller
 
     public function draft(){
 
-        $datas = Berita::where([
+        $data = Berita::where([
             ['title', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
@@ -52,13 +52,20 @@ class BeritaController extends Controller
         $datapublish = Berita::where('status', 'publish')->count();
 
 
-        return view('panel.admin.berita.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('panel.admin.berita.index',compact('data','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
 
 
     }
 
-    // CREATE
-    public function create()
+    public function trash(){
+        $datas = Berita::onlyTrashed()->paginate(10);
+        return view('panel.admin.berita.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+     }
+
+
+     // CREATE
+
+     public function create()
     {
         $kategori = KategoriBerita::pluck('name','id');
         return view('panel.admin.berita.create',compact('kategori'));
@@ -167,8 +174,25 @@ class BeritaController extends Controller
             }
     }
 
-    // DESTROY
-    public function destroy($id)
+
+    public function destroy($id) {
+        $data = Berita::findOrFail($id);
+        $data->delete();
+        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+        return redirect()->route('app.berita');
+    }
+
+    public function restore($id){
+        $data = Berita::onlyTrashed()->where('id',$id);
+        $data->restore();
+        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+        return redirect()->route('app.berita');
+
+
+     }
+
+    // delete
+    public function delete($id)
     {
         try {
             $berita = Berita::find($id);

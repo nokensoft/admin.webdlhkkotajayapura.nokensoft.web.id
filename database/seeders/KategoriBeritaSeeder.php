@@ -18,18 +18,22 @@ class KategoriBeritaSeeder extends Seeder
          KategoriBerita::create([
             'name'   => 'Informasi',
             'slug'   => 'informasi',
+            'status' => 'publish'
         ]);
          KategoriBerita::create([
             'name'   => 'Kesehatan',
             'slug'   => 'kesehatan',
+            'status' => 'publish'
         ]);
          KategoriBerita::create([
             'name'   => 'Penjelasan',
             'slug'   => 'penjelasan',
+            'status' => 'draft'
         ]);
          KategoriBerita::create([
             'name'   => 'Interpretatif',
             'slug'   => 'interpretatif',
+            'status' => 'draft'
         ]);
     }
 }
