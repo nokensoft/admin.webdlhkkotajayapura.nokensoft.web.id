@@ -101,6 +101,8 @@
     <script src="{{ asset('assets/frontend/assets/js/contact.form.js') }}"></script>
     <!-- main js -->
     <script src="{{ asset('assets/frontend/assets/js/main.js') }}"></script>
+
+    @include('sweetalert::alert')
 </body>
 
 </html>

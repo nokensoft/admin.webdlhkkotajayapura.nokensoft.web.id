@@ -8,7 +8,7 @@
                 </div>
                 <div class="faq-content">
                     <div class="accordion" id="accordionExample">
-                        <div class="accordion-item card">
+                        {{-- <div class="accordion-item card">
                             <div class="accordion-header card-header" id="headingOne">
                                 <button class="accordion-button card-link" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -22,23 +22,25 @@
                                     mattis, pulvinar dapibus leo ducimus qui blanditiis praesentium ducimus
                                     qui.</div>
                             </div>
-                        </div>
+                        </div> --}}
+
+                        @foreach ($faq as $f )
                         <div class="accordion-item card">
                             <div class="accordion-header card-header" id="headingTwo">
                                 <button class="card-link accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo">Does Educavo offer
-                                    free courses?</button>
+                                    aria-expanded="false" aria-controls="collapseTwo"> {{ $f->pertanyaan }} </button>
                             </div>
                             <div id="collapseTwo" class="accordion-collapse collapse"
                                 aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                <div class="accordion-body card-body">Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
-                                    mattis, pulvinar dapibus leo ducimus qui blanditiis praesentium ducimus
-                                    qui.</div>
+                                <div class="accordion-body card-body">
+                                   {!! $f->jawaban !!}
+                                </div>
                             </div>
                         </div>
-                        <div class="accordion-item card">
+                        @endforeach
+
+                        {{-- <div class="accordion-item card">
                             <div class="accordion-header card-header" id="headingThree">
                                 <button class="card-link accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseThree"
@@ -52,7 +54,7 @@
                                     mattis, pulvinar dapibus leo ducimus qui blanditiis praesentium ducimus
                                     qui.</div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -62,28 +64,43 @@
                 <div class="sec-title3">
                     <h2 class="title white-color">Ajukan Pertanyaan Anda</h2>
                 </div>
-                <form id="contact-form" method="post" action="mailer.php">
+                <form  method="post" action="{{ route('app.pengajuan.store') }}">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6 mb-30 col-md-12">
-                            <input class="from-control" type="text" id="name" name="name" placeholder="Nama Lengkap"
-                                required="">
+                            <input class="from-control" type="text" required  name="nama" placeholder="Nama Lengkap">
+                                @error('nama')
+                                <p class="form-text text-white text-xs mt-1"><small>{{$message}}</small></p>
+                            @enderror
                         </div>
                         <div class="col-lg-6 mb-30 col-md-12">
-                            <input class="from-control" type="text" id="email" name="email"
-                                placeholder="Alamat Email" required="">
+                            <input class="from-control" type="email" name="email" required
+                                placeholder="Alamat Email" >
+                                @error('email')
+                                    <p class="form-text text-white text-xs mt-1"><small>{{$message}}</small></p>
+                                 @enderror
                         </div>
                         <div class="col-lg-6 mb-30 col-md-12">
-                            <input class="from-control" type="text" id="phone" name="Nomor HP"
-                                placeholder="Phone" required="">
+                            <input class="from-control" type="text" name="no_telf" required
+                                placeholder="Phone" >
+                                @error('no_telf')
+                                    <p class="form-text text-white text-xs mt-1"><small>{{$message}}</small></p>
+                                 @enderror
                         </div>
                         <div class="col-lg-6 mb-30 col-md-12">
-                            <input class="from-control" type="text" id="subject" name="subject"
-                                placeholder="Judul Topik" required="">
+                            <input class="from-control" type="text"  name="judul_topik" required
+                                placeholder="Judul Topik" >
+                                @error('judul_topik')
+                                    <p class="form-text text-white text-xs mt-1"><small>{{$message}}</small></p>
+                                 @enderror
                         </div>
 
                         <div class="col-lg-12 mb-35">
-                            <textarea class="from-control" id="message" name="message"
-                                placeholder="Isi rincian pertanyaan Anda di sini..." required=""></textarea>
+                            <textarea class="from-control"  name="keterangan"
+                                placeholder="Isi rincian pertanyaan Anda di sini..." required ></textarea>
+                                @error('keterangan')
+                                    <p class="form-text text-white text-xs mt-1"><small>{{$message}}</small></p>
+                                 @enderror
                         </div>
                     </div>
                     <div class="form-btn">

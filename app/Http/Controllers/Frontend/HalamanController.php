@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Halaman;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\PengajuanPertanyaan;
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class HalamanController extends Controller
 {
@@ -16,4 +20,6 @@ class HalamanController extends Controller
             'name' => $slug
         ]);
     }
+
+
 }

@@ -15,6 +15,7 @@ use App\Http\Controllers\admin\VideoController;
 use App\Http\Controllers\admin\SistemController;
 use App\Http\Controllers\admin\PersonController;
 use App\Http\Controllers\admin\RoleController;
+use App\Http\Controllers\PengajuanPertanyaanController;
 
 
 
@@ -36,6 +37,17 @@ Route::prefix('app')->middleware('auth')->group(function () {
         Route::get('pengaturan/{id}/detail','show')->name('app.pengaturan.show');
         Route::get('pengaturan/{id}/ubah','edit')->name('app.pengaturan.edit');
         Route::put('pengaturan/update/{id}','update')->name('app.pengaturan.update');
+
+    });
+
+    Route::controller(PengajuanPertanyaanController::class)->group(function(){
+
+        Route::get('pengajuan','index')->name('app.pengajuan');
+        Route::get('pengajuan/{id}/detail','show')->name('app.pengajuan.show');
+        Route::delete('pengajuan/{id}','destroy')->name('app.pengajuan.destroy');
+        Route::get('pengajuan/trash','trash')->name('app.pengajuan.trash');
+        Route::post('pengajuan/restore/{id}','restore')->name('app.pengajuan.restore');
+        Route::delete('pengajuan/delete/{id}','delete')->name('app.pengajuan.delete');
 
     });
 

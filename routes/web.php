@@ -1,12 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\Berita\BeritaController;
-use App\Http\Controllers\Admin\Berita\KategoriBeritaController;
-use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\Frontend\HalamanController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PengajuanPertanyaanController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -35,6 +33,9 @@ Route::get('/', function () {
 });
 
 Route::get('/halaman/{method}', [HalamanController::class, 'index'])->name('halaman.method');
+Route::post('/pengajuan', [PengajuanPertanyaanController::class, 'pengajuanPertanyaanStore'])->name('app.pengajuan.store');
+
+
 
 Auth::routes([
     'register' => false

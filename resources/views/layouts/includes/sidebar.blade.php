@@ -87,6 +87,9 @@
                             <li>
                                 <a href="{{ url('/app/person')}}">SDM</a>
                             </li>
+                            <li>
+                                <a href="{{ route('app.faq') }}">FAQ</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -145,24 +148,17 @@
                         <span> Mengelola Pengguna</span>
                     </a>
                 </li>
-
-
                 <li>
-                    <a href="#pengaturan" data-bs-toggle="collapse">
-                        <i data-feather="settings"></i>
-                        <span> Mengelola CMS</span>
-                        <span class="menu-arrow"></span>
+                    <a href="{{ route('app.pengajuan') }}">
+                        <i data-feather="message-square"></i>
+                        <span> Pengajuan Pertanyaan</span>
                     </a>
-                    <div class="collapse" id="pengaturan">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{ route('app.pengaturan') }}">Pengaturan</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('app.faq') }}">FAQ</a>
-                            </li>
-                        </ul>
-                    </div>
+                </li>
+                <li>
+                    <a href="{{route('app.pengaturan')}}">
+                        <i data-feather="settings"></i>
+                        <span> Pengaturan</span>
+                    </a>
                 </li>
 
             </ul>
