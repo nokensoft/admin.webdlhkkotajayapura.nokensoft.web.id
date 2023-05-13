@@ -17,16 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('subtitle')->nullable();
-            $table->string('image');
-            $table->string('status');
+            $table->string('image')->nullable();
+            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
             $table->string('link')->nullable();
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
-            $table->string('deleted_by')->nullable();
-           
-
-            $table->timestamps();
+            $table->string('slug')->nullable();
+            // $table->string('created_by')->nullable();
+            // $table->string('updated_by')->nullable();
+            // $table->string('deleted_by')->nullable();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

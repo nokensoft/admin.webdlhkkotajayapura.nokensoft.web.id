@@ -108,11 +108,6 @@ Route::prefix('app')->middleware('auth')->group(function () {
 
 
 
-
-
-
-
-
 Route::controller(ArtikelController::class)->group(function(){
     Route::get('artikel','index')->name('app.artikel');
     Route::get('artikel/draft','draft')->name('app.artikel.draft');
@@ -157,8 +152,11 @@ Route::controller(HalamanController::class)->group(function(){
 Route::controller(BannerController::class)->group(function(){
     Route::get('banner','index')->name('app.banner');
     Route::get('banner/draft','draft')->name('app.banner.draft');
-    Route::get('banner/create','create')->name('app.banner.create');
-    Route::post('banner','store')->name('app.banner.store');
+
+    // Route::get('banner/create','create')->name('app.banner.create');
+    // Route::post('banner','store')->name('app.banner.store');
+
+    Route::get('banner/{id}/detail','show')->name('app.banner.show');
     Route::get('banner/{id}/edit','edit')->name('app.banner.edit');
     Route::put('banner/{id}','update')->name('app.banner.update');
     Route::delete('banner/{id}','destroy')->name('app.banner.destroy');
