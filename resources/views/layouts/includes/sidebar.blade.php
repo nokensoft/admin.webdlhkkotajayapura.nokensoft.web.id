@@ -146,11 +146,23 @@
                     </a>
                 </li>
 
+
                 <li>
-                    <a href="{{ route('app.pengaturan') }}">
+                    <a href="#pengaturan" data-bs-toggle="collapse">
                         <i data-feather="settings"></i>
-                        <span> Pengaturan</span>
+                        <span> Mengelola CMS</span>
+                        <span class="menu-arrow"></span>
                     </a>
+                    <div class="collapse" id="pengaturan">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('app.pengaturan') }}">Pengaturan</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('app.faq') }}">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
 
             </ul>

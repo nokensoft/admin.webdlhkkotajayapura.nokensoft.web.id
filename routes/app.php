@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\Admin\Berita\BeritaController;
 use App\Http\Controllers\Admin\Berita\KategoriBeritaController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\admin\FotoController;
 use App\Http\Controllers\Admin\PengaturanControlller;
 use App\Http\Controllers\admin\VideoController;
@@ -36,6 +37,20 @@ Route::prefix('app')->middleware('auth')->group(function () {
         Route::get('pengaturan/{id}/ubah','edit')->name('app.pengaturan.edit');
         Route::put('pengaturan/update/{id}','update')->name('app.pengaturan.update');
 
+    });
+
+    Route::controller(FaqController::class)->group(function(){
+        Route::get('faq','index')->name('app.faq');
+        Route::get('faq/draft','draft')->name('app.faq.draft');
+        Route::get('faq/create','create')->name('app.berita.create');
+        Route::post('faq','store')->name('app.faq.store');
+        Route::get('faq/{id}/edit','edit')->name('app.faq.edit');
+        Route::get('faq/{id}/detail','show')->name('app.faq.show');
+        Route::put('faq/update/{id}','update')->name('app.faq.update');
+        Route::delete('faq/{id}','destroy')->name('app.faq.destroy');
+        Route::get('faq/trash','trash')->name('app.faq.trash');
+        Route::post('faq/restore/{id}','restore')->name('app.faq.restore');
+        Route::delete('faq/delete/{id}','delete')->name('app.faq.delete');
     });
 
     Route::controller(BeritaController::class)->group(function(){

@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('pertanyaan');
-            $table->string('jawaban');
-            $table->string('deskripsi');
-            $table->string('katakunci');
-            $table->string('slug');
-            $table->string('status');
+            $table->string('pertanyaan')->nullable();
+            $table->longText('jawaban')->nullable();
+            // $table->string('deskripsi')->nullable();
+            $table->string('slug')->nullable();
+            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

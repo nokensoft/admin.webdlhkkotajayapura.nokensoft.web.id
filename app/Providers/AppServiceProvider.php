@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Faq;
 use App\Models\Halaman;
 use App\Models\Pengaturan;
 use Illuminate\Pagination\Paginator;
@@ -38,10 +39,12 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         $data = Pengaturan::first();
-        $halaman = Halaman::get();
+        $halaman = Halaman::where('status','Publish')->get();
+        $faq = Faq::where('status','Publish')->get();
         view()->share([
             'pengaturan' => $data,
-            'halaman' => $halaman
+            'halaman' => $halaman,
+            'faq'   => $faq
         ]);
     }
 }
