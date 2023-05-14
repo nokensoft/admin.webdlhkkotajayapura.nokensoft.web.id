@@ -34,7 +34,8 @@
                     <!-- button youtube channel -->
 
                     <!-- button play -->
-                    <a href="https://www.youtube.com/results?search_query=dinas+lingkungan+hidup+kota+jayapura" class="btn btn-lg btn-outline-success mt-3" target="_blank">
+                    <a href="{{ $pengaturan->youtube }}"
+                    class="btn btn-lg btn-outline-success mt-3" target="_blank">
                         <i class="fa-solid fa-play-circle me-2"></i>Tampilkan Channel Youtube
                     </a>
                 </div>

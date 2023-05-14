@@ -1,103 +1,103 @@
 @extends('layouts.base_panel')
 @section('content')
-    <!-- start page content wrapper-->
-      <!-- start page title -->
-	  <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                            <li class="breadcrumb-item active">kategori</li>
-                                        </ol>
-                                    </div>
-                                    <h4 class="page-title">kategori</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end page title -->
+<!-- start page content wrapper-->
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
+                    <li class="breadcrumb-item active">kategori</li>
+                </ol>
+            </div>
+            <h4 class="page-title">kategori</h4>
+        </div>
+    </div>
+</div>
+<!-- end page title -->
 
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row mb-2">
-                                            <div class="col-sm-4">
-                                                <a href="{{ url('app/kategori') }}" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Kembali</a>
-                                            </div>
-                                            <div class="col-sm-8">
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-sm-4">
+                        <a href="{{ url('app/kategori') }}" class="btn btn-danger mb-2"><i
+                                class="mdi mdi-plus-circle me-2"></i> Kembali</a>
+                    </div>
+                    <div class="col-sm-8">
 
-                                            </div><!-- end col-->
-                                        </div>
+                    </div><!-- end col-->
+                </div>
 
-                                        <div class="table-responsive">
-<!--
+                <div class="table-responsive">
+                    <!--
                                                 @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif -->
 
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>No</th>
 
-            <th>Title</th>
+                            <th>Title</th>
 
-            <th width="280px">Action</th>
-        </tr>
-        @foreach ($datas as $data)
-        <tr>
-            <td>{{ ++$i }}</td>
+                            <th width="280px">Action</th>
+                        </tr>
+                        @foreach ($datas as $data)
+                        <tr>
+                            <td>{{ ++$i }}</td>
 
-            <td>{{ $data->title }}</td>
+                            <td>{{ $data->title }}</td>
 
-            <td>
-            <form action="{{ url('app/kategori/restore',$data->id) }}" method="POST">
-        @csrf
-        <button type="submit" class="btn btn-success">Restore</button>
-        </form>
-                <form action="{{ url('app/kategori/delete',$data->id) }}" method="POST">
-
-
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-
-    </table>
+                            <td>
+                                <form action="{{ url('app/kategori/restore',$data->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Restore</button>
+                                </form>
+                                <form action="{{ url('app/kategori/delete',$data->id) }}" method="POST">
 
 
-                                        </div>
-                                        {!! $datas->links() !!}
-                                    </div> <!-- end card-body-->
+                                    @csrf
+                                    @method('DELETE')
 
-                                </div> <!-- end card-->
-                            </div> <!-- end col -->
+                                    <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip"
+                                        title='Delete'>Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
 
-                            </div>
-                        </div>
-
-                        <!-- end row -->
-
-  <!--end wrapper-->
-
-  @stop
+                    </table>
 
 
+                </div>
+                {!! $datas->links() !!}
+            </div> <!-- end card-body-->
 
-  @push('script-footer')
+        </div> <!-- end card-->
+    </div> <!-- end col -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</div>
+
+<!-- end row -->
+
+<!--end wrapper-->
+
+@stop
+
+
+
+@push('script-footer')
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
-
-     $('.show_confirm').click(function(event) {
+    $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           event.preventDefault();
           swal.fire({
@@ -123,4 +123,4 @@
 
 </script>
 
-  @endpush
+@endpush
