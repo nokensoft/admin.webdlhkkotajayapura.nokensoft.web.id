@@ -10,8 +10,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                <li class="breadcrumb-item">Manage New</li>
-                                <li class="breadcrumb-item"><a href="{{ route('berita.index') }}"></a>Berita</li>
+                                <li class="breadcrumb-item"><a href="{{ route('app.berita') }}"></a>Berita</li>
                                 <li class="breadcrumb-item active">Detail</li>
                             </ol>
                         </div>
@@ -45,6 +44,13 @@
                                             <label for="status" class="form-label">Status</label>
                                             {!! Form::text('status',$berita->status,['readonly','class'=>'form-control']) !!}
                                         </div>
+                                        @if($berita->status == 'revisi')
+
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Keterangan Revisi</label>
+                                            <textarea name="body" class="form-control" rows="4" readonly>{{ $berita->ket }}</textarea>
+                                        </div>
+                                        @endif
                                     </div> <!-- end col -->
 
                                     <div class="col-md-4">
@@ -69,9 +75,16 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="card-box">
+                                            @if(Auth::user()->hasRole('author'))
                                             <a href="{{ route('app.berita.edit',['id'=> $berita->slug]) }}" class="btn btn-warning">
                                                 <i class="mdi mdi-pencil mr-1"></i>Ubah
                                             </a>
+                                            @endif
+                                            @if(Auth::user()->hasRole('supervisor'))
+                                            <a href="{{ route('app.berita.editStatus',['id'=> $berita->slug]) }}" class="btn btn-warning">
+                                                <i class="fe-edit mr-1"></i> Ubah Status
+                                            </a>
+                                            @endif
                                             <a href="{{ route('app.berita') }}" class="btn btn-light">
                                                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                             </a>

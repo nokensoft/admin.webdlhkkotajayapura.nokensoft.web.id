@@ -21,7 +21,7 @@
             <div class="card-body">
 
                 <!-- Left sidebar -->
-                @include('panel.admin.berita.menu')
+                @include('panel.author.berita.menu')
                 <!-- End Left sidebar -->
 
 
@@ -66,21 +66,23 @@
 
                             <th> {{ $berita->author->name }} </th>
                             <td class="text-center">
+
                                 <a class="btn btn-sm btn-light" href="{{ route('app.berita.show',['id'=> $berita->slug]) }}">
                                     <i class="mdi mdi-eye text-dark"></i>
                                 </a>
+                                @if(Auth::user()->hasRole('author'))
                                 <a class="btn btn-sm btn-light" href="{{ route('app.berita.edit',['id'=> $berita->slug]) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
                                 {!! Form::open(['method' => 'DELETE','route' => ['app.berita.destroy', $berita->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Hapus', ['class' => 'btn btn-sm btn-danger']) !!}
                                  {!! Form::close() !!}
-
-
-
-                                {{-- <a href="#" class="btn btn-light" data-toggle="modal" data-target="#modal_delete_{{$berita->id}}">
-                                    <i class="mdi mdi-trash-can text-danger"></i>
-                                </a> --}}
+                                @endif
+                                @if(Auth::user()->hasRole('supervisor'))
+                                    <a class="btn btn-sm btn-light" href="{{ route('app.berita.editStatus',['id'=> $berita->slug]) }}">
+                                        <i class="fe-edit"></i>
+                                    </a>
+                                @endif
 
                             </td>
                         </tr>

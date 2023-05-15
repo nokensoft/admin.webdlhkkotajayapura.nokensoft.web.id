@@ -218,6 +218,12 @@
                         <span> Berita </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('app.kategori') }}">
+                        <i data-feather="coffee"></i>
+                        <span> Kategori </span>
+                    </a>
+                </li>
             </ul>
 
         </div>
@@ -239,6 +245,7 @@
                         <span> Berita </span>
                     </a>
                 </li>
+
             </ul>
         </div>
         <!-- End Sidebar -->

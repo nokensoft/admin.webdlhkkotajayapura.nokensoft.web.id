@@ -10,11 +10,11 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('berita.index') }}"></a>Mengelola Berita</li>
-                                <li class="breadcrumb-item active">Sunting</li>
+                                <li class="breadcrumb-item"><a href="{{ route('app.berita') }}"></a>Berita</li>
+                                <li class="breadcrumb-item active">Ubah</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Sunting Berita </h4>
+                        <h4 class="page-title">Ubah Berita </h4>
                     </div>
                 </div>
             </div>
@@ -58,15 +58,6 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
-                                            <select name="status" class="form-control">
-                                                <option value="{{ $berita->status }}" selected>{{ $berita->status }}</option>
-                                                <option value="draft">Draft</option>
-                                                <option value="publish">Publish</option>
-
-                                            </select>
-                                        </div>
                                     </div> <!-- end col -->
 
                                     <div class="col-md-4">
@@ -79,7 +70,7 @@
                                                     alt="Profile Picture" class="img-thumbnail w-50">
                                                     @else
                                                     <img src="{{asset('file/berita')}}/{{ $berita->image }}" id="preview-image"
-                                                    alt="Profile Picture" class="img-thumbnail w-50">
+                                                    alt="Profile Picture" class="img-thumbnail w-80">
                                                     @endif
                                                 </div>
 

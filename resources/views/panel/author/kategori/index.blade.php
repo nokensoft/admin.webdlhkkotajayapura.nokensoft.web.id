@@ -6,8 +6,7 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item">Manage New</li>
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
                     <li class="breadcrumb-item active">Kategori</li>
                 </ol>
             </div>
@@ -21,7 +20,7 @@
         <div class="card">
             <div class="card-body">
                  <!-- Left sidebar -->
-                 @include('panel.admin.berita.kategori.menu')
+                 @include('panel.author.kategori.menu')
                  <!-- End Left sidebar -->
 
 
@@ -39,13 +38,16 @@
                             <th class="text-center">No</th>
                             <th>Nama Kategori</th>
                             <th>Slug</th>
+                            @if(Auth::user()->hasRole('author'))
                             <th class="text-center">Opsi</th>
+                            @endif
                         </tr>
                         @foreach ($datas as $kategori)
                         <tr>
                             <td class="text-center">{{ ++$i }}</td>
                             <td>{{ $kategori->name }}</td>
                             <td>{{ $kategori->slug }}</td>
+                            @if(Auth::user()->hasRole('author'))
                             <td class="text-center">
                                 <a class="btn btn-light" href="{{ route('app.kategori.edit',$kategori->slug) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
@@ -56,8 +58,8 @@
                                 {{-- <a href="#" class="btn btn-light" data-toggle="modal" data-target="#modal_delete_{{$kategori->id}}">
                                     <i class="mdi mdi-trash-can text-danger"></i>
                                 </a> --}}
-
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                         </table>

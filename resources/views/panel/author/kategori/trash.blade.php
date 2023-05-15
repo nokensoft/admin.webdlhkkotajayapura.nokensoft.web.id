@@ -7,12 +7,12 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                    <li class="breadcrumb-item active">kategori</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item">kategori</li>
+                    <li class="breadcrumb-item active">Sampah</li>
                 </ol>
             </div>
-            <h4 class="page-title">Trash</h4>
+            <h4 class="page-title">Sampah</h4>
         </div>
     </div>
 </div>
@@ -37,9 +37,7 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
-
                             <th>Nama Kategoru</th>
-
                             <th width="280px">Opsi</th>
                         </tr>
                         @foreach ($datas as $data)

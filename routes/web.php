@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    $berita = Berita::orderBy('id','desc')->paginate(6);
+    $berita = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
     return  view('frontend.index',compact('berita'));
 });
 
@@ -45,9 +45,9 @@ Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function 
 
         Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
-        Route::resource('roles', RoleController::class);
+        // Route::resource('roles', RoleController::class);
         // Route::resource('users', UserController::class);
-        Route::resource('products', ProductController::class);
+        // Route::resource('products', ProductController::class);
 
         // Route::resource('kategori-berita', KategoriBeritaController::class)->except('show');
         // Route::resource('berita', BeritaController::class);

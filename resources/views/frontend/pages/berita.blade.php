@@ -17,14 +17,12 @@
 
 
         @foreach ($berita as $data )
-
-
         <div class="blog-item">
             <div class="image-part">
                 @if(!$data->image)
                 <img src="{{ asset('assets/frontend/assets/images/dlhk/berita/01.jpg') }}" alt="">
                 @else
-
+                <img src="{{ asset('file/berita') }}/{{ $data->image }}" alt="">
                 @endif
             </div>
             <div class="blog-content">

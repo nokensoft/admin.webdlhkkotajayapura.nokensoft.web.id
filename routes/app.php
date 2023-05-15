@@ -6,8 +6,6 @@ use App\Http\Controllers\admin\GambarArtikelController;
 use App\Http\Controllers\admin\HalamanController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\AlbumController;
-use App\Http\Controllers\Admin\Berita\BeritaController;
-use App\Http\Controllers\Admin\Berita\KategoriBeritaController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\admin\FotoController;
 use App\Http\Controllers\Admin\PengaturanControlller;
@@ -15,6 +13,8 @@ use App\Http\Controllers\admin\VideoController;
 use App\Http\Controllers\admin\SistemController;
 use App\Http\Controllers\admin\PersonController;
 use App\Http\Controllers\admin\RoleController;
+use App\Http\Controllers\Author\BeritaController as AuthorBeritaController;
+use App\Http\Controllers\Author\KategoriController;
 use App\Http\Controllers\PengajuanPertanyaanController;
 
 
@@ -65,31 +65,36 @@ Route::prefix('app')->middleware('auth')->group(function () {
         Route::delete('faq/delete/{id}','delete')->name('app.faq.delete');
     });
 
-    Route::controller(BeritaController::class)->group(function(){
+    Route::controller(AuthorBeritaController::class)->group(function(){
         Route::get('berita','index')->name('app.berita');
         Route::get('berita/draft','draft')->name('app.berita.draft');
-        Route::get('berita/create','create')->name('app.berita.create');
-        Route::post('berita','store')->name('app.berita.store');
-        Route::get('berita/{id}/edit','edit')->name('app.berita.edit');
+        Route::get('berita/revisi','revisi')->name('app.berita.revisi');
+        Route::get('berita/create','create')->name('app.berita.create')->middleware(['role:author']);
+        Route::post('berita','store')->name('app.berita.store')->middleware(['role:author']);
+        Route::get('berita/{id}/edit','edit')->name('app.berita.edit')->middleware(['role:author']);
         Route::get('berita/{id}/detail','show')->name('app.berita.show');
-        Route::put('berita/{id}','update')->name('app.berita.update');
-        Route::delete('berita/{id}','destroy')->name('app.berita.destroy');
-        Route::get('berita/trash','trash')->name('app.berita.trash');
-        Route::post('berita/restore/{id}','restore')->name('app.berita.restore');
-        Route::delete('berita/delete/{id}','delete')->name('app.berita.delete');
+        Route::put('berita/{id}','update')->name('app.berita.update')->middleware(['role:author']);
+        Route::delete('berita/{id}','destroy')->name('app.berita.destroy')->middleware(['role:author']);
+        Route::get('berita/trash','trash')->name('app.berita.trash')->middleware(['role:author']);
+        Route::post('berita/restore/{id}','restore')->name('app.berita.restore')->middleware(['role:author']);
+        Route::delete('berita/delete/{id}','delete')->name('app.berita.delete')->middleware(['role:author']);
+
+        Route::put('berita/status/update/{id}','updateStatus')->name('app.berita.updateStatus')->middleware(['role:supervisor']);
+        Route::get('berita/status/{id}','editStatus')->name('app.berita.editStatus')->middleware(['role:supervisor']);
+
     });
 
-    Route::controller(KategoriBeritaController::class)->group(function(){
+    Route::controller(KategoriController::class)->group(function(){
         Route::get('kategori','index')->name('app.kategori');
         Route::get('kategori/draft','draft')->name('app.kategori.draft');
-        Route::get('kategori/create','create')->name('app.kategori.create');
-        Route::post('kategori','store')->name('app.kategori.store');
-        Route::get('kategori/{id}/edit','edit')->name('app.kategori.edit');
-        Route::put('kategori/{id}','update')->name('app.kategori.update');
-        Route::delete('kategori/{id}','destroy')->name('app.kategori.destroy');
-        Route::get('kategori/trash','trash')->name('app.kategori.trash');
-        Route::post('kategori/restore/{id}','restore')->name('app.kategori.restore');
-        Route::delete('kategori/delete/{id}','delete')->name('app.kategori.delete');
+        Route::get('kategori/create','create')->name('app.kategori.create')->middleware(['role:author']);
+        Route::post('kategori','store')->name('app.kategori.store')->middleware(['role:author']);
+        Route::get('kategori/{id}/edit','edit')->name('app.kategori.edit')->middleware(['role:author']);
+        Route::put('kategori/{id}','update')->name('app.kategori.update')->middleware(['role:author']);
+        Route::delete('kategori/{id}','destroy')->name('app.kategori.destroy')->middleware(['role:author']);
+        Route::get('kategori/trash','trash')->name('app.kategori.trash')->middleware(['role:author']);
+        Route::post('kategori/restore/{id}','restore')->name('app.kategori.restore')->middleware(['role:author']);
+        Route::delete('kategori/delete/{id}','delete')->name('app.kategori.delete')->middleware(['role:author']);
     });
 
 

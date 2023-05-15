@@ -10,7 +10,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('berita.index') }}"></a>Mengelola Berita</li>
+                                <li class="breadcrumb-item"><a href="{{ route('app.berita') }}"></a>Berita</li>
                                 <li class="breadcrumb-item active">Tambah</li>
                             </ol>
                         </div>
@@ -35,7 +35,7 @@
                    <div class="col-lg-12">
                         <div class="card-body">
                             <h1></h1>
-                            <form action="{{route('berita.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('app.berita.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="row">
@@ -53,13 +53,6 @@
                                             <label for="role_id" class="form-label">Kategori <span class="text-danger">*</span></label>
                                             {!! Form::select('category_id',$kategori,[],['required','id'=>'category_id','class'=>'form-control']) !!}
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
-                                            <select name="status" class="form-control">
-                                                <option value="draft" selected>Draft</option>
-                                                <option value="publish">Publish</option>
-                                            </select>
-                                        </div>
                                     </div> <!-- end col -->
 
                                     <div class="col-md-4">
@@ -68,7 +61,7 @@
                                                 <label for="pic">Gambar <span class="text-danger">*</span></label>
                                                 <div class="d-block mb-3">
                                                     <img src="{{asset('assets/admin/assets/images/upload.png')}}" id="preview-image"
-                                                    alt="Profile Picture" class="img-thumbnail w-50">
+                                                    alt="Profile Picture" class="img-thumbnail w-80">
                                                 </div>
 
                                                 <div class="input-group">
@@ -90,7 +83,7 @@
                                     <div class="col">
                                         <div class="card-box">
                                             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                            <a href="{{ route('berita.index') }}" class="btn btn-light">
+                                            <a href="{{ route('app.berita') }}" class="btn btn-light">
                                                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                             </a>
                                         </div>

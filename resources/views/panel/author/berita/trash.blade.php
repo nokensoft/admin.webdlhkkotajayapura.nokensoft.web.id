@@ -7,8 +7,7 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dasbor</a></li>
                     <li class="breadcrumb-item">Berita</li>
                     <li class="breadcrumb-item active">Trash</li>
                 </ol>

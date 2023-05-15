@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->mediumText('body')->nullable();
             $table->string('image')->nullable();
-            $table->enum('status',['publish','draft'])->default('publish')->nullable();
+            $table->enum('status',['publish','draft','revisi'])->default('draft')->nullable();
+            $table->string('ket')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('kategori_beritas')->onUpdate('cascade')->onDelete('cascade');

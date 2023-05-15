@@ -16,28 +16,25 @@ class BeritaSeeder extends Seeder
     public function run()
     {
         Berita::create([
-            'user_id'   => 1,
+            'user_id'   => 3,
             'category_id'   => 1,
             'title'   => 'What is Lorem Ipsum',
             'slug'   => 'what-is-lorem-ipsum',
             'body'   => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
-            'status'   => 'publish',
         ]);
         Berita::create([
-            'user_id'   => 2,
+            'user_id'   => 3,
             'category_id'   => 2,
             'title'   => 'Where does it come from',
             'slug'   => 'where-does-it-come-from',
             'body'   => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
-            'status'   => 'draft',
         ]);
         Berita::create([
-            'user_id'   => 1,
+            'user_id'   => 3,
             'category_id'   => 2,
             'title'   => 'Where does it come from',
             'slug'   => 'where-does-it-come-from',
             'body'   => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
-            'status'   => 'draft',
         ]);
         Berita::create([
             'user_id'   => 3,
@@ -45,7 +42,6 @@ class BeritaSeeder extends Seeder
             'title'   => 'Why do we use it',
             'slug'   => 'why-do-we-use-it',
             'body'   => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
-            'status'   => 'publish',
         ]);
     }
 }
