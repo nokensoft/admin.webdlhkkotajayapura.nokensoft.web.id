@@ -189,7 +189,7 @@
                                 <a href="{{ route('kategori-berita.index') }}">Kategori</a>
                             </li>
                             <li>
-                                <a href="{{ route('berita.index') }}">Berita</a>
+                                <a href="{{ route('app.berita') }}">Berita</a>
                             </li>
                         </ul>
                     </div>
@@ -213,7 +213,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('berita.index') }}">
+                    <a href="{{ route('app.berita') }}">
                         <i data-feather="coffee"></i>
                         <span> Berita </span>
                     </a>
@@ -234,7 +234,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('berita.index') }}">
+                    <a href="{{ route('app.berita') }}">
                         <i data-feather="coffee"></i>
                         <span> Berita </span>
                     </a>

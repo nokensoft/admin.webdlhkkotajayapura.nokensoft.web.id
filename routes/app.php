@@ -54,7 +54,7 @@ Route::prefix('app')->middleware('auth')->group(function () {
     Route::controller(FaqController::class)->group(function(){
         Route::get('faq','index')->name('app.faq');
         Route::get('faq/draft','draft')->name('app.faq.draft');
-        Route::get('faq/create','create')->name('app.berita.create');
+        Route::get('faq/create','create')->name('app.faq.create');
         Route::post('faq','store')->name('app.faq.store');
         Route::get('faq/{id}/edit','edit')->name('app.faq.edit');
         Route::get('faq/{id}/detail','show')->name('app.faq.show');
