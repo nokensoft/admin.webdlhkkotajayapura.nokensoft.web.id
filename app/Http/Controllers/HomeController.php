@@ -35,7 +35,7 @@ class HomeController extends Controller
         } elseif(Auth::user()->hasRole('editor')){
             return view('panel.dashboard');
         }
-        elseif(Auth::user()->hasRole('verifikator')){
+        elseif(Auth::user()->hasRole('supervisor')){
             return view('panel.dashboard');
         }
     }

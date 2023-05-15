@@ -222,7 +222,7 @@
 
         </div>
         <!-- End Sidebar -->
-        @elseif (Auth::user()->hasRole('verifikator'))
+        @elseif (Auth::user()->hasRole('supervisor'))
          <!--- Sidemenu -->
          <div id="sidebar-menu">
             <ul id="side-menu">

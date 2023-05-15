@@ -103,7 +103,7 @@
 
     @elseif (Auth::user()->hasRole('author'))
 
-    @elseif (Auth::user()->hasRole('verifikator'))
+    @elseif (Auth::user()->hasRole('supervisor'))
 
 
     @endif

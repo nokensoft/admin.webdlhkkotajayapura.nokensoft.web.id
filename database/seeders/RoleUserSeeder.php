@@ -40,11 +40,11 @@ class RoleUserSeeder extends Seeder
             'display_name'      => 'Author',
         ]);
 
-        $verifikatorRole = Role::create(
+        $supervisorRole = Role::create(
             [
             'guard_name'        => 'web',
-            'name'              => 'verifikator',
-            'display_name'      => 'Verifikator',
+            'name'              => 'supervisor',
+            'display_name'      => 'Supervisor',
         ]);
 
         // ADMIN
@@ -74,14 +74,14 @@ class RoleUserSeeder extends Seeder
         ]);
         $author->assignRole($authorRole);
 
-        // verifikator
-        $author = User::create([
-            'name'              => 'Verifikator',
-            'slug'              => 'verifikator',
-            'email'             => 'verifikator@demo.id',
-            'password'          => bcrypt('verifikator@demo.id')
+        // supervisor
+        $supervisor = User::create([
+            'name'              => 'Supervisor',
+            'slug'              => 'supervisor',
+            'email'             => 'supervisor@demo.id',
+            'password'          => bcrypt('supervisor@demo.id')
         ]);
-        $author->assignRole($authorRole);
+        $supervisor->assignRole($supervisorRole);
 
 
 
