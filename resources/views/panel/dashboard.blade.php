@@ -103,6 +103,8 @@
 
     @elseif (Auth::user()->hasRole('author'))
 
+    @elseif (Auth::user()->hasRole('verifikator'))
+
 
     @endif
   <!--end wrapper-->

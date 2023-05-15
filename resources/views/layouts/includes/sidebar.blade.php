@@ -222,6 +222,26 @@
 
         </div>
         <!-- End Sidebar -->
+        @elseif (Auth::user()->hasRole('verifikator'))
+         <!--- Sidemenu -->
+         <div id="sidebar-menu">
+            <ul id="side-menu">
+                <li>
+                    <a href="{{route('dashboard')}}">
+                        <i data-feather="calendar"></i>
+                        <span> Dasbor </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('berita.index') }}">
+                        <i data-feather="coffee"></i>
+                        <span> Berita </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- End Sidebar -->
         @endif
 
 
