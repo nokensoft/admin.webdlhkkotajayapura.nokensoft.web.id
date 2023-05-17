@@ -51,8 +51,8 @@ class RoleUserSeeder extends Seeder
         $admin = User::create([
             'name'              => 'Admin',
             'slug'              => 'admin',
-            'email'             => 'admin@demo.id',
-            'password'          => bcrypt('admin@demo.id')
+            'email'             => 'admin.dlhk@jayapurakab.go.id',
+            'password'          => bcrypt('admin.dlhk@jayapurakab.go.id')
         ]);
         $admin->assignRole($adminRole);
 
@@ -60,8 +60,8 @@ class RoleUserSeeder extends Seeder
         $editor = User::create([
             'name'              => 'Editor',
             'slug'              => 'Editor',
-            'email'             => 'editor@demo.id',
-            'password'          => bcrypt('editor@demo.id')
+            'email'             => 'editor.dlhk@jayapurakab.go.id',
+            'password'          => bcrypt('editor.dlhk@jayapurakab.go.id')
         ]);
         $editor->assignRole($editorRole);
 
@@ -69,8 +69,8 @@ class RoleUserSeeder extends Seeder
         $author = User::create([
             'name'              => 'Author',
             'slug'              => 'author',
-            'email'             => 'author@demo.id',
-            'password'          => bcrypt('author@demo.id')
+            'email'             => 'author.dlhk@jayapurakab.go.id',
+            'password'          => bcrypt('author.dlhk@jayapurakab.go.id')
         ]);
         $author->assignRole($authorRole);
 
@@ -78,8 +78,8 @@ class RoleUserSeeder extends Seeder
         $supervisor = User::create([
             'name'              => 'Supervisor',
             'slug'              => 'supervisor',
-            'email'             => 'supervisor@demo.id',
-            'password'          => bcrypt('supervisor@demo.id')
+            'email'             => 'supervisor.dlhk@jayapurakab.go.id',
+            'password'          => bcrypt('supervisor.dlhk@jayapurakab.go.id')
         ]);
         $supervisor->assignRole($supervisorRole);
 

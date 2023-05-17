@@ -39,15 +39,12 @@ class AppServiceProvider extends ServiceProvider
 
         Paginator::useBootstrap();
 
-        $data = Pengaturan::first();
-        $banner = Banner::where('status','Publish')->first();
-        $halaman = Halaman::where('status','Publish')->get();
-        $faq = Faq::where('status','Publish')->get();
         view()->share([
-            'pengaturan' => $data,
-            'halaman' => $halaman,
-            'faq'   => $faq,
-            'banner'   => $banner,
+            'pengaturan'    => Pengaturan::first(),
+            'halaman'       => Halaman::where('status','Publish')->get(),
+            'faq'           => Faq::where('status','Publish')->get(),
+            'banner'        => Banner::where('status','Publish')->first(),
         ]);
     }
+    
 }
