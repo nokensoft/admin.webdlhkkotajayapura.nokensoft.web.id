@@ -14,13 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('halamen', function (Blueprint $table) {
+
             $table->id();
+
             $table->string('judul_halaman')->nullable();
+            $table->string('slug')->nullable();
             $table->longText('konten')->nullable();
             $table->string('gambar_cover')->nullable();
-            $table->string('slug')->nullable();
+
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
+            
             $table->softDeletes();
+
+            // Dates
             $table->timestamps();
 
         });

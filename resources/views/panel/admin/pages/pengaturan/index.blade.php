@@ -95,12 +95,7 @@
                                 </tbody>
                             </table>
                             <div class="mb-3">
-                                <a href="{{ url('app/pengaturan/'.$pengaturan->slug.'/detail') }}"
-                                    class="btn btn-dark border-0 waves-effect waves-light fs-4">
-                                    <i class="fas fa-eye me-1"></i> Detail
-                                </a>
-                                <a href="{{ url('app/pengaturan/'.$pengaturan->slug.'/ubah') }}"
-                                    class="btn btn-outline-dark border-0 waves-effect waves-light fs-4">
+                                <a href="{{ url('app/pengaturan/'.$pengaturan->slug.'/ubah') }}" class="btn btn-dark border-0 waves-effect waves-light fs-4">
                                     <i class="fas fa-edit me-1"></i> Ubah
                                 </a>
                             </div>

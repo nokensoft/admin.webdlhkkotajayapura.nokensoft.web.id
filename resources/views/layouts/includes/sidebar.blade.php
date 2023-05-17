@@ -57,6 +57,73 @@
                         <span> Dasbor </span>
                     </a>
                 </li>
+
+
+
+                <li>
+                    <a href="#sidebarEmail" data-bs-toggle="collapse">
+                        <i data-feather="coffee"></i>
+                        <span>Berita</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEmail">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('app.kategori') }}">Kategori</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('app.berita') }}">Berita</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="{{route('pengguna.index')}}">
+                        <i data-feather="users"></i>
+                        <span> Pengguna</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('app.pengajuan') }}">
+                        <i data-feather="message-square"></i>
+                        <span> Pengajuan Pertanyaan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('app.pengaturan')}}">
+                        <i data-feather="settings"></i>
+                        <span> Pengaturan</span>
+                    </a>
+                </li>                
+
+                <li>
+                    <a href="#sidebarCrm" data-bs-toggle="collapse">
+                        <i data-feather="users"></i>
+                        <span> SDM </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarCrm">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ url('/app/person')}}">Data SDM</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/app/person/draft')}}">Draft</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/app/person/trash')}}">trash</a>
+                            </li>
+                            <li>
+                                <a href="crm-leads.html">Leads</a>
+                            </li>
+                            <li>
+                                <a href="crm-customers.html">Customers</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li>
                     <a href="#sidebarEcommerce" data-bs-toggle="collapse">
                         <i data-feather="shopping-cart"></i>
@@ -93,72 +160,6 @@
 
                         </ul>
                     </div>
-                </li>
-
-                <li>
-                    <a href="#sidebarCrm" data-bs-toggle="collapse">
-                        <i data-feather="users"></i>
-                        <span> SDM </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarCrm">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{ url('/app/person')}}">Data SDM</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/person/draft')}}">Draft</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/person/trash')}}">trash</a>
-                            </li>
-                            <li>
-                                <a href="crm-leads.html">Leads</a>
-                            </li>
-                            <li>
-                                <a href="crm-customers.html">Customers</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-
-
-                <li>
-                    <a href="#sidebarEmail" data-bs-toggle="collapse">
-                        <i data-feather="coffee"></i>
-                        <span> Mengelola Berita</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarEmail">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{ route('app.kategori') }}">Kategori</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('app.berita') }}">Berita</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li>
-                    <a href="{{route('pengguna.index')}}">
-                        <i data-feather="users"></i>
-                        <span> Mengelola Pengguna</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('app.pengajuan') }}">
-                        <i data-feather="message-square"></i>
-                        <span> Pengajuan Pertanyaan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('app.pengaturan')}}">
-                        <i data-feather="settings"></i>
-                        <span> Pengaturan</span>
-                    </a>
                 </li>
 
             </ul>

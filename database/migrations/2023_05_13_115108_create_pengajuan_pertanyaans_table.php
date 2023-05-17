@@ -14,13 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pengajuan_pertanyaans', function (Blueprint $table) {
+            
             $table->id();
+
+            // Contact
             $table->string('nama')->nullable();
             $table->string('email')->nullable();
             $table->string('no_telf')->nullable();
+
+            // Messages
             $table->string('judul_topik')->nullable();
             $table->string('slug')->nullable();
             $table->longText('keterangan')->nullable();
+
+            // Dates
             $table->softDeletes();
             $table->timestamps();
         });
