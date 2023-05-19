@@ -59,7 +59,7 @@
                     <div class="noti-scroll" data-simplebar>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                        <a href="#" class="dropdown-item notify-item active">
                             <div class="notify-icon">
                                 <img src="{{ asset('assets/admin/assets/images/users/user-1.jpg')}}"
                                     class="img-fluid rounded-circle" alt="" />
@@ -71,7 +71,7 @@
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="#" class="dropdown-item notify-item">
                             <div class="notify-icon bg-primary">
                                 <i class="mdi mdi-comment-account-outline"></i>
                             </div>
@@ -81,7 +81,7 @@
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="#" class="dropdown-item notify-item">
                             <div class="notify-icon">
                                 <img src="{{ asset('assets/admin/assets/images/users/user-4.jpg')}}"
                                     class="img-fluid rounded-circle" alt="" />
@@ -93,7 +93,7 @@
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="#" class="dropdown-item notify-item">
                             <div class="notify-icon bg-warning">
                                 <i class="mdi mdi-account-plus"></i>
                             </div>
@@ -103,7 +103,7 @@
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="#" class="dropdown-item notify-item">
                             <div class="notify-icon bg-info">
                                 <i class="mdi mdi-comment-account-outline"></i>
                             </div>
@@ -113,7 +113,7 @@
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="#" class="dropdown-item notify-item">
                             <div class="notify-icon bg-secondary">
                                 <i class="mdi mdi-heart"></i>
                             </div>
@@ -125,7 +125,7 @@
                     </div>
 
                     <!-- All-->
-                    <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
+                    <a href="#" class="dropdown-item text-center text-primary notify-item notify-all">
                         View all
                         <i class="fe-arrow-right"></i>
                     </a>
@@ -150,13 +150,13 @@
                     <!-- item-->
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="#" class="dropdown-item notify-item">
                         <i class="fe-user"></i>
                         <span>Akun saya</span>
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="#" class="dropdown-item notify-item">
                         <i class="fe-settings"></i>
                         <span>Pengaturan</span>
                     </a>
@@ -164,10 +164,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-
+                    <a href="#" class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fe-log-out"></i>
                         <span> {{ __('Keluar') }}</span>
                     </a>
@@ -188,7 +185,6 @@
                     <img src="{{ asset('assets/admin/assets/images/logo-sm.png')}}" alt="" height="22">
                     @else
                     <img src="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo_situs }}" alt="" height="22">
-
                     @endif
                 </span>
                 <span class="logo-lg">
@@ -207,7 +203,6 @@
                         <img src="{{ asset('assets/admin/assets/images/logo-sm.png')}}" alt="" height="22">
                     @else
                     <img src="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo_situs }}" alt="" height="22">
-
                     @endif
                 </span>
                 <span class="logo-lg">
@@ -217,7 +212,6 @@
                         <img src="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo_situs }}" alt="" height="55">
                         <span class="logo-lg-text-light">{{ $pengaturan->judul_situs }}</span>
                     @endif
-
                 </span>
             </a>
         </div>
@@ -249,25 +243,25 @@
                 </a>
                 <div class="dropdown-menu">
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
+                    <a href="#" class="dropdown-item">
                         <i class="fe-briefcase me-1"></i>
                         <span>New Projects</span>
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
+                    <a href="#" class="dropdown-item">
                         <i class="fe-user me-1"></i>
                         <span>Create Users</span>
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
+                    <a href="#" class="dropdown-item">
                         <i class="fe-bar-chart-line- me-1"></i>
                         <span>Revenue Report</span>
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
+                    <a href="#" class="dropdown-item">
                         <i class="fe-settings me-1"></i>
                         <span>Settings</span>
                     </a>
@@ -275,7 +269,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
+                    <a href="#" class="dropdown-item">
                         <i class="fe-headphones me-1"></i>
                         <span>Help & Support</span>
                     </a>

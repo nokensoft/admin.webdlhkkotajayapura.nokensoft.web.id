@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\HalamanController;
+use App\Http\Controllers\Frontend\BeritaController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -28,11 +29,19 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    $berita = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
-    return  view('frontend.index',compact('berita'));
+
+    $beritas = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
+
+    return  view('frontend.index', compact('beritas'));
+
 });
 
-Route::get('/halaman/{method}', [HalamanController::class, 'index'])->name('halaman.method');
+// HALAMAN
+Route::get('/halaman/{method}', [HalamanController::class, 'show'])->name('halaman.method');
+
+// BERITA
+Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.slug');
+
 Route::post('/pengajuan', [PengajuanPertanyaanController::class, 'pengajuanPertanyaanStore'])->name('app.pengajuan.store');
 
 
@@ -43,28 +52,21 @@ Auth::routes([
 
 Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function () {
 
-        Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+        Route::get('/', [HomeController::class, 'index'])->name('dasbor');
 
-        // Route::resource('roles', RoleController::class);
-        // Route::resource('users', UserController::class);
-        // Route::resource('products', ProductController::class);
-
-        // Route::resource('kategori-berita', KategoriBeritaController::class)->except('show');
-        // Route::resource('berita', BeritaController::class);
-
-        // Peran ADMIN
+        // ADMIN
         Route::group(['middleware' => ['role:administrator']], function () {
             Route::resource('pengguna', UserController::class);
 
         });
 
-        // Peran editor
+        // EDITOR
         Route::group(['middleware' => ['role:editor']], function () {
 
 
         });
 
-        // Peran author
+        // AUTHOR
         Route::group(['middleware' => ['role:author']], function () {
 
 

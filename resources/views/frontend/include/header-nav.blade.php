@@ -14,7 +14,7 @@
                         </li>
                         <li>
                             <i class="fa flaticon-call"></i>
-                            <a href="tel:+(+01)999-999-4444"> {{ $pengaturan->nomor_telepon }}</a>
+                            <a href="tel:{{ $pengaturan->nomor_telepon }}"> {{ $pengaturan->nomor_telepon }}</a>
                         </li>
                     </ul>
                 </div>
@@ -25,22 +25,22 @@
                             {{ $pengaturan->alamat_kantor }}
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ $pengaturan->facebook }}" target="_blank">
                                  <i class="fa-brands fa-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ $pengaturan->twitter }}" target="_blank">
                                 <i class="fa-brands fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/{{ $pengaturan->linkedin }}" target="_blank">
+                            <a href="{{ $pengaturan->linkedin }}" target="_blank">
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/{{ $pengaturan->instagram }}" target="_blank">
+                            <a href="{{ $pengaturan->instagram }}" target="_blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
                         </li>
@@ -59,8 +59,7 @@
                     <div class="logo-cat-wrap">
                         <div class="logo-part">
                             <a href="/">
-                                <img src="{{ asset('assets/frontend/assets/images/dlhk/logo-website-dlhk-green.png') }}"
-                                    alt="Logo Kota Jayapura">
+                                <img src="{{ asset('assets/images/dlhk/logo-website-dlhk-green.png') }}" alt="Logo Kota Jayapura">
                             </a>
                         </div>
                     </div>
@@ -85,27 +84,24 @@
                                         <ul class="mega-menu">
                                             <li class="mega-menu-container">
                                                 <div class="mega-menu-innner">
-                                                    @foreach ($halaman as $page )
                                                     <div class="single-megamenu">
-
                                                         <ul class="sub-menu last-sub-menu">
-                                                            <li><a href="{{ route('halaman.method',['method' => $page->slug]) }}">{{ $page->judul_halaman }}</a> </li>
-                                                        </ul>
-                                                    </div>
-                                                    @endforeach
-
-                                                    {{-- <div class="single-megamenu">
-                                                        <ul class="sub-menu last-sub-menu">
-                                                            <li><a href="#">Bidang Layanan</a> </li>
-                                                            <li><a href="#">Tugas Pokok & Fungsi</a> </li>
+                                                            <li><a href="{{ url('halaman/visi-misi') }}">Visi-Misi</a></li>
+                                                            <li><a href="{{ url('halaman/struktur-organisasi') }}">Struktur Organisasi</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="single-megamenu">
                                                         <ul class="sub-menu last-sub-menu">
-                                                            <li><a href="#">Profil Pimpinan</a> </li>
-                                                            <li><a href="#">Profil Pejabat</a> </li>
+                                                            <li><a href="{{ url('halaman/bidang-layanan') }}">Bidang Layanan</a> </li>
+                                                            <li><a href="{{ url('halaman/tugas-pokok') }}">Tugas Pokok & Fungsi</a> </li>
                                                         </ul>
-                                                    </div> --}}
+                                                    </div>
+                                                    <div class="single-megamenu">
+                                                        <ul class="sub-menu last-sub-menu">
+                                                            <li><a href="{{ url('halaman/profil-pimpinan') }}">Profil Pimpinan</a> </li>
+                                                            <li><a href="{{ url('halaman/profil-pejabat') }}">Profil Pejabat</a> </li>
+                                                        </ul>
+                                                    </div>
 
                                                 </div>
                                             </li>

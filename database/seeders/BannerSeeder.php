@@ -18,8 +18,7 @@ class BannerSeeder extends Seeder
     {
         $random = Str::random(12);
         Banner::create([
-            'title'      => Str::upper('selamat data di portal kami'),
-            'slug'       =>  $random,
+            'title'      => Str::upper('selamat datang di portal kami'),
             'subtitle'   => Str::upper('dinas lingkungan hidup dan kebersihan kota jayapura'),
             'status'     => 'Publish',
             'link'       => 'https://www.dlhk.jayapurakota.go.id/'

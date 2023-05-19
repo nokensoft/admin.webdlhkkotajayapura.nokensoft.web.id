@@ -6,7 +6,7 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
                     <li class="breadcrumb-item active">Kategori</li>
                 </ol>
             </div>
@@ -25,7 +25,7 @@
 
 
                 <div class="inbox-rightbar">
-                    <form action="{{ url('app/kategori') }}" method="get">
+                    <form action="{{ route('dasbor.kategori') }}" method="get">
                         <div class="input-group mb-3">
                             <input type="search" name="s" class="form-control" placeholder="Search">
                             <button type="submit" class="btn btn-primary">Search</button>
@@ -49,10 +49,10 @@
                             <td>{{ $kategori->slug }}</td>
                             @if(Auth::user()->hasRole('author'))
                             <td class="text-center">
-                                <a class="btn btn-light" href="{{ route('app.kategori.edit',$kategori->slug) }}">
+                                <a class="btn btn-light" href="{{ route('dasbor.kategori.edit',$kategori->slug) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
-                                {!! Form::open(['method' => 'DELETE','route' => ['app.kategori.destroy', $kategori->id],'style'=>'display:inline']) !!}
+                                {!! Form::open(['method' => 'DELETE','route' => ['dasbor.kategori.destroy', $kategori->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Hapus', ['class' => 'btn btn-danger']) !!}
                                  {!! Form::close() !!}
                                 {{-- <a href="#" class="btn btn-light" data-toggle="modal" data-target="#modal_delete_{{$kategori->id}}">

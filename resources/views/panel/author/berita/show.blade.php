@@ -9,8 +9,8 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('app.berita') }}"></a>Berita</li>
+                                <li class="breadcrumb-item"><a href="{{route('dasbor')}}">dasbor</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('dasbor.berita') }}"></a>Berita</li>
                                 <li class="breadcrumb-item active">Detail</li>
                             </ol>
                         </div>
@@ -76,16 +76,16 @@
                                     <div class="col">
                                         <div class="card-box">
                                             @if(Auth::user()->hasRole('author'))
-                                            <a href="{{ route('app.berita.edit',['id'=> $berita->slug]) }}" class="btn btn-warning">
+                                            <a href="{{ route('dasbor.berita.edit',['id'=> $berita->slug]) }}" class="btn btn-warning">
                                                 <i class="mdi mdi-pencil mr-1"></i>Ubah
                                             </a>
                                             @endif
                                             @if(Auth::user()->hasRole('supervisor'))
-                                            <a href="{{ route('app.berita.editStatus',['id'=> $berita->slug]) }}" class="btn btn-warning">
+                                            <a href="{{ route('dasbor.berita.editStatus',['id'=> $berita->slug]) }}" class="btn btn-warning">
                                                 <i class="fe-edit mr-1"></i> Ubah Status
                                             </a>
                                             @endif
-                                            <a href="{{ route('app.berita') }}" class="btn btn-light">
+                                            <a href="{{ route('dasbor.berita') }}" class="btn btn-light">
                                                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                             </a>
                                         </div>

@@ -6,7 +6,7 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
                     <li class="breadcrumb-item active">Mengelola Berita</li>
                 </ol>
             </div>
@@ -24,9 +24,8 @@
                 @include('panel.author.berita.menu')
                 <!-- End Left sidebar -->
 
-
                 <div class="inbox-rightbar">
-                    <form action="{{ url('app/berita') }}" method="get">
+                    <form action="{{ route('dasbor.berita') }}" method="get">
                         <div class="input-group mb-3">
                             <input type="search" name="s" class="form-control" placeholder="Search">
                             <button type="submit" class="btn btn-primary">Search</button>
@@ -67,19 +66,19 @@
                             <th> {{ $berita->author->name }} </th>
                             <td class="text-center">
 
-                                <a class="btn btn-sm btn-light" href="{{ route('app.berita.show',['id'=> $berita->slug]) }}">
+                                <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.show',['id'=> $berita->slug]) }}">
                                     <i class="mdi mdi-eye text-dark"></i>
                                 </a>
                                 @if(Auth::user()->hasRole('author'))
-                                <a class="btn btn-sm btn-light" href="{{ route('app.berita.edit',['id'=> $berita->slug]) }}">
+                                <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.edit',['id'=> $berita->slug]) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
-                                {!! Form::open(['method' => 'DELETE','route' => ['app.berita.destroy', $berita->id],'style'=>'display:inline']) !!}
+                                {!! Form::open(['method' => 'DELETE','route' => ['dasbor.berita.destroy', $berita->id],'style'=>'display:inline']) !!}
                                 {!! Form::submit('Hapus', ['class' => 'btn btn-sm btn-danger']) !!}
                                  {!! Form::close() !!}
                                 @endif
                                 @if(Auth::user()->hasRole('supervisor'))
-                                    <a class="btn btn-sm btn-light" href="{{ route('app.berita.editStatus',['id'=> $berita->slug]) }}">
+                                    <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.editStatus',['id'=> $berita->slug]) }}">
                                         <i class="fe-edit"></i>
                                     </a>
                                 @endif

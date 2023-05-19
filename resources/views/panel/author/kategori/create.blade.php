@@ -9,8 +9,8 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('app.kategori')}}">Kategori</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('dasbor.kategori')}}">Kategori</a></li>
                             <li class="breadcrumb-item active">Tambah</li>
                         </ol>
                     </div>
@@ -35,7 +35,7 @@
                 <div class="col-lg-12">
                     <div class="card-body">
 
-                        <form action="{{route('app.kategori.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('dasbor.kategori.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="md-3">
                                 <label for="name" class="form-label">Judul Kategori <span class="text-danger">*</span></label>
@@ -48,7 +48,7 @@
                                     <div class="card-box">
                                         <button type="submit"
                                             class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                        <a href="{{ route('app.kategori') }}" class="btn btn-light">
+                                        <a href="{{ route('dasbor.kategori') }}" class="btn btn-light">
                                             <i class="mdi mdi-arrow-left"></i> Kembali</a>
                                     </div>
                                 </div> <!-- end col -->

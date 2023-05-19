@@ -17,12 +17,15 @@ return new class extends Migration
 
             $table->id();
             
+            // Site Information
             $table->string('judul_situs')->nullable();
             $table->string('slug')->nullable();
-            $table->string('deskripsi_situs')->nullable();
-            $table->string('logo_situs')->nullable();
-            $table->string('favicon')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->string('copyright')->nullable();
+
+            $table->string('logo')->nullable();
+            $table->string('logo_loader')->nullable();
+            $table->string('favicon')->nullable();
 
             // Contact
             $table->string('alamat_email')->nullable();
@@ -31,10 +34,11 @@ return new class extends Migration
             $table->mediumText('alamat_google_map')->nullable();
 
             // Social Media
-            $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('linkedin')->nullable();
+            $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('linkedin')->nullable();
             $table->string('youtube')->nullable();
 
             // Dates

@@ -9,21 +9,7 @@ use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    // INDEX
     public function index()
     {
         if(Auth::user()->hasRole('administrator')){

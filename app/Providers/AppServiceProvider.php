@@ -41,7 +41,6 @@ class AppServiceProvider extends ServiceProvider
 
         view()->share([
             'pengaturan'    => Pengaturan::first(),
-            'halaman'       => Halaman::where('status','Publish')->get(),
             'faq'           => Faq::where('status','Publish')->get(),
             'banner'        => Banner::where('status','Publish')->first(),
         ]);

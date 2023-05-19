@@ -1,7 +1,7 @@
        <!-- Left sidebar -->
        <div class="inbox-leftbar">
         @if(Auth::user()->hasRole('author'))
-        <a href="{{ route('app.berita.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
+        <a href="{{ route('dasbor.berita.create') }}" class="btn btn-danger w-100 waves-effect waves-light mb-2">
             <i class="mdi mdi-plus-circle me-2"></i> Tambah Berita
         </a>
         @endif

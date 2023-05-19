@@ -1,10 +1,8 @@
 @extends('frontend.layout.app')
 @section('content')
 
- <!-- Banner Section Start -->
- <div id="rs-banner" class="rs-banner style10">
-    @include('frontend.pages.banner')
-</div>
+<!-- Banner Section Start -->
+@include('frontend.pages.banner')
 <!-- Banner Section End -->
 
 <!-- Sekilas DLHK Start -->
@@ -13,8 +11,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6 md-mb-40">
                 <div class="img-part">
-                    <img src="{{ asset('assets/frontend/assets/images/dlhk/banner/1.png') }}" alt="">
-
+                    <img src="{{ asset('assets/images/dlhk/banner/1.png') }}" alt="">
                 </div>
             </div>
             <div class="col-lg-6 pl-60 md-pl-15">
@@ -46,19 +43,15 @@
 <!-- Sekilas DLHK End -->
 
 <!-- Layanan Online Start -->
-<div id="layanan-online" class="rs-services home12-style">
-    @include('frontend.pages.layanan-online')
-</div>
+@include('frontend.sections.layanan-online')
 <!-- Layanan Online End -->
 
 <!-- Berita Terbaru Start -->
-<div id="berita" class="rs-blog main-home modify1 pb-100 pt-100 md-pt-70 md-pb-70">
-    @include('frontend.pages.berita',['berita' => $berita])
-</div>
+@include('frontend.sections.berita-terbaru')
 <!-- Berita Terbaru End -->
 
-<!-- Layanan Online Start -->
-<div id="layanan-online" class="rs-services home12-style" style="background-image: url('https://img.freepik.com/free-photo/sunrise-jungle_1385-1690.jpg?t=st=1678126075~exp=1678126675~hmac=a4e72b1f48a910b7151d3c8de56ee3873ce20b34330e858da671c62753c8824f');">
+<!-- Banner Himbauan 1 Start -->
+<div id="layanan-online" class="rs-services home12-style" style="background-image: url({{ asset('assets/images/dlhk/gambar/img-4.jpg') }});background-size:cover;">
     <div class="container">
 
         <div class="row">
@@ -68,12 +61,12 @@
                 </h1>
             </div>
             <div class="col-lg-4 mx-auto">
-                <img src="{{ asset('/assets/frontend/assets/images/dlhk/banner/1.png') }}" alt="Logo Kota Jayapura Green">
+                <img src="{{ asset('/assets/images/dlhk/banner/1.png') }}" alt="Logo Kota Jayapura Green">
             </div>
         </div>
     </div>
 </div>
-<!-- Layanan Online End -->
+<!-- Banner Himbauan 1 End -->
 
 <!-- Informasi Lingkungan Start -->
 <div id="informasi-lingkungan" class="rs-degree style1 modify mt-100 pb-70 md-pb-40">

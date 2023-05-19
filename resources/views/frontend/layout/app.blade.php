@@ -11,8 +11,7 @@
     <div id="loader" class="loader green-color">
         <div class="loader-container">
             <div class='loader-icon'>
-                <!-- <img src="assets/images/logo-kota-jayapura.png" alt="Logo Kota Jayapura"> -->
-                <img src="{{ asset('assets/frontend/assets/images/dlhk/banner/1.png') }}" alt="Logo Kota Jayapura">
+                <img src="{{ asset($pengaturan->logo_loader) }}" alt="Loader">
             </div>
         </div>
     </div>

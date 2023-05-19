@@ -9,8 +9,8 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('app.berita') }}"></a>Berita</li>
+                                <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('dasbor.berita') }}"></a>Berita</li>
                                 <li class="breadcrumb-item active">Ubah</li>
                             </ol>
                         </div>
@@ -35,7 +35,7 @@
                    <div class="col-lg-12">
                         <div class="card-body">
                             <h1></h1>
-                            <form action="{{route('app.berita.update',['id' => $berita->id])}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('dasbor.berita.update',['id' => $berita->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="row">
@@ -93,7 +93,7 @@
                                     <div class="col">
                                         <div class="card-box">
                                             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                            <a href="{{ route('app.berita') }}" class="btn btn-light">
+                                            <a href="{{ route('dasbor.berita') }}" class="btn btn-light">
                                                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                             </a>
                                         </div>

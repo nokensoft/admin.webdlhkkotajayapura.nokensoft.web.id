@@ -6,8 +6,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon -->
-    <link rel="apple-touch-icon" href="{{ asset('file/cms/image/favicon/'. $pengaturan->favicon) }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('file/cms/image/favicon/'. $pengaturan->favicon) }}">
+    <link rel="apple-touch-icon" href="{{ asset($pengaturan->favicon) }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset($pengaturan->favicon) }}">
     <!-- Bootstrap v5.0.2 css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/assets/css/bootstrap.min.css') }}">
     <!-- font-awesome css -->

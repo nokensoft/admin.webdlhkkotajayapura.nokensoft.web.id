@@ -18,9 +18,15 @@ class PengaturanSeeder extends Seeder
     {
         Pengaturan::create([
             
+            // Site Information
             'judul_situs'       => 'LID DLHK Kota Jayapura',
-            'deskripsi_situs'   => 'Layanan Informasi dan Dokumentasi Dinas Lingkungan Hidup Kota Jayapura',
-
+            'deskripsi'         => 'Layanan Informasi dan Dokumentasi Dinas Lingkungan Hidup Kota Jayapura',
+            'copyright'         => "2020 All Rights Reserved. Powered By <a href='https://nokensoft.com/' target='_blank'>Nokensoft</a>",
+            
+            'logo'              => 'assets/images/dlhk/logo-website-dlhk-green.png',
+            'logo_loader'       => 'assets/images/dlhk/banner/1.png',
+            'favicon'           => 'assets/images/dlhk/favicon.png',
+            
             // Contact
             'alamat_email'      => "support.dlhk@jayapurakota.go.id",
             'nomor_telepon'     => "(+880)155-69569",
@@ -29,8 +35,13 @@ class PengaturanSeeder extends Seeder
             
             // Social Media
             'instagram'         => "https://instagram.com/dlhk_kotajayapura",
+            'facebook'          => "https://facebook.com/",
+            'twitter'           => "https://twitter.com/",
+            'tiktok'            => "https://tiktok.com/",
+            'linkedin'          => "https://linkedin.com/",
             'youtube'           => "https://www.youtube.com/@infodinaslingkunganhidupko8058",
-            'copyright'         => "2020 All Rights Reserved. Powered By <a href='https://nokensoft.com/' target='_blank'>Nokensoft</a>",
+
+            // Copyright
 
             // Dates
             'created_at'        => Carbon::now(),

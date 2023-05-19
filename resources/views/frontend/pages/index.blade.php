@@ -2,35 +2,37 @@
 @section('content')
 
 
-
-<!-- Sekilas DLHK Start -->
-<div class="rs-services style1 pt-100 md-pt-70 pb-100">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 md-mb-40">
-                <div class="img-part">
-                    <img src="{{ asset('assets/frontend/assets/images/dlhk/banner/1.png') }}" alt="">
-
+            <!-- Breadcrumbs Start -->
+            <div class="rs-breadcrumbs breadcrumbs-overlay">
+                <div class="breadcrumbs-img">
+                    <img src="{{ asset('file/halaman/bg-header-1.jpg') }}" alt="Breadcrumbs Image">
+                </div>
+                <div class="breadcrumbs-text white-color">
+                    <h1 class="page-title">{!! $data->judul !!}</h1>
+                    <ul>
+                        <li>
+                            <a class="active" href="{{ url('/beranda') }}">Home</a>
+                        </li>
+                        <li>{!! $data->judul !!}</li>
+                    </ul>
                 </div>
             </div>
-            @if(!empty($name))
-            <div class="col-lg-6 pl-60 md-pl-15">
-                <div class="sec-title3 mb-30">
-                    <div class="sub-title green-color">{{$name}}  DLHK</div>
-                    {{-- <h2 class=" title new-title"> {{$name}} Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura
-                    </h2> --}}
-                    <div class="new-desc">
-                        <p>
-                            {!! $data->konten !!}
-                        </p>
-                    </div>
+            <!-- Breadcrumbs End -->            
+
+	       <!-- Blog Section Start -->
+            <div class="rs-inner-blog orange-color pt-100 pb-100 md-pt-70 md-pb-70">
+                <div class="container">
+                   <div class="blog-deatails">
+
+                        <div class="bs-img">
+                            <a href="#"><img src="{{ asset('file/halaman/' . $data->cover ) }}" alt="{{ $data->cover }}"></a>
+                        </div>
+                       <div class="blog-full">
+                        {!! $data->isi !!}
+                       </div>
+                   </div>
                 </div>
             </div>
-            @endif
-        </div>
-    </div>
-</div>
-<!-- Sekilas DLHK End -->
-
+            <!-- Blog Section End -->  
 
 @stop

@@ -52,7 +52,7 @@
 
             <ul id="side-menu">
                 <li>
-                    <a href="{{route('dashboard')}}">
+                    <a href="{{route('dasbor')}}">
                         <i data-feather="calendar"></i>
                         <span> Dasbor </span>
                     </a>
@@ -69,29 +69,29 @@
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('app.kategori') }}">Kategori</a>
+                                <a href="{{ route('dasbor.kategori') }}">Kategori</a>
                             </li>
                             <li>
-                                <a href="{{ route('app.berita') }}">Berita</a>
+                                <a href="{{ route('dasbor.berita') }}">Berita</a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
                 <li>
-                    <a href="{{route('pengguna.index')}}">
+                    <a href="{{ route('pengguna.index') }}">
                         <i data-feather="users"></i>
                         <span> Pengguna</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('app.pengajuan') }}">
+                    <a href="{{ route('dasbor.pengajuan') }}">
                         <i data-feather="message-square"></i>
-                        <span> Pengajuan Pertanyaan</span>
+                        <span> Pesab</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('app.pengaturan')}}">
+                    <a href="{{ route('dasbor.pengaturan') }}">
                         <i data-feather="settings"></i>
                         <span> Pengaturan</span>
                     </a>
@@ -155,7 +155,7 @@
                                 <a href="{{ url('/app/person')}}">SDM</a>
                             </li>
                             <li>
-                                <a href="{{ route('app.faq') }}">FAQ</a>
+                                <a href="{{ route('dasbor.faq') }}">FAQ</a>
                             </li>
 
                         </ul>
@@ -181,7 +181,7 @@
                 <li>
                     <a href="#sidebarEmail" data-bs-toggle="collapse">
                         <i data-feather="coffee"></i>
-                        <span> Mengelola Berita </span>
+                        <span> Berita </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarEmail">
@@ -190,7 +190,7 @@
                                 <a href="{{ route('kategori-berita.index') }}">Kategori</a>
                             </li>
                             <li>
-                                <a href="{{ route('app.berita') }}">Berita</a>
+                                <a href="{{ route('dasbor.berita') }}">Berita</a>
                             </li>
                         </ul>
                     </div>
@@ -214,13 +214,13 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('app.berita') }}">
+                    <a href="{{ route('dasbor.berita') }}">
                         <i data-feather="coffee"></i>
                         <span> Berita </span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('app.kategori') }}">
+                    <a href="{{ route('dasbor.kategori') }}">
                         <i data-feather="coffee"></i>
                         <span> Kategori </span>
                     </a>
@@ -241,7 +241,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('app.berita') }}">
+                    <a href="{{ route('dasbor.berita') }}">
                         <i data-feather="coffee"></i>
                         <span> Berita </span>
                     </a>
