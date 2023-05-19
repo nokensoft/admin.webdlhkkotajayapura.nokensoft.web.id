@@ -19,4 +19,18 @@ class BeritaController extends Controller
         return  view('frontend.pages.berita.show', compact('data'));
     }
 
+    // CATEGORY
+    public function kategori($kategori) {
+        
+        $beritas = Berita::select('*')
+                                    ->join(
+                                        'kategori_beritas',
+                                        'kategori_beritas.id', '=', 'beritas.category_id'
+                                        )
+                                    ->where('kategori_beritas.kategori_slug', $kategori)
+                                    ->get();
+                                    
+        return  view('frontend.pages.berita.index', compact('beritas'));
+    }
+
 }

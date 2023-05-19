@@ -31,7 +31,6 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
 
     $beritas = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
-
     return  view('frontend.index', compact('beritas'));
 
 });
@@ -39,8 +38,22 @@ Route::get('/', function () {
 // HALAMAN
 Route::get('/halaman/{method}', [HalamanController::class, 'show'])->name('halaman.method');
 
-// BERITA
+/*
+| BERITA
+| 1) menampilkan semua berita
+| 2) menampilkan berita berdasarkan slug
+| 3) menampilkan berita berdasarkan kategori
+*/
+
+// 1) menampilkan semua berita
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+
+// 2) menampilkan berita berdasarkan slug
 Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.slug');
+
+// 3) menampilkan berita berdasarkan kategori
+Route::get('/berita/kategori/{kategori}', [BeritaController::class, 'kategori'])->name('berita.kategori');
+
 
 Route::post('/pengajuan', [PengajuanPertanyaanController::class, 'pengajuanPertanyaanStore'])->name('app.pengajuan.store');
 

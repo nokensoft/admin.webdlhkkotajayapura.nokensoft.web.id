@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('kategori_beritas', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('kategori_slug')->nullable();
             $table->enum('status',['publish','draft'])->default('publish')->nullable();
             $table->softDeletes();
             $table->timestamps();

@@ -38,7 +38,7 @@
                                <li class="Post-cate">
                                    <div class="tag-line">
                                        <i class="fa fa-book"></i>
-                                       <a href="#">{{ $data->kategori->name ?? '' }}</a>
+                                       <a href="{{ url('berita/kategori/' . $data->kategori->slug ) }}">{{ $data->kategori->name ?? '' }}</a>
                                    </div>
                                </li>
                            </ul>
@@ -46,7 +46,10 @@
                         {{ $data->kategori->name }}
 
                         {!! $data->isi !!}
+
                        </div>
+                       <!-- end .blog-full -->
+
                    </div>
                 </div>
             </div>

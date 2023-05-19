@@ -18,35 +18,35 @@ class KategoriBeritaSeeder extends Seeder
         KategoriBerita::create([
             'id'        => 1,
             'name'      => 'Publikasi',
-            'slug'      => 'publikasi',
+            'kategori_slug'      => 'publikasi',
             'status'    => 'publish'
         ]);
 
         KategoriBerita::create([
             'id'        => 2,
             'name'      => 'Pengumuman',
-            'slug'      => 'pengumuman',
+            'kategori_slug'      => 'pengumuman',
             'status'    => 'publish'
         ]);
 
         KategoriBerita::create([
             'id'        => 3,
             'name'      => 'Penghargaan',
-            'slug'      => 'penghargaan',
+            'kategori_slug'      => 'penghargaan',
             'status'    => 'draft'
         ]);
 
         KategoriBerita::create([
             'id'        => 4,
             'name'      => 'Hari Lingkungan',
-            'slug'      => 'hari-lingkungan',
+            'kategori_slug'      => 'hari-lingkungan',
             'status'    => 'publish'
         ]);
 
         KategoriBerita::create([
             'id'        => 5,
             'name'      => 'Siaran Pers',
-            'slug'      => 'siaran-pers',
+            'kategori_slug'      => 'siaran-pers',
             'status'    => 'publish'
         ]);
     }

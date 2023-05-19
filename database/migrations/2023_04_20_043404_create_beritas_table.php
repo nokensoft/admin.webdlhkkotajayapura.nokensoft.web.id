@@ -18,9 +18,11 @@ return new class extends Migration
 
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('category_id')->unsigned()->nullable();
+
             $table->string('judul')->nullable();
             $table->string('slug')->nullable();
             $table->mediumText('isi')->nullable();
+            $table->mediumText('isi_singkat')->nullable();
             $table->string('cover')->nullable();
             $table->enum('status',['publish','draft','revisi'])->default('draft')->nullable();
             $table->string('ket')->nullable();
