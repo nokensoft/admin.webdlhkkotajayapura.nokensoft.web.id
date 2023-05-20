@@ -52,9 +52,9 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 pl-50 md-pl-15 footer-widget md-mb-50">
                     <!-- map -->
-                    <iframe src="{{ $pengaturan->alamat_google_map }}"
+                    <iframe src="{!! $pengaturan->alamat_google_map !!}"
                         width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade" class="shadow"></iframe>
                 </div>
             </div>
         </div>
@@ -64,15 +64,15 @@
             <div class="row y-middle">
                 <div class="col-lg-6 md-mb-20">
                     <div class="copyright">
-                        <p>&copy; {{ $pengaturan->copyright }}
+                        <p>&copy; {!! $pengaturan->copyright !!}
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-end md-text-start">
                     <ul class="copy-right-menu">
-                        <li><a href="#">Agenda Kegiatan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Kontak</a></li>
+                        <li><a href="{{ url('agenda') }}">Agenda Kegiatan</a></li>
+                        <li><a href="{{ url('berita') }}">Berita</a></li>
+                        <li><a href="{{ url('kontak') }}">Kontak</a></li>
                         <li><a href="{{ route('login') }}"  target="_blank">Masuk</a></li>
                     </ul>
                 </div>

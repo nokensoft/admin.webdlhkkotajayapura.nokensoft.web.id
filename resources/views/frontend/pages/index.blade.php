@@ -1,7 +1,5 @@
 @extends('frontend.layout.app')
 @section('content')
-
-
             <!-- Breadcrumbs Start -->
             <div class="rs-breadcrumbs breadcrumbs-overlay">
                 <div class="breadcrumbs-img">

@@ -79,9 +79,7 @@
 <!-- Permohonan Data End -->
 
 <!-- Faq Section Start -->
-<div class="rs-faq-part style1 pt-100 pb-100 md-pt-70 md-pb-70">
-    @include('frontend.pages.faq')
-</div>
+@include('frontend.sections.faq')
 <!-- faq Section Start -->
 
 <!-- Link Terkait Start -->
