@@ -69,9 +69,7 @@
 <!-- Banner Himbauan 1 End -->
 
 <!-- Informasi Lingkungan Start -->
-<div id="informasi-lingkungan" class="rs-degree style1 modify mt-100 pb-70 md-pb-40">
-    @include('frontend.pages.informasi-lingkungan')
-</div>
+@include('frontend.sections.informasi-lingkungan')
 <!-- Informasi Lingkungan End -->
 
 <!-- Permohonan Data Start -->

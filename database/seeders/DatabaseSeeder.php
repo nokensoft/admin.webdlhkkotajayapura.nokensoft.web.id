@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             HalamanSeeder::class,
             BannerSeeder::class,
             LinkTerkaitSeeder::class,
+            LayananOnlineSeeder::class,
+            InformasiLingkunganSeeder::class,
         ]);
     }
 }

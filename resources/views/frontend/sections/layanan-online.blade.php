@@ -9,26 +9,30 @@
         <!-- heading end -->
 
         <div class="row">
-            <div class="col-lg-4 md-mb-30">
+
+            @foreach ($layananOnlines as $layananOnline)
+            <div class="col-lg-4 mb-30">
                 <div class="services-item">
                     <div class="services-image">
                         <div class="services-icons">
-                            <img src="assets/images/dlhk/flaticon/1.png" alt="">
+                            <img src="{{ $layananOnline->gambar }}" alt="Cover layanan online">
                         </div>
                         <div class="services-text">
                             <div class="services-title">
-                                <h2 class="title">SIPAKOT</h2>
+                                <h2 class="title">{{ $layananOnline->judul }}</h2>
                             </div>
                             <p class="text">
-                                Sistem Informasi Pajak Air Tanah <br> Kota Jayapura
+                                {{ $layananOnline->keterangan_singkat }}
                             </p>
-                            <a href="https://sipakot.jayapurakota.go.id" class="readon green-btn"><i
-                                    class="fa-solid fa-globe me-2"></i> Buka Aplikasi</a>
+                            <a href="{{ $layananOnline->url }}" target="_blank" class="readon green-btn"><i class="fa-solid fa-globe me-2"></i> Buka Aplikasi</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 md-mb-30">
+            <!-- .col end -->                
+            @endforeach
+
+            {{-- <div class="col-lg-4 md-mb-30">
                 <div class="services-item">
                     <div class="services-image">
                         <div class="services-icons">
@@ -47,6 +51,8 @@
                     </div>
                 </div>
             </div>
+            <!-- .col end -->
+
             <div class="col-lg-4">
                 <div class="services-item">
                     <div class="services-image">
@@ -66,6 +72,8 @@
                     </div>
                 </div>
             </div>
+            <!-- .col end --> --}}
+
         </div>
     </div>
 </div>

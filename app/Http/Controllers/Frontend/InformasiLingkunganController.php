@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\LinkTerkait;
+use App\Models\InformasiLingkungan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LinkTerkaitController extends Controller
+class InformasiLingkunganController extends Controller
 {
     // INDEX
     public function index()

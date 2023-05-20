@@ -36,6 +36,7 @@ class HalamanSeeder extends Seeder
                                             <li>Rebuilding from fire or water damage</li>
                                         </ul>',
                 'status'            => "Publish",
+                
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
@@ -58,6 +59,7 @@ class HalamanSeeder extends Seeder
                                     <li>Rebuilding from fire or water damage</li>
                                 </ul>',
                 'status'            => "Publish",
+
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
@@ -80,6 +82,7 @@ class HalamanSeeder extends Seeder
                                             <li>Rebuilding from fire or water damage</li>
                                         </ul>',
                 'status'            => "Publish",
+
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
@@ -90,6 +93,7 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'tugas-pokok-fungsi',
                 'isi'            => 'Tugas Pokok & Fungsi, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
                 'status'            => "Publish",
+
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
@@ -100,98 +104,56 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'bidang-layanan',
                 'isi'            => 'Bidang Layanan, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
                 'status'            => "Publish",
+
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
             [
-                'judul'     => 'RPPLH',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'rpplh',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'judul'     => 'IKLH',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'iklh',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'judul'     => 'HPSN',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'hpsn',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'judul'     => 'AMDAL',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'amdal',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'judul'     => 'KEHATI',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'kehati',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'judul'     => 'Konservasi Energi',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'konservasi-energi',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'judul'     => 'Mekanisme Perizinan',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'mekanisme-perizinan',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'judul'     => 'Izin Lingkungan',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'izin-lingkungan',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'judul'     => 'Pengelolaan B3',
-                'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
-                'slug'              => 'pengelolaan-b3',
-                'isi'            => 'Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
+                'judul'         => 'Informasi Lingkungan',
+                'slug'          => 'informasi-lingkungan',
+                'sub_judul'     => 'Publikasi Laporan dan Kinerja DLHK',
+                'cover'         => '',
+                'isi'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Judul Dokumen</th>
+                                            <th scope="col">Format File</th>
+                                            <th scope="col">Opsi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td scope="row">1</td>
+                                                <td>Judul file pertama</td>
+                                                <td>*.PDF</td>
+                                                <td>
+                                                    <a href="#" clas="btn btn-primary btn-sm rounded-0">Download</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">2</td>
+                                                <td>Judul file kedua</td>
+                                                <td>*.PDF</td>
+                                                <td>
+                                                    <a href="#" clas="btn btn-primary btn-sm rounded-0">Download</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">3</td>
+                                                <td>Judul file ketiga</td>
+                                                <td>*.PDF</td>
+                                                <td>
+                                                    <a href="#" clas="btn btn-primary btn-sm rounded-0">Download</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>',
+                'status'        => "Publish",
+
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
             ],
         ]);
     }

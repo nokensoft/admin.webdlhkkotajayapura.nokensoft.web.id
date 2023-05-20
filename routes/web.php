@@ -13,6 +13,8 @@ use App\Http\Controllers\ProductController;
 // MODELS
 use App\Models\Berita\Berita;
 use App\Models\LinkTerkait;
+use App\Models\LayananOnline;
+use App\Models\InformasiLingkungan;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -42,8 +44,14 @@ Route::get('/beranda', function () {
     
     // data link terkait di halaman beranda
     $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+    
+    // data layanan online di halaman beranda
+    $layananOnlines = LayananOnline::orderBy('id','desc')->where('status','publish')->paginate();
+    
+    // data informasi lingkungan di halaman beranda
+    $informasiLingkungans = InformasiLingkungan::orderBy('id','desc')->where('status','publish')->paginate();
 
-    return  view('frontend.index', compact('beritas', 'linkTerkaits'));
+    return  view('frontend.index', compact('beritas', 'linkTerkaits', 'layananOnlines', 'informasiLingkungans'));
 
 });
 

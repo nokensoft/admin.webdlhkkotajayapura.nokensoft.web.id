@@ -14,24 +14,6 @@
             </div>
             @endforeach
 
-
-            {{-- <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="{{ asset('assets/images/dlhk/link-terkait/05.png') }}" alt=""></a>
-            </div>
-            <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="{{ asset('assets/images/dlhk/link-terkait/04.png') }}" alt=""></a>
-            </div>
-            <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="{{ asset('assets/images/dlhk/link-terkait/03.png') }}" alt=""></a>
-            </div>
-            <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="{{ asset('assets/images/dlhk/link-terkait/01.png') }}" alt=""></a>
-            </div>
-            <div class="partner-item border py-4 bg-white">
-                <a href="#"><img src="{{ asset('assets/images/dlhk/link-terkait/02.png') }}" alt=""></a>
-            </div> --}}
-
-
         </div>
     </div>
 </div>
