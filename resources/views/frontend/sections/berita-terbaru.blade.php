@@ -43,13 +43,13 @@
                     </div>
                 </div>
             </div>
+            <!-- .blog-item end -->
             @endforeach
     
         </div>
     
         <div class="text-center mt-5">
-            <p class="post-desc mt-3 text-muted">Lihat berita-berita DLHK Kota Jayapura sebelumnya.</p>
-            <a href="#berita" class="readon green-btn">
+            <a href="{{ url('berita/') }}" class="readon green-btn">
                 <i class="fa-solid fa-arrow-right me-2"></i> Tampilkan Berita Lainnya
             </a>
         </div>

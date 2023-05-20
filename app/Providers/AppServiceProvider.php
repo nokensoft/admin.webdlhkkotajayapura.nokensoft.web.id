@@ -36,8 +36,10 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('http');
         }
 
-
+        // PAGINATORS
         Paginator::useBootstrap();
+        // Paginator::useBootstrapFive();
+        // Paginator::defaultView('view-name');
 
         view()->share([
             'pengaturan'    => Pengaturan::first(),

@@ -7,12 +7,12 @@
                     <img src="{{ asset('assets/images/dlhk/background/bg-header-1.jpg') }}" alt="Breadcrumbs Image">
                 </div>
                 <div class="breadcrumbs-text white-color">
-                    <h1 class="page-title">Blog</h1>
+                    <h1 class="page-title">{{ $pageTitle }}</h1>
                     <ul>
                         <li>
-                            <a class="active" href="index.html">Home</a>
+                            <a class="active" href="{{ url('beranda') }}">Beranda</a>
                         </li>
-                        <li>Blog</li>
+                        <li>{{ $pageTitle }}</li>
                     </ul>
                 </div>
             </div>
@@ -31,31 +31,12 @@
                                         <button type="submit" value="Search"><i class=" flaticon-search"></i></button>
                                     </div>
                                 </div>
-                                <div class="recent-posts mb-50">
-                                    <h3 class="widget-title">Recent Posts</h3>
-                                    <ul>
-                                        <li><a href="#">University while the lovely valley team work</a></li>
-                                        <li><a href="#">High school program starting soon 2021</a></li>
-                                        <li><a href="#">Modern School the lovely valley team work</a></li>
-                                        <li><a href="#">While the lovely valley team work</a></li>
-                                        <li><a href="#">This is a great source of content for anyone…</a></li>
-                                    </ul>
-                                </div>
                                 <div class="widget-archives mb-50">
-                                    <h3 class="widget-title">Archives</h3>
+                                    <h3 class="widget-title">Kategori Berita</h3>
                                     <ul>
-                                        <li><a href="#">September 2020</a></li>
-                                        <li><a href="#">September 2020</a></li>
-                                    </ul>
-                                </div>   
-                                <div class="widget-archives mb-50">
-                                    <h3 class="widget-title">Categories</h3>
-                                    <ul>
-                                        <li><a href="#">College</a></li>
-                                        <li><a href="#">High School</a></li>
-                                        <li><a href="#">Primary</a></li>
-                                        <li><a href="#">School</a></li>
-                                        <li><a href="#">University</a></li>
+                                        @foreach($kategoris as $kategori)
+                                        <li><a href="{{ url('berita/kategori/' . $kategori->kategori_slug) }}">{{ $kategori->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                   <div class="recent-posts mb-50">
@@ -74,16 +55,16 @@
                         <div class="col-lg-8 pr-50">
                             <div class="row">
 
-                                @foreach ($beritas as $data )
+                                @foreach ($datas as $data )
                                 <div class="col-lg-12 mb-70">
                                     <div class="blog-item">
                                         <div class="blog-img">
                                             
 
                                             @if(empty($data->cover))
-                                            <a href="#"><img src="{{ asset('file/berita/cover-0.jpg') }}" alt=""></a>
+                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset('file/berita/cover-0.jpg') }}" alt="Cover berita"></a>
                                             @else
-                                            <a href="#"><img src="{{ asset( $data->cover ) }}" alt=""></a>
+                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset( $data->cover ) }}" alt="Cover berita"></a>
                                             @endif
 
                                         </div>
@@ -124,6 +105,15 @@
                         </div>
                         <!-- .col End -->
                     </div> 
+                    <!-- .row end -->
+
+                    <div class="row">
+                        <div class="col-12">
+                            {{ $datas->links() }}
+                        </div>
+                    </div>
+                    <!-- .row end -->
+
                 </div>
             </div>
           <!-- Blog Section End -->  

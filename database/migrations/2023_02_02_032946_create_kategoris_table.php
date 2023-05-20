@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('kategoris', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('kategori_slug');
+            
             $table->string('deskripsi')->nullable();
             $table->string('katakunci')->nullable();
             $table->string('image')->nullable();
             $table->string('status');
-            $table->string('slug');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
            

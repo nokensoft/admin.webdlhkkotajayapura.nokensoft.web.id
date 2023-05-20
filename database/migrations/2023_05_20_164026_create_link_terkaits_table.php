@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kategori_beritas', function (Blueprint $table) {
+        Schema::create('link_terkaits', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('kategori_slug')->nullable();
-            
-            $table->enum('status',['publish','draft'])->default('publish')->nullable();
-            $table->softDeletes();
+
+            $table->string('judul')->nullable();
+            $table->string('gambar')->nullable();
+            $table->string('url')->nullable();
+            $table->string('status')->nullable();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori_beritas');
+        Schema::dropIfExists('link_terkaits');
     }
 };

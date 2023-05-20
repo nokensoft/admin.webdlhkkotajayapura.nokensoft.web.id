@@ -1,16 +1,22 @@
 <?php
 
+// CONTROLLERS
 use App\Http\Controllers\Frontend\HalamanController;
 use App\Http\Controllers\Frontend\BeritaController;
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Frontend\LinkTerkaitController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengajuanPertanyaanController;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProductController;
+
+// MODELS
 use App\Models\Berita\Berita;
+use App\Models\LinkTerkait;
+
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +29,21 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () { 
+    // alihkan ke halaman beranda
+    return redirect('/beranda'); 
+});
 
+// BERANDA
+Route::get('/beranda', function () {
 
-Route::get('/', function () {
-
+    // data berita di halaman beranda
     $beritas = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
-    return  view('frontend.index', compact('beritas'));
+    
+    // data link terkait di halaman beranda
+    $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+
+    return  view('frontend.index', compact('beritas', 'linkTerkaits'));
 
 });
 
@@ -52,7 +64,9 @@ Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
 Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.slug');
 
 // 3) menampilkan berita berdasarkan kategori
-Route::get('/berita/kategori/{kategori}', [BeritaController::class, 'kategori'])->name('berita.kategori');
+Route::get('/berita/kategori/{kategori}', [BeritaController::class, 'kategori'])->name('berita.kategori.slug');
+
+
 
 
 Route::post('/pengajuan', [PengajuanPertanyaanController::class, 'pengajuanPertanyaanStore'])->name('app.pengajuan.store');
