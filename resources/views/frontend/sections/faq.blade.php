@@ -9,53 +9,27 @@
                     </div>
                     <div class="faq-content">
                         <div class="accordion" id="accordionExample">
-                            {{-- <div class="accordion-item card">
-                                <div class="accordion-header card-header" id="headingOne">
-                                    <button class="accordion-button card-link" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">What are the
-                                        requirements ?</button>
-                                </div>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body card-body">Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
-                                        mattis, pulvinar dapibus leo ducimus qui blanditiis praesentium ducimus
-                                        qui.</div>
-                                </div>
-                            </div> --}}
-    
-                            @foreach ($faq as $f )
+
+                               
+                            
+                            @foreach ($faqs as $faq)
                             <div class="accordion-item card">
-                                <div class="accordion-header card-header" id="headingTwo">
+                                <div class="accordion-header card-header" id="heading{{ $faq->id }}">
                                     <button class="card-link accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                        aria-expanded="false" aria-controls="collapseTwo"> {{ $f->pertanyaan }} </button>
+                                        data-bs-toggle="collapse" data-bs-target="#collapse{{ $faq->id }}"
+                                        aria-expanded="false" aria-controls="collapse{{ $faq->id }}">{{ $faq->pertanyaan }}</button>
                                 </div>
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body card-body">
-                                       {!! $f->jawaban !!}
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-    
-                            {{-- <div class="accordion-item card">
-                                <div class="accordion-header card-header" id="headingThree">
-                                    <button class="card-link accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                        aria-expanded="false" aria-controls="collapseThree">What is the transfer
-                                        application process?</button>
-                                </div>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div id="collapse{{ $faq->id }}" class="accordion-collapse collapse"
+                                    aria-labelledby="heading{{ $faq->id }}" data-bs-parent="#accordionExample">
                                     <div class="accordion-body card-body">Lorem ipsum dolor sit amet,
                                         consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
                                         mattis, pulvinar dapibus leo ducimus qui blanditiis praesentium ducimus
                                         qui.</div>
                                 </div>
-                            </div> --}}
+                            </div>                        
+                            @endforeach
+
+
                         </div>
                     </div>
                 </div>

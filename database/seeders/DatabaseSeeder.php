@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             LinkTerkaitSeeder::class,
             LayananOnlineSeeder::class,
             InformasiLingkunganSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }

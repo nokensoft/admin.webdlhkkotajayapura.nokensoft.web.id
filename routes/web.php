@@ -15,6 +15,7 @@ use App\Models\Berita\Berita;
 use App\Models\LinkTerkait;
 use App\Models\LayananOnline;
 use App\Models\InformasiLingkungan;
+use App\Models\Faq;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -50,8 +51,11 @@ Route::get('/beranda', function () {
     
     // data informasi lingkungan di halaman beranda
     $informasiLingkungans = InformasiLingkungan::orderBy('id','desc')->where('status','publish')->paginate();
+    
+    // data faq di halaman beranda
+    $faqs = Faq::orderBy('id','desc')->where('status','publish')->paginate();
 
-    return  view('frontend.index', compact('beritas', 'linkTerkaits', 'layananOnlines', 'informasiLingkungans'));
+    return  view('frontend.index', compact('beritas', 'linkTerkaits', 'layananOnlines', 'informasiLingkungans', 'faqs'));
 
 });
 
