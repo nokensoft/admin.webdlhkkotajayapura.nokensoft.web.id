@@ -84,7 +84,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ url('dasbor/link') }}">
+                    <a href="{{ url('dasbor/link-terkait') }}">
                         <i data-feather="link"></i>
                         <span> Link Terkait</span>
                     </a>

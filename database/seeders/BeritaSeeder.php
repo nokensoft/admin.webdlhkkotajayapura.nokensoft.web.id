@@ -22,7 +22,7 @@ class BeritaSeeder extends Seeder
             'judul'         => 'judul berita satu',
             'slug'          => 'judul-berita-satu',
             'gambar'         => 'gambar/berita/01.jpg',
-            'isi'           => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
+            'konten'           => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
                                             Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets. Globally incubate standards compliant channels before scalable benefits.
@@ -36,7 +36,7 @@ class BeritaSeeder extends Seeder
                                         <li>Rebuilding from fire or water damage</li>
                                     </ul>',
                                     
-            'isi_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
             'status'        => 'publish',
         ]);
@@ -48,7 +48,7 @@ class BeritaSeeder extends Seeder
             'judul'         => 'judul berita dua',
             'slug'          => 'judul-berita-dua',
             'gambar'         => 'gambar/berita/02.jpg',
-            'isi'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
+            'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
                                             Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets. Globally incubate standards compliant channels before scalable benefits.
@@ -62,7 +62,7 @@ class BeritaSeeder extends Seeder
                                         <li>Rebuilding from fire or water damage</li>
                                     </ul>',
 
-            'isi_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
             'status'        => 'publish',
         ]);
@@ -74,7 +74,7 @@ class BeritaSeeder extends Seeder
             'judul'         => 'judul berita tiga',
             'slug'          => 'judul-berita-tiga',
             'gambar'         => 'gambar/berita/04.jpg',
-            'isi'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
+            'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
                                             Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets. Globally incubate standards compliant channels before scalable benefits.
@@ -88,7 +88,7 @@ class BeritaSeeder extends Seeder
                                         <li>Rebuilding from fire or water damage</li>
                                     </ul>',
 
-            'isi_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
             'status'        => 'publish',
         ]);
@@ -100,7 +100,7 @@ class BeritaSeeder extends Seeder
             'judul'         => 'judul berita empat',
             'slug'          => 'judul-berita-empat',
             'gambar'         => 'gambar/berita/05.jpg',
-            'isi'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
+            'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
                                             Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets. Globally incubate standards compliant channels before scalable benefits.
@@ -114,7 +114,7 @@ class BeritaSeeder extends Seeder
                                         <li>Rebuilding from fire or water damage</li>
                                     </ul>',
 
-            'isi_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
             'status'        => 'publish',
         ]);
@@ -126,7 +126,7 @@ class BeritaSeeder extends Seeder
             'judul'         => 'judul berita lima',
             'slug'          => 'judul-berita-lima',
             'gambar'         => 'gambar/berita/06.jpg',
-            'isi'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
+            'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
                                             Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets. Globally incubate standards compliant channels before scalable benefits.
@@ -140,7 +140,7 @@ class BeritaSeeder extends Seeder
                                         <li>Rebuilding from fire or water damage</li>
                                     </ul>',
 
-            'isi_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
             'status'        => 'publish',
         ]);

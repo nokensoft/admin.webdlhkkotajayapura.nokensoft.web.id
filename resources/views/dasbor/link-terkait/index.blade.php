@@ -22,7 +22,7 @@
         <div class="card">
             <div class="card-body">
                 <!-- Left sidebar -->
-                @include('dasbor.admin.pages.link-terkait.menu')
+                @include('dasbor.link-terkait.menu')
                 <!-- End Left sidebar -->
 
                 <div class="inbox-rightbar">
@@ -42,27 +42,27 @@
                                     <th>No</th>
                                     <th>Thumbnail</th>
                                     <th>Judul Link</th>
-                                    <th>Sub Judul</th>
-                                    <th>Author</th>
                                     <th>URL</th>
+                                    <th>Author</th>
                                     <th class="text-center" width="210px">Opsi</th>
                                 </tr>
                                 @foreach ($datas as $data)
                                 <tr>
                                     <td>{{ ++$i }}</td>
                                     <td>
-                                        @if(!$data->cover)
-                                        <img src="{{ asset('gambar/link-terkait/cover-0.jpg') }}" class="img-thumbnail" alt="Picture">
+                                        @if(empty($data->gambar))
+                                        <img src="{{ asset('gambar/link-terkait/00.jpg') }}" class="img-thumbnail" alt="Gambar">
                                         @else
-                                        <a href="{{ asset('gambar/link-terkait')}}/{{($data->cover) }}" target="_blank">
-                                            <img src="{{ asset('gambar/link-terkait')}}/{{($data->cover) }}" class="img-thumbnail" alt="Picture">
+                                        <a href="{{ asset($data->gambar) }}" target="_blank">
+                                            <img src="{{ asset($data->gambar) }}" class="img-thumbnail" alt="Gambar">
                                         </a>
                                         @endif
                                     </td>
-                                    <td>{{Str::limit($data->judul_link-terkait, 20)}}</td>
-                                    <td>{!! Str::limit($data->sub_judul, 20) !!}</td>
+                                    <td>{{Str::limit($data->judul_link, 20)}}</td>
+                                    <td>
+                                        <a href="{{ $data->url }}" target="_blank">{{ $data->url }}</a>
+                                    </td>
                                     <td>{{ $data->user->name ?? '' }}</td>
-                                    <td>{{ $data->url }}</td>
 
 
                                     <td class="text-center">
@@ -77,7 +77,7 @@
                                             </a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fe-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

@@ -34,22 +34,17 @@
         <div class="card">
             <div class="card-body">
                 {{-- <form action="{{ route('dasbor.halaman.store') }}" method="post" enctype="multipart/form-data"> --}}
-                {!! Form::open(array('url' => route('dasbor.halaman.store'),'files'=>'true')) !!}
+                {!! Form::open(array('url' => route('dasbor.link-terkait.store'),'files'=>'true')) !!}
                 @csrf
                 
                 <div class="mb-3">
-                    <label for="judul_halaman" class="form-label">Judul Halaman <span class="text-danger">*</span></label>
-                    {!! Form::text('judul_halaman',null,['required','id'=>'judul_halaman','class'=>'form-control','placeholder'=>'Judul Halaman'])!!}
+                    <label for="judul_link" class="form-label">Judul Link <span class="text-danger">*</span></label>
+                    {!! Form::text('judul_link',null,['required','id'=>'judul_link','class'=>'form-control','placeholder'=>'Judul Link'])!!}
                 </div>
                 
                 <div class="mb-3">
-                    <label for="sub_judul" class="form-label">Sub Judul</label>
-                    {!! Form::text('sub_judul',null,['required','id'=>'sub_judul','class'=>'form-control','placeholder'=>'Sub Judul'])!!}
-                </div>
-
-                <div class="mb-3">
-                    <label for="konten" class="form-label">Konten Halaman <span class="text-danger">*</span></label>
-                    <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ old('konten') }}</textarea>
+                    <label for="url" class="form-label">URL <span class="text-danger">*</span></label>
+                    {!! Form::text('url',null,['required','id'=>'url','class'=>'form-control','placeholder'=>'URL'])!!}
                 </div>
 
                 <div class="mb-3">

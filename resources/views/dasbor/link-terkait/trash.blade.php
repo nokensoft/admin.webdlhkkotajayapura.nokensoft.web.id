@@ -23,7 +23,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ url('dasbor/halaman') }}" class="btn btn-danger mb-2"><i
+                        <a href="{{ url('dasbor/link-terkait') }}" class="btn btn-danger mb-2"><i
                             class="mdi mdi-arrow-left me-2"></i> Kembali</a>
                     </div>
                     <div class="col-sm-8">
@@ -36,28 +36,26 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
-                            <th>Judul Halaman</th>
-                            <th>Slug</th>
-                            <th width="300px">Konten</th>
+                            <th>Judul Link</th>
+                            <th>URL</th>
                             <th width="210px" class="text-center">Opsi</th>
                         </tr>
                         @foreach ($datas as $data)
                         <tr>
                             <td>{{ ++$i }}</td>
 
-                            <td>{{ $data->judul_halaman }}</td>
-                            <td> {{ $data->slug }}</td>
-                            <td> {!! $data->konten !!} </td>
+                            <td>{{ $data->judul_links }}</td>
+                            <td> {{ $data->url }}</td>
                             <td class="text-center">
                                 <div class="row">
                                     <div class="col-6">
-                                        <form action="{{ url('dasbor/halaman/restore',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/link-terkait/restore',$data->id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-success">Restore</button>
                                         </form>
                                     </div>
                                     <div class="col-6">
-                                        <form action="{{ url('dasbor/halaman/delete',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/link-terkait/delete',$data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip"

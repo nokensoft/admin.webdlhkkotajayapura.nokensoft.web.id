@@ -21,8 +21,8 @@ return new class extends Migration
 
             $table->string('judul')->nullable();
             $table->string('slug')->nullable();
-            $table->mediumText('isi')->nullable();
-            $table->mediumText('isi_singkat')->nullable();
+            $table->mediumText('konten')->nullable();
+            $table->mediumText('konten_singkat')->nullable();
             $table->string('gambar')->nullable();
             $table->enum('status',['publish','draft','revisi'])->default('draft')->nullable();
             $table->string('ket')->nullable();

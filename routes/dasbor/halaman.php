@@ -39,9 +39,6 @@ use Illuminate\Support\Facades\Route;
         // store
         Route::post('halaman','store')->name('dasbor.halaman.store');
 
-        // Route::post('halaman','store')->name('dasbor.halaman.store')->middleware(['role:author']);
-
-
         // show / detail
         Route::get('halaman/{id}/detail','show')
             ->name('dasbor.halaman.show');

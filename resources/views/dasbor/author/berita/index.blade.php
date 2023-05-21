@@ -36,7 +36,7 @@
                         <table class="table table-bordered">
                         <tr>
                             <th class="text-center">No</th>
-                            <th>Image</th>
+                            <th>gambar</th>
                             <th>Judul</th>
                             <th>Konten</th>
                             <th>Kategori</th>
@@ -47,19 +47,17 @@
                         <tr>
                             <td class="text-center">{{ ++$i }}</td>
                             <th>
-                                @if ($berita->image)
-                                <img src="{{asset('file/berita')}}/{{$berita->image}}" alt="allal"
-                                class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                @if (empty($berita->gambar))
+                                <img src="{{asset('assets/admin/assets/gambars/gambar-not.png')}}" class="img-fluid img-thumbnail" alt="Gambar">
                                 @else
-                                <img src="{{asset('assets/admin/assets/images/image-not.png')}}" alt="allal"
-                                class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                <img src="{{ asset($berita->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar">
                                 @endif
                             </th>
                             <td>
-                                {{ Str::limit($berita->title, 10) }}
+                                {{ Str::limit($berita->judul, 10) }}
                             </td>
                             <td>
-                                {{ Str::limit($berita->body, 10) }}
+                                {{ Str::limit($berita->konten, 10) }}
                             </td>
                             <th> {{ $berita->kategori->name }} </th>
 
