@@ -9,16 +9,20 @@ class HalamanController extends Controller
 {
 
     // INDEX 
-    public function index() {
-        // 
+    public function index()
+    {
+        $halamans = Halaman::orderBy('judul', 'asc')->get();
+        
+        return view('frontend.pages.halaman.index', compact('halamans'));
     }
 
     // SHOW
     public function show($slug)
     {
+        $halaman = Halaman::where('slug', $slug)
+                            ->where('status', 'publish')
+                            ->first();
 
-        $data = Halaman::where('slug', $slug)->first();
-
-        return view('frontend.pages.halaman.show', ['data' => $data]);
+        return view('frontend.pages.halaman.show', compact('halaman'));
     }
 }

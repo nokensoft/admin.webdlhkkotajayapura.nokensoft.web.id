@@ -18,10 +18,10 @@ class HalamanSeeder extends Seeder
     {
         Halaman::insert([
             [
-                'judul'     => 'Profil DLHK',
+                'judul'     => 'Profil Dinas',
                 'sub_judul' => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'cover'     => 'cover-1.jpg',
-                'slug'      => 'profil-dlhk',
+                'slug'      => 'profil-dinas',
                 'isi'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                         <div class="blog-desc mb-40">
                                             <p>
@@ -35,7 +35,7 @@ class HalamanSeeder extends Seeder
                                             <li>Additions Benefit of Service</li>
                                             <li>Rebuilding from fire or water damage</li>
                                         </ul>',
-                'status'            => "Publish",
+                'status'            => "publish",
                 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -43,7 +43,7 @@ class HalamanSeeder extends Seeder
             [
                 'judul'     => 'Profil Pimpinan',
                 'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
+                'cover'         => '',
                 'slug'      => 'profil-pimpinan',
                 'isi'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                 <div class="blog-desc mb-40">
@@ -58,7 +58,7 @@ class HalamanSeeder extends Seeder
                                     <li>Additions Benefit of Service</li>
                                     <li>Rebuilding from fire or water damage</li>
                                 </ul>',
-                'status'            => "Publish",
+                'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -66,7 +66,7 @@ class HalamanSeeder extends Seeder
             [
                 'judul'     => 'Visi Misi',
                 'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
+                'cover'         => '',
                 'slug'              => 'visi-misi',
                 'isi'            => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                         <div class="blog-desc mb-40">
@@ -81,7 +81,7 @@ class HalamanSeeder extends Seeder
                                             <li>Additions Benefit of Service</li>
                                             <li>Rebuilding from fire or water damage</li>
                                         </ul>',
-                'status'            => "Publish",
+                'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -89,10 +89,10 @@ class HalamanSeeder extends Seeder
             [
                 'judul'     => 'Tugas Pokok & Fungsi',
                 'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
+                'cover'         => '',
                 'slug'              => 'tugas-pokok-fungsi',
                 'isi'            => 'Tugas Pokok & Fungsi, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
+                'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -100,10 +100,10 @@ class HalamanSeeder extends Seeder
             [
                 'judul'     => 'Bidang Layanan',
                 'sub_judul' => 'sub judul halaman',
-                'cover'     => 'cover-1.jpg',
+                'cover'         => '',
                 'slug'              => 'bidang-layanan',
                 'isi'            => 'Bidang Layanan, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
-                'status'            => "Publish",
+                'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -150,7 +150,85 @@ class HalamanSeeder extends Seeder
                                             </tr>
                                         </tbody>
                                     </table>',
-                'status'        => "Publish",
+                'status'        => "publish",
+
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
+            ],
+            [
+                'judul'         => 'Video Profil Dinas',
+                'slug'          => 'video-profil-dinas',
+                'sub_judul'     => 'Berikut adalah video profil dinas',
+                'cover'         => '',
+                'isi'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
+                <iframe width="100%" height="560" src="https://www.youtube.com/embed/UV0mhY2Dxr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+                'status'        => "publish",
+
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
+            ],
+            [
+                'judul'         => 'Profil Pejabat',
+                'slug'          => 'profil-pejabat',
+                'sub_judul'     => 'Berikut adalah profil pejabat pada dinas',
+                'cover'         => '',
+                'isi'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'        => "publish",
+
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
+            ],
+            [
+                'judul'         => 'Struktur Organisasi',
+                'slug'          => 'struktur-organisasi',
+                'sub_judul'     => 'Berikut struktur organisasi pada dinas',
+                'cover'         => '',
+                'isi'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'        => "publish",
+
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
+            ],
+            [
+                'judul'         => 'Kontak',
+                'slug'          => 'kontak',
+                'sub_judul'     => 'Silahkan hubungi kami melalui informasi kontak yang tertera',
+                'cover'         => '',
+                'isi'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'        => "publish",
+
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
+            ],
+            [
+                'judul'         => 'Media Sosial',
+                'slug'          => 'media-sosial',
+                'sub_judul'     => 'Kami juga ada di berbagai platform media sosial',
+                'cover'         => '',
+                'isi'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'        => "publish",
+
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
+            ],
+            [
+                'judul'         => 'Informasi Lingkungan',
+                'slug'          => 'informasi-lingkungan',
+                'sub_judul'     => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
+                'cover'         => '',
+                'isi'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'        => "publish",
+
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
+            ],
+            [
+                'judul'         => 'Layanan Online',
+                'slug'          => 'layanan-online',
+                'sub_judul'     => 'Layanan online yang kami sediakan bagi masyarakat',
+                'cover'         => '',
+                'isi'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'        => "publish",
 
                 'created_at'    => Carbon::now(),
                 'updated_at'    => Carbon::now()

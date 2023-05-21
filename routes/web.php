@@ -3,19 +3,10 @@
 // CONTROLLERS
 use App\Http\Controllers\Frontend\HalamanController;
 use App\Http\Controllers\Frontend\BeritaController;
-use App\Http\Controllers\Frontend\LinkTerkaitController;
+use App\Http\Controllers\Frontend\BerandaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengajuanPertanyaanController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\ProductController;
-
-// MODELS
-use App\Models\Berita\Berita;
-use App\Models\LinkTerkait;
-use App\Models\LayananOnline;
-use App\Models\InformasiLingkungan;
-use App\Models\Faq;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -38,29 +29,17 @@ Route::get('/', function () {
 });
 
 // BERANDA
-Route::get('/beranda', function () {
-
-    // data berita di halaman beranda
-    $beritas = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
-    
-    // data link terkait di halaman beranda
-    $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
-    
-    // data layanan online di halaman beranda
-    $layananOnlines = LayananOnline::orderBy('id','desc')->where('status','publish')->paginate();
-    
-    // data informasi lingkungan di halaman beranda
-    $informasiLingkungans = InformasiLingkungan::orderBy('id','desc')->where('status','publish')->paginate();
-    
-    // data faq di halaman beranda
-    $faqs = Faq::orderBy('id','desc')->where('status','publish')->paginate();
-
-    return  view('frontend.index', compact('beritas', 'linkTerkaits', 'layananOnlines', 'informasiLingkungans', 'faqs'));
-
-});
+Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 
 // HALAMAN
-Route::get('/halaman/{method}', [HalamanController::class, 'show'])->name('halaman.method');
+
+/*
+| HALAMAN
+| menampilkan halaman secara detail berdasarkan slug
+| halaman dipasang secara manual menggunakan manajemen url/link halaman
+*/
+Route::get('/halaman', [HalamanController::class, 'index'])->name('halaman');
+Route::get('/halaman/{slug}', [HalamanController::class, 'show'])->name('halaman.slug');
 
 /*
 | BERITA
