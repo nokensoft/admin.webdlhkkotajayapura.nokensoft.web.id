@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('dasbor')->middleware('auth')->group(function () {
 
-    require 'dasbor/berita.php';
-    require 'dasbor/berita-kategori.php';
-    require 'dasbor/halaman.php';
-    require 'dasbor/link-terkait.php';
+    require_once 'dasbor/berita.php';
+    require_once 'dasbor/berita-kategori.php';
+    require_once 'dasbor/halaman.php';
+    require_once 'dasbor/link-terkait.php';
 
 });
     
