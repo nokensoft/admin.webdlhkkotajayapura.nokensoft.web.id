@@ -1,5 +1,7 @@
 <?php 
 
+use Illuminate\Support\Facades\Route;
+
 Route::prefix('dasbor')->middleware('auth')->group(function () {
 
     require 'dasbor/berita.php';
