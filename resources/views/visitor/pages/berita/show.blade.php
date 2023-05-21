@@ -24,7 +24,7 @@
                    <div class="blog-deatails">
 
                         <div class="bs-img">
-                            <a href="#"><img src="{{ asset( $data->cover ) }}" alt="{{ $data->cover }}" class="w-100"></a>
+                            <img src="{{ asset( $data->gambar ) }}" alt="Gambar" class="w-100">
                         </div>
 
                        <div class="blog-full">

@@ -8,10 +8,10 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item active">Halaman</li>
+                    <li class="breadcrumb-item active">Link Terkait</li>
                 </ol>
             </div>
-            <h4 class="page-title">Halaman</h4>
+            <h4 class="page-title">Link Terkait</h4>
         </div>
     </div>
 </div>
@@ -22,14 +22,14 @@
         <div class="card">
             <div class="card-body">
                 <!-- Left sidebar -->
-                @include('dasbor.admin.pages.halaman.menu')
+                @include('dasbor.admin.pages.link-terkait.menu')
                 <!-- End Left sidebar -->
 
                 <div class="inbox-rightbar">
                     @if (request()->segment(3) == 'draft')
-                    <form action="{{ url('dasbor/halaman/draft') }}" method="get">
+                    <form action="{{ url('dasbor/link-terkait/draft') }}" method="get">
                         @else
-                        <form action="{{ url('dasbor/halaman') }}" method="get">
+                        <form action="{{ url('dasbor/link-terkait') }}" method="get">
                             @endif
                             <div class="input-group mb-3">
                                 <input type="search" name="s" class="form-control" placeholder="Search">
@@ -41,43 +41,43 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Thumbnail</th>
-                                    <th>Judul Halaman</th>
+                                    <th>Judul Link</th>
                                     <th>Sub Judul</th>
                                     <th>Author</th>
-                                    <th>Slug</th>
+                                    <th>URL</th>
                                     <th class="text-center" width="210px">Opsi</th>
                                 </tr>
                                 @foreach ($datas as $data)
                                 <tr>
                                     <td>{{ ++$i }}</td>
                                     <td>
-                                        @if(empty($data->gambar))
-                                        <img src="{{ asset('gambar/halaman/00.jpg') }}" class="img-thumbnail" alt="Gambar">
+                                        @if(!$data->cover)
+                                        <img src="{{ asset('gambar/link-terkait/cover-0.jpg') }}" class="img-thumbnail" alt="Picture">
                                         @else
-                                        <a href="{{ asset($data->gambar) }}" target="_blank">
-                                            <img src="{{ asset($data->gambar) }}" class="img-thumbnail" alt="Gambar">
+                                        <a href="{{ asset('gambar/link-terkait')}}/{{($data->cover) }}" target="_blank">
+                                            <img src="{{ asset('gambar/link-terkait')}}/{{($data->cover) }}" class="img-thumbnail" alt="Picture">
                                         </a>
                                         @endif
                                     </td>
-                                    <td>{{Str::limit($data->judul_halaman, 20)}}</td>
+                                    <td>{{Str::limit($data->judul_link-terkait, 20)}}</td>
                                     <td>{!! Str::limit($data->sub_judul, 20) !!}</td>
                                     <td>{{ $data->user->name ?? '' }}</td>
-                                    <td>{{ $data->slug }}</td>
+                                    <td>{{ $data->url }}</td>
 
 
                                     <td class="text-center">
-                                        <form action="{{ url('dasbor/halaman',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/link-terkait',$data->id) }}" method="POST">
                                             <a class="btn btn-sm btn-dark"
-                                                href="{{ url('dasbor/halaman/'.$data->slug.'/detail') }}">
+                                                href="{{ url('dasbor/link-terkait/'.$data->slug.'/detail') }}">
                                                 <i class="fe-eye"></i>
                                             </a>
                                             <a class="btn btn-sm btn-dark"
-                                                href="{{ url('dasbor/halaman/'.$data->slug.'/edit') }}">
+                                                href="{{ url('dasbor/link-terkait/'.$data->slug.'/edit') }}">
                                                 <i class="fe-edit"></i>
                                             </a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fe-trash"></i></button>
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                         </form>
                                     </td>
                                 </tr>

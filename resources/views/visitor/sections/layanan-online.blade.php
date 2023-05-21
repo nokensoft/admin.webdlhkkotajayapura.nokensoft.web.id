@@ -15,7 +15,13 @@
                 <div class="services-item">
                     <div class="services-image">
                         <div class="services-icons">
-                            <img src="{{ $layananOnline->gambar }}" alt="Cover layanan online">
+                            @if(empty($layananOnline->gambar))
+                            <img src="{{ asset('gambar/layanan-online/-0.jpg') }}" alt="Gambar">
+                            @else
+                            <a href="{{ $layananOnline->url }}" target="_blank">
+                                <img src="{{ asset( $layananOnline->gambar ) }}" alt="Gambar">
+                            </a>
+                            @endif
                         </div>
                         <div class="services-text">
                             <div class="services-title">
@@ -31,48 +37,6 @@
             </div>
             <!-- .col end -->                
             @endforeach
-
-            {{-- <div class="col-lg-4 md-mb-30">
-                <div class="services-item">
-                    <div class="services-image">
-                        <div class="services-icons">
-                            <img src="assets/images/dlhk/flaticon/2.png" alt="">
-                        </div>
-                        <div class="services-text">
-                            <div class="services-title">
-                                <h2 class="title">PENGADUAN</h2>
-                            </div>
-                            <p class="text">
-                                Sistem Informasi Pengaduan Masyarakat Terkait Lingkungan Hidup
-                            </p>
-                            <a href="#" class="readon green-btn"><i class="fa-solid fa-globe me-2"></i> Buka
-                                Aplikasi</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- .col end -->
-
-            <div class="col-lg-4">
-                <div class="services-item">
-                    <div class="services-image">
-                        <div class="services-icons">
-                            <img src="assets/images/dlhk/flaticon/3.png" alt="">
-                        </div>
-                        <div class="services-text">
-                            <div class="services-title">
-                                <h2 class="title">BANK SAMPAH</h2>
-                            </div>
-                            <p class="text">
-                                Sistem Informasi Bank Sampah <br> DLHK Kota Jayapura
-                            </p>
-                            <a href="#" class="readon green-btn"><i class="fa-solid fa-globe me-2"></i> Buka
-                                Aplikasi</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- .col end --> --}}
 
         </div>
     </div>

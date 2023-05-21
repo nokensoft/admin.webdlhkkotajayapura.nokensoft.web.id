@@ -59,14 +59,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="gambar" class="form-label">Gambar <span class="text-danger">*</span></label>
-                    <input type="file" name="gambar" class="form-control" id="customFile">
+                    <label for="cover" class="form-label">Gambar <span class="text-danger">*</span></label>
+                    <input type="file" name="cover" class="form-control" id="customFile">
                 </div>
 
-                @if(!$data->gambar)
-                    <img src="{{ asset('gambar/halaman/00.jpg') }}" alt="image" class="img-thumbnail mb-3" width="300px" alt="Gambar">
+                @if(!$data->cover)
+                    <img src="{{ asset('gambar/halaman/cover-0.jpg') }}" alt="image" class="img-thumbnail mb-3" width="200px" alt="Cover">
                 @else
-                    <img src="{{ asset($data->gambar) }}" class="img-thumbnail mb-3" width="300px" alt="Gambar">
+                    <img src="{{ asset('gambar/halaman')}}/{{ $data->cover }}" class="img-thumbnail mb-3" width="200px" alt="Cover">
                 @endif
 
                 <div class="mb-3">

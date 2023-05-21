@@ -21,11 +21,11 @@ class InformasiLingkunganFactory extends Factory
             'keterangan_singkat'    => $this->faker->text(),
             'keterangan_lengkap'    => $this->faker->text(),
             'gambar'                => $this->faker->randomElement([
-                'file/informasi-lingkungan/01.jpg',
-                'file/informasi-lingkungan/02.jpg',
-                'file/informasi-lingkungan/03.jpg',
-                'file/informasi-lingkungan/04.jpg',
-            ]),
+                                                                    'gambar/informasi-lingkungan/01.jpg',
+                                                                    'gambar/informasi-lingkungan/02.jpg',
+                                                                    'gambar/informasi-lingkungan/03.jpg',
+                                                                    'gambar/informasi-lingkungan/04.jpg',
+                                                                    ]),
             'url'                   => $this->faker->randomElement(['halaman/informasi-lingkungan']),
             'status'                => $this->faker->randomElement(['publish']),
         ];

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('link_terkaits', function (Blueprint $table) {
             $table->id();
 
-            $table->string('judul')->nullable();
+            $table->string('judul_link')->nullable();
+            $table->string('slug')->nullable();
             $table->string('gambar')->nullable();
             $table->string('url')->nullable();
             $table->string('status')->nullable();

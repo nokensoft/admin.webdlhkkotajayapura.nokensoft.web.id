@@ -9,8 +9,14 @@
             data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
 
             @foreach ($linkTerkaits as $linkTerkait)
-            <div class="partner-item border py-4 bg-white">
-                <a href="{{ $linkTerkait->url }}" target="_blank"><img src="{{ $linkTerkait->gambar }}" alt="{{ $linkTerkait->gambar }}"></a>
+            <div class="partner-item border py-4 my-4 bg-white shadow">
+                <a href="{{ $linkTerkait->url }}" target="_blank">
+                    @if(empty($linkTerkait->gambar))
+                    <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar">
+                    @else
+                    <img src="{{ asset( $linkTerkait->gambar ) }}" alt="Gambar">
+                    @endif
+                </a>
             </div>
             @endforeach
 

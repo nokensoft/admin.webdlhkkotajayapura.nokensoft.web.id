@@ -58,9 +58,10 @@
         <div class="container">
         <div class="blog-deatails">
 
-                <div class="bs-img">
-                    <a href="#"><img src="{{ asset('gambar/halaman/' . $halaman->cover ) }}" alt="{{ $halaman->cover }}"></a>
-                </div>
+            <div class="bs-img">
+                <img src="{{ asset('gambar/halaman/' . $halaman->gambar ) }}" alt="Gambar">
+            </div>
+
             <div class="blog-full">
                 {!! $halaman->konten !!}
             </div>

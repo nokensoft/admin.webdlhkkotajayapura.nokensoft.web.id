@@ -61,10 +61,10 @@
                                         <div class="blog-img">
                                             
 
-                                            @if(empty($data->cover))
-                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset('file/berita/cover-0.jpg') }}" alt="Cover berita"></a>
+                                            @if(empty($data->gambar))
+                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset('file/berita/gambar-0.jpg') }}" alt="Gambar"></a>
                                             @else
-                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset( $data->cover ) }}" alt="Cover berita"></a>
+                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset( $data->gambar ) }}" alt="Gambar"></a>
                                             @endif
 
                                         </div>

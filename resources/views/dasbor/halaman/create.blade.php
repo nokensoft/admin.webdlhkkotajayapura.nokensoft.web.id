@@ -53,8 +53,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="cover" class="form-label">Gambar</label>
-                    <input type="file" name="cover" class="form-control" id="customFile">
+                    <label for="gambar" class="form-label">Gambar</label>
+                    <input type="file" name="gambar" class="form-control" id="customFile">
                 </div>
 
                 <div class="mb-3">

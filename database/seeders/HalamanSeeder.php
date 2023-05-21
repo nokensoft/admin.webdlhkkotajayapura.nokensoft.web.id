@@ -20,7 +20,7 @@ class HalamanSeeder extends Seeder
             [
                 'judul_halaman'     => 'Profil Dinas',
                 'sub_judul' => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'cover'     => 'cover-1.jpg',
+                'gambar'     => 'gambar/halaman/01.jpg',
                 'slug'      => 'profil-dinas',
                 'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                         <div class="blog-desc mb-40">
@@ -43,7 +43,7 @@ class HalamanSeeder extends Seeder
             [
                 'judul_halaman'     => 'Profil Pimpinan',
                 'sub_judul' => 'sub judul halaman',
-                'cover'         => '',
+                'gambar'         => '',
                 'slug'      => 'profil-pimpinan',
                 'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                 <div class="blog-desc mb-40">
@@ -66,7 +66,7 @@ class HalamanSeeder extends Seeder
             [
                 'judul_halaman'     => 'Visi Misi',
                 'sub_judul' => 'sub judul halaman',
-                'cover'         => '',
+                'gambar'         => '',
                 'slug'              => 'visi-misi',
                 'konten'            => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                         <div class="blog-desc mb-40">
@@ -89,7 +89,7 @@ class HalamanSeeder extends Seeder
             [
                 'judul_halaman'     => 'Tugas Pokok & Fungsi',
                 'sub_judul' => 'sub judul halaman',
-                'cover'         => '',
+                'gambar'         => '',
                 'slug'              => 'tugas-pokok-fungsi',
                 'konten'            => 'Tugas Pokok & Fungsi, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
                 'status'            => "publish",
@@ -100,7 +100,7 @@ class HalamanSeeder extends Seeder
             [
                 'judul_halaman'     => 'Bidang Layanan',
                 'sub_judul' => 'sub judul halaman',
-                'cover'         => '',
+                'gambar'         => '',
                 'slug'              => 'bidang-layanan',
                 'konten'            => 'Bidang Layanan, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
                 'status'            => "publish",
@@ -112,7 +112,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'         => 'Informasi Lingkungan',
                 'slug'          => 'informasi-lingkungan',
                 'sub_judul'     => 'Publikasi Laporan dan Kinerja DLHK',
-                'cover'         => '',
+                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
                                     <table class="table">
                                         <thead>
@@ -159,7 +159,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'         => 'Video Profil Dinas',
                 'slug'          => 'video-profil-dinas',
                 'sub_judul'     => 'Berikut adalah video profil dinas',
-                'cover'         => '',
+                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
                 <iframe width="100%" height="560" src="https://www.youtube.com/embed/UV0mhY2Dxr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
                 'status'        => "publish",
@@ -171,7 +171,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'         => 'Profil Pejabat',
                 'slug'          => 'profil-pejabat',
                 'sub_judul'     => 'Berikut adalah profil pejabat pada dinas',
-                'cover'         => '',
+                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
                 'status'        => "publish",
 
@@ -182,7 +182,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'         => 'Struktur Organisasi',
                 'slug'          => 'struktur-organisasi',
                 'sub_judul'     => 'Berikut struktur organisasi pada dinas',
-                'cover'         => '',
+                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
                 'status'        => "publish",
 
@@ -193,7 +193,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'         => 'Kontak',
                 'slug'          => 'kontak',
                 'sub_judul'     => 'Silahkan hubungi kami melalui informasi kontak yang tertera',
-                'cover'         => '',
+                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
                 'status'        => "publish",
 
@@ -204,7 +204,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'         => 'Media Sosial',
                 'slug'          => 'media-sosial',
                 'sub_judul'     => 'Kami juga ada di berbagai platform media sosial',
-                'cover'         => '',
+                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
                 'status'        => "publish",
 
@@ -215,7 +215,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'         => 'Informasi Lingkungan',
                 'slug'          => 'informasi-lingkungan',
                 'sub_judul'     => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
-                'cover'         => '',
+                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
                 'status'        => "publish",
 
@@ -226,7 +226,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'         => 'Layanan Online',
                 'slug'          => 'layanan-online',
                 'sub_judul'     => 'Layanan online yang kami sediakan bagi masyarakat',
-                'cover'         => '',
+                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
                 'status'        => "publish",
 

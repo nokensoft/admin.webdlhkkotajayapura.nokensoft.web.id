@@ -29,10 +29,10 @@
                 <p class="mb-3">{{ $data->sub_judul }}</p>
 
                 <div class="mb-3">
-                    @if(empty($data->gambar))
-                        <img src="{{ asset('gambar/halaman/00.jpg') }}" class="img-fluid img-thumbnail img-fluid" alt="Gambar">
+                    @if(!$data->gambar_cover)
+                        <img src="{{ asset('gambar/halaman/cover-0.jpg') }}" alt="image" class="img-fluid img-thumbnail img-fluid">
                         @else
-                        <img src="{{ asset($data->gambar) }}" class="img-thumbnail img-fluid" alt="Gambar">
+                        <img src="{{ asset('file/halaman/' . $data->gambar_cover ) }}" class="img-thumbnail img-fluid" alt="Picture">
                     @endif
                 </div>
 

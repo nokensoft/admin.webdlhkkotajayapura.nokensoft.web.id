@@ -13,7 +13,14 @@
             @foreach ($informasiLingkungans as $informasiLingkungan)
             <div class="col-lg-4 col-md-6 mb-30">
                 <div class="degree-wrap">
-                    <img src="{{ $informasiLingkungan->gambar }}" alt="">
+                    @if(empty($informasiLingkungan->gambar))
+                        <img src="{{ asset('gambar/berita/gambar-0.jpg') }}" alt="Gambar">
+                    @else
+                    <a href="{{ $informasiLingkungan->url }}">
+                        <img src="{{ asset( $informasiLingkungan->gambar ) }}" alt="Gambar">
+                    </a>
+                    @endif
+
                     <div class="title-part mt-0">
                         <h4 class="title">{{ $informasiLingkungan->judul }}</h4>
                     </div>

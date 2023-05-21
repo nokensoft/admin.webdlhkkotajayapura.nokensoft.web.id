@@ -19,10 +19,12 @@
             @foreach ($beritas as $data )
             <div class="blog-item">
                 <div class="image-part">
-                    @if(empty($data->cover))
-                    <img src="{{ asset('file/berita/cover-0.jpg') }}" alt="Cover berita">
+                    @if(empty($data->gambar))
+                        <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar">
                     @else
-                    <img src="{{ asset( $data->cover ) }}" alt="Cover berita">
+                        <a href="{{ url('berita/' . $data->slug ?? '') }}">
+                            <img src="{{ asset( $data->gambar ) }}" alt="Gambar">
+                        </a>
                     @endif
                 </div>
                 <div class="blog-content">

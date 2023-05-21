@@ -89,13 +89,13 @@ class HalamanController extends Controller
             [
                 'judul_halaman'             => 'required',
                 'konten'                    => 'required',
-                // 'cover'              => 'image|mimes:png,jpeg,jpg|max:4096',
+                // 'gambar'              => 'image|mimes:png,jpeg,jpg|max:4096',
                 // 'status'                    => 'required',
             ],[
                 // 'judul_halaman.required'    => 'judul_halaman halaman tidak boleh kosong',
                 // 'konten.required'           => 'Konten halaman tidak boleh kosong',
                 // 'status.required'           => 'Status tidak boleh kosong',
-                // 'cover.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                // 'gambar.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
             ]
         );
         if ($validator->fails()) {
@@ -109,14 +109,14 @@ class HalamanController extends Controller
                $halaman->status = $request->status;
                $halaman->slug = Str::slug($request->judul_halaman);
 
-               if ($request->cover) {
-                    $imageName = Str::slug(12). '.' . $request->cover->extension();
+               if ($request->gambar) {
+                    $imageName = Str::slug(12). '.' . $request->gambar->extension();
                     $path = public_path('gambar/halaman');
-                    if (!empty($halaman->cover) && file_exists($path . '/' . $halaman->cover)) :
-                        unlink($path . '/' . $halaman->cover);
+                    if (!empty($halaman->gambar) && file_exists($path . '/' . $halaman->gambar)) :
+                        unlink($path . '/' . $halaman->gambar);
                     endif;
-                    $halaman->cover = $imageName;
-                    $request->cover->move(public_path('gambar/halaman'), $imageName);
+                    $halaman->gambar = $imageName;
+                    $request->gambar->move(public_path('gambar/halaman'), $imageName);
                }
                $halaman->save();
                Alert::toast('Halaman Berhasil dibuat!', 'success');
@@ -166,13 +166,13 @@ class HalamanController extends Controller
             [
                 'judul_halaman'             => 'required',
                 'konten'                    => 'required',
-                'cover'              => 'image|mimes:png,jpeg,jpg|max:4096',
+                'gambar'              => 'image|mimes:png,jpeg,jpg|max:4096',
                 'status'                    => 'required',
             ],[
                 'judul_halaman.required'    => 'judul_halaman halaman tidak boleh kosong',
                 'konten.required'           => 'Konten halaman tidak boleh kosong',
                 'status.required'           => 'Status tidak boleh kosong',
-                'cover.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                'gambar.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
             ]
         );
         if ($validator->fails()) {
@@ -186,14 +186,14 @@ class HalamanController extends Controller
                $halaman->status = $request->status;
                $halaman->slug = Str::slug($request->judul_halaman);
 
-               if ($request->cover) {
-                    $imageName = Str::slug(12). '.' . $request->cover->extension();
+               if ($request->gambar) {
+                    $imageName = Str::slug(12). '.' . $request->gambar->extension();
                     $path = public_path('gambar/halaman');
-                    if (!empty($halaman->cover) && file_exists($path . '/' . $halaman->cover)) :
-                        unlink($path . '/' . $halaman->cover);
+                    if (!empty($halaman->gambar) && file_exists($path . '/' . $halaman->gambar)) :
+                        unlink($path . '/' . $halaman->gambar);
                     endif;
-                    $halaman->cover = $imageName;
-                    $request->cover->move(public_path('gambar/halaman'), $imageName);
+                    $halaman->gambar = $imageName;
+                    $request->gambar->move(public_path('gambar/halaman'), $imageName);
                }
                $halaman->update();
                Alert::toast('Halaman Berhasil diperbarui!', 'success');
