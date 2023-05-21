@@ -21,7 +21,7 @@
             <div class="card-body">
 
                 <!-- Left sidebar -->
-                @include('panel.author.berita.menu')
+                @include('dasbor.author.berita.menu')
                 <!-- End Left sidebar -->
 
 

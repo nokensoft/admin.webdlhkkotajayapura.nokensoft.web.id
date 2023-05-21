@@ -1,4 +1,4 @@
-@extends('layouts.base_panel')
+@extends('dasbor.layout.app')
 @section('content')
     <!-- start page content wrapper-->
     <div class="row">

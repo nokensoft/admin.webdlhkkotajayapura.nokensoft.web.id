@@ -87,7 +87,7 @@ class PengaturanControlller extends Controller
 
                 $pengaturan->update();
                 Alert::toast('Pengaturan Berhasil diperbarui!', 'success');
-                return redirect()->route('app.pengaturan');
+                return redirect()->route('dasbor.pengaturan');
             } catch (\Throwable $th) {
                 dd($th);
                 Alert::toast('Gagal', 'error');

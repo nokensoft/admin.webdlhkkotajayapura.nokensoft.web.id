@@ -106,7 +106,7 @@ class UserController extends Controller
         $user->assignRole($request->input('roles'));
 
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.users');
+        return redirect()->route('dasbor.users');
     }
 
     /**
@@ -166,7 +166,7 @@ class UserController extends Controller
         $user->assignRole($request->input('roles'));
 
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.users');
+        return redirect()->route('dasbor.users');
     }
 
 

@@ -109,7 +109,7 @@ class BannerController extends Controller
 
         Banner::create($form_data);
         Alert::success('Success', 'Data Berhasil Ditambahkan');
-        return redirect()->route('app.banner');
+        return redirect()->route('dasbor.banner');
     }
 
     /**
@@ -183,7 +183,7 @@ class BannerController extends Controller
 
                $banner->update();
                Alert::toast('Banner Berhasil Diperbarui!', 'success');
-               return redirect()->route('app.banner');
+               return redirect()->route('dasbor.banner');
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
@@ -192,7 +192,7 @@ class BannerController extends Controller
 
 
       alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1200);
-        return redirect()->route('app.banner');
+        return redirect()->route('dasbor.banner');
 
     }
 

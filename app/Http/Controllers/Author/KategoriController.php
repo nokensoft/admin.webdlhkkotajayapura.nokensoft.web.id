@@ -25,7 +25,7 @@ class KategoriController extends Controller
         $jumlahtrash = KategoriBerita::onlyTrashed()->count();
         $jumlahdraft = KategoriBerita::where('status', 'draft')->count();
         $datapublish = KategoriBerita::where('status', 'publish')->count();
-        return view('panel.author.kategori.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.author.kategori.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function draft(Request $request)
@@ -44,24 +44,24 @@ class KategoriController extends Controller
         $jumlahtrash = KategoriBerita::onlyTrashed()->count();
         $jumlahdraft = KategoriBerita::where('status', 'draft')->count();
         $datapublish = KategoriBerita::where('status', 'publish')->count();
-        return view('panel.author.kategori.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.author.kategori.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        return view('panel.author.kategori.create');
+        return view('dasbor.author.kategori.create');
     }
 
     public function trash()
     {
         $datas = KategoriBerita::onlyTrashed()->paginate(10);
-        return view('panel.author.kategori.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.author.kategori.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function edit($id)
     {
          $kategori = KategoriBerita::where('slug',$id)->first();
-         return view('panel.author.kategori.edit',compact('kategori'));
+         return view('dasbor.author.kategori.edit',compact('kategori'));
     }
 
      public function destroy($id)

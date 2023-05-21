@@ -40,30 +40,34 @@
                 @method('put')
 
                 <div class="mb-3">
-                    <label for="product-name" class="form-label">Title <span class="text-danger">*</span></label>
+                    <label for="judul_halaman" class="form-label">Judul Halaman <span class="text-danger">*</span></label>
                     {!!
-                    Form::text('judul_halaman',null,['required','id'=>'judul_halaman','class'=>'form-control','placeholder'=>'Title'])
+                    Form::text('judul_halaman',null,['required','id'=>'judul_halaman','class'=>'form-control','placeholder'=>'Judul Halaman'])
                     !!}
                 </div>
-                <div class="mb-3">
-                    <label for="product-konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                    <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}"
-                        cols="30" rows="10">{{ $data->konten}}</textarea>
-                </div>
-
 
                 <div class="mb-3">
-                    <label for="Kategori" class="form-label">Gambar <span class="text-danger">*</span></label>
-                    <input type="file" name="gambar_cover" class="form-control" id="customFile">
+                    <label for="sub_judul" class="form-label">Sub Judul</label>
+                    {!!
+                    Form::text('sub_judul',null,['required','id'=>'sub_judul','class'=>'form-control','placeholder'=>'Sub Judul'])
+                    !!}
                 </div>
-                @if(!$data->gambar_cover)
-                    <img src="{{ asset('assets/admin/assets/images/image-not.png') }}"
-                    alt="image" class="img-fluid img-thumbnail" width="200">
-                    @else
-                    <img src="{{ asset('file/halaman')}}/{{($data->gambar_cover) }}"
-                    class="img-thumbnail" width="200px" alt="Picture">
+
+                <div class="mb-3">
+                    <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
+                    <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $data->konten}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cover" class="form-label">Gambar <span class="text-danger">*</span></label>
+                    <input type="file" name="cover" class="form-control" id="customFile">
+                </div>
+
+                @if(!$data->cover)
+                    <img src="{{ asset('gambar/halaman/cover-0.jpg') }}" alt="image" class="img-thumbnail mb-3" width="200px" alt="Cover">
+                @else
+                    <img src="{{ asset('gambar/halaman')}}/{{ $data->cover }}" class="img-thumbnail mb-3" width="200px" alt="Cover">
                 @endif
-
 
                 <div class="mb-3">
                     <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
@@ -84,7 +88,7 @@
     <div class="card">
         <div class="card-body">
             <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-            <a href="{{ route('app.halaman') }}" class="btn btn-light">
+            <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
             </a>
         </div>

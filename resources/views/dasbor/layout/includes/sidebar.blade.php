@@ -52,115 +52,64 @@
 
             <ul id="side-menu">
                 <li>
-                    <a href="{{route('dasbor')}}">
-                        <i data-feather="calendar"></i>
+                    <a href="{{url('dasbor')}}">
+                        <i data-feather="home"></i>
                         <span> Dasbor </span>
                     </a>
                 </li>
 
-
-
                 <li>
                     <a href="#sidebarEmail" data-bs-toggle="collapse">
-                        <i data-feather="coffee"></i>
+                        <i data-feather="book"></i>
                         <span>Berita</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('dasbor.kategori') }}">Kategori</a>
+                                <a href="{{ url('dasbor/kategori') }}">Kategori</a>
                             </li>
                             <li>
-                                <a href="{{ route('dasbor.berita') }}">Berita</a>
+                                <a href="{{ url('dasbor/berita') }}">Berita</a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
                 <li>
-                    <a href="{{ route('pengguna.index') }}">
+                    <a href="{{ url('dasbor/halaman') }}">
+                        <i data-feather="layout"></i>
+                        <span> Halaman</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url('dasbor/link') }}">
+                        <i data-feather="link"></i>
+                        <span> Link Terkait</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url('dasbor/banner') }}">
+                        <i data-feather="image"></i>
+                        <span> Banner</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url('dasbor/pengguna') }}">
                         <i data-feather="users"></i>
                         <span> Pengguna</span>
                     </a>
                 </li>
+
                 <li>
-                    <a href="{{ route('dasbor.pengajuan') }}">
-                        <i data-feather="message-square"></i>
-                        <span> Pesab</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('dasbor.pengaturan') }}">
+                    <a href="{{ url('dasbor/pengaturan') }}">
                         <i data-feather="settings"></i>
                         <span> Pengaturan</span>
                     </a>
-                </li>                
-
-                <li>
-                    <a href="#sidebarCrm" data-bs-toggle="collapse">
-                        <i data-feather="users"></i>
-                        <span> SDM </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarCrm">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{ url('/app/person')}}">Data SDM</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/person/draft')}}">Draft</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/person/trash')}}">trash</a>
-                            </li>
-                            <li>
-                                <a href="crm-leads.html">Leads</a>
-                            </li>
-                            <li>
-                                <a href="crm-customers.html">Customers</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li>
-                    <a href="#sidebarEcommerce" data-bs-toggle="collapse">
-                        <i data-feather="shopping-cart"></i>
-                        <span> Konten </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarEcommerce">
-                        <ul class="nav-second-level">
-
-                            <li>
-                                <a href="{{ url('/app/artikel')}}">Artikel</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/halaman')}}">Halaman</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/slider')}}">Slider</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/video')}}">Video</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/album')}}">Galery</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/banner')}}">Banner</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/app/person')}}">SDM</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('dasbor.faq') }}">FAQ</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
+                </li>  
 
             </ul>
 
@@ -172,7 +121,7 @@
 
             <ul id="side-menu">
                 <li>
-                    <a href="{{route('dashboard')}}">
+                    <a href="{{url('dasbor')}}">
                         <i data-feather="calendar"></i>
                         <span> Dasbor </span>
                     </a>
@@ -187,15 +136,14 @@
                     <div class="collapse" id="sidebarEmail">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('kategori-berita.index') }}">Kategori</a>
+                                <a href="{{ url('kategori-berita.index') }}">Kategori</a>
                             </li>
                             <li>
-                                <a href="{{ route('dasbor.berita') }}">Berita</a>
+                                <a href="{{ url('dasbor/berita') }}">Berita</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-
 
             </ul>
 
@@ -207,20 +155,20 @@
 
             <ul id="side-menu">
                 <li>
-                    <a href="{{route('dashboard')}}">
+                    <a href="{{url('dasbor')}}">
                         <i data-feather="calendar"></i>
                         <span> Dasbor </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('dasbor.berita') }}">
+                    <a href="{{ url('dasbor/berita') }}">
                         <i data-feather="coffee"></i>
                         <span> Berita </span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dasbor.kategori') }}">
+                    <a href="{{ url('dasbor/kategori') }}">
                         <i data-feather="coffee"></i>
                         <span> Kategori </span>
                     </a>
@@ -234,14 +182,14 @@
          <div id="sidebar-menu">
             <ul id="side-menu">
                 <li>
-                    <a href="{{route('dashboard')}}">
+                    <a href="{{url('dasbor')}}">
                         <i data-feather="calendar"></i>
                         <span> Dasbor </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('dasbor.berita') }}">
+                    <a href="{{ url('dasbor/berita') }}">
                         <i data-feather="coffee"></i>
                         <span> Berita </span>
                     </a>
@@ -251,7 +199,6 @@
         </div>
         <!-- End Sidebar -->
         @endif
-
 
         <div class="clearfix"></div>
 

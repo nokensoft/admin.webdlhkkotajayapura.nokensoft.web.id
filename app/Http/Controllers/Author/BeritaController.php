@@ -32,7 +32,7 @@ class BeritaController extends Controller
         $jumlahdraft = Berita::where('status', 'draft')->count();
         $datapublish = Berita::where('status', 'publish')->count();
 
-        return view('panel.author.berita.index',compact(
+        return view('dasbor.author.berita.index',compact(
             'data', 'jumlahtrash', 'jumlahdraft', 'datapublish','jumlahrevisi'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -54,7 +54,7 @@ class BeritaController extends Controller
         $jumlahdraft = Berita::where('status', 'draft')->count();
         $datapublish = Berita::where('status', 'publish')->count();
 
-        return view('panel.author.berita.index',compact(
+        return view('dasbor.author.berita.index',compact(
             'data','jumlahtrash','jumlahdraft','datapublish','jumlahrevisi'
             )) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -76,14 +76,14 @@ class BeritaController extends Controller
         $jumlahdraft = Berita::where('status', 'draft')->count();
         $datapublish = Berita::where('status', 'publish')->count();
 
-        return view('panel.author.berita.revisi',compact(
+        return view('dasbor.author.berita.revisi',compact(
             'data','jumlahtrash','jumlahdraft','datapublish','jumlahrevisi'
             )) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function trash(){
         $datas = Berita::onlyTrashed()->paginate(10);
-        return view('panel.author.berita.trash',compact('datas'))
+        return view('dasbor.author.berita.trash',compact('datas'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
      }
 
@@ -91,14 +91,14 @@ class BeritaController extends Controller
      public function create()
     {
         $kategori = KategoriBerita::pluck('name','id');
-        return view('panel.author.berita.create',compact('kategori'));
+        return view('dasbor.author.berita.create',compact('kategori'));
     }
 
      // SHOW
      public function show($id)
      {
          $berita = Berita::where('slug',$id)->first();
-         return view('panel.author.berita.show',compact('berita'));
+         return view('dasbor.author.berita.show',compact('berita'));
      }
 
      // EDIT
@@ -106,7 +106,7 @@ class BeritaController extends Controller
      {
          $kategori = KategoriBerita::all();
          $berita = Berita::where('slug',$id)->first();
-         return view('panel.author.berita.edit',compact('kategori','berita'));
+         return view('dasbor.author.berita.edit',compact('kategori','berita'));
      }
 
     //  Delete
@@ -258,6 +258,6 @@ class BeritaController extends Controller
      public function editStatus($id)
      {
          $data = Berita::where('slug',$id)->first();
-         return view('panel.author.berita.status',compact('data'));
+         return view('dasbor.author.berita.status',compact('data'));
      }
 }

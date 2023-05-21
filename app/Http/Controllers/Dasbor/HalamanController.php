@@ -37,7 +37,7 @@ class HalamanController extends Controller
         $datapublish = Halaman::where('status', 'Publish')->count();
 
 
-        return view('panel.admin.pages.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
@@ -57,7 +57,7 @@ class HalamanController extends Controller
         $jumlahdraft = Halaman::where('status', 'Draft')->count();
         $datapublish = Halaman::where('status', 'Publish')->count();
 
-        return view('panel.admin.pages.halaman.index',compact(
+        return view('dasbor.halaman.index',compact(
             'datas',
             'jumlahtrash',
             'jumlahdraft',
@@ -73,7 +73,7 @@ class HalamanController extends Controller
     public function create()
     {
 
-        return view('panel.admin.pages.halaman.create');
+        return view('dasbor.halaman.create');
     }
 
     /**
@@ -89,13 +89,13 @@ class HalamanController extends Controller
             [
                 'judul_halaman'             => 'required',
                 'konten'                    => 'required',
-                'gambar_cover'              => 'image|mimes:png,jpeg,jpg|max:4096',
-                'status'                    => 'required',
+                // 'cover'              => 'image|mimes:png,jpeg,jpg|max:4096',
+                // 'status'                    => 'required',
             ],[
-                'judul_halaman.required'    => 'Judul halaman tidak boleh kosong',
-                'konten.required'           => 'Konten halaman tidak boleh kosong',
-                'status.required'           => 'Status tidak boleh kosong',
-                'gambar_cover.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                // 'judul_halaman.required'    => 'judul_halaman halaman tidak boleh kosong',
+                // 'konten.required'           => 'Konten halaman tidak boleh kosong',
+                // 'status.required'           => 'Status tidak boleh kosong',
+                // 'cover.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
             ]
         );
         if ($validator->fails()) {
@@ -104,22 +104,23 @@ class HalamanController extends Controller
             try {
                $halaman = new Halaman();
                $halaman->judul_halaman = $request->judul_halaman;
+               $halaman->sub_judul = $request->sub_judul;
                $halaman->konten = $request->konten;
                $halaman->status = $request->status;
                $halaman->slug = Str::slug($request->judul_halaman);
 
-               if ($request->gambar_cover) {
-                    $imageName = Str::slug(12). '.' . $request->gambar_cover->extension();
-                    $path = public_path('file/halaman');
-                    if (!empty($halaman->gambar_cover) && file_exists($path . '/' . $halaman->gambar_cover)) :
-                        unlink($path . '/' . $halaman->gambar_cover);
+               if ($request->cover) {
+                    $imageName = Str::slug(12). '.' . $request->cover->extension();
+                    $path = public_path('gambar/halaman');
+                    if (!empty($halaman->cover) && file_exists($path . '/' . $halaman->cover)) :
+                        unlink($path . '/' . $halaman->cover);
                     endif;
-                    $halaman->gambar_cover = $imageName;
-                    $request->gambar_cover->move(public_path('file/halaman'), $imageName);
+                    $halaman->cover = $imageName;
+                    $request->cover->move(public_path('gambar/halaman'), $imageName);
                }
                $halaman->save();
                Alert::toast('Halaman Berhasil dibuat!', 'success');
-               return redirect()->route('app.halaman');
+               return redirect()->route('dasbor.halaman');
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
@@ -136,7 +137,7 @@ class HalamanController extends Controller
     public function show($id)
     {
         $data = Halaman::where('slug',$id)->first();
-        return view('panel.admin.pages.halaman.show',compact('data'));
+        return view('dasbor.halaman.show',compact('data'));
     }
 
     /**
@@ -148,7 +149,7 @@ class HalamanController extends Controller
     public function edit($id)
     {
         $data = Halaman::where('slug',$id)->first();
-        return view('panel.admin.pages.halaman.edit',compact('data'));
+        return view('dasbor.halaman.edit',compact('data'));
     }
 
     /**
@@ -165,13 +166,13 @@ class HalamanController extends Controller
             [
                 'judul_halaman'             => 'required',
                 'konten'                    => 'required',
-                'gambar_cover'              => 'image|mimes:png,jpeg,jpg|max:4096',
+                'cover'              => 'image|mimes:png,jpeg,jpg|max:4096',
                 'status'                    => 'required',
             ],[
-                'judul_halaman.required'    => 'Judul halaman tidak boleh kosong',
+                'judul_halaman.required'    => 'judul_halaman halaman tidak boleh kosong',
                 'konten.required'           => 'Konten halaman tidak boleh kosong',
                 'status.required'           => 'Status tidak boleh kosong',
-                'gambar_cover.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                'cover.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
             ]
         );
         if ($validator->fails()) {
@@ -180,22 +181,23 @@ class HalamanController extends Controller
             try {
                $halaman = Halaman::find($id);
                $halaman->judul_halaman = $request->judul_halaman;
+               $halaman->sub_judul = $request->sub_judul;
                $halaman->konten = $request->konten;
                $halaman->status = $request->status;
                $halaman->slug = Str::slug($request->judul_halaman);
 
-               if ($request->gambar_cover) {
-                    $imageName = Str::slug(12). '.' . $request->gambar_cover->extension();
-                    $path = public_path('file/halaman');
-                    if (!empty($halaman->gambar_cover) && file_exists($path . '/' . $halaman->gambar_cover)) :
-                        unlink($path . '/' . $halaman->gambar_cover);
+               if ($request->cover) {
+                    $imageName = Str::slug(12). '.' . $request->cover->extension();
+                    $path = public_path('gambar/halaman');
+                    if (!empty($halaman->cover) && file_exists($path . '/' . $halaman->cover)) :
+                        unlink($path . '/' . $halaman->cover);
                     endif;
-                    $halaman->gambar_cover = $imageName;
-                    $request->gambar_cover->move(public_path('file/halaman'), $imageName);
+                    $halaman->cover = $imageName;
+                    $request->cover->move(public_path('gambar/halaman'), $imageName);
                }
                $halaman->update();
                Alert::toast('Halaman Berhasil diperbarui!', 'success');
-               return redirect()->route('app.halaman');
+               return redirect()->route('dasbor.halaman');
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
@@ -225,7 +227,7 @@ class HalamanController extends Controller
         $jumlahtrash = Halaman::onlyTrashed()->count();
         $jumlahdraft = Halaman::where('status', 'Draf')->count();
         $datapublish = Halaman::where('status', 'Publish')->count();
-        return view('panel.admin.pages.halaman.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.halaman.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
@@ -233,7 +235,7 @@ class HalamanController extends Controller
         $data = Halaman::onlyTrashed()->where('id',$id);
         $data->restore();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.halaman');
+        return redirect()->route('dasbor.halaman');
     }
 
     public function delete($id)
@@ -245,7 +247,7 @@ class HalamanController extends Controller
         }
         $data->forceDelete();
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-        return to_route('app.halaman.trash');
+        return to_route('dasbor.halaman.trash');
 
     }
 

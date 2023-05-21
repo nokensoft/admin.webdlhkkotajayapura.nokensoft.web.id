@@ -125,7 +125,7 @@ class SliderController extends Controller
     {
       $data = Slider::whereId($id)->first();
 
-      return view('app.slider.detail',compact('data'));
+      return view('dasbor.slider.detail',compact('data'));
     }
 
     /**
@@ -238,7 +238,7 @@ public function restore($id)
     $data = Slider::onlyTrashed()->findOrFail($id);
     $data->restore();
 
-    return to_route('app.slider.trash')->with('success','Data restored successfully');
+    return to_route('dasbor.slider.trash')->with('success','Data restored successfully');
 }
 
 
@@ -258,7 +258,7 @@ public function delete($id)
     $data->forceDelete();
 
     alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-    return to_route('app.slider.trash');
+    return to_route('dasbor.slider.trash');
 
 }
 

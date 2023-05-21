@@ -110,7 +110,7 @@ class ArtikelController extends Controller
            $Artikel = Artikel::create($data);
 
            alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-           return redirect()->route('app.artikel');
+           return redirect()->route('dasbor.artikel');
     }
 
 
@@ -181,7 +181,7 @@ class ArtikelController extends Controller
            $Artikel->update($data);
 
            alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-           return redirect()->route('app.artikel');
+           return redirect()->route('dasbor.artikel');
     }
 
     /**
@@ -196,7 +196,7 @@ class ArtikelController extends Controller
         $data = Artikel::findOrFail($id);
         $data->delete();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.artikel');
+        return redirect()->route('dasbor.artikel');
     }
 
 
@@ -214,7 +214,7 @@ class ArtikelController extends Controller
         $data = Artikel::onlyTrashed()->where('id',$id);
         $data->restore();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.artikel');
+        return redirect()->route('dasbor.artikel');
     }
 
 
@@ -222,7 +222,7 @@ class ArtikelController extends Controller
         $data = Artikel::onlyTrashed()->where('id',$id);
         $data->forceDelete();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.artikel');
+        return redirect()->route('dasbor.artikel');
     }
 
 }

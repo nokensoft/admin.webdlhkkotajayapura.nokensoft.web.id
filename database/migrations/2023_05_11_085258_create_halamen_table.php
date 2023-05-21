@@ -17,10 +17,10 @@ return new class extends Migration
 
             $table->id();
 
-            $table->string('judul')->nullable();
+            $table->string('judul_halaman')->nullable();
             $table->string('sub_judul')->nullable();
             $table->string('slug')->nullable();
-            $table->longText('isi')->nullable();
+            $table->longText('konten')->nullable();
             $table->string('cover')->nullable();
 
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();

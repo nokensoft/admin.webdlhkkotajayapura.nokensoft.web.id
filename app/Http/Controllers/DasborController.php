@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
-class HomeController extends Controller
+class DasborController extends Controller
 {
     // INDEX
     public function index()

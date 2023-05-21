@@ -99,7 +99,7 @@ class FaqController extends Controller
         $data = Faq::onlyTrashed()->findOrFail($id);
         $data->forceDelete();
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-        return to_route('app.faq.trash');
+        return to_route('dasbor.faq.trash');
 
     }
 
@@ -127,7 +127,7 @@ class FaqController extends Controller
                $faq->save();
 
                Alert::toast('FAQ Berhasil dibuat!', 'success');
-               return redirect()->route('app.faq');
+               return redirect()->route('dasbor.faq');
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
@@ -159,7 +159,7 @@ class FaqController extends Controller
                $faq->update();
 
                Alert::toast('FAQ Berhasil Diperbarui!', 'success');
-               return redirect()->route('app.faq');
+               return redirect()->route('dasbor.faq');
             } catch (\Throwable $th) {
                 dd($th);
                 Alert::toast('Gagal', 'error');

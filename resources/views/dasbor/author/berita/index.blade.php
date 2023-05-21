@@ -1,4 +1,4 @@
-@extends('layouts.base_panel')
+@extends('dasbor.layout.app')
 @section('content')
 
 <div class="row">
@@ -21,7 +21,7 @@
             <div class="card-body">
 
                 <!-- Left sidebar -->
-                @include('panel.author.berita.menu')
+                @include('dasbor.author.berita.menu')
                 <!-- End Left sidebar -->
 
                 <div class="inbox-rightbar">

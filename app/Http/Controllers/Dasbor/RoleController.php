@@ -81,7 +81,7 @@ class RoleController extends Controller
         $role->syncPermissions($request->input('permission'));
 
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.role');
+        return redirect()->route('dasbor.role');
     }
     /**
      * Display the specified resource.
@@ -137,7 +137,7 @@ class RoleController extends Controller
         $role->syncPermissions($request->input('permission'));
 
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.role');
+        return redirect()->route('dasbor.role');
     }
     /**
      * Remove the specified resource from storage.
@@ -150,7 +150,7 @@ class RoleController extends Controller
         DB::table("roles")->where('id',$id)->delete();
 
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.role');
+        return redirect()->route('dasbor.role');
     }
 
 }

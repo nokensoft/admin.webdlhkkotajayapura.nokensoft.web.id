@@ -105,7 +105,7 @@ class AlbumController extends Controller
 
         $album->save();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.album');
+        return redirect()->route('dasbor.album');
     }
 
     /**
@@ -160,7 +160,7 @@ class AlbumController extends Controller
 
         $album->save();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.album');
+        return redirect()->route('dasbor.album');
     }
 
     /**
@@ -174,7 +174,7 @@ class AlbumController extends Controller
         $data = Album::find($id);
         $data->delete();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.album');
+        return redirect()->route('dasbor.album');
     }
 
 

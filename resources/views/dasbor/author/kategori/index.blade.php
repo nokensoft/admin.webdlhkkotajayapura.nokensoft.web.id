@@ -1,4 +1,4 @@
-@extends('layouts.base_panel')
+@extends('dasbor.layout.app')
 @section('content')
 
 <div class="row">
@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-body">
                  <!-- Left sidebar -->
-                 @include('panel.author.kategori.menu')
+                 @include('dasbor.author.kategori.menu')
                  <!-- End Left sidebar -->
 
 

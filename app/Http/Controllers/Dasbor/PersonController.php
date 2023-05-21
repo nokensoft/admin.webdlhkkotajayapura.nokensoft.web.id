@@ -116,7 +116,7 @@ class PersonController extends Controller
 
         $person->save();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.person');
+        return redirect()->route('dasbor.person');
 
 
 
@@ -216,7 +216,7 @@ class PersonController extends Controller
 
 
     alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-    return redirect()->route('app.person');
+    return redirect()->route('dasbor.person');
 
     }
 

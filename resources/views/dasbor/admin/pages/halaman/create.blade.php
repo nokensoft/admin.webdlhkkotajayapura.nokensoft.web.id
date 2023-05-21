@@ -1,4 +1,4 @@
-@extends('layouts.base_panel')
+@extends('dasbor.layout.app')
 @section('content')
 <!-- start page content wrapper-->
 <!-- start page title -->
@@ -33,8 +33,8 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <!-- <form action="{{ url('app/halaman') }}" method="POST" enctype="multipart/form-data"> -->
-                {!! Form::open(array('url' => 'app/halaman','files'=>'true')) !!}
+                <!-- <form action="{{ url('dasbor/halaman') }}" method="POST" enctype="multipart/form-data"> -->
+                {!! Form::open(array('url' => 'dasbor/halaman','files'=>'true')) !!}
                 @csrf
                 <div class="mb-3">
                     <label for="product-name" class="form-label">Judul Halaman <span class="text-danger">*</span></label>

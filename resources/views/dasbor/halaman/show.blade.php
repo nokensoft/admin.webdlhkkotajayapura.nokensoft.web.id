@@ -10,65 +10,38 @@
                     <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
                     <li class="breadcrumb-item">Halaman</li>
-                    <li class="breadcrumb-item active">Ubah</li>
+                    <li class="breadcrumb-item active">Detail</li>
                 </ol>
             </div>
-            <h4 class="page-title">Ubah</h4>
+            <h4 class="page-title">Detail</h4>
         </div>
     </div>
 </div>
 <!-- end page title -->
-@if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Whoops!</strong>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
 
-                <!-- <form action="{{ url('dasbor/halaman') }}" method="POST" enctype="multipart/form-data"> -->
-                {!! Form::model($data,array('url'=>'dasbor/halaman/'.$data->id,'method'=>'put','files'=>'true'))!!}
-                @csrf
-                @method('put')
+                <h1 class="fw-bold mb-3">{{ $data->judul_halaman }}</h1>
+                <p class="mb-3">{{ $data->sub_judul }}</p>
 
                 <div class="mb-3">
-                    <label for="product-name" class="form-label">Title <span class="text-danger">*</span></label>
-                    {!!
-                    Form::text('judul_halaman',null,['required','id'=>'judul_halaman','class'=>'form-control','placeholder'=>'Title'])
-                    !!}
-                </div>
-                <div class="mb-3">
-                    <label for="product-konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                    <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}"
-                        cols="30" rows="10">{{ $data->konten}}</textarea>
+                    @if(!$data->gambar_cover)
+                        <img src="{{ asset('gambar/halaman/cover-0.jpg') }}" alt="image" class="img-fluid img-thumbnail img-fluid">
+                        @else
+                        <img src="{{ asset('file/halaman/' . $data->gambar_cover ) }}" class="img-thumbnail img-fluid" alt="Picture">
+                    @endif
                 </div>
 
-
                 <div class="mb-3">
-                    <label for="Kategori" class="form-label">Gambar <span class="text-danger">*</span></label>
-                    <input type="file" name="gambar_cover" class="form-control" id="customFile">
+                    {!! $data->konten !!}
                 </div>
-                @if(!$data->gambar_cover)
-                    <img src="{{ asset('assets/admin/assets/images/image-not.png') }}"
-                    alt="image" class="img-fluid img-thumbnail" width="200">
-                    @else
-                    <img src="{{ asset('file/halaman')}}/{{($data->gambar_cover) }}"
-                    class="img-thumbnail" width="200px" alt="Picture">
-                @endif
-
 
                 <div class="mb-3">
-                    <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
-                    {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draf'=>'Inactive'],
-                    null,['class'=>'form-control select2','id'=>'status','required']) !!}
+                    <span class="fw-bold">Status :</span> {!! $data->status !!}
                 </div>
 
             </div>
@@ -81,16 +54,20 @@
 <!--end wrapper-->
 
 <div class="row">
-    <div class="card">
-        <div class="card-body">
-            <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-            <a href="{{ route('app.halaman') }}" class="btn btn-light">
-                <i class="mdi mdi-arrow-left mr-1"></i>Kembali
-            </a>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <a href="{{ route('dasbor.halaman.edit',$data->slug) }}" class="btn btn-lg btn-outline-dark waves-effect waves-light">
+                    <i class="fe-edit"></i> Edit
+                </a>
+                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
+                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                </a>
+            </div>
         </div>
     </div>
 </div>
-{!! Form::close() !!}
+
 
 @stop
 

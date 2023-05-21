@@ -22,6 +22,8 @@ use App\Http\Controllers\Author\KategoriController;
 // OTHER CONTROLLERS
 use App\Http\Controllers\PengajuanPertanyaanController;
 
+use Illuminate\Support\Facades\Route;
+
 Route::prefix('dasbor')->middleware('auth')->group(function () {
 
 

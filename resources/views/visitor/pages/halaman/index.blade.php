@@ -10,7 +10,7 @@
                 <ul class="list-group">
                     @foreach ($halamans as $halaman)
                     <li class="list-group-item px-0 border-0">
-                        <a href="{{ url('halaman/' . $halaman->slug ) }}" target="_blank">{{ $halaman->judul }}</a>
+                        <a href="{{ url('halaman/' . $halaman->slug ) }}" target="_blank">{{ $halaman->judul_halaman }}</a>
                     </li>
                     @endforeach
                 </ul>   

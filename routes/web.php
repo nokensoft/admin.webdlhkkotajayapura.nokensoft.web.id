@@ -1,12 +1,12 @@
 <?php
 
 // VISITOR CONTROLLERS
-use App\Http\Controllers\Visitor\HalamanController;
-use App\Http\Controllers\Visitor\BeritaController;
 use App\Http\Controllers\Visitor\BerandaController;
 
+// DASBOR CONTROLLERS
+use App\Http\Controllers\DasborController;
+
 // OTHER CONTROLLERS
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengajuanPertanyaanController;
 use App\Http\Controllers\UserController;
 
@@ -17,17 +17,12 @@ use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| VISITOR
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
+// Mengalihkan he alamat beranda
 Route::get('/', function () { 
-    // alihkan ke halaman beranda
     return redirect('/beranda'); 
 });
 
@@ -41,26 +36,24 @@ Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 | menampilkan halaman secara detail berdasarkan slug
 | halaman dipasang secara manual menggunakan manajemen url/link halaman
 */
-Route::get('/halaman', [HalamanController::class, 'index'])->name('halaman');
-Route::get('/halaman/{slug}', [HalamanController::class, 'show'])->name('halaman.slug');
+Route::get('/halaman', [BerandaController::class, 'halamanIndex'])->name('halaman');
+Route::get('/halaman/{slug}', [BerandaController::class, 'halamanShow'])->name('halaman.slug');
 
 /*
 | BERITA
-| 1) menampilkan semua berita
-| 2) menampilkan berita berdasarkan slug
-| 3) menampilkan berita berdasarkan kategori
+| - menampilkan semua berita
+| - menampilkan berita berdasarkan slug
+| - menampilkan berita berdasarkan kategori
 */
 
-// 1) menampilkan semua berita
-Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+// - menampilkan semua berita
+Route::get('/berita', [BerandaController::class, 'beritaIndex'])->name('berita');
 
-// 2) menampilkan berita berdasarkan slug
-Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.slug');
+// - menampilkan berita berdasarkan slug
+Route::get('/berita/{slug}', [BerandaController::class, 'beritaShow'])->name('berita.slug');
 
-// 3) menampilkan berita berdasarkan kategori
-Route::get('/berita/kategori/{kategori}', [BeritaController::class, 'kategori'])->name('berita.kategori.slug');
-
-
+// - menampilkan berita berdasarkan kategori
+Route::get('/berita/kategori/{kategori}', [BerandaController::class, 'beritaKategori'])->name('berita.kategori.slug');
 
 
 Route::post('/pengajuan', [PengajuanPertanyaanController::class, 'pengajuanPertanyaanStore'])->name('app.pengajuan.store');
@@ -73,7 +66,7 @@ Auth::routes([
 
 Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function () {
 
-        Route::get('/', [HomeController::class, 'index'])->name('dasbor');
+        Route::get('/', [DasborController::class, 'index'])->name('dasbor');
 
         // ADMIN
         Route::group(['middleware' => ['role:administrator']], function () {
@@ -96,5 +89,6 @@ Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function 
 
 });
 
-require_once 'app.php';
+// require_once 'app.php';
+require_once 'dasbor.php';
 

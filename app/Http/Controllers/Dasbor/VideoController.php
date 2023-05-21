@@ -98,7 +98,7 @@ class VideoController extends Controller
         $video->save();
 
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.video');
+        return redirect()->route('dasbor.video');
     }
 
     /**
@@ -148,7 +148,7 @@ class VideoController extends Controller
         $video->save();
 
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.video');
+        return redirect()->route('dasbor.video');
     }
 
     /**
@@ -162,7 +162,7 @@ class VideoController extends Controller
         $video = Video::find($id);
         $video->delete();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
-        return redirect()->route('app.video');
+        return redirect()->route('dasbor.video');
     }
 
 

@@ -6,7 +6,7 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src="{{ asset('file/halaman/bg-header-1.jpg') }}" alt="Breadcrumbs Image">
+            <img src="{{ asset('gambar/halaman/bg-header-1.jpg') }}" alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
             <h1 class="page-title">404</h1>
@@ -39,15 +39,15 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src="{{ asset('file/halaman/bg-header-1.jpg') }}" alt="Breadcrumbs Image">
+            <img src="{{ asset('gambar/halaman/bg-header-1.jpg') }}" alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
-            <h1 class="page-title">{!! $halaman->judul !!}</h1>
+            <h1 class="page-title">{!! $halaman->judul_halaman !!}</h1>
             <ul>
                 <li>
                     <a class="active" href="{{ url('/beranda') }}">Beranda</a>
                 </li>
-                <li>{!! $halaman->judul !!}</li>
+                <li>{!! $halaman->judul_halaman !!}</li>
             </ul>
         </div>
     </div>
@@ -59,10 +59,10 @@
         <div class="blog-deatails">
 
                 <div class="bs-img">
-                    <a href="#"><img src="{{ asset('file/halaman/' . $halaman->cover ) }}" alt="{{ $halaman->cover }}"></a>
+                    <a href="#"><img src="{{ asset('gambar/halaman/' . $halaman->cover ) }}" alt="{{ $halaman->cover }}"></a>
                 </div>
             <div class="blog-full">
-                {!! $halaman->isi !!}
+                {!! $halaman->konten !!}
             </div>
         </div>
         </div>

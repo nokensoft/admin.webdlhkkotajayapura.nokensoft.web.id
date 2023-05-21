@@ -15,17 +15,15 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-
-        @include('layouts.includes.header')
+        @include('dasbor.layout.includes.header')
     </head>
 
     <!-- body start -->
     <body  data-layout-mode="detached" data-theme="light" data-topbar-color="dark" data-menu-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
         <!-- Begin page -->
         <div id="wrapper">
-        @include('layouts.includes.header-nav')
-            @include('layouts.includes.sidebar')
+        @include('dasbor.layout.includes.header-nav')
+            @include('dasbor.layout.includes.sidebar')
             <!-- ============================================================== -->
             <!-- Start Page Content here -->
             <!-- ============================================================== -->
@@ -63,7 +61,7 @@
         </div>
         <!-- END wrapper -->
 
-        @include('layouts.includes.footer')
+        @include('dasbor.layout.includes.footer')
         @include('sweetalert::alert')
     </body>
 </html>
