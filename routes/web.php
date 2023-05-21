@@ -1,13 +1,16 @@
 <?php
 
-// CONTROLLERS
-use App\Http\Controllers\Frontend\HalamanController;
-use App\Http\Controllers\Frontend\BeritaController;
-use App\Http\Controllers\Frontend\BerandaController;
+// VISITOR CONTROLLERS
+use App\Http\Controllers\Visitor\HalamanController;
+use App\Http\Controllers\Visitor\BeritaController;
+use App\Http\Controllers\Visitor\BerandaController;
+
+// OTHER CONTROLLERS
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengajuanPertanyaanController;
 use App\Http\Controllers\UserController;
 
+// OTHER CLASSES
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -92,11 +95,6 @@ Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function 
 
 
 });
-
-
-
-
-
 
 require_once 'app.php';
 

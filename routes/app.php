@@ -1,32 +1,35 @@
 <?php
 
-use App\Http\Controllers\admin\SliderController;
-use App\Http\Controllers\admin\ArtikelController;
-use App\Http\Controllers\admin\GambarArtikelController;
-use App\Http\Controllers\admin\HalamanController;
-use App\Http\Controllers\admin\BannerController;
-use App\Http\Controllers\admin\AlbumController;
-use App\Http\Controllers\Admin\FaqController;
-use App\Http\Controllers\admin\FotoController;
-use App\Http\Controllers\Admin\PengaturanControlller;
-use App\Http\Controllers\admin\VideoController;
-use App\Http\Controllers\admin\SistemController;
-use App\Http\Controllers\admin\PersonController;
-use App\Http\Controllers\admin\RoleController;
+// DASBOR CONTROLLERS
+use App\Http\Controllers\Dasbor\SliderController;
+use App\Http\Controllers\Dasbor\ArtikelController;
+use App\Http\Controllers\Dasbor\GambarArtikelController;
+use App\Http\Controllers\Dasbor\HalamanController;
+use App\Http\Controllers\Dasbor\BannerController;
+use App\Http\Controllers\Dasbor\AlbumController;
+use App\Http\Controllers\Dasbor\FaqController;
+use App\Http\Controllers\Dasbor\FotoController;
+use App\Http\Controllers\Dasbor\PengaturanControlller;
+use App\Http\Controllers\Dasbor\VideoController;
+use App\Http\Controllers\Dasbor\SistemController;
+use App\Http\Controllers\Dasbor\PersonController;
+use App\Http\Controllers\Dasbor\RoleController;
+
+// AUTHOR CONTROLLERS
 use App\Http\Controllers\Author\BeritaController as AuthorBeritaController;
 use App\Http\Controllers\Author\KategoriController;
+
+// OTHER CONTROLLERS
 use App\Http\Controllers\PengajuanPertanyaanController;
-
-
 
 Route::prefix('dasbor')->middleware('auth')->group(function () {
 
 
     Route::get('/artikel', function () {
-        return view('admin.pages.artikel.list');
+        return view('dasbor.pages.artikel.list');
     });
     Route::get('/artikel/create', function () {
-        return view('admin.pages.artikel.form');
+        return view('dasbor.pages.artikel.form');
     });
 
     Route::controller(AuthorBeritaController::class)->group(function(){

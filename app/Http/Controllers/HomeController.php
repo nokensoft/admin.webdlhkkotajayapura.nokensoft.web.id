@@ -13,16 +13,16 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->hasRole('administrator')){
-            return view('panel.dashboard');
+            return view('dasbor.index');
 
         } elseif(Auth::user()->hasRole('author')){
-            return view('panel.dashboard');
+            return view('dasbor.index');
 
         } elseif(Auth::user()->hasRole('editor')){
-            return view('panel.dashboard');
+            return view('dasbor.index');
         }
         elseif(Auth::user()->hasRole('supervisor')){
-            return view('panel.dashboard');
+            return view('dasbor.index');
         }
     }
 }
