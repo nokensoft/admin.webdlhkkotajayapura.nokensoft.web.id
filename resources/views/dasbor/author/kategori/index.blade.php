@@ -6,7 +6,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Berita</a></li>
                     <li class="breadcrumb-item active">Kategori</li>
                 </ol>
             </div>
@@ -25,7 +26,7 @@
 
 
                 <div class="inbox-rightbar">
-                    <form action="{{ route('dasbor.kategori') }}" method="get">
+                    <form action="{{ url('dasbor/kategori') }}" method="get">
                         <div class="input-group mb-3">
                             <input type="search" name="s" class="form-control" placeholder="Search">
                             <button type="submit" class="btn btn-primary">Search</button>
@@ -49,7 +50,7 @@
                             <td>{{ $kategori->slug }}</td>
                             @if(Auth::user()->hasRole('author'))
                             <td class="text-center">
-                                <a class="btn btn-light" href="{{ route('dasbor.kategori.edit',$kategori->slug) }}">
+                                <a class="btn btn-light" href="{{ url('dasbor/kategori/edit/' . $kategori->slug) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>
                                 {!! Form::open(['method' => 'DELETE','route' => ['dasbor.kategori.destroy', $kategori->id],'style'=>'display:inline']) !!}

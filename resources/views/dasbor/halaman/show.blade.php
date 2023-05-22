@@ -7,8 +7,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
                     <li class="breadcrumb-item">Halaman</li>
                     <li class="breadcrumb-item active">Detail</li>
                 </ol>
@@ -30,9 +30,9 @@
 
                 <div class="mb-3">
                     @if(empty($data->gambar))
-                        <img src="{{ asset('gambar/halaman/00.jpg') }}" class="img-fluid img-thumbnail img-fluid" alt="Gambar">
+                        <img src="{{ asset('gambar/halaman/00.jpg') }}" class="img-fluid img-thumbnail col-md-4" alt="Gambar">
                         @else
-                        <img src="{{ asset($data->gambar) }}" class="img-thumbnail img-fluid" alt="Gambar">
+                        <img src="{{ asset($data->gambar) }}" class="img-thumbnail col-md-4" alt="Gambar">
                     @endif
                 </div>
 

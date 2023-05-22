@@ -2,163 +2,143 @@
 @section('content')
 <!-- start page content wrapper-->
 <!-- start page title -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('dasbor.berita') }}"></a>Berita</li>
-                                <li class="breadcrumb-item active">Ubah</li>
-                            </ol>
-                        </div>
-                        <h4 class="page-title">Ubah Berita </h4>
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
+                    <li class="breadcrumb-item active">Ubah</li>
+                </ol>
+            </div>
+            <h4 class="page-title">Ubah</h4>
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+@if ($errors->any())
+<div class="alert alert-danger">
+    <strong>Whoops!</strong>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+
+                <!-- <form action="{{ url('dasbor/halaman') }}" method="POST" enctype="multipart/form-data"> -->
+                {!! Form::model($berita,array('url'=>'dasbor/halaman/'.$berita->id,'method'=>'put','files'=>'true'))!!}
+                @csrf
+                @method('put')
+
+                <div class="mb-3">
+                    <label for="judul" class="form-label">Judul Berita <span class="text-danger">*</span></label>
+                    {!!
+                    Form::text('judul',null,['required','id'=>'judul','class'=>'form-control','placeholder'=>'Judul Halaman'])
+                    !!}
+                </div>
+
+                <div class="mb-3">
+                    <label for="konten_singkat" class="form-label">Kontent Singkat</label>
+                    {!!
+                    Form::text('konten_singkat',null,['required','id'=>'konten_singkat','class'=>'form-control','placeholder'=>'Sub Judul'])
+                    !!}
+                </div>
+
+                <div class="mb-3">
+                    <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
+                    <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $berita->konten}}</textarea>
+                </div>
+
+                {{-- <div class="mb-3">
+                    <label for="gambar" class="form-label">Gambar <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" id="customFile">
+                </div> --}}
+                
+                <div class="mb-3">
+                    <label for="gambar" class="form-label">Gambar <span class="text-danger">*</span></label>
+                    <div class="custom-file">
+                        <input type="file" name="gambar" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
-            </div>
-            <!-- end page title -->
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+
+                @if(!$berita->gambar)
+                    <img src="{{ asset('gambar/halaman/00.jpg') }}" alt="image" class="img-thumbnail mb-3" width="300px" alt="Gambar">
+                @else
+                    <img src="{{ asset($berita->gambar) }}" class="img-thumbnail mb-3" width="300px" alt="Gambar">
+                @endif
+
+                <div class="mb-3">
+                    <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
+                    {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draf'=>'Inactive'],
+                    null,['class'=>'form-control select2','id'=>'status','required']) !!}
                 </div>
-            @endif
 
-            <div class="row">
-                <div class="card">
-                   <div class="col-lg-12">
-                        <div class="card-body">
-                            <h1></h1>
-                            <form action="{{route('dasbor.berita.update',['id' => $berita->id])}}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                @method('put')
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Judul <span class="text-danger">*</span></label>
-                                            {!! Form::text('title',$berita->title,['required','id'=>'title','class'=>'form-control','placeholder'=>'Judul Berita ']) !!}
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Konten <span class="text-danger">*</span></label>
-                                            <textarea name="body" class="form-control" rows="8" placeholder="Isi konten">{{ old('body',$berita->body) }}</textarea>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="category" class="form-label">Kategori <span class="text-danger">*</span></label>
-                                            <select name="category_id" class="form-control">
-                                                <option value="{{ $berita->kategori->id }}" selected>{{ $berita->kategori->name }}</option>
-                                                @foreach ($kategori as $c )
-                                                <option value="{{ $c->id }}">{{ $c->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div> <!-- end col -->
-
-                                    <div class="col-md-4">
-                                        <div class="card-box">
-                                            <div class="mb-3">
-                                                <label for="pic">Gambar <span class="text-danger">*</span></label>
-                                                <div class="d-block mb-3">
-                                                    @if(!$berita->image)
-                                                    <img src="{{asset('assets/admin/assets/images/upload.png')}}" id="preview-image"
-                                                    alt="Profile Picture" class="img-thumbnail w-50">
-                                                    @else
-                                                    <img src="{{asset('file/berita')}}/{{ $berita->image }}" id="preview-image"
-                                                    alt="Profile Picture" class="img-thumbnail w-80">
-                                                    @endif
-                                                </div>
-
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="image" id="image">
-
-                                                    </div>
-                                                    @error('picture')
-                                                        <p class="form-text text-danger text-xs mt-1"><small>{{$message}}</small></p>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                        </div> <!-- end card group -->
-                                    </div>
-
-                                </div> <!-- end row -->
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card-box">
-                                            <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                            <a href="{{ route('dasbor.berita') }}" class="btn btn-light">
-                                                <i class="mdi mdi-arrow-left mr-1"></i>Kembali
-                                            </a>
-                                        </div>
-                                    </div> <!-- end col -->
-                                </div>
-
-                            </form> <!-- end form -->
-                        </div>
-                   </div>
-                </div>
             </div>
-
-    </div> <!-- end card -->
-
-</div> <!-- end col -->
+        </div> <!-- end card -->
+    </div> <!-- end col -->
 
 
 </div>
-        </div>
-    </div>
 <!-- end row -->
 <!--end wrapper-->
 
+<div class="row">
+    <div class="card">
+        <div class="card-body">
+            <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
+            <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
+                <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+            </a>
+        </div>
+    </div>
+</div>
+{!! Form::close() !!}
 
-
-  @stop
+@stop
 
 @push('script-header')
- <!-- Plugins css-->
- <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
-        <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- Plugins css-->
+<link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
 
         <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
-        <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
 
 
-  @push('script-footer')
-   <!-- Select2 js-->
-   <script src="{{ asset('assets/admin/assets/js/vendor.min.js')}}"></script>
-   <script src="{{ asset('assets/admin/assets/libs/select2/js/select2.min.js')}}"></script>
-        <!-- Quill js -->
-        <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
-   <!-- Init js -->
+@push('script-footer')
+<!-- Select2 js-->
+<script src="{{ asset('assets/admin/assets/js/vendor.min.js')}}"></script>
+<script src="{{ asset('assets/admin/assets/libs/select2/js/select2.min.js')}}"></script>
+<!-- Quill js -->
+<script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
+<!-- Init js -->
 
-     <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
-        <!-- Dropzone file uploads-->
-        <!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
+<script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
+<!-- Dropzone file uploads-->
+<!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
         <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
     -->
 
-        <!-- Init js-->
-        <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-        <script type="text/javascript">
-            $(document).ready(function (e) {
-               $('#image').change(function(){
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                  $('#preview-image').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(this.files[0]);
-               });
+<!-- Init js-->
+<script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
-            });
-        </script>
+
+<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+
 
   @endpush

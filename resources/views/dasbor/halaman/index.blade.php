@@ -22,7 +22,7 @@
         <div class="card">
             <div class="card-body">
                 <!-- Left sidebar -->
-                @include('dasbor.admin.pages.halaman.menu')
+                @include('dasbor.halaman.menu')
                 <!-- End Left sidebar -->
 
                 <div class="inbox-rightbar">
@@ -45,7 +45,7 @@
                                     <th>Sub Judul</th>
                                     <th>Author</th>
                                     <th>Slug</th>
-                                    <th class="text-center" width="210px">Opsi</th>
+                                    <th class="text-center">Opsi</th>
                                 </tr>
                                 @foreach ($datas as $data)
                                 <tr>
@@ -64,20 +64,20 @@
                                     <td>{{ $data->user->name ?? '' }}</td>
                                     <td>{{ $data->slug }}</td>
 
-
                                     <td class="text-center">
-                                        <form action="{{ url('dasbor/halaman',$data->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-dark"
-                                                href="{{ url('dasbor/halaman/'.$data->slug.'/detail') }}">
-                                                <i class="fe-eye"></i>
-                                            </a>
-                                            <a class="btn btn-sm btn-dark"
-                                                href="{{ url('dasbor/halaman/'.$data->slug.'/edit') }}">
-                                                <i class="fe-edit"></i>
-                                            </a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fe-trash"></i></button>
+                                        <form action="{{ url('dasbor/halaman', $data->id) }}" method="POST">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Opsi <i class="mdi mdi-chevron-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="{{ url('dasbor/halaman/' . $data->slug.'/detail') }}"><i class="fe-eye"></i> Detail</a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/halaman/' . $data->slug.'/edit') }}"><i class="fe-edit"></i> Ubah</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
+                                                </div>
+                                            </div>
                                         </form>
                                     </td>
                                 </tr>
@@ -98,7 +98,6 @@
         </div> <!-- end card-->
     </div> <!-- end col -->
 
-</div>
 </div>
 
 <!-- end row -->

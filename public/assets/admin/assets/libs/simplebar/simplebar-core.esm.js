@@ -1,5 +1,5 @@
 /**
- * SimpleBar.js - v5.3.8
+ * SimpleBar.js - v5.1.0
  * Scrollbars, simpler.
  * https://grsmto.github.io/simplebar/
  *
@@ -7,39 +7,25 @@
  * Under MIT License
  */
 
-import 'core-js/modules/es.parse-int.js';
-import 'core-js/modules/es.object.assign.js';
-import 'core-js/modules/es.array.filter.js';
-import 'core-js/modules/es.object.to-string.js';
-import 'core-js/modules/es.array.iterator.js';
-import 'core-js/modules/es.string.iterator.js';
-import 'core-js/modules/es.weak-map.js';
-import 'core-js/modules/web.dom-collections.iterator.js';
+import 'core-js/modules/es.array.filter';
+import 'core-js/modules/es.array.for-each';
+import 'core-js/modules/es.array.iterator';
+import 'core-js/modules/es.object.assign';
+import 'core-js/modules/es.object.to-string';
+import 'core-js/modules/es.parse-int';
+import 'core-js/modules/es.string.iterator';
+import 'core-js/modules/es.weak-map';
+import 'core-js/modules/web.dom-collections.iterator';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 import memoize from 'lodash.memoize';
-import { ResizeObserver } from '@juggle/resize-observer';
+import ResizeObserver from 'resize-observer-polyfill';
 import canUseDOM from 'can-use-dom';
-import 'core-js/modules/es.array.reduce.js';
-import 'core-js/modules/es.regexp.exec.js';
-import 'core-js/modules/es.string.match.js';
-import 'core-js/modules/es.function.name.js';
-import 'core-js/modules/es.string.replace.js';
-
-function getElementWindow(element) {
-  if (!element || !element.ownerDocument || !element.ownerDocument.defaultView) {
-    return window;
-  }
-
-  return element.ownerDocument.defaultView;
-}
-function getElementDocument(element) {
-  if (!element || !element.ownerDocument) {
-    return document;
-  }
-
-  return element.ownerDocument;
-}
+import 'core-js/modules/es.array.reduce';
+import 'core-js/modules/es.function.name';
+import 'core-js/modules/es.regexp.exec';
+import 'core-js/modules/es.string.match';
+import 'core-js/modules/es.string.replace';
 
 var cachedScrollbarWidth = null;
 var cachedDevicePixelRatio = null;
@@ -53,10 +39,8 @@ if (canUseDOM) {
   });
 }
 
-function scrollbarWidth(el) {
+function scrollbarWidth() {
   if (cachedScrollbarWidth === null) {
-    var document = getElementDocument(el);
-
     if (typeof document === 'undefined') {
       cachedScrollbarWidth = 0;
       return cachedScrollbarWidth;
@@ -74,7 +58,24 @@ function scrollbarWidth(el) {
   return cachedScrollbarWidth;
 }
 
-var SimpleBar = /*#__PURE__*/function () {
+function getElementWindow(element) {
+  if (!element || !element.ownerDocument || !element.ownerDocument.defaultView) {
+    return window;
+  }
+
+  return element.ownerDocument.defaultView;
+}
+function getElementDocument(element) {
+  if (!element || !element.ownerDocument) {
+    return document;
+  }
+
+  return element.ownerDocument;
+}
+
+var SimpleBar =
+/*#__PURE__*/
+function () {
   function SimpleBar(element, options) {
     var _this = this;
 
@@ -272,8 +273,8 @@ var SimpleBar = /*#__PURE__*/function () {
 
     this.el = element;
     this.minScrollbarWidth = 20;
-    this.options = Object.assign({}, SimpleBar.defaultOptions, options);
-    this.classNames = Object.assign({}, SimpleBar.defaultOptions.classNames, this.options.classNames);
+    this.options = Object.assign({}, SimpleBar.defaultOptions, {}, options);
+    this.classNames = Object.assign({}, SimpleBar.defaultOptions.classNames, {}, this.options.classNames);
     this.axis = {
       x: {
         scrollOffsetAttr: 'scrollLeft',
@@ -368,7 +369,6 @@ var SimpleBar = /*#__PURE__*/function () {
 
     if (canUseDOM) {
       this.initDOM();
-      this.setAccessibilityAttributes();
       this.scrollbarWidth = this.getScrollbarWidth();
       this.recalculate();
       this.initListeners();
@@ -378,7 +378,8 @@ var SimpleBar = /*#__PURE__*/function () {
   _proto.initDOM = function initDOM() {
     var _this2 = this;
 
-    // make sure this element doesn't have the elements yet
+    var elDocument = getElementDocument(this.el); // make sure this element doesn't have the elements yet
+
     if (Array.prototype.filter.call(this.el.children, function (child) {
       return child.classList.contains(_this2.classNames.wrapper);
     }).length) {
@@ -449,13 +450,6 @@ var SimpleBar = /*#__PURE__*/function () {
     }
 
     this.el.setAttribute('data-simplebar', 'init');
-  };
-
-  _proto.setAccessibilityAttributes = function setAccessibilityAttributes() {
-    var ariaLabel = this.options.ariaLabel || 'scrollable content';
-    this.contentWrapperEl.setAttribute('tabindex', '0');
-    this.contentWrapperEl.setAttribute('role', 'region');
-    this.contentWrapperEl.setAttribute('aria-label', ariaLabel);
   };
 
   _proto.initListeners = function initListeners() {
@@ -731,13 +725,14 @@ var SimpleBar = /*#__PURE__*/function () {
     var t = axis === 'y' ? this.mouseY - scrollbarOffset : this.mouseX - scrollbarOffset;
     var dir = t < 0 ? -1 : 1;
     var scrollSize = dir === -1 ? scrolled - hostSize : scrolled + hostSize;
+    var speed = 40;
 
     var scrollTo = function scrollTo() {
       if (dir === -1) {
         if (scrolled > scrollSize) {
           var _this4$contentWrapper;
 
-          scrolled -= _this4.options.clickOnTrackSpeed;
+          scrolled -= speed;
 
           _this4.contentWrapperEl.scrollTo((_this4$contentWrapper = {}, _this4$contentWrapper[_this4.axis[axis].offsetAttr] = scrolled, _this4$contentWrapper));
 
@@ -747,7 +742,7 @@ var SimpleBar = /*#__PURE__*/function () {
         if (scrolled < scrollSize) {
           var _this4$contentWrapper2;
 
-          scrolled += _this4.options.clickOnTrackSpeed;
+          scrolled += speed;
 
           _this4.contentWrapperEl.scrollTo((_this4$contentWrapper2 = {}, _this4$contentWrapper2[_this4.axis[axis].offsetAttr] = scrolled, _this4$contentWrapper2));
 
@@ -782,10 +777,10 @@ var SimpleBar = /*#__PURE__*/function () {
       if (getComputedStyle(this.contentWrapperEl, '::-webkit-scrollbar').display === 'none' || 'scrollbarWidth' in document.documentElement.style || '-ms-overflow-style' in document.documentElement.style) {
         return 0;
       } else {
-        return scrollbarWidth(this.el);
+        return scrollbarWidth();
       }
     } catch (e) {
-      return scrollbarWidth(this.el);
+      return scrollbarWidth();
     }
   };
 
@@ -809,21 +804,10 @@ var SimpleBar = /*#__PURE__*/function () {
     });
     this.el.removeEventListener('mousemove', this.onMouseMove);
     this.el.removeEventListener('mouseleave', this.onMouseLeave);
-
-    if (this.contentWrapperEl) {
-      this.contentWrapperEl.removeEventListener('scroll', this.onScroll);
-    }
-
+    this.contentWrapperEl.removeEventListener('scroll', this.onScroll);
     elWindow.removeEventListener('resize', this.onWindowResize);
-
-    if (this.mutationObserver) {
-      this.mutationObserver.disconnect();
-    }
-
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect();
-    } // Cancel all debounced functions
-
+    this.mutationObserver.disconnect();
+    this.resizeObserver.disconnect(); // Cancel all debounced functions
 
     this.recalculate.cancel();
     this.onMouseMove.cancel();
@@ -866,7 +850,6 @@ SimpleBar.defaultOptions = {
   autoHide: true,
   forceVisible: false,
   clickOnTrack: true,
-  clickOnTrackSpeed: 40,
   classNames: {
     contentEl: 'simplebar-content',
     contentWrapper: 'simplebar-content-wrapper',

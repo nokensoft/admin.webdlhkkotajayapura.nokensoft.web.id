@@ -6,7 +6,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Berita</a></li>
                     <li class="breadcrumb-item active">Mengelola Berita</li>
                 </ol>
             </div>

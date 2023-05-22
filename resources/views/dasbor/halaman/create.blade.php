@@ -7,9 +7,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                    <li class="breadcrumb-item">Halaman</li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
                     <li class="breadcrumb-item active">Tambah</li>
                 </ol>
             </div>
@@ -52,17 +51,36 @@
                     <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ old('konten') }}</textarea>
                 </div>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="gambar" class="form-label">Gambar</label>
-                    <input type="file" name="gambar" class="form-control" id="customFile">
-                </div>
-
+                    <input type="file" name="gambar" class="form-control col-md-4" id="gambar">
+                </div> --}}
+                
                 <div class="mb-3">
-                    <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
-                    {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draft'=>'Inactive'],
-                    null,['class'=>'form-control select2','id'=>'status','required']) !!}
-
+                    <div class="mb-2">
+                        <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" class="col-md-3 img-thumbnail">
+                    </div>
+                    <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                    <div class="custom-file col-md-3">
+                        <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
                 </div>
+                
+                <div class="form-group">
+                    <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
+                    <select class="form-control col-md-3" name="status" id="exampleFormControlSelect1">
+                        <option>Status</option>
+                        <option value="Publish">Active</option>
+                        <option value="Draft">Inactive</option>
+                    </select>
+                </div>
+
+                {{-- <div class="mb-3">
+                    <label for="product-category" class="form-label">Status</label>
+                    {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draft'=>'Inactive'], null,['class'=>'form-select select2','id'=>'status','required']) !!}
+
+                </div> --}}
 
             </div>
         </div> <!-- end card -->

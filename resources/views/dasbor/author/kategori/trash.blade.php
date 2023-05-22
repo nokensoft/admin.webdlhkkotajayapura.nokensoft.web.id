@@ -7,8 +7,9 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item">kategori</li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Berita</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita/kategori') }}">Kategori</a></li>
                     <li class="breadcrumb-item active">Sampah</li>
                 </ol>
             </div>
@@ -24,7 +25,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ url('app/kategori') }}" class="btn btn-danger mb-2"><i
+                        <a href="{{ url('dasbor/kategori') }}" class="btn btn-danger mb-2"><i
                                 class="mdi mdi-arrow-left me-2"></i> Kembali</a>
                     </div>
                     <div class="col-sm-8">

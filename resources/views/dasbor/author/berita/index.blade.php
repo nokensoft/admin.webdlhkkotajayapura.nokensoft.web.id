@@ -6,8 +6,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
-                    <li class="breadcrumb-item active">Mengelola Berita</li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item active">Berita</li>
                 </ol>
             </div>
             <h4 class="page-title">Berita</h4>
@@ -36,7 +36,7 @@
                         <table class="table table-bordered">
                         <tr>
                             <th class="text-center">No</th>
-                            <th>gambar</th>
+                            <th>Gambar</th>
                             <th>Judul</th>
                             <th>Konten</th>
                             <th>Kategori</th>
@@ -64,7 +64,7 @@
                             <th> {{ $berita->author->name }} </th>
                             <td class="text-center">
 
-                                <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.show',['id'=> $berita->slug]) }}">
+                                {{-- <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.show',['id'=> $berita->slug]) }}">
                                     <i class="mdi mdi-eye text-dark"></i>
                                 </a>
                                 @if(Auth::user()->hasRole('author'))
@@ -79,7 +79,23 @@
                                     <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.editStatus',['id'=> $berita->slug]) }}">
                                         <i class="fe-edit"></i>
                                     </a>
-                                @endif
+                                @endif --}}
+
+                                
+                                <form action="{{ url('dasbor/berita', $berita->id) }}" method="POST">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Opsi <i class="mdi mdi-chevron-down"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $berita->slug.'/detail') }}"><i class="fe-eye"></i> Detail</a>
+                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $berita->slug.'/edit') }}"><i class="fe-edit"></i> Ubah</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
+                                        </div>
+                                    </div>
+                                </form>
 
                             </td>
                         </tr>

@@ -24,47 +24,47 @@ use App\Http\Controllers\Author\KategoriController;
     Route::controller(KategoriController::class)->group(function(){
 
         // index
-        Route::get('kategori','index')
+        Route::get('berita/kategori','index')
             ->name('dasbor.kategori');
 
         // draft
-        Route::get('kategori/draft','draft')
+        Route::get('berita/kategori/draft','draft')
             ->name('dasbor.kategori.draft');
 
         // create
-        Route::get('kategori/create','create')
+        Route::get('berita/kategori/create','create')
             ->name('dasbor.kategori.create');
 
         // store
-        Route::post('kategori','store')
+        Route::post('berita/kategori','store')
             ->name('dasbor.kategori.store');
 
         // show
-        Route::get('kategori/{id}/show','show')
+        Route::get('berita/kategori/{id}/show','show')
             ->name('dasbor.kategori.show');
 
         // edit
-        Route::get('kategori/{id}/edit','edit')
+        Route::get('berita/kategori/{id}/edit','edit')
             ->name('dasbor.kategori.edit');
 
         // update
-        Route::put('kategori/{id}','update')
+        Route::put('berita/kategori/{id}','update')
             ->name('dasbor.kategori.update');
 
         // destroy
-        Route::delete('kategori/{id}','destroy')
+        Route::delete('berita/kategori/{id}','destroy')
             ->name('dasbor.kategori.destroy');
 
         // trash
-        Route::get('kategori/trash','trash')
+        Route::get('berita/kategori/trash','trash')
             ->name('dasbor.kategori.trash');
 
         // restore
-        Route::post('kategori/restore/{id}','restore')
+        Route::post('berita/kategori/restore/{id}','restore')
             ->name('dasbor.kategori.restore');
         
         // delete
-        Route::delete('kategori/delete/{id}','delete')
+        Route::delete('berita/kategori/delete/{id}','delete')
             ->name('dasbor.kategori.delete');
             
     });

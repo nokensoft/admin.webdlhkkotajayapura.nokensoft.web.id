@@ -99,7 +99,7 @@ class BeritaSeeder extends Seeder
 
             'judul'         => 'judul berita empat',
             'slug'          => 'judul-berita-empat',
-            'gambar'         => 'gambar/berita/05.jpg',
+            'gambar'         => '',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
@@ -125,7 +125,7 @@ class BeritaSeeder extends Seeder
 
             'judul'         => 'judul berita lima',
             'slug'          => 'judul-berita-lima',
-            'gambar'         => 'gambar/berita/06.jpg',
+            'gambar'         => '',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>

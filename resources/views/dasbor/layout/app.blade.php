@@ -9,8 +9,14 @@
         <meta property="og:title" content="{{ $pengaturan->judul_situs }}" />
         <meta property="og:description" content="{{ $pengaturan->deskripsi_situs }}" />
         <meta property="og:site_name" content="{{ $pengaturan->judul_situs }}" />
-        <meta property="og:image" content="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo_situs }}" />
+        <meta property="og:image" content="{{ asset($pengaturan->logo) }}" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+        
+        <!-- favicon -->
+        <link rel="apple-touch-icon" href="{{ asset($pengaturan->favicon) }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset($pengaturan->favicon) }}">
+
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 

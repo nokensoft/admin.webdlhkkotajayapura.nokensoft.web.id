@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pengaturans', function (Blueprint $table) {
 
             $table->id();
-            
+            // VISITOR
             // Site Information
             $table->string('judul_situs')->nullable();
             $table->string('slug')->nullable();
@@ -40,6 +40,12 @@ return new class extends Migration
             $table->string('tiktok')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('youtube')->nullable();
+            
+            // DASBOR
+            $table->string('logo_dark')->nullable();
+            $table->string('logo_dark_sm')->nullable();
+            $table->string('logo_light')->nullable();
+            $table->string('logo_light_sm')->nullable();
 
             // Dates
             $table->timestamps();
