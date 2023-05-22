@@ -6,30 +6,29 @@
                 <div class="h-100" data-simplebar>
 
                     <!-- User box -->
-                    <div class="user-box text-center">
-                        <img src="../assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme"
-                            class="rounded-circle avatar-md">
+                    <div class="text-center">
+
+                        @if (Auth::user()->picture)
+                        <img src="{{ asset( Auth::user()->picture) }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+                        @else
+                        <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+                        @endif
+
                         <div class="dropdown">
                             <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block"
-                                data-toggle="dropdown">Geneva Kennedy</a>
+                                data-toggle="dropdown">{{ Auth::user()->name }}</a>
                             <div class="dropdown-menu user-pro-dropdown">
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="{{ url('pengguna/akun') }}" class="dropdown-item notify-item">
                                     <i class="fe-user mr-1"></i>
-                                    <span>My Account</span>
+                                    <span>Akun Saya</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="{{ url('pengaturan') }}" class="dropdown-item notify-item">
                                     <i class="fe-settings mr-1"></i>
-                                    <span>Settings</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fe-lock mr-1"></i>
-                                    <span>Lock Screen</span>
+                                    <span>Pengaturan</span>
                                 </a>
 
                                 <!-- item-->
@@ -40,7 +39,7 @@
 
                             </div>
                         </div>
-                        <p class="text-muted">Admin Head</p>
+                        <p class="text-muted">role name goes here</p>
                     </div>
 
                     <!--- Sidemenu -->
@@ -49,33 +48,7 @@
 
                         <ul id="side-menu">
 
-                            <li class="menu-title">Navigation</li>
-                
-                            <li>
-                                <a href="#sidebarDashboards" data-toggle="collapse">
-                                    <i data-feather="airplay"></i>
-                                    <span class="badge badge-success badge-pill float-right">4</span>
-                                    <span> Dashboards </span>
-                                </a>
-                                <div class="collapse" id="sidebarDashboards">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="index.html">Dashboard 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="dashboard-2.html">Dashboard 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="dashboard-3.html">Dashboard 3</a>
-                                        </li>
-                                        <li>
-                                            <a href="dashboard-4.html">Dashboard 4</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="menu-title mt-2">Apps</li>
+                            <li class="menu-title mt-2">Menu Utama</li>
 
                             <li>
                                 <a href="{{ url('dasbor') }}">
@@ -86,7 +59,7 @@
 
                             <li>
                                 <a href="#berita" data-toggle="collapse">
-                                    <i class="mdi mdi-cellphone-link"></i>
+                                    <i class="mdi mdi-newspaper"></i>
                                     <span> Berita </span>
                                     <span class="menu-arrow"></span>
                                 </a>
@@ -115,7 +88,7 @@
 
                             <li>
                                 <a href="{{ url('dasbor/informasi-lingkungan') }}">
-                                    <i class="mdi mdi-folder-information"></i>
+                                    <i class="mdi mdi-leaf"></i>
                                     <span class="badge badge-success badge-pill float-right">
                                         {{ $dasbor_jml_informasi_lingkungan ?? '0' }}
                                     </span>
@@ -160,6 +133,16 @@
                                         {{ $dasbor_jml_halaman ?? '0' }}
                                     </span>
                                     <span> Halaman </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ url('dasbor/pengguna') }}">
+                                    <i class="mdi mdi-account-group"></i>
+                                    <span class="badge badge-success badge-pill float-right">
+                                        {{ $dasbor_jml_pengguna ?? '0' }}
+                                    </span>
+                                    <span> Pengguna </span>
                                 </a>
                             </li>
                             

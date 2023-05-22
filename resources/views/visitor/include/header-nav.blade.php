@@ -59,7 +59,7 @@
                     <div class="logo-cat-wrap">
                         <div class="logo-part">
                             <a href="/">
-                                <img src="{{ asset('assets/images/dlhk/logo-website-dlhk-green.png') }}" alt="Logo Kota Jayapura">
+                                <img src="{{ asset('assets/images/dlhk/logo-website-dlhk-green.png') }}" alt="Gambar">
                             </a>
                         </div>
                     </div>

@@ -14,9 +14,9 @@
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 @if (Auth::user()->picture)
-                                <img src="{{asset('file/users')}}/{{Auth::user()->picture}}" alt="allal" class="rounded-circle">
+                                <img src="{{ asset( Auth::user()->picture) }}" alt="Gambar profil pengguna" class="rounded-circle">
                                 @else
-                                <img src="{{ asset('assets/admin/assets/images/users/user-6.jpg')}}" alt="user-image" class="rounded-circle">
+                                <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar profil pengguna" class="rounded-circle">
                                 @endif
                                 <span class="pro-user-name ml-1">
                                     {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
@@ -92,44 +92,26 @@
             
                         <li class="dropdown d-none d-xl-block">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                Create New
+                                Jalan Pintas
                                 <i class="mdi mdi-chevron-down"></i> 
                             </a>
                             <div class="dropdown-menu">
+
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-briefcase mr-1"></i>
-                                    <span>New Projects</span>
+                                <a href="{{ url('dasbor/berita/create') }}" class="dropdown-item">
+                                    <i class="mdi mdi-newspaper"></i>
+                                    <span>Berita Baru</span>
                                 </a>
     
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-user mr-1"></i>
-                                    <span>Create Users</span>
+                                <a href="{{ url('dasbor/halaman/create') }}" class="dropdown-item">
+                                    <i class="mdi mdi-text-box-multiple-outline"></i>
+                                    <span>Halaman Baru</span>
                                 </a>
-    
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-bar-chart-line- mr-1"></i>
-                                    <span>Revenue Report</span>
-                                </a>
-    
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-settings mr-1"></i>
-                                    <span>Settings</span>
-                                </a>
-    
-                                <div class="dropdown-divider"></div>
-    
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
-                                    <i class="fe-headphones mr-1"></i>
-                                    <span>Help & Support</span>
-                                </a>
-    
+
                             </div>
-                        </li>
+                        </li> 
+                        
                     </ul>
                     <div class="clearfix"></div>
                 </div>
