@@ -35,6 +35,9 @@ class HalamanSeeder extends Seeder
                                             <li>Additions Benefit of Service</li>
                                             <li>Rebuilding from fire or water damage</li>
                                         </ul>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+                
                 'status'            => "publish",
                 
                 'created_at'        => Carbon::now(),
@@ -58,6 +61,9 @@ class HalamanSeeder extends Seeder
                                     <li>Additions Benefit of Service</li>
                                     <li>Rebuilding from fire or water damage</li>
                                 </ul>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+
                 'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
@@ -81,6 +87,9 @@ class HalamanSeeder extends Seeder
                                             <li>Additions Benefit of Service</li>
                                             <li>Rebuilding from fire or water damage</li>
                                         </ul>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+
                 'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
@@ -92,6 +101,9 @@ class HalamanSeeder extends Seeder
                 'gambar'         => '',
                 'slug'              => 'tugas-pokok-fungsi',
                 'konten'            => 'Tugas Pokok & Fungsi, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
@@ -103,6 +115,9 @@ class HalamanSeeder extends Seeder
                 'gambar'         => '',
                 'slug'              => 'bidang-layanan',
                 'konten'            => 'Bidang Layanan, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+                
                 'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
@@ -150,6 +165,9 @@ class HalamanSeeder extends Seeder
                                             </tr>
                                         </tbody>
                                     </table>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'        => "publish",
 
                 'created_at'    => Carbon::now(),
@@ -162,6 +180,9 @@ class HalamanSeeder extends Seeder
                 'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
                 <iframe width="100%" height="560" src="https://www.youtube.com/embed/UV0mhY2Dxr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'        => "publish",
 
                 'created_at'    => Carbon::now(),
@@ -173,6 +194,9 @@ class HalamanSeeder extends Seeder
                 'sub_judul'     => 'Berikut adalah profil pejabat pada dinas',
                 'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'        => "publish",
 
                 'created_at'    => Carbon::now(),
@@ -184,6 +208,9 @@ class HalamanSeeder extends Seeder
                 'sub_judul'     => 'Berikut struktur organisasi pada dinas',
                 'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'        => "publish",
 
                 'created_at'    => Carbon::now(),
@@ -195,6 +222,9 @@ class HalamanSeeder extends Seeder
                 'sub_judul'     => 'Silahkan hubungi kami melalui informasi kontak yang tertera',
                 'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'        => "publish",
 
                 'created_at'    => Carbon::now(),
@@ -206,6 +236,9 @@ class HalamanSeeder extends Seeder
                 'sub_judul'     => 'Kami juga ada di berbagai platform media sosial',
                 'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'        => "publish",
 
                 'created_at'    => Carbon::now(),
@@ -217,6 +250,9 @@ class HalamanSeeder extends Seeder
                 'sub_judul'     => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
                 'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'        => "publish",
 
                 'created_at'    => Carbon::now(),
@@ -228,6 +264,9 @@ class HalamanSeeder extends Seeder
                 'sub_judul'     => 'Layanan online yang kami sediakan bagi masyarakat',
                 'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'status'        => "publish",
 
                 'created_at'    => Carbon::now(),

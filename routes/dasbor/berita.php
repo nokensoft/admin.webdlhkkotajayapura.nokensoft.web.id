@@ -3,6 +3,8 @@
 // DASBOR CONTROLLERS
 use App\Http\Controllers\Author\BeritaController;
 
+use Illuminate\Support\Facades\Route;
+
 /*
     |--------------------------------------------------------------------------
     | BERITA

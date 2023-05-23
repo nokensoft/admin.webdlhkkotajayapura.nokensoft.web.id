@@ -20,7 +20,7 @@ return new class extends Migration
             // Site Information
             $table->string('judul_situs')->nullable();
             $table->string('slug')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->string('deskripsi_situs')->nullable();
             $table->string('copyright')->nullable();
 
             $table->string('logo')->nullable();

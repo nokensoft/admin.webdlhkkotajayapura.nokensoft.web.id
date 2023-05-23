@@ -9,11 +9,12 @@
         <meta property="og:title" content="{{ $pengaturan->judul_situs }}" />
         <meta property="og:description" content="{{ $pengaturan->deskripsi_situs }}" />
         <meta property="og:site_name" content="{{ $pengaturan->judul_situs }}" />
-        <meta property="og:image" content="{{ asset('file/cms/image/logo/'.$pengaturan->logo)}}" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta property="og:image" content="{{ asset($pengaturan->logo) }}" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-                <!-- App favicon -->
-                <link rel="shortcut icon" href="{{ asset('file/cms/image/favicon/'. $pengaturan->favicon)}}">
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" href="{{ asset($pengaturan->favicon) }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset($pengaturan->favicon) }}">
 
 		<!-- Bootstrap css -->
 		<link href="{{ asset('assets/admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -35,52 +36,47 @@
                     <div class="p-3">
 
                         <!-- Logo -->
-                        <div class="auth-brand text-center text-lg-start">
+                        <div class="auth-brand text-lg-start">
                             <div class="auth-logo">
-                                <a href="#" class="logo logo-dark text-center">
-                                    @if(!$pengaturan->logo_situs)
-                                        <img src="{{asset('assets/admin/assets/images/logo-dark.png')}}" alt="" height="55">
-                                    @else
-                                        <img src="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo_situs }}" alt="" height="88">
-                                        <span class="logo-lg-text-dark">{{ $pengaturan->judul_situs  }}</span>
-                                    @endif
+                                <a href="{{ url('dasbor') }}" class="logo logo-dark">
+                                    <img src="{{ asset($pengaturan->logo_dark) }}" alt="logo_situs" height="55px">
+                                    <span class="logo-lg-text-dark d-block my-4">
+                                        {!! $pengaturan->deskripsi_situs !!}
+                                    </span>
                                 </a>
 
-                                <a href="#" class="logo logo-light text-center">
-                                    @if(!$pengaturan->logo)
-                                    <img src="{{asset('assets/admin/assets/images/logo-light.png')}}" alt="" height="55">
-                                    @else
-                                        <img src="{{ asset('file/cms/image/logo')}}/{{ $pengaturan->logo }}" alt="" height="88">
-                                        <span class="logo-lg-text-dark">{{ $pengaturan->judul_situs  }}</span>
-                                    @endif
+                                <a href="{{ url('dasbor') }}" class="logo logo-light">
+                                    <img src="{{ asset( $pengaturan->logo_light) }}" alt="" height="55px">
+                                    <span class="logo-lg-text-dark d-block my-4">
+                                        {!! $pengaturan->deskripsi_situs !!}
+                                    </span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- title-->
-                        <h4 class="mt-0">Masuk</h4>
-                        <p class="text-muted mb-4">Masukkan alamat email dan kata sandi Anda untuk mengakses panel.</p>
+                        <h4 class="mt-5 font-weight-bold display-2">Masuk</h4>
+                        <p class="text-muted mb-4">Masukkan alamat email dan kata sandi Anda untuk mengakses Dasbor.</p>
 
-                        <!-- form -->
+                        <!-- FORM START -->
                         <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="mb-3">
-                                <label for="emailaddress" class="form-label">Email address</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" placeholder="Masukan alamat email" required autocomplete="email" autofocus>
+                            <div class="mb-3">
+                                <label for="alamatEmail" class="form-label">Alamat Email</label>
+                                <input type="email" id="alamatEmail" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Masukan alamat email" required autocomplete="email" autofocus>
                                     @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                             </div>
+                            <!-- group item end -->
+
                             <div class="mb-3">
-                                <a href="" class="text-muted float-end"><small>Lupa Kata Sandi?</small></a>
-                                <label for="password" class="form-label">Password</label>
+                                <label for="kataSandi" class="form-label">Kata Sandi</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" placeholder="Masukan kata sandi "
-                                    class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input type="password" id="kataSandi" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Masukan kata sandi" required autocomplete="current-password">
                                     <div class="input-group-text" data-password="false">
                                         <span class="password-eye"></span>
                                     </div>
@@ -90,30 +86,26 @@
                                     </span>
                                 @enderror
                                 </div>
+                                <a href="" class="text-muted float-end"><small>Lupa Kata Sandi?</small></a>
                             </div>
+                            <!-- group item end -->
 
-                            <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
                                     <label class="form-check-label" for="remember">
                                         {{ __('Ingat saya') }}
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                            <div class="text-center d-grid">
-                                <button class="btn btn-primary" type="submit">Masuk </button>
+                            <!-- group item end -->
+
+                            <div class="d-block">
+                                <button class="btn btn-primary w-100" type="submit">Masuk </button>
                             </div>
 
                         </form>
-                        <!-- end form-->
-
-                        <!-- Footer-->
-                        {{-- <footer class="footer footer-alt">
-                            <p class="text-muted">Don't have an account? <a href="auth-register-2.html" class="text-muted ms-1"><b>Sign Up</b></a></p>
-                        </footer> --}}
+                        <!-- FORM END -->
 
                     </div> <!-- end .card-body -->
                 </div> <!-- end .align-items-center.d-flex.h-100-->
@@ -123,11 +115,11 @@
             <!-- Auth fluid right content -->
             <div class="auth-fluid-right text-center">
                 <div class="auth-user-testimonial">
-                    <h2 class="mb-3 text-white">I love the color!</h2>
-                    <p class="lead"><i class="mdi mdi-format-quote-open"></i> {{ $pengaturan->deskripsi_situs }} <i class="mdi mdi-format-quote-close"></i>
-                    </p>
+                    <img src="{!! $pengaturan->logo_loader !!}" alt="Logo loader" width="450px">
+                    <h2 class="mb-3 text-white text-uppercase display-3 font-weight-bold">{!! $pengaturan->judul_situs !!}</h2>
+                    <p class="text-uppercase h2 text-light mb-5">{!! $pengaturan->deskripsi_situs !!}</p>
                     <h5 class="text-white">
-                        {{ $pengaturan->copyright }}
+                        {!! $pengaturan->copyright !!}
                     </h5>
                 </div> <!-- end auth-user-testimonial-->
             </div>

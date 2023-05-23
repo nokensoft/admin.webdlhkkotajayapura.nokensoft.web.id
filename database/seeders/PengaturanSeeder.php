@@ -18,10 +18,15 @@ class PengaturanSeeder extends Seeder
     {
         Pengaturan::create([
             
-            // VISITOR
+            /*
+            | GLOBAL SETTINGS
+            |
+            |
+            |
+            */
             // Site Information
             'judul_situs'       => 'LID DLHK Kota Jayapura',
-            'deskripsi'         => 'Layanan Informasi dan Dokumentasi Dinas Lingkungan Hidup Kota Jayapura',
+            'deskripsi_situs'   => 'Layanan Informasi dan Dokumentasi Dinas Lingkungan Hidup Kota Jayapura',
             'copyright'         => "2020 All Rights Reserved. Powered By <a href='https://nokensoft.com/' target='_blank'>Nokensoft</a>",
             
             'logo'              => 'assets/images/dlhk/logo-website-dlhk-green.png',
@@ -41,15 +46,18 @@ class PengaturanSeeder extends Seeder
             'tiktok'            => "https://tiktok.com/",
             'linkedin'          => "https://linkedin.com/",
             'youtube'           => "https://www.youtube.com/@infodinaslingkunganhidupko8058",
+                        
+            /*
+            | DASHBOARD SETTINGS
+            |
+            |
+            |
+            */
             
-            // Copyright
-            
-            // DASBOR
             'logo_dark'         => 'assets/admin/assets/images/logo-dark.png',
             'logo_dark_sm'      => 'assets/admin/assets/images/logo-sm.png',
             'logo_light'        => 'assets/admin/assets/images/logo-light.png',
             'logo_light_sm'     => 'assets/admin/assets/images/logo-sm-light.png',
-
 
             // Dates
             'created_at'        => Carbon::now(),

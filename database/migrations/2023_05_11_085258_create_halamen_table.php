@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('sub_judul')->nullable();
             $table->string('slug')->nullable();
             $table->longText('konten')->nullable();
+            $table->text('konten_singkat')->nullable();
             $table->string('gambar')->nullable();
 
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();

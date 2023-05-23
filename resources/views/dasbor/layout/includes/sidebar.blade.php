@@ -39,7 +39,9 @@
 
                             </div>
                         </div>
-                        <p class="text-muted">role name goes here</p>
+                        <p class="text-muted">
+                            {{ implode('', Auth::user()->roles()->pluck('display_name')->toArray()) }}
+                        </p>
                     </div>
 
                     <!--- Sidemenu -->
