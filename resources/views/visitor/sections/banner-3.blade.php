@@ -1,14 +1,14 @@
 <div class="rs-newsletter style1 green-color mb--90 sm-mb-0 sm-pb-70">
-    <div class="container">
-        <div class="newsletter-wrap shadow" style="background-image: url('gambar/latar-belakang/1.jpg');">
+    <div class="container shadow p-4">
+        <div class="newsletter-wrap shadow" style="background-image: url({{ asset($banner_3->gambar_latar_belakang) }});background-size:cover;">
             <div class="row y-middle text-white pt-50">
-                <div class="col-lg-8 mx-auto text-center">
+                <div class="col">
 
-                    <img src="{{ asset('gambar/banner/1.png') }}" alt="Logo Kota Jayapura Green" width="300px">
+                    <img src="{{ asset($banner_3->gambar_ilustrasi) }}" alt="Gambar ilustrasi" class="col-md-6">
 
-                    <h1 class="title text-white h1 fw-bold">Menjaga lingkungan bukan hanya <br> angan-angan, tapi tindakan.</h1>
+                    <h1 class="title text-white h1 fw-bold">{!! $banner_3->konten_text_1 !!}</h1>
                     <p class="pt-20">
-                        <a href="https://www.dlhk.jayapurakota.go.id" class="link-success bg-white px-3 py-2 rounded shadow">www.dlhk.jayapurakota.go.id</a>
+                        <a href="{{ $banner_3->link_1 }}" class="link-success bg-white px-3 py-2 rounded shadow fs-1">{{ $banner_3->link_1_label }}</a>
                     </p>
                 </div>
             </div>

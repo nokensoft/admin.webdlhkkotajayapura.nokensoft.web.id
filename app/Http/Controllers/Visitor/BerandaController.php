@@ -49,7 +49,7 @@ class BerandaController extends Controller
 
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
-        $banner_3 = Banner::whereId(31)->first();
+        $banner_3 = Banner::whereId(3)->first();
 
         return  view('visitor.index', 
                     compact(
