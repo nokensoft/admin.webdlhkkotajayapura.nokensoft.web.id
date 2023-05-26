@@ -4,7 +4,7 @@
             
             <div class="col-lg-6 pl-60 order-last">
                 <div class="img-part">
-                    <img class="up-down-new" src="{{ asset('assets/images/dlhk/banner/2.png') }}" alt="image banner">
+                    <img class="up-down-new" src="{{ asset($banner_1->gambar_ilustrasi) }}" alt="image banner">
                 </div>
             </div>
             <!-- end col -->

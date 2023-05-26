@@ -48,6 +48,8 @@ class BerandaController extends Controller
         $faqs = Faq::orderBy('id','desc')->where('status','publish')->paginate();
 
         $banner_1 = Banner::whereId(1)->first();
+        $banner_2 = Banner::whereId(2)->first();
+        $banner_3 = Banner::whereId(31)->first();
 
         return  view('visitor.index', 
                     compact(
@@ -57,6 +59,8 @@ class BerandaController extends Controller
                         'informasiLingkungans', 
                         'faqs',
                         'banner_1',
+                        'banner_2',
+                        'banner_3',
                     )
                 );
 
