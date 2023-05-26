@@ -19,8 +19,8 @@ class BeritaSeeder extends Seeder
             'user_id'       => 3,
             'category_id'   => 1,
 
-            'judul'         => 'judul berita satu',
-            'slug'          => 'judul-berita-satu',
+            'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura Satu',
+            'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-satu',
             'gambar'         => 'gambar/berita/01.jpg',
             'konten'           => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
@@ -45,8 +45,8 @@ class BeritaSeeder extends Seeder
             'user_id'       => 3,
             'category_id'   => 2,
 
-            'judul'         => 'judul berita dua',
-            'slug'          => 'judul-berita-dua',
+            'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura-Dua',
+            'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-dua',
             'gambar'         => 'gambar/berita/02.jpg',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
@@ -71,8 +71,8 @@ class BeritaSeeder extends Seeder
             'user_id'       => 3,
             'category_id'   => 3,
 
-            'judul'         => 'judul berita tiga',
-            'slug'          => 'judul-berita-tiga',
+            'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura-Tiga',
+            'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-tiga',
             'gambar'         => 'gambar/berita/04.jpg',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
@@ -97,9 +97,9 @@ class BeritaSeeder extends Seeder
             'user_id'       => 3,
             'category_id'   => 4,
 
-            'judul'         => 'judul berita empat',
-            'slug'          => 'judul-berita-empat',
-            'gambar'         => '',
+            'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura Empat',
+            'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-empat',
+            'gambar'         => 'gambar/berita/05.jpg',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
@@ -123,9 +123,9 @@ class BeritaSeeder extends Seeder
             'user_id'       => 3,
             'category_id'   => 1,
 
-            'judul'         => 'judul berita lima',
-            'slug'          => 'judul-berita-lima',
-            'gambar'         => '',
+            'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura Lima',
+            'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-lima',
+            'gambar'         => 'gambar/berita/06.jpg',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>

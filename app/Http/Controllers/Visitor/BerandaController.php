@@ -93,8 +93,9 @@ class BerandaController extends Controller
                                     ->where('kategori_beritas.kategori_slug', $kategori)
                                     ->paginate(1);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
+        $pageTitle = 'Berita';
                                     
-        return  view('visitor.pages.berita.index', compact('datas', 'kategoris'));
+        return  view('visitor.pages.berita.index', compact('datas', 'kategoris', 'pageTitle'));
     }
 
     /*

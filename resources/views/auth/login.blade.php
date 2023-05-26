@@ -18,10 +18,14 @@
 
 		<!-- Bootstrap css -->
 		<link href="{{ asset('assets/admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-		<!-- App css -->
+		
+        <!-- App css -->
 		<link href="{{ asset('assets/admin/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-style"/>
-		<!-- icons -->
+		
+        <!-- Icons -->
 		<link href="{{ asset('assets/admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 		<!-- Head js -->
 		<script src="{{ asset('assets/admin/assets/js/head.js')}}"></script>
 
@@ -101,7 +105,10 @@
                             <!-- group item end -->
 
                             <div class="d-block">
-                                <button class="btn btn-primary w-100" type="submit">Masuk </button>
+                                <button class="btn btn-lg btn-primary w-100" type="submit">
+
+                                    Masuk
+                                </button>
                             </div>
 
                         </form>
@@ -115,7 +122,7 @@
             <!-- Auth fluid right content -->
             <div class="auth-fluid-right text-center">
                 <div class="auth-user-testimonial">
-                    <img src="{!! $pengaturan->logo_loader !!}" alt="Logo loader" width="450px">
+                    <img src="{{ asset('assets/images/dlhk/banner/2.png') }}" alt="Gambar" width="800px">
                     <h2 class="mb-3 text-white text-uppercase display-3 font-weight-bold">{!! $pengaturan->judul_situs !!}</h2>
                     <p class="text-uppercase h2 text-light mb-5">{!! $pengaturan->deskripsi_situs !!}</p>
                     <h5 class="text-white">

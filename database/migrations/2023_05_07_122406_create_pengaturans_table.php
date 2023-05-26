@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('pengaturans', function (Blueprint $table) {
 
             $table->id();
+            
             // VISITOR
             // Site Information
             $table->string('judul_situs')->nullable();

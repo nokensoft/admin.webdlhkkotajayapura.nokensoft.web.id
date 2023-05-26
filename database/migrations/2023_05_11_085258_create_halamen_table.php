@@ -17,6 +17,8 @@ return new class extends Migration
 
             $table->id();
 
+            $table->bigInteger('user_id')->unsigned()->nullable();
+
             $table->string('judul_halaman')->nullable();
             $table->string('sub_judul')->nullable();
             $table->string('slug')->nullable();
@@ -25,11 +27,15 @@ return new class extends Migration
             $table->string('gambar')->nullable();
 
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
-            
-            $table->softDeletes();
 
-            // Dates
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+
+            $table->string('deleted_at')->nullable();
 
         });
     }

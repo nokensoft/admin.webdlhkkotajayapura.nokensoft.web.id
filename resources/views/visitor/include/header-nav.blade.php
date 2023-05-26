@@ -100,6 +100,7 @@
                                                         <ul class="sub-menu last-sub-menu">
                                                             <li><a href="{{ url('halaman/profil-pimpinan') }}">Profil Pimpinan</a> </li>
                                                             <li><a href="{{ url('halaman/profil-pejabat') }}">Profil Pejabat</a> </li>
+                                                            <li><a href="{{ url('halaman/galeri-kegiatan') }}">Galeri Kegiatan</a> </li>
                                                         </ul>
                                                     </div>
 

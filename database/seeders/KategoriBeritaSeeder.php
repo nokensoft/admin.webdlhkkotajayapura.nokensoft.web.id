@@ -16,38 +16,43 @@ class KategoriBeritaSeeder extends Seeder
     public function run()
     {
         KategoriBerita::create([
-            'id'        => 1,
-            'name'      => 'Publikasi',
-            'kategori_slug'      => 'publikasi',
-            'status'    => 'publish'
+            'id'            => 1,
+            'name'          => 'Laporan Tahunan',
+            'kategori_slug'          => 'laporan-tahunan',
+            'deskripsi'     => 'Laporan tahunan yang dikeluarkan oleh Dinas Lingkungan Hidup Kota Jayapura agar bisa diakses oleh masyarakat luas.',
+            'status'        => 'publish',
         ]);
 
         KategoriBerita::create([
-            'id'        => 2,
-            'name'      => 'Pengumuman',
-            'kategori_slug'      => 'pengumuman',
-            'status'    => 'publish'
+            'id'            => 2,
+            'name'          => 'Laporan Berkala',
+            'kategori_slug' => 'laporan-berkala',
+            'deskripsi'     => 'Laporan berkala yang dikeluarkan oleh Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura agar bisa diakses oleh masyarakat luas.',
+            'status'        => 'publish',
         ]);
 
         KategoriBerita::create([
-            'id'        => 3,
-            'name'      => 'Penghargaan',
-            'kategori_slug'      => 'penghargaan',
-            'status'    => 'draft'
+            'id'            => 3,
+            'name'          => 'Hari Lingkungan Hidup',
+            'kategori_slug'          => 'hari-lingkungan-hidup',
+            'deskripsi'     => 'Hari lingkungan hidup secara lokal, nasional dan internasional yang selalu diselenggarakan.',
+            'status'        => 'draft',
         ]);
 
         KategoriBerita::create([
-            'id'        => 4,
-            'name'      => 'Hari Lingkungan',
-            'kategori_slug'      => 'hari-lingkungan',
-            'status'    => 'publish'
+            'id'            => 4,
+            'name'          => 'Hari Raya',
+            'kategori_slug'          => 'hari-raya',
+            'deskripsi'     => 'Berbagai hari raya yang selalu dirayakan di tingkat lokal, nasional dan internasional.',
+            'status'        => 'publish',
         ]);
 
         KategoriBerita::create([
-            'id'        => 5,
-            'name'      => 'Siaran Pers',
-            'kategori_slug'      => 'siaran-pers',
-            'status'    => 'publish'
+            'id'            => 5,
+            'name'          => 'Siaran Pers',
+            'kategori_slug'          => 'siaran-pers',
+            'deskripsi'     => 'Siaran pers yang dilakukan oleh Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura kepada khalayak umum.',
+            'status'        => 'publish',
         ]);
     }
 }

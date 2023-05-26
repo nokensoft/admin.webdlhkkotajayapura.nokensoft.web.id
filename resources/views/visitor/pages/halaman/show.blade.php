@@ -58,9 +58,11 @@
         <div class="container">
         <div class="blog-deatails">
 
+            @if($halaman->gambar)
             <div class="bs-img">
-                <img src="{{ asset('gambar/halaman/' . $halaman->gambar ) }}" alt="Gambar">
+                <img src="{{ asset( $halaman->gambar ) }}" alt="Gambar">
             </div>
+            @endif
 
             <div class="blog-full">
                 {!! $halaman->konten !!}

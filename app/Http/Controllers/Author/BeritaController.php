@@ -20,8 +20,8 @@ class BeritaController extends Controller
 
             [function ($query) {
                 if (($s = request()->s)) {
-                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
-                        // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('judul', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
@@ -32,19 +32,17 @@ class BeritaController extends Controller
         $jumlahdraft = Berita::where('status', 'draft')->count();
         $datapublish = Berita::where('status', 'publish')->count();
 
-        return view('dasbor.author.berita.index',compact(
-            'data', 'jumlahtrash', 'jumlahdraft', 'datapublish','jumlahrevisi'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('dasbor.author.berita.index',compact( 'data', 'jumlahtrash', 'jumlahdraft', 'datapublish','jumlahrevisi'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     public function draft(){
 
         $data = Berita::where([
-            ['title', '!=', Null],
+            ['judul', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
-                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
-                        // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('judul', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
@@ -62,11 +60,11 @@ class BeritaController extends Controller
     public function revisi(){
 
         $data = Berita::where([
-            ['title', '!=', Null],
+            ['judul', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
-                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
-                        // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('judul', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
@@ -90,8 +88,9 @@ class BeritaController extends Controller
      // CREATE
      public function create()
     {
-        $kategori = KategoriBerita::pluck('name','id');
-        return view('dasbor.author.berita.create',compact('kategori'));
+        // $kategoris = KategoriBerita::pluck('name','id');
+        $kategoris = KategoriBerita::where('status','publish')->get();
+        return view('dasbor.author.berita.create', compact('kategoris'));
     }
 
      // SHOW
@@ -147,7 +146,7 @@ class BeritaController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-                'title' => 'required|max:255',
+                'judul' => 'required|max:255',
                 'body' => 'required',
                 'image' => 'required',
                 'image' => 'image|mimes:jpeg,png,jpg|max:4096',
@@ -160,8 +159,8 @@ class BeritaController extends Controller
                 try {
 
                     $berita = new Berita();
-                    $berita->title = $request->title;
-                    $berita->slug = Str::slug($request->title);
+                    $berita->judul = $request->judul;
+                    $berita->slug = Str::slug($request->judul);
                     $berita->body = $request->body;
                     $berita->category_id = $request->category_id;
                     $berita->user_id = Auth::user()->id;
@@ -175,6 +174,7 @@ class BeritaController extends Controller
 
                     $berita->save();
                     $request->image->move(public_path('file/berita'), $posterName);
+                    
                     Alert::toast('Berita Berhasil dibuat!', 'success');
                     return redirect()->route('app.berita.draft');
                 } catch (\Throwable $th) {
@@ -190,7 +190,7 @@ class BeritaController extends Controller
      {
          $validator = Validator::make($request->all(),
              [
-                 'title' => 'required|max:255',
+                 'judul' => 'required|max:255',
                  'body' => 'required',
                  'image' => 'required',
                  'image' => 'image|mimes:jpeg,png,jpg|max:4096',
@@ -202,8 +202,8 @@ class BeritaController extends Controller
              } else {
                  try {
                      $berita = Berita::find($id);
-                     $berita->title = $request->title;
-                     $berita->slug = Str::slug($request->title);
+                     $berita->judul = $request->judul;
+                     $berita->slug = Str::slug($request->judul);
                      $berita->body = $request->body;
                      $berita->status = 'draft';
                      $berita->category_id = $request->category_id;

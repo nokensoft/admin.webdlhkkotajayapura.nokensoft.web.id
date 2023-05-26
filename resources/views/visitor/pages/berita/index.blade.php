@@ -18,7 +18,7 @@
             </div>
             <!-- Breadcrumbs End -->            
 
-    		  <!-- Blog Section Start -->
+            <!-- Blog Section Start -->
             <div class="rs-inner-blog pt-100 pb-100 md-pt-70 md-pb-70">
                 <div class="container">
                     <div class="row">
@@ -62,9 +62,9 @@
                                             
 
                                             @if(empty($data->gambar))
-                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset('file/berita/gambar-0.jpg') }}" alt="Gambar"></a>
+                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset('file/berita/gambar-0.jpg') }}" alt="Gambar" class="img-fluid"></a>
                                             @else
-                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset( $data->gambar ) }}" alt="Gambar"></a>
+                                            <img src="{{ asset( $data->gambar ) }}" alt="Gambar" class="img-fluid">
                                             @endif
 
                                         </div>

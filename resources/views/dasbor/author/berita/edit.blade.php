@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -16,8 +15,8 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
-@if ($errors->any())
+
+{{-- @if ($errors->any())
 <div class="alert alert-danger">
     <strong>Whoops!</strong>
     <ul>
@@ -26,14 +25,13 @@
         @endforeach
     </ul>
 </div>
-@endif
+@endif --}}
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
 
-                <!-- <form action="{{ url('dasbor/halaman') }}" method="POST" enctype="multipart/form-data"> -->
                 {!! Form::model($berita,array('url'=>'dasbor/halaman/'.$berita->id,'method'=>'put','files'=>'true'))!!}
                 @csrf
                 @method('put')
@@ -56,11 +54,6 @@
                     <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
                     <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $berita->konten}}</textarea>
                 </div>
-
-                {{-- <div class="mb-3">
-                    <label for="gambar" class="form-label">Gambar <span class="text-danger">*</span></label>
-                    <input type="file" class="form-control" id="customFile">
-                </div> --}}
                 
                 <div class="mb-3">
                     <label for="gambar" class="form-label">Gambar <span class="text-danger">*</span></label>
@@ -89,7 +82,6 @@
 
 </div>
 <!-- end row -->
-<!--end wrapper-->
 
 <div class="row">
     <div class="card">
@@ -101,6 +93,7 @@
         </div>
     </div>
 </div>
+<!-- end row -->
 {!! Form::close() !!}
 
 @stop
@@ -110,7 +103,7 @@
 <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
 <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
+<link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
@@ -127,18 +120,15 @@
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
 <!-- Dropzone file uploads-->
 <!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-        <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
-    -->
+    <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
+-->
 
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-
 
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
-
-
-  @endpush
+@endpush

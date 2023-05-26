@@ -106,12 +106,13 @@ class HalamanController extends Controller
                 'judul_halaman'             => 'required',
                 // 'konten'                  => 'required',
                 // 'gambar'                 => 'image|mimes:png,jpeg,jpg|max:4096',
-                // 'status'                 => 'required',
+                'status'                 => 'required',
             ],[
-                // 'judul_halaman.required' => 'Judul halaman tidak boleh kosong',
+                'judul_halaman.required' => 'Judul halaman tidak boleh kosong',
                 // 'konten.required'        => 'Konten halaman tidak boleh kosong',
                 // 'status.required'        => 'Status tidak boleh kosong',
                 // 'gambar.required'        => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                'status.required'        => 'Status tidak boleh kosong',
             ]
         );
         if ($validator->fails()) {

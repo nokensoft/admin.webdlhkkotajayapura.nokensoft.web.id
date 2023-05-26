@@ -44,7 +44,7 @@
                                     <th>Judul Halaman</th>
                                     <th>Sub Judul</th>
                                     <th>Author</th>
-                                    <th>Slug</th>
+                                    <th>Alamat</th>
                                     <th class="text-center">Opsi</th>
                                 </tr>
                                 @foreach ($datas as $data)
@@ -52,17 +52,19 @@
                                     <td>{{ ++$i }}</td>
                                     <td>
                                         @if(empty($data->gambar))
-                                        <img src="{{ asset('gambar/halaman/00.jpg') }}" class="img-thumbnail" alt="Gambar">
+                                        <img src="{{ asset('gambar/halaman/00.jpg') }}" class="img-thumbnail" alt="Gambar" width="200px">
                                         @else
                                         <a href="{{ asset($data->gambar) }}" target="_blank">
-                                            <img src="{{ asset($data->gambar) }}" class="img-thumbnail" alt="Gambar">
+                                            <img src="{{ asset($data->gambar) }}" class="img-thumbnail" alt="Gambar" width="200px">
                                         </a>
                                         @endif
                                     </td>
                                     <td>{{Str::limit($data->judul_halaman, 20)}}</td>
-                                    <td>{!! Str::limit($data->sub_judul, 20) !!}</td>
+                                    <td>{!! Str::limit($data->sub_judul, 50) !!}</td>
                                     <td>{{ $data->user->name ?? '' }}</td>
-                                    <td>{{ $data->slug }}</td>
+                                    <td>
+                                        <input type="text" value="{{ 'halaman/' . $data->slug }}" class="form-control">
+                                    </td>
 
                                     <td class="text-center">
                                         <form action="{{ url('dasbor/halaman', $data->id) }}" method="POST">

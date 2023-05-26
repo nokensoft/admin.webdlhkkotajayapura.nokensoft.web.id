@@ -33,7 +33,6 @@
         <div class="card">
             <div class="card-body">
 
-                <!-- <form action="{{ url('dasbor/halaman') }}" method="POST" enctype="multipart/form-data"> -->
                 {!! Form::model($data,array('url'=>'dasbor/halaman/'.$data->id,'method'=>'put','files'=>'true'))!!}
                 @csrf
                 @method('put')
@@ -56,43 +55,56 @@
                     <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
                     <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $data->konten}}</textarea>
                 </div>
-
+                
                 <div class="mb-3">
-                    <label for="gambar" class="form-label">Gambar <span class="text-danger">*</span></label>
-                    <input type="file" name="gambar" class="form-control" id="customFile">
+                    <div class="mb-2">
+                        @if(!$data->gambar)
+                            <img src="{{ asset('gambar/halaman/00.jpg') }}" alt="image" class="img-thumbnail mb-3" width="300px" alt="Gambar">
+                        @else
+                            <img src="{{ asset($data->gambar) }}" class="img-thumbnail mb-3" width="300px" alt="Gambar">
+                        @endif
+                    </div>
+                    <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                    <div class="custom-file">
+                        <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="status" class="form-label d-block">Status "{{$data->status}}"
+                        @if($data->status == 'Publish') Selected @endif
+                        @if($data->status == 'Draft') Selected @endif
+                        <span class="text-danger">*</span></label>
+                    <select class="form-control col-md-3" name="status" id="exampleFormControlSelect1">
+                        <option>Status</option>
+                        <option value="Publish" @if($data->status == 'Publish') Selected @endif>Active</option>
+                        <option value="Draft" @if($data->status == 'Draft') Selected @endif>Inactive</option>
+                    </select>
                 </div>
 
-                @if(!$data->gambar)
-                    <img src="{{ asset('gambar/halaman/00.jpg') }}" alt="image" class="img-thumbnail mb-3" width="300px" alt="Gambar">
-                @else
-                    <img src="{{ asset($data->gambar) }}" class="img-thumbnail mb-3" width="300px" alt="Gambar">
-                @endif
-
-                <div class="mb-3">
-                    <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
-                    {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draf'=>'Inactive'],
-                    null,['class'=>'form-control select2','id'=>'status','required']) !!}
-                </div>
 
             </div>
         </div> <!-- end card -->
     </div> <!-- end col -->
 
-
 </div>
 <!-- end row -->
-<!--end wrapper-->
 
 <div class="row">
-    <div class="card">
-        <div class="card-body">
-            <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-            <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
-                <i class="mdi mdi-arrow-left mr-1"></i>Kembali
-            </a>
-        </div>
-    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
+                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
+                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                </a>
+            </div> <!-- end card-body -->
+        </div> <!-- end card -->
+    </div> <!-- end col -->
 </div>
+<!-- end row -->
+
 {!! Form::close() !!}
 
 @stop

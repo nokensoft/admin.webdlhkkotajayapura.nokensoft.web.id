@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -16,7 +15,7 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
 
 <div class="row">
     <div class="col-12">
@@ -39,7 +38,6 @@
                             <th>No</th>
                             <th>Judul Halaman</th>
                             <th>Slug</th>
-                            <th width="300px">Konten</th>
                             <th width="210px" class="text-center">Opsi</th>
                         </tr>
                         @foreach ($datas as $data)
@@ -48,7 +46,6 @@
 
                             <td>{{ $data->judul_halaman }}</td>
                             <td> {{ $data->slug }}</td>
-                            <td> {!! $data->konten !!} </td>
                             <td class="text-center">
                                 <div class="row">
                                     <div class="col-6">
@@ -61,8 +58,7 @@
                                         <form action="{{ url('dasbor/halaman/delete',$data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip"
-                                                title='Delete'>Delete</button>
+                                            <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
                                         </form>
                                     </div>
                                 </div>
@@ -78,20 +74,13 @@
                 </div>
                 {!! $datas->links() !!}
             </div> <!-- end card-body-->
-
         </div> <!-- end card-->
     </div> <!-- end col -->
 
 </div>
-</div>
-
 <!-- end row -->
 
-<!--end wrapper-->
-
 @stop
-
-
 
 @push('script-footer')
 

@@ -7,10 +7,13 @@
                     <img src="{{ asset('assets/images/dlhk/background/bg-header-1.jpg') }}" alt="Breadcrumbs Image">
                 </div>
                 <div class="breadcrumbs-text white-color">
-                    <h1 class="page-title text-capitalize">{!! $data->judul !!}</h1>
+                    <h1 class="page-title text-capitalize">Berita</h1>
                     <ul>
                         <li>
-                            <a class="active" href="{{ url('/beranda') }}">Home</a>
+                            <a class="active" href="{{ url('/beranda') }}">Beranda</a>
+                        </li>
+                        <li>
+                            <a class="active" href="{{ url('/berita') }}">Berita</a>
                         </li>
                         <li>{!! $data->judul !!}</li>
                     </ul>
@@ -23,29 +26,38 @@
                 <div class="container">
                    <div class="blog-deatails">
 
+                        @if(!empty($data->gambar)) 
                         <div class="bs-img">
                             <img src="{{ asset( $data->gambar ) }}" alt="Gambar" class="w-100">
                         </div>
+                        @endif
 
                        <div class="blog-full">
-                           <ul class="single-post-meta">
-                               <li>
-                                   <span class="p-date"> <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }} </span>
-                               </li> 
-                               <li>
-                                   <span class="p-date"> <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }} </span>
-                               </li> 
-                               <li class="Post-cate">
-                                   <div class="tag-line">
-                                       <i class="fa fa-book"></i>
-                                       <a href="{{ url('berita/kategori/' . $data->kategori->slug ) }}">{{ $data->kategori->name ?? '' }}</a>
-                                   </div>
-                               </li>
-                           </ul>
 
-                        {{ $data->kategori->name }}
+                            <div class="d-block">
+                                <h1>
+                                    {!! $data->judul !!}
+                                </h1>
+                            </div>
 
-                        {!! $data->isi !!}
+                            <ul class="single-post-meta">
+                                <li>
+                                    <span class="p-date"> <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }} </span>
+                                </li> 
+                                <li>
+                                    <span class="p-date"> <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }} </span>
+                                </li> 
+                                <li class="Post-cate">
+                                    <div class="tag-line">
+                                        <i class="fa fa-book"></i>
+                                        <a href="{{ url('berita/kategori/' . $data->kategori->slug ) }}">{{ $data->kategori->name ?? '' }}</a>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="d-block">
+                                {!! $data->konten !!}
+                            </div>
 
                        </div>
                        <!-- end .blog-full -->

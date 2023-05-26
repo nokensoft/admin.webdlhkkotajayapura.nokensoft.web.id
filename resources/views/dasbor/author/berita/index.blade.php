@@ -14,6 +14,7 @@
         </div>
     </div>
 </div>
+<!-- end row -->
 
 <div class="row">
     <div class="col-12">
@@ -25,12 +26,14 @@
                 <!-- End Left sidebar -->
 
                 <div class="inbox-rightbar">
+
                     <form action="{{ route('dasbor.berita') }}" method="get">
                         <div class="input-group mb-3">
                             <input type="search" name="s" class="form-control" placeholder="Search">
                             <button type="submit" class="btn btn-primary">Search</button>
                         </div>
                     </form>
+                    <!-- form end -->
 
                     <div class="mt-3">
                         <table class="table table-bordered">
@@ -38,9 +41,9 @@
                             <th class="text-center">No</th>
                             <th>Gambar</th>
                             <th>Judul</th>
-                            <th>Konten</th>
+                            <th>Konten Singkat</th>
                             <th>Kategori</th>
-                            <th>Pengarang</th>
+                            <th>Penulis</th>
                             <th class="text-center" width="210px">Opsi</th>
                         </tr>
                         @foreach ($data as  $berita)
@@ -48,40 +51,22 @@
                             <td class="text-center">{{ ++$i }}</td>
                             <th>
                                 @if (empty($berita->gambar))
-                                <img src="{{asset('assets/admin/assets/gambars/gambar-not.png')}}" class="img-fluid img-thumbnail" alt="Gambar">
+                                <img src="{{asset('assets/admin/assets/gambars/gambar-not.png')}}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
                                 @else
-                                <img src="{{ asset($berita->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar">
+                                <a href="{{ asset($berita->gambar) }}" target="_blank">
+                                    <img src="{{ asset($berita->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
+                                </a>
                                 @endif
                             </th>
-                            <td>
-                                {{ Str::limit($berita->judul, 10) }}
-                            </td>
-                            <td>
-                                {{ Str::limit($berita->konten, 10) }}
-                            </td>
-                            <th> {{ $berita->kategori->name }} </th>
-
-                            <th> {{ $berita->author->name }} </th>
-                            <td class="text-center">
-
-                                {{-- <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.show',['id'=> $berita->slug]) }}">
-                                    <i class="mdi mdi-eye text-dark"></i>
+                            <td> 
+                                <a href="{{ url('berita/' . $berita->slug) }}" target="_blank">
+                                    {{ $berita->judul }}
                                 </a>
-                                @if(Auth::user()->hasRole('author'))
-                                <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.edit',['id'=> $berita->slug]) }}">
-                                    <i class="mdi mdi-pencil text-warning"></i>
-                                </a>
-                                {!! Form::open(['method' => 'DELETE','route' => ['dasbor.berita.destroy', $berita->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Hapus', ['class' => 'btn btn-sm btn-danger']) !!}
-                                 {!! Form::close() !!}
-                                @endif
-                                @if(Auth::user()->hasRole('supervisor'))
-                                    <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.editStatus',['id'=> $berita->slug]) }}">
-                                        <i class="fe-edit"></i>
-                                    </a>
-                                @endif --}}
-
-                                
+                            </td>
+                            <td> {{ Str::limit($berita->konten_singkat, 100) }} </td>
+                            <td> <a href="{{ url('berita/kategori', $berita->kategori->kategori_slug) }}" target="_blank">{{ $berita->kategori->name }}</a> </td>
+                            <td> {{ $berita->author->name }} </td>                            
+                            <td class="text-center">                                
                                 <form action="{{ url('dasbor/berita', $berita->id) }}" method="POST">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,11 +81,8 @@
                                         </div>
                                     </div>
                                 </form>
-
                             </td>
                         </tr>
-
-
                         @endforeach
                         </table>
                     </div>
@@ -108,12 +90,13 @@
                     {!! $data->render() !!}
                     <!-- end row-->
                 </div>
-                <!-- end inbox-rightbar-->
+                <!-- End inbox-rightbar-->
 
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
 </div>
+<!-- end row -->
 
 @stop
