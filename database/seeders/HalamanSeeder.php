@@ -19,24 +19,20 @@ class HalamanSeeder extends Seeder
         Halaman::insert([
             [
                 'judul_halaman'     => 'Profil Dinas',
-                'sub_judul' => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'     => 'gambar/halaman/01.jpg',
-                'slug'      => 'profil-dinas',
-                'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
-                                        <div class="blog-desc mb-40">
-                                            <p>
-                                                Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets. Globally incubate standards compliant channels before scalable benefits.
-                                            </p>
-                                        </div>
-                                        <ul class="unorder-list mb-20">
-                                            <li>New Construction Benefit of Service</li>
-                                            <li>Renovations Benefit of Service</li>
-                                            <li>Historic Renovations and Restorations</li>
-                                            <li>Additions Benefit of Service</li>
-                                            <li>Rebuilding from fire or water damage</li>
-                                        </ul>',
+                'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
+                'gambar'            => 'gambar/halaman/01.jpg',
+                'slug'              => 'profil-dinas',
                                     
-                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+                'konten_singkat'    => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura dibentuk berdasarkan Peraturan Walikota Jaypura Nomor 47 Tahun 2017 tentang Perubahan Atas Peraturan Walikota Jayapura Nomor 31 Tahun 2016 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi Serta Tata Kerja Dinas-Dinas Daerah, mempunyai tugas membantu Walikota dalam melaksanakan Urusan Pemerintah yang menjadi kewenangan daerah di Bidang Lingkungan Hidup.',
+
+                'konten'            => '<blockquote><p>Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura dibentuk berdasarkan Peraturan Walikota Jaypura Nomor 47 Tahun 2017 tentang Perubahan Atas Peraturan Walikota Jayapura Nomor 31 Tahun 2016 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi Serta Tata Kerja Dinas-Dinas Daerah, mempunyai tugas membantu Walikota dalam melaksanakan Urusan Pemerintah yang menjadi kewenangan daerah di Bidang Lingkungan Hidup.</p></blockquote>
+                                        <p>Untuk menyelenggarakan tugas sebagaimana tersebut di atas, Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura mempunyai fungsi:</p>
+                                        <ol class="unorder-list mb-20">
+                                            <li>Perumusan Kebijakan Daerah di Bidang Lingkungan Hidup;</li>
+                                            <li>Pelaksanaan Kebijakan Daerah di Bidang Lingkungan Hidup;</li>
+                                            <li>Pelaksanaan Evaluasi dan Pelaporan Daerah di Bidang Lingkungan Hidup;</li>
+                                            <li>Pelaksanaan Tugas lain yang diberikan oleh Walikota sesuai dengan Tugas dan Fungsinya.;</li>
+                                        </ol>',
                 
                 'status'            => "publish",
                 
@@ -45,10 +41,13 @@ class HalamanSeeder extends Seeder
             ],
             [
                 'judul_halaman'     => 'Profil Pimpinan',
-                'sub_judul' => 'sub judul halaman',
-                'gambar'         => '',
-                'slug'      => 'profil-pimpinan',
-                'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
+                'sub_judul'         => 'sub judul halaman',
+                'gambar'            => '',
+                'slug'              => 'profil-pimpinan',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+
+                'konten'            => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                 <div class="blog-desc mb-40">
                                     <p>
                                         Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets. Globally incubate standards compliant channels before scalable benefits.
@@ -61,9 +60,6 @@ class HalamanSeeder extends Seeder
                                     <li>Additions Benefit of Service</li>
                                     <li>Rebuilding from fire or water damage</li>
                                 </ul>',
-                                    
-                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
-
                 'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
@@ -71,9 +67,12 @@ class HalamanSeeder extends Seeder
             ],
             [
                 'judul_halaman'     => 'Visi Misi',
-                'sub_judul' => 'sub judul halaman',
-                'gambar'         => '',
+                'sub_judul'         => 'sub judul halaman',
+                'gambar'            => '',
                 'slug'              => 'visi-misi',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+
                 'konten'            => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                         <div class="blog-desc mb-40">
                                             <p>
@@ -87,9 +86,6 @@ class HalamanSeeder extends Seeder
                                             <li>Additions Benefit of Service</li>
                                             <li>Rebuilding from fire or water damage</li>
                                         </ul>',
-                                    
-                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
-
                 'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
@@ -97,13 +93,13 @@ class HalamanSeeder extends Seeder
             ],
             [
                 'judul_halaman'     => 'Tugas Pokok & Fungsi',
-                'sub_judul' => 'sub judul halaman',
-                'gambar'         => '',
+                'sub_judul'         => 'sub judul halaman',
+                'gambar'            => '',
                 'slug'              => 'tugas-pokok-fungsi',
-                'konten'            => 'Tugas Pokok & Fungsi, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
+                'konten'            => 'Tugas Pokok & Fungsi, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
                 'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
@@ -111,23 +107,26 @@ class HalamanSeeder extends Seeder
             ],
             [
                 'judul_halaman'     => 'Bidang Layanan',
-                'sub_judul' => 'sub judul halaman',
-                'gambar'         => '',
+                'sub_judul'         => 'sub judul halaman',
+                'gambar'            => '',
                 'slug'              => 'bidang-layanan',
-                'konten'            => 'Bidang Layanan, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
                 
+                'konten'            => 'Bidang Layanan, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.',
                 'status'            => "publish",
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
             [
-                'judul_halaman'         => 'Informasi Lingkungan',
-                'slug'          => 'informasi-lingkungan',
-                'sub_judul'     => 'Publikasi Laporan dan Kinerja DLHK',
-                'gambar'         => '',
+                'judul_halaman'     => 'Informasi Lingkungan',
+                'slug'              => 'informasi-lingkungan',
+                'sub_judul'         => 'Publikasi Laporan dan Kinerja DLHK',
+                'gambar'            => '',
+                                    
+                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
                                     <table class="table">
                                         <thead>
@@ -165,112 +164,109 @@ class HalamanSeeder extends Seeder
                                             </tr>
                                         </tbody>
                                     </table>',
+                'status'            => "publish",
+
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
+            ],
+            [
+                'judul_halaman'     => 'Video Profil Dinas',
+                'slug'              => 'video-profil-dinas',
+                'sub_judul'         => 'Berikut adalah video profil dinas',
+                'gambar'            => '',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
-                'status'        => "publish",
-
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
-            ],
-            [
-                'judul_halaman'         => 'Video Profil Dinas',
-                'slug'          => 'video-profil-dinas',
-                'sub_judul'     => 'Berikut adalah video profil dinas',
-                'gambar'         => '',
                 'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>
                 <iframe width="100%" height="560" src="https://www.youtube.com/embed/UV0mhY2Dxr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-                                    
-                'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
-            
-                'status'        => "publish",
+                'status'            => "publish",
 
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
             ],
             [
-                'judul_halaman'         => 'Profil Pejabat',
-                'slug'          => 'profil-pejabat',
-                'sub_judul'     => 'Berikut adalah profil pejabat pada dinas',
-                'gambar'         => '',
-                'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'judul_halaman'     => 'Profil Pejabat',
+                'slug'              => 'profil-pejabat',
+                'sub_judul'         => 'Berikut adalah profil pejabat pada dinas',
+                'gambar'            => '',
+                'konten'            => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
-                'status'        => "publish",
+                'status'            => "publish",
 
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
             ],
             [
-                'judul_halaman'         => 'Struktur Organisasi',
-                'slug'          => 'struktur-organisasi',
-                'sub_judul'     => 'Berikut struktur organisasi pada dinas',
-                'gambar'         => '',
-                'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'judul_halaman'     => 'Struktur Organisasi',
+                'slug'              => 'struktur-organisasi',
+                'sub_judul'         => 'Berikut struktur organisasi pada dinas',
+                'gambar'            => '',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
-                'status'        => "publish",
+                'konten'            => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'            => "publish",
 
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
             ],
             [
-                'judul_halaman'         => 'Kontak',
-                'slug'          => 'kontak',
-                'sub_judul'     => 'Silahkan hubungi kami melalui informasi kontak yang tertera',
-                'gambar'         => '',
-                'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'judul_halaman'     => 'Kontak',
+                'slug'              => 'kontak',
+                'sub_judul'         => 'Silahkan hubungi kami melalui informasi kontak yang tertera',
+                'gambar'            => '',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
-                'status'        => "publish",
+                'konten'            => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'            => "publish",
 
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
             ],
             [
-                'judul_halaman'         => 'Media Sosial',
-                'slug'          => 'media-sosial',
-                'sub_judul'     => 'Kami juga ada di berbagai platform media sosial',
-                'gambar'         => '',
-                'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'judul_halaman'     => 'Media Sosial',
+                'slug'              => 'media-sosial',
+                'sub_judul'         => 'Kami juga ada di berbagai platform media sosial',
+                'gambar'            => '',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
-                'status'        => "publish",
+                'konten'            => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'            => "publish",
 
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
             ],
             [
-                'judul_halaman'         => 'Informasi Lingkungan',
-                'slug'          => 'informasi-lingkungan',
-                'sub_judul'     => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
-                'gambar'         => '',
-                'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'judul_halaman'     => 'Informasi Lingkungan',
+                'slug'              => 'informasi-lingkungan',
+                'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
+                'gambar'            => '',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
-                'status'        => "publish",
+                'konten'            => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'            => "publish",
 
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
             ],
             [
-                'judul_halaman'         => 'Layanan Online',
-                'slug'          => 'layanan-online',
-                'sub_judul'     => 'Layanan online yang kami sediakan bagi masyarakat',
-                'gambar'         => '',
-                'konten'           => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'judul_halaman'     => 'Layanan Online',
+                'slug'              => 'layanan-online',
+                'sub_judul'         => 'Layanan online yang kami sediakan bagi masyarakat',
+                'gambar'            => '',
                                     
                 'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
             
-                'status'        => "publish",
+                'konten'            => '<p>Lorem ipsum dolor sit amet, ing elit, sed eius to mod tempors incididunt ut labore et dolore magna this aliqua sed eius to mod tempors incid idunt ut labore data management.</p>',
+                'status'            => "publish",
 
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now()
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
             ],
         ]);
     }
