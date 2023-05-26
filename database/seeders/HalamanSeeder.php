@@ -17,6 +17,7 @@ class HalamanSeeder extends Seeder
      */
     public function run()
     {
+        
         Halaman::insert([
             [
                 'judul_halaman'     => 'Profil Dinas',
