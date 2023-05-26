@@ -4,28 +4,44 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-12 col-sm-12 footer-widget md-mb-50">
                         <div class="footer-logo mb-30">
-                            <a href="/"><img src="assets/images/dlhk/logo-website-dlhk-dark.png" alt=""></a>
+                            <a href="{{ url('/') }}">
+                                <img src="{{ asset('gambar/ilustrasi/1.png') }}" alt="gambar ilustrasi" title="{{ $pengaturan->judul_situs }}">
+                            </a>
                         </div>
                         <div class="textwidget pr-60 md-pr-15">
                             <p>{{ $pengaturan->deskripsi_situs }}</p>
                         </div>
                         <ul class="footer_social">
+                            @if(!empty($pengaturan->instagram))
                             <li>
-                                <a href="# " target="_blank"><span><i class="fa-brands fa-instagram"></i></span></a>
+                                <a href="{{ $pengaturan->instagram }}" target="_blank" title="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
                             </li>
+                            @endif
+                            @if(!empty($pengaturan->facebook))
                             <li>
-                                <a href="#" target="_blank"><span><i class="fa-brands fa-facebook"></i></span></a>
+                                <a href="{{ $pengaturan->facebook }}" target="_blank" title="Facebook"><span><i class="fa-brands fa-facebook"></i></span></a>
                             </li>
+                            @endif
+                            @if(!empty($pengaturan->twitter))
                             <li>
-                                <a href="#" target="_blank"><span><i class="fa-brands fa-twitter"></i></span></a>
+                                <a href="{{ $pengaturan->twitter }}" target="_blank" title="Twitter"><span><i class="fa-brands fa-twitter"></i></span></a>
                             </li>
+                            @endif
+                            @if(!empty($pengaturan->tiktok))
                             <li>
-                                <a href="#" target="_blank"><span><i class="fa-brands fa-linkedin"></i></span></a>
+                                <a href="{{ $pengaturan->tiktok }}" target="_blank" title="Tiktok"><span><i class="fa-brands fa-tiktok"></i></span></a>
                             </li>
+                            @endif
+                            @if(!empty($pengaturan->linkedin))
                             <li>
-                                <a href="# " target="_blank"><span><i class="fa-brands fa-youtube"></i></span></a>
+                                <a href="{{ $pengaturan->linkedin }}" target="_blank" title="Linkedin"><span><i class="fa-brands fa-linkedin"></i></span></a>
                             </li>
-
+                            @endif
+                            @if(!empty($pengaturan->youtube))
+                            <li>
+                                <a href="{{ $pengaturan->youtube }}" target="_blank" title="Youtube"><span><i class="fa-brands fa-youtube"></i></span></a>
+                            </li>
+                            @endif
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-12 col-sm-12 footer-widget md-mb-50">

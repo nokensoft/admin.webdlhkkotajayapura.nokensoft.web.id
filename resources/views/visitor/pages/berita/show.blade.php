@@ -67,4 +67,10 @@
             </div>
             <!-- Blog Section End -->  
 
+@include('visitor.sections.link-terkait')
+<!-- Link Terkait -->
+
+@include('visitor.sections.banner-3')
+<!-- Newsletter -->
+
 @stop

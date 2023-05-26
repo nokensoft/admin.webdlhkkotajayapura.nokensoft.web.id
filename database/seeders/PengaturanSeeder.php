@@ -21,8 +21,6 @@ class PengaturanSeeder extends Seeder
             /*
             | GLOBAL SETTINGS
             |
-            |
-            |
             */
             // Site Information
             'judul_situs'       => 'LID DLHK Kota Jayapura',
@@ -42,15 +40,13 @@ class PengaturanSeeder extends Seeder
             // Social Media
             'instagram'         => "https://instagram.com/dlhk_kotajayapura",
             'facebook'          => "https://facebook.com/",
-            'twitter'           => "https://twitter.com/",
-            'tiktok'            => "https://tiktok.com/",
+            'twitter'           => "",
+            'tiktok'            => "",
             'linkedin'          => "https://linkedin.com/",
             'youtube'           => "https://www.youtube.com/@infodinaslingkunganhidupko8058",
                         
             /*
             | DASHBOARD SETTINGS
-            |
-            |
             |
             */
             

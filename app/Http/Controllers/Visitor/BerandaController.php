@@ -106,7 +106,24 @@ class BerandaController extends Controller
     // BERITA > SHOW
     public function beritaShow($slug) {
         $data = Berita::where('slug', $slug)->first();
-        return  view('visitor.pages.berita.show', compact('data'));
+        
+        // data link terkait di halaman beranda
+        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+
+        // data banner
+        $banner_1 = Banner::whereId(1)->first();
+        $banner_2 = Banner::whereId(2)->first();
+        $banner_3 = Banner::whereId(3)->first();
+
+        return  view('visitor.pages.berita.show', 
+                    compact(
+                        'data',
+                        'linkTerkaits',
+                        'banner_1',
+                        'banner_2',
+                        'banner_3',
+                        )
+                    );
     }
 
     // BERITA > CATEGORY
@@ -121,8 +138,26 @@ class BerandaController extends Controller
                                     ->paginate(1);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
+        
+        // data link terkait di halaman beranda
+        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+
+        // data banner
+        $banner_1 = Banner::whereId(1)->first();
+        $banner_2 = Banner::whereId(2)->first();
+        $banner_3 = Banner::whereId(3)->first();
                                     
-        return  view('visitor.pages.berita.index', compact('datas', 'kategoris', 'pageTitle'));
+        return  view('visitor.pages.berita.index', 
+                        compact(
+                            'datas', 
+                            'kategoris', 
+                            'pageTitle',
+                            'linkTerkaits',
+                            'banner_1',
+                            'banner_2',
+                            'banner_3',
+                        )
+                    );
     }
 
     /*
@@ -138,7 +173,23 @@ class BerandaController extends Controller
     {
         $halamans = Halaman::orderBy('judul_halaman', 'asc')->get();
         
-        return view('visitor.pages.halaman.index', compact('halamans'));
+        // data link terkait di halaman beranda
+        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+
+        // data banner
+        $banner_1 = Banner::whereId(1)->first();
+        $banner_2 = Banner::whereId(2)->first();
+        $banner_3 = Banner::whereId(3)->first();
+        
+        return view('visitor.pages.halaman.index', 
+                    compact(
+                        'halamans',
+                        'linkTerkaits',
+                        'banner_1',
+                        'banner_2',
+                        'banner_3',
+                        )
+                    );
     }
 
     // HALAMAN > SHOW
@@ -147,8 +198,24 @@ class BerandaController extends Controller
         $halaman = Halaman::where('slug', $slug)
                             ->where('status', 'publish')
                             ->first();
+        
+        // data link terkait di halaman beranda
+        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
-        return view('visitor.pages.halaman.show', compact('halaman'));
+        // data banner
+        $banner_1 = Banner::whereId(1)->first();
+        $banner_2 = Banner::whereId(2)->first();
+        $banner_3 = Banner::whereId(3)->first();
+
+        return view('visitor.pages.halaman.show', 
+        compact(
+            'halaman',
+            'linkTerkaits',
+            'banner_1',
+            'banner_2',
+            'banner_3',
+            )
+    );
     }
 
 
