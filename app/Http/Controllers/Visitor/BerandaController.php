@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Berita\Berita;
 use App\Models\Berita\KategoriBerita;
 use App\Models\Halaman;
+use App\Models\Banner;
 
 use App\Models\LinkTerkait;
 use App\Models\LayananOnline;
@@ -46,13 +47,16 @@ class BerandaController extends Controller
         // data faq di halaman beranda
         $faqs = Faq::orderBy('id','desc')->where('status','publish')->paginate();
 
+        $banner_1 = Banner::whereId(1)->first();
+
         return  view('visitor.index', 
                     compact(
                         'beritas', 
                         'linkTerkaits', 
                         'layananOnlines', 
                         'informasiLingkungans', 
-                        'faqs'
+                        'faqs',
+                        'banner_1',
                     )
                 );
 

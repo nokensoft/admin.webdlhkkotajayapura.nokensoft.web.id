@@ -25,6 +25,12 @@ return new class extends Migration
             $table->longText('konten_text_1')->nullable();
             $table->longText('konten_text_2')->nullable();
 
+            $table->longText('link_1')->nullable();
+            $table->longText('link_1_label')->nullable();
+
+            $table->longText('link_2')->nullable();
+            $table->longText('link_2_label')->nullable();
+
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
 
             $table->string('link')->nullable();

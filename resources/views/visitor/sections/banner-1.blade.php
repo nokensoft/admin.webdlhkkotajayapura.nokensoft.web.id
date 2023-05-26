@@ -12,14 +12,14 @@
             <div class="col-lg-6 pr-0">
                 <div class="banner-content">
                     <div class="sl-sub-title wow bounceInLeft" data-wow-delay="300ms" data-wow-duration="2000ms">
-                        Selamat datang di portal kami
+                        {!! $banner_1->konten_text_1 !!}
                     </div>
                     <h1 class="sl-title wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="3000ms">
-                        Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura
+                        {!! $banner_1->konten_text_2 !!}
                     </h1>
                     <div class="banner-btn wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="2000ms">
-                        <a class="readon green-banner" href="#sekilas-profil">
-                            <div class="fa-solid fa-arrow-right me-2"></div> Tentang DLHK
+                        <a class="readon green-banner" href="{!! $banner_1->link_1 !!}">
+                            <div class="fa-solid fa-arrow-right me-2"></div> {!! $banner_1->link_1_label !!}
                         </a>
                     </div>
                 </div>
