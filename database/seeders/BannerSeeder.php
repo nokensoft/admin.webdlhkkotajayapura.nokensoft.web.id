@@ -16,7 +16,6 @@ class BannerSeeder extends Seeder
      */
     public function run()
     {
-        $random = Str::random(12);
 
         // Banner 1
         Banner::create([

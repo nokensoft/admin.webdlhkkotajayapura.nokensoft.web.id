@@ -35,9 +35,6 @@ class BerandaController extends Controller
         // data berita di halaman beranda
         $beritas = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
         
-        // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
-        
         // data layanan online di halaman beranda
         $layananOnlines = LayananOnline::orderBy('id','desc')->where('status','publish')->paginate();
         
@@ -46,7 +43,11 @@ class BerandaController extends Controller
         
         // data faq di halaman beranda
         $faqs = Faq::orderBy('id','desc')->where('status','publish')->paginate();
+        
+        // data link terkait di halaman beranda
+        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
+        // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
@@ -54,10 +55,10 @@ class BerandaController extends Controller
         return  view('visitor.index', 
                     compact(
                         'beritas', 
-                        'linkTerkaits', 
                         'layananOnlines', 
                         'informasiLingkungans', 
                         'faqs',
+                        'linkTerkaits', 
                         'banner_1',
                         'banner_2',
                         'banner_3',
@@ -80,8 +81,26 @@ class BerandaController extends Controller
         $datas = Berita::where('status', 'publish')->paginate(2);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
+        
+        // data link terkait di halaman beranda
+        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
-        return  view('visitor.pages.berita.index', compact('datas', 'kategoris', 'pageTitle'));
+        // data banner
+        $banner_1 = Banner::whereId(1)->first();
+        $banner_2 = Banner::whereId(2)->first();
+        $banner_3 = Banner::whereId(3)->first();
+
+        return  view('visitor.pages.berita.index', 
+                    compact(
+                            'datas', 
+                            'kategoris', 
+                            'pageTitle',
+                            'linkTerkaits',
+                            'banner_1',
+                            'banner_2',
+                            'banner_3',
+                            )
+                    );
     }
 
     // BERITA > SHOW

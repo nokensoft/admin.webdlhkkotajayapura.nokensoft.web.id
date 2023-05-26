@@ -25,12 +25,15 @@
 
                         <div class="col-lg-4 col-md-12 order-last">
                             <div class="widget-area">
+
                                 <div class="search-widget mb-50">
                                     <div class="search-wrap">
-                                        <input type="search" placeholder="Searching..." name="s" class="search-input" value="">
+                                        <input type="search" placeholder="Cari judul berita..." name="s" class="search-input" value="">
                                         <button type="submit" value="Search"><i class=" flaticon-search"></i></button>
                                     </div>
                                 </div>
+                                <!-- Pencarian End -->
+
                                 <div class="widget-archives mb-50">
                                     <h3 class="widget-title">Kategori Berita</h3>
                                     <ul>
@@ -39,15 +42,19 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                  <div class="recent-posts mb-50">
-                                      <h3 class="widget-title">Meta</h3>
-                                      <ul>
-                                          <li><a href="#">Log in</a></li>
-                                          <li><a href="#">Entries feed</a></li>
-                                          <li><a href="#">Comments feed</a></li>
-                                          <li><a href="#">WordPress.org</a></li>
-                                      </ul>
-                                  </div>
+                                <!-- Kategori End -->
+
+                                <div class="recent-posts mb-50 text-center">
+                                    <h3>{{ $pengaturan->judul_situs }}</h3>
+                                    <p>{{ $pengaturan->deskripsi_situs }}</p>
+                                    <img src="{{ asset('gambar/ilustrasi/3.png') }}" alt="gambar ilustrasi" class="mb-3">
+                                    <a href="{{ url('halaman/profil-dinas') }}" class="btn btn-lg btn-success w-100">
+                                        <i class="fa-solid fa-arrow-right me-2"></i>
+                                        Tampilkan Profil Dinas
+                                    </a>
+                                </div>
+                                <!-- Banner Sidebar End -->
+
                             </div>
                         </div>
                         <!-- .col Sidebar End -->
@@ -64,7 +71,7 @@
                                             @if(empty($data->gambar))
                                             <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset('file/berita/gambar-0.jpg') }}" alt="Gambar" class="img-fluid"></a>
                                             @else
-                                            <img src="{{ asset( $data->gambar ) }}" alt="Gambar" class="img-fluid">
+                                            <img src="{{ asset( $data->gambar ) }}" alt="Gambar" class="img-fluid w-100">
                                             @endif
 
                                         </div>
@@ -118,6 +125,10 @@
             </div>
           <!-- Blog Section End -->  
 
+@include('visitor.sections.link-terkait')
+<!-- Link Terkait -->
 
+@include('visitor.sections.banner-3')
+<!-- Newsletter -->
 
 @stop

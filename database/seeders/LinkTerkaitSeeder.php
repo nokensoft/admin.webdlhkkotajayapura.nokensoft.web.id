@@ -15,6 +15,51 @@ class LinkTerkaitSeeder extends Seeder
      */
     public function run()
     {
-        // LinkTerkait::factory()->count(5)->create();
+
+        // Kementerian
+        LinkTerkait::create([
+            'id'                    => 1,
+            'judul_link'            => 'Kementerian Lingkungan Hidup dan Kehutanan',
+            'slug'                  => 'kementerian-lingkungan-hidup-dan-kehutanan',
+            'gambar'                => 'gambar/link-terkait/kementerian.png',
+            'url'                   => 'https://www.menlhk.go.id',
+            
+            'status'                => 'Publish',
+        ]);
+
+        // Provinsi Papua
+        LinkTerkait::create([
+            'id'                    => 2,
+            'judul_link'            => 'Pemerintah Daerah Provinsi Papua',
+            'slug'                  => 'provinsi-papua',
+            'gambar'                => 'gambar/link-terkait/kota-jayapura.png',
+            'url'                   => 'https://www.papua.go.id',
+            
+            'status'                => 'Publish',
+        ]);
+
+        // Pemerintah Kota Jayapura
+        LinkTerkait::create([
+            'id'                    => 3,
+            'judul_link'            => 'Pemerintah Kota Jayapura',
+            'slug'                  => 'kota-jayapura',
+            'gambar'                => 'gambar/link-terkait/kota-jayapura.png',
+            'url'                   => 'https://jayapurakota.go.id/',
+            
+            'status'                => 'Publish',
+        ]);
+
+        // Aplikasi Lapor
+        LinkTerkait::create([
+            'id'                    => 4,
+            'judul_link'            => 'Aplikasi Lapor',
+            'slug'                  => 'aplikasi-lapor',
+            'gambar'                => 'gambar/link-terkait/kota-jayapura.png',
+            'url'                   => 'https://www.lapor.go.id',
+            
+            'status'                => 'Publish',
+        ]);
+        
+
     }
 }
