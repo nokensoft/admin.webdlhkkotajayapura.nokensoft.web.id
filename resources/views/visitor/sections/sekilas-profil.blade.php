@@ -12,8 +12,7 @@
                     <h2 class=" title new-title">Sekilas Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura
                     </h2>
                     <div class="new-desc">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error autem voluptatibus maiores excepturi eligendi asperiores eius deserunt perferendis molestias tempore.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, itaque unde hic maxime odit fugiat!</p>
+                        <p>Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura dibentuk berdasarkan Peraturan Walikota Jaypura Nomor 47 Tahun 2017 tentang Perubahan Atas Peraturan Walikota Jayapura Nomor 31 Tahun 2016 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi Serta Tata Kerja Dinas-Dinas Daerah, mempunyai tugas membantu Walikota dalam melaksanakan Urusan Pemerintah yang menjadi kewenangan daerah di Bidang Lingkungan Hidup.</p>
                     </div>
                     <!-- button play -->
                     <a href="{{ url('halaman/profil-dinas') }}" class="btn btn-lg btn-success mt-3">
