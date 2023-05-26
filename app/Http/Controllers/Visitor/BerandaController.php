@@ -36,10 +36,10 @@ class BerandaController extends Controller
         $beritas = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
         
         // data layanan online di halaman beranda
-        $layananOnlines = LayananOnline::orderBy('id','desc')->where('status','publish')->paginate();
+        $layananOnlines = LayananOnline::orderBy('id','asc')->where('status','publish')->paginate();
         
         // data informasi lingkungan di halaman beranda
-        $informasiLingkungans = InformasiLingkungan::orderBy('id','desc')->where('status','publish')->paginate();
+        $informasiLingkungans = InformasiLingkungan::orderBy('id','asc')->where('status','publish')->paginate();
         
         // data faq di halaman beranda
         $faqs = Faq::orderBy('id','desc')->where('status','publish')->paginate();
@@ -215,7 +215,28 @@ class BerandaController extends Controller
             'banner_2',
             'banner_3',
             )
-    );
+        );
+    }
+
+    // KONTAK
+    public function kontak(){
+        
+        // data link terkait di halaman beranda
+        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+
+        // data banner
+        $banner_1 = Banner::whereId(1)->first();
+        $banner_2 = Banner::whereId(2)->first();
+        $banner_3 = Banner::whereId(3)->first();
+
+        return view('visitor.pages.kontak', 
+        compact(
+            'linkTerkaits',
+            'banner_1',
+            'banner_2',
+            'banner_3',
+            )
+        );
     }
 
 

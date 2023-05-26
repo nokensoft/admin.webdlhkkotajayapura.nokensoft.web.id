@@ -117,8 +117,8 @@
                                                 <li class="menu-item-has-children right">
                                                     <a href="#">Sistem Informasi</a>
                                                     <ul class="sub-menu right">
-                                                        <li><a href="#">SIPAKOT</a></li>
-                                                        <li><a href="#">Pengaduan</a></li>
+                                                        <li><a href="https://sipakot.jayapurakota.go.id" target="_blank">SIPAKOT</a></li>
+                                                        <li><a href="{{ url('kontak') }}">Pengaduan</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#">AMDAL</a> </li>
@@ -126,17 +126,16 @@
                                                 <li class="menu-item-has-children">
                                                     <a href="#">Sub Menu</a>
                                                     <ul class="sub-menu right">
-                                                        <li><a href="#">Sub Sub Menu</a></li>
-                                                        <li><a href="#">Sub Sub Menu</a></li>
-                                                        <li><a href="#">Sub Sub Menu</a></li>
+                                                        <li><a href="#">coming soon...</a></li>
+                                                        <li><a href="#">coming soon...</a></li>
+                                                        <li><a href="#">coming soon...</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item-has-children">
                                                     <a href="#">Sub Menu</a>
                                                     <ul class="sub-menu right">
-                                                        <li><a href="#">Sub Sub Menu</a></li>
-                                                        <li><a href="#">Sub Sub Menu</a></li>
-                                                        <li><a href="#">Sub Sub Menu</a></li>
+                                                        <li><a href="#">coming soon...</a></li>
+                                                        <li><a href="#">coming soon...</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -145,19 +144,19 @@
                                         <li class="menu-item-has-children">
                                             <a href="#">Informasi Lingkungan</a>
                                             <ul class="sub-menu">
-                                                <li><a href="#">RPPLH</a></li>
-                                                <li><a href="#">IKLH</a></li>
-                                                <li><a href="#">HPSN</a></li>
-                                                <li><a href="#">AMDAL</a></li>
-                                                <li><a href="#">KEHATI</a></li>
-                                                <li><a href="#">Konservasi Energi</a></li>
-                                                <li><a href="#">Mekanisme Perizinan</a></li>
-                                                <li><a href="#">Izin Lingkungan</a></li>
-                                                <li><a href="#">Pengolaan B3</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">RPPLH</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">IKLH</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">HPSN</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">AMDAL</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">KEHATI</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">Konservasi Energi</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">Mekanisme Perizinan</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">Izin Lingkungan</a></li>
+                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">Pengolaan B3</a></li>
                                             </ul>
                                         </li>
 
-                                        <li class="menu-item-has-children">
+                                        {{-- <li class="menu-item-has-children">
                                             <a href="#">Lainnya</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Sub Menu</a></li>
@@ -165,10 +164,10 @@
                                                 <li><a href="#">Sub Menu</a></li>
                                                 <li><a href="#">Sub Menu</a></li>
                                             </ul>
-                                        </li>
+                                        </li> --}}
 
                                         <li class="rs-mega-menu mega-rs">
-                                            <a href="#kontak">Kontak</a>
+                                            <a href="{{ url('kontak') }}">Kontak</a>
                                         </li>
 
                                     </ul> <!-- //.nav-menu -->

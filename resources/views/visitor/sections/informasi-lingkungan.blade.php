@@ -22,16 +22,16 @@
                     @endif
 
                     <div class="title-part mt-0">
-                        <h4 class="title">{{ $informasiLingkungan->judul }}</h4>
+                        <h2 class="title">{{ $informasiLingkungan->judul }}</h2>
                     </div>
                     <div class="content-part d-flex align-items-center">
                         <div class="mx-auto">
     
-                            <h2 class="title">
+                            <h4 class="title">
                                 <a href="{{ $informasiLingkungan->url }}">
-                                    <i class="fa-solid fa-file"></i> {{ $informasiLingkungan->judul }}
+                                    <i class="fa-solid fa-file"></i> {{ $informasiLingkungan->keterangan_singkat }}
                                 </a>
-                            </h2>
+                            </h4>
                         </div>
                     </div>
                 </div>

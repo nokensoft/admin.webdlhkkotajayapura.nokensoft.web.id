@@ -56,6 +56,21 @@ Route::get('/berita/{slug}', [BerandaController::class, 'beritaShow'])->name('be
 Route::get('/berita/kategori/{kategori}', [BerandaController::class, 'beritaKategori'])->name('berita.kategori.slug');
 
 
+/*
+| KONTAK
+| menampilkan halaman kontak
+| 
+*/
+
+Route::get('/kontak', [BerandaController::class, 'kontak'])->name('kontak');
+
+
+
+/*
+| PENGAJUAN / PESAN
+| 
+| 
+*/
 Route::post('/pengajuan', [PengajuanPertanyaanController::class, 'pengajuanPertanyaanStore'])->name('app.pengajuan.store');
 
 

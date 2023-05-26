@@ -2,16 +2,24 @@
     <div class="container">
 
         <!-- heading start -->
-        <div class="sec-title4 text-center mb-50">
-            <div class="sub-title">Layanan Online</div>
-            <h2 class="title purple-color">Sistem Informasi Pendukung Pelayanan Secara Online</h2>
+        <div class="sec-title4 mb-50">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{ asset('gambar/ilustrasi/4.png') }}" alt="gambar ilustrasi">
+                </div>
+                <div class="col-md-9">
+                    <div class="sub-title">Layanan Online</div>
+                    <h2 class="title purple-color col-md-8">Sistem Informasi dan Aplikasi Pendukung Pelayanan Secara Online</h2>
+                    <p>Sistem Informasi atau Aplikasi Pendukung pelayanan secara online diadakan untuk menunjang pelayanan Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura kepada masyarakat lebih efisien dan terjangkau dari mana saja.</p>
+                </div>
+            </div>
         </div>
         <!-- heading end -->
 
         <div class="row">
 
             @foreach ($layananOnlines as $layananOnline)
-            <div class="col-lg-4 mb-30">
+            <div class="col-lg-6 mb-30">
                 <div class="services-item">
                     <div class="services-image">
                         <div class="services-icons">
