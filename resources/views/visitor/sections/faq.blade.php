@@ -5,7 +5,7 @@
                 <div class="main-part new-style">
                     <div class="title mb-21">
                         <h2 class="text-part mb-0">FAQ</h2>
-                        <p class="desc">Pertanyaan yang paling sering ditanyakan</p>
+                        <p class="desc">Pertanyaan yang paling sering ditanyakan oleh masyarakat secara umum. Berikut ini kami sediakan pertanyaan-pertanyaan tersebut sekaligus dengan jawabannya.</p>
                     </div>
                     <div class="faq-content">
                         <div class="accordion" id="accordionExample">
