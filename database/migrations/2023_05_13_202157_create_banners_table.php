@@ -15,15 +15,20 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('subtitle')->nullable();
-            $table->string('image')->nullable();
-            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
-            $table->string('link')->nullable();
+
+            $table->string('judul');
             $table->string('slug')->nullable();
-            // $table->string('created_by')->nullable();
-            // $table->string('updated_by')->nullable();
-            // $table->string('deleted_by')->nullable();
+
+            $table->string('gambar_ilustrasi')->nullable();
+            $table->string('gambar_latar_belakang')->nullable();
+
+            $table->longText('konten_text_1')->nullable();
+            $table->longText('konten_text_2')->nullable();
+
+            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
+
+            $table->string('link')->nullable();
+            
             $table->softDeletes();
             $table->timestamps();
         });

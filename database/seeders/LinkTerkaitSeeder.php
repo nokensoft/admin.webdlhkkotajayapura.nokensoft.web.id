@@ -15,6 +15,6 @@ class LinkTerkaitSeeder extends Seeder
      */
     public function run()
     {
-        LinkTerkait::factory()->count(5)->create();
+        // LinkTerkait::factory()->count(5)->create();
     }
 }

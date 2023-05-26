@@ -28,7 +28,7 @@
 @include('visitor.sections.link-terkait')
 <!-- Link Terkait -->
 
-@include('visitor.sections.newsletter')
+@include('visitor.sections.banner-3')
 <!-- Newsletter -->
 
 @stop
