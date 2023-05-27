@@ -18,7 +18,7 @@
 </div>
 <!-- end page title -->
 
-{{-- @if ($errors->any())
+@if ($errors->any())
 <div class="alert alert-danger">
     <strong>Whoops!</strong>
     <ul>
@@ -27,7 +27,7 @@
         @endforeach
     </ul>
 </div>
-@endif --}}
+@endif
 
 <div class="row">
     <div class="col-lg-12">

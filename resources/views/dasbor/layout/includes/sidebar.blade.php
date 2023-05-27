@@ -154,7 +154,51 @@
                     @elseif (Auth::user()->hasRole('editor'))
 
                     @elseif (Auth::user()->hasRole('author'))
+                    <div id="sidebar-menu">
 
+                        <ul id="side-menu">
+
+                            <li class="menu-title mt-2">Menu Utama</li>
+
+                            <li>
+                                <a href="{{ url('dasbor') }}">
+                                    <i data-feather="airplay"></i>
+                                    <span> Dasbor </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#berita" data-toggle="collapse">
+                                    <i class="mdi mdi-newspaper"></i>
+                                    <span> Berita </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="berita">
+                                    <ul class="nav-second-level">
+                                        <li>
+
+                                            <a href="{{ url('dasbor/berita') }}">
+                                                <span class="badge badge-success badge-pill float-right">
+                                                    {{ $dasbor_jml_link_terkait ?? '0' }}
+                                                </span>
+                                                Berita
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('dasbor/berita/kategori') }}">
+                                                <span class="badge badge-success badge-pill float-right">
+                                                    {{ $dasbor_jml_kategori ?? '0' }}
+                                                </span>
+                                                Kategori
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
                     @elseif (Auth::user()->hasRole('supervisor'))
 
                     @endif

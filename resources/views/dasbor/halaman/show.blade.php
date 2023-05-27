@@ -9,7 +9,6 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
-                    <li class="breadcrumb-item">Halaman</li>
                     <li class="breadcrumb-item active">Detail</li>
                 </ol>
             </div>

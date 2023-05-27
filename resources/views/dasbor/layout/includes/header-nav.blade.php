@@ -89,7 +89,7 @@
                             </a>
                             <!-- End mobile menu toggle-->
                         </li>
-
+                        @if (Auth::user()->hasRole('administrator'))
                         <li class="dropdown d-none d-xl-block">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 Jalan Pintas
@@ -111,7 +111,7 @@
 
                             </div>
                         </li>
-
+                        @endif
                     </ul>
                     <div class="clearfix"></div>
                 </div>
