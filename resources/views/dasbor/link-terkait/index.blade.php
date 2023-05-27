@@ -51,7 +51,8 @@
                                     <td>{{ ++$i }}</td>
                                     <td>
                                         @if(empty($data->gambar))
-                                        <img src="{{ asset('gambar/link-terkait/00.jpg') }}" class="img-thumbnail" alt="Gambar">
+                                        <img src="{{ asset('gambar/link-terkait/00.jpg') }}" class="img-thumbnail"
+                                            alt="Gambar">
                                         @else
                                         <a href="{{ asset($data->gambar) }}" target="_blank">
                                             <img src="{{ asset($data->gambar) }}" class="img-thumbnail" alt="Gambar">
@@ -77,7 +78,8 @@
                                             </a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fe-trash"></i></button>
+                                            <button type="submit" class="btn btn-sm btn-danger"><i
+                                                    class="fe-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -99,7 +101,7 @@
     </div> <!-- end col -->
 
 </div>
-</div>
+
 
 <!-- end row -->
 

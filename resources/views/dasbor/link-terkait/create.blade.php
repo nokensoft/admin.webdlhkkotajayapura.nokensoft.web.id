@@ -33,31 +33,36 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                {{-- <form action="{{ route('dasbor.halaman.store') }}" method="post" enctype="multipart/form-data"> --}}
-                {!! Form::open(array('url' => route('dasbor.link-terkait.store'),'files'=>'true')) !!}
-                @csrf
-                
-                <div class="mb-3">
-                    <label for="judul_link" class="form-label">Judul Link <span class="text-danger">*</span></label>
-                    {!! Form::text('judul_link',null,['required','id'=>'judul_link','class'=>'form-control','placeholder'=>'Judul Link'])!!}
-                </div>
-                
-                <div class="mb-3">
-                    <label for="url" class="form-label">URL <span class="text-danger">*</span></label>
-                    {!! Form::text('url',null,['required','id'=>'url','class'=>'form-control','placeholder'=>'URL'])!!}
-                </div>
+                {{-- <form action="{{ route('dasbor.halaman.store') }}" method="post" enctype="multipart/form-data">
+                    --}}
+                    {!! Form::open(array('url' => route('dasbor.link-terkait.store'),'files'=>'true')) !!}
+                    @csrf
 
-                <div class="mb-3">
-                    <label for="cover" class="form-label">Gambar</label>
-                    <input type="file" name="cover" class="form-control" id="customFile">
-                </div>
+                    <div class="mb-3">
+                        <label for="judul_link" class="form-label">Judul Link <span class="text-danger">*</span></label>
+                        {!!
+                        Form::text('judul_link',null,['required','id'=>'judul_link','class'=>'form-control','placeholder'=>'Judul
+                        Link'])!!}
+                    </div>
 
-                <div class="mb-3">
-                    <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
-                    {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draft'=>'Inactive'],
-                    null,['class'=>'form-control select2','id'=>'status','required']) !!}
+                    <div class="mb-3">
+                        <label for="url" class="form-label">URL <span class="text-danger">*</span></label>
+                        {!!
+                        Form::text('url',null,['required','id'=>'url','class'=>'form-control','placeholder'=>'URL'])!!}
+                    </div>
 
-                </div>
+                    <div class="mb-3">
+                        <label for="cover" class="form-label">Gambar</label>
+                        <input type="file" name="cover" class="form-control" id="customFile">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="product-category" class="form-label">Status <span
+                                class="text-danger">*</span></label>
+                        {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draft'=>'Inactive'],
+                        null,['class'=>'form-control select2','id'=>'status','required']) !!}
+
+                    </div>
 
             </div>
         </div> <!-- end card -->

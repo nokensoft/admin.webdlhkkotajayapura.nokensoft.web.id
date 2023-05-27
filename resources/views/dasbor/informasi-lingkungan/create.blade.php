@@ -8,15 +8,16 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
-                    <li class="breadcrumb-item active">Ubah</li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/informasi-lingkungan') }}">Informasi Lingkungan</a></li>
+                    <li class="breadcrumb-item active">Tambah</li>
                 </ol>
             </div>
-            <h4 class="page-title">Ubah</h4>
+            <h4 class="page-title">Tambah</h4>
         </div>
     </div>
 </div>
 <!-- end page title -->
+
 @if ($errors->any())
 <div class="alert alert-danger">
     <strong>Whoops!</strong>
@@ -33,60 +34,98 @@
         <div class="card">
             <div class="card-body">
 
-                {!! Form::model($data,array('url'=>'dasbor/halaman/'.$data->id,'method'=>'put','files'=>'true'))!!}
-                @csrf
-                @method('put')
+                <form action="{{route('dasbor.informasilingkungan.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
 
                 <div class="mb-3">
-                    <label for="judul_halaman" class="form-label">Judul Halaman <span class="text-danger">*</span></label>
-                    {!!
-                    Form::text('judul_halaman',null,['required','id'=>'judul_halaman','class'=>'form-control','placeholder'=>'Judul Halaman'])
-                    !!}
+                    <label for="judul" class="form-label">Judul <span class="text-danger">*</span></label>
+                    <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul" value="{{ old('judul') }}">
+
+                    @if ($errors->has('judul'))
+                        <span class="text-danger" role="alert">
+                            <small>{{ $errors->first('judul') }}</small>
+                        </span>
+                    @endif
+                    <!-- error message end -->
                 </div>
+                <!-- input item end -->
 
                 <div class="mb-3">
-                    <label for="sub_judul" class="form-label">Sub Judul</label>
-                    {!!
-                    Form::text('sub_judul',null,['required','id'=>'sub_judul','class'=>'form-control','placeholder'=>'Sub Judul'])
-                    !!}
+                    <label for="url" class="form-label">Tautan / URL  <span class="text-danger">*</span></label>
+                    <input type="text" id="url" name="url" class="form-control" placeholder="Misal : halaman/informasi-lingkungan " value="{{ old('url') }}">
+
+                    @if ($errors->has('url'))
+                        <span class="text-danger" role="alert">
+                            <small>{{ $errors->first('url') }}</small>
+                        </span>
+                    @endif
+                    <!-- error message end -->
                 </div>
+                <!-- input item end -->
 
                 <div class="mb-3">
-                    <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                    <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $data->konten}}</textarea>
+                    <label for="keterangan_singkat" class="form-label">Keterangan Singkat</label>
+                    <textarea name="keterangan_singkat" id="keterangan_singkat" rows="3" class="form-control" placeholder="Keterangan Singkat">{{ old('keterangan_singkat') }}</textarea>
+                    @if ($errors->has('keterangan_singkat'))
+                        <span class="text-danger" role="alert">
+                            <small>{{ $errors->first('keterangan_singkat') }}</small>
+                        </span>
+                    @endif
                 </div>
+                <!-- input item end -->
 
                 <div class="mb-3">
+                    <label for="keterangan_lengkap" class="form-label">Keterangan Lengkap <span class="text-danger">*</span></label>
+                    <textarea name="keterangan_lengkap" class="ckeditor form-control" id="keterangan_lengkap" cols="30" rows="10">{{ old('keterangan_lengkap') }}</textarea>
+                    @if ($errors->has('keterangan_lengkap'))
+                    <span class="text-danger" role="alert">
+                        <small>{{ $errors->first('keterangan_lengkap') }}</small>
+                    </span>
+                @endif
+                </div>
+                <!-- input item end -->
+
+                <div class="mb-3">
+
                     <div class="mb-2">
-                        @if(!$data->gambar)
-                            <img src="{{ asset('gambar/halaman/00.jpg') }}" alt="image" id="preview-gambar" class="img-thumbnail mb-3" width="300px" alt="Gambar">
-                        @else
-                            <img src="{{ asset($data->gambar) }}" id="preview-gambar" class="img-thumbnail mb-3" width="300px" alt="Gambar">
-                        @endif
+                        <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="col-md-3 img-thumbnail">
                     </div>
                     <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                    @if ($errors->has('gambar'))
+                        <span class="text-danger" role="alert">
+                            <small>{{ $errors->first('gambar') }}</small>
+                        </span>
+                    @endif
                     <div class="custom-file">
                         <input type="file" name="gambar" class="custom-file-input" id="gambar">
+
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
+
                 </div>
+                <!-- input item end -->
 
                 <div class="form-group">
-                    <label for="status" class="form-label d-block">Status "{{$data->status}}"
-                        @if($data->status == 'Publish') Selected @endif
-                        @if($data->status == 'Draft') Selected @endif
-                        <span class="text-danger">*</span></label>
+                    <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
                     <select class="form-control col-md-3" name="status" id="exampleFormControlSelect1">
-                        <option>Status</option>
-                        <option value="Publish" @if($data->status == 'Publish') Selected @endif>Active</option>
-                        <option value="Draft" @if($data->status == 'Draft') Selected @endif>Inactive</option>
+                        <option value="">Status</option>
+                        <option value="publish" @if(old('status') == 'publish') Selected @endif>Active</option>
+                        <option value="draft" @if(old('status') == 'draft') Selected @endif>Inactive</option>
                     </select>
-                </div>
 
+                    @if ($errors->has('status'))
+                        <span class="text-danger" role="alert">
+                            <small>{{ $errors->first('status') }}</small>
+                        </span>
+                    @endif
+                    <!-- error message end -->
+                </div>
+                <!-- input item end -->
 
             </div>
         </div> <!-- end card -->
     </div> <!-- end col -->
+
 
 </div>
 <!-- end row -->
@@ -96,7 +135,7 @@
         <div class="card">
             <div class="card-body">
                 <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
+                <a href="{{ route('dasbor.informasilingkungan') }}" class="btn btn-light">
                     <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                 </a>
             </div> <!-- end card-body -->
@@ -105,7 +144,7 @@
 </div>
 <!-- end row -->
 
-{!! Form::close() !!}
+</form>
 
 @stop
 
@@ -143,6 +182,7 @@
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
+
     $(document).ready(function (e) {
                $('#gambar').change(function(){
                 let reader = new FileReader();
