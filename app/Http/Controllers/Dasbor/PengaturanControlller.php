@@ -15,7 +15,7 @@ class PengaturanControlller extends Controller
     {
 
         $data = Pengaturan::whereId(1)->first();
-        return view('panel.admin.pages.pengaturan.index', compact('data'));
+        return view('dasbor.admin.pages.pengaturan.index', compact('data'));
     }
     public function show($id)
     {

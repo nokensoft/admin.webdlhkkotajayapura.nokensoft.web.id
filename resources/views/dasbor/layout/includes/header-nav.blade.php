@@ -29,11 +29,12 @@
                                     <span>Akun Saya</span>
                                 </a>
 
-                                <a href="{{ url('pengaturan') }}" class="dropdown-item notify-item">
+                                @if (Auth::user()->hasRole('administrator'))
+                                <a href="{{ url('dasbor/pengaturan') }}" class="dropdown-item notify-item">
                                     <i class="fe-settings"></i>
                                     <span>Pengaturan</span>
                                 </a>
-
+                                @endif
                                 <div class="dropdown-divider"></div>
 
                                 <a href="#" class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

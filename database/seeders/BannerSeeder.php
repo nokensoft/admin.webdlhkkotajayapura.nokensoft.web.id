@@ -28,13 +28,13 @@ class BannerSeeder extends Seeder
 
             'konten_text_1'         => 'Selamat datang di portal kami',
             'konten_text_2'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-            
+
             'link_1'                => '#sekilas-profil',
             'link_1_label'          => 'Profil Dinas Lengkap',
 
             'link_2'                => '',
             'link_2_label'          => '',
-            
+
             'status'                => 'Publish',
         ]);
 
@@ -49,13 +49,13 @@ class BannerSeeder extends Seeder
 
             'konten_text_1'         => '"Sayangi Lingkungan Seperti Mereka Menyanyai Kita"',
             'konten_text_2'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-            
+
             'link_1'                => '',
             'link_1_label'          => '',
 
             'link_2'                => '',
             'link_2_label'          => '',
-            
+
             'status'                => 'Publish',
         ]);
 
@@ -70,13 +70,13 @@ class BannerSeeder extends Seeder
 
             'konten_text_1'         => 'Menjaga lingkungan bukan hanya dengan angan-angan saja, melainkan dengan tindakan.',
             'konten_text_2'         => '',
-            
+
             'link_1'                => 'https://dlhk.jayapurakota.go.id',
             'link_1_label'          => 'www.dlhk.jayapurakota.go.id',
 
             'link_2'                => '',
             'link_2_label'          => '',
-            
+
             'status'                => 'Publish',
         ]);
     }

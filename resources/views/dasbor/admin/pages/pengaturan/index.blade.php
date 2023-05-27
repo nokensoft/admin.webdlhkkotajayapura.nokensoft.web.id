@@ -1,4 +1,4 @@
-@extends('layouts.base_panel')
+@extends('dasbor.layout.app')
 @section('content')
     <!-- start page content wrapper-->
     <div class="row">
@@ -6,7 +6,7 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"> <a href="{{ route('dashboard') }}">Dashboard </a></li>
+                        <li class="breadcrumb-item"> <a href="{{ route('dasbor') }}">Dashboard </a></li>
                         <li class="breadcrumb-item active"> Pengaturan </li>
                     </ol>
                 </div>
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-body">
@@ -104,5 +104,65 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+    <div class="row">
+
+
+        <div class="col-lg-8 col-xl-4">
+            <div class="card">
+                {{-- <img class="card-img-top img-fluid" src="assets/images/small/img-2.jpg" alt="Card image cap"> --}}
+                <div class="card-body">
+                    <h5 class="card-title">Pengaturan Beranda</h5>
+                    <p class="card-text">Siapkan profil kantor Anda, tambahkan logo kantor Anda, dan lainnya</p>
+                </div>
+                <div class="card-body">
+                    <div class="text-right">
+                        <a href="javascript:void(0);" class="card-link text-custom">
+                            Kelolah Pengaturan <i class="mdi mdi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+        <div class="col-lg-8 col-xl-4">
+            <div class="card">
+                {{-- <img class="card-img-top img-fluid" src="assets/images/small/img-2.jpg" alt="Card image cap"> --}}
+                <div class="card-body">
+                    <h5 class="card-title">Banner</h5>
+                    <p class="card-text">Siapkan foto banner,tautan untuk website kantor anda dan lainnya</p>
+                </div>
+                <div class="card-body">
+                    <div class="text-right">
+                        <a href="javascript:void(0);" class="card-link text-custom">
+                            Kelolah Banner <i class="mdi mdi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+        <div class="col-lg-8 col-xl-4">
+            <div class="card">
+                {{-- <img class="card-img-top img-fluid" src="assets/images/small/img-2.jpg" alt="Card image cap"> --}}
+                <div class="card-body">
+                    <h5 class="card-title">Pengguna</h5>
+                    <p class="card-text">Kelola pengguna sistem(Tambah, edit, hapus pengguna)</p>
+                </div>
+                <div class="card-body">
+                    <div class="text-right">
+                        <a href="javascript:void(0);" class="card-link text-custom">
+                            Kelolah Pengguna <i class="mdi mdi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end col -->
+
+
+
+
     </div>
+
 @stop
