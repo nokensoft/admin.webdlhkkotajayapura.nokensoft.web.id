@@ -31,10 +31,10 @@ class LinkTerkaitController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','Publish')->latest()->paginate(5);
+        ])->where('status','publish')->latest()->paginate(5);
         $jumlahtrash = LinkTerkait::onlyTrashed()->count();
-        $jumlahdraft = LinkTerkait::where('status', 'Draft')->count();
-        $datapublish = LinkTerkait::where('status', 'Publish')->count();
+        $jumlahdraft = LinkTerkait::where('status', 'draft')->count();
+        $datapublish = LinkTerkait::where('status', 'publish')->count();
 
 
         return view('dasbor.link-terkait.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -52,10 +52,10 @@ class LinkTerkaitController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','Draft')->latest()->paginate(5);
+        ])->where('status','draft')->latest()->paginate(5);
         $jumlahtrash = LinkTerkait::onlyTrashed()->count();
-        $jumlahdraft = LinkTerkait::where('status', 'Draft')->count();
-        $datapublish = LinkTerkait::where('status', 'Publish')->count();
+        $jumlahdraft = LinkTerkait::where('status', 'draft')->count();
+        $datapublish = LinkTerkait::where('status', 'publish')->count();
 
         return view('dasbor.link-terkait.index',compact(
             'datas',
@@ -224,8 +224,8 @@ class LinkTerkaitController extends Controller
     {
         $datas = LinkTerkait::onlyTrashed()->paginate(5);
         $jumlahtrash = LinkTerkait::onlyTrashed()->count();
-        $jumlahdraft = LinkTerkait::where('status', 'Draf')->count();
-        $datapublish = LinkTerkait::where('status', 'Publish')->count();
+        $jumlahdraft = LinkTerkait::where('status', 'draf')->count();
+        $datapublish = LinkTerkait::where('status', 'publish')->count();
         return view('dasbor.link-terkait.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

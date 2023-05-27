@@ -17,12 +17,12 @@ class HalamanController extends Controller
 {
     /*
     | INDEX
-    | 
+    |
     | menampilkan semua data
     | menampilkan jumlah data dengan status 'publish'
     | menampilkan jumlah data dengan status 'draft'
     | menampilkan jumlah data dengan status 'trash'
-    | 
+    |
     */
     public function index()
     {
@@ -35,24 +35,24 @@ class HalamanController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','Publish')->latest()->paginate(5);
-        
+        ])->where('status','publish')->latest()->paginate(5);
+
         $jumlahtrash = Halaman::onlyTrashed()->count();
 
-        $jumlahdraft = Halaman::where('status', 'Draft')->count();
-        $datapublish = Halaman::where('status', 'Publish')->count();
+        $jumlahdraft = Halaman::where('status', 'draft')->count();
+        $datapublish = Halaman::where('status', 'publish')->count();
 
         return view('dasbor.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /*
     | DRAFT
-    | 
+    |
     | menampilkan data dengan status 'draft'
     | menampilkan jumlah data dengan status 'publish'
     | menampilkan jumlah data dengan status 'draft'
     | menampilkan jumlah data dengan status 'trash'
-    | 
+    |
     */
     public function draft()
     {
@@ -65,12 +65,12 @@ class HalamanController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','Draft')->latest()->paginate(5);
+        ])->where('status','draft')->latest()->paginate(5);
 
         $jumlahtrash = Halaman::onlyTrashed()->count();
 
-        $jumlahdraft = Halaman::where('status', 'Draft')->count();
-        $datapublish = Halaman::where('status', 'Publish')->count();
+        $jumlahdraft = Halaman::where('status', 'draft')->count();
+        $datapublish = Halaman::where('status', 'publish')->count();
 
         return view('dasbor.halaman.index',compact(
             'datas',
@@ -82,9 +82,9 @@ class HalamanController extends Controller
 
     /*
     | CREATE
-    | 
+    |
     | menampilkan halaman form 'create'
-    | 
+    |
     */
     public function create()
     {
@@ -93,10 +93,10 @@ class HalamanController extends Controller
 
     /*
     | STORE
-    | 
+    |
     | melakukan proses 'store'
     | gambar disimpan ke dalam direktori 'gambar/halaman'
-    | 
+    |
     */
     public function store(Request $request)
     {
@@ -157,10 +157,10 @@ class HalamanController extends Controller
 
     /*
     | SHOW
-    | 
+    |
     | menampilkan halaman 'show/detail'
     | data ditampilkan berdasarkan parameter 'slug'
-    | 
+    |
     */
     public function show($slug)
     {
@@ -170,10 +170,10 @@ class HalamanController extends Controller
 
     /*
     | EDIT
-    | 
+    |
     | menampilkan halaman 'edit'
     | data ditampilkan berdasarkan parameter 'slug'
-    | 
+    |
     */
     public function edit($slug)
     {
@@ -183,11 +183,11 @@ class HalamanController extends Controller
 
     /*
     | UPDATE
-    | 
+    |
     | melakukan proses 'update'
     | gambar disimpan ke dalam direktori 'gambar/halaman'
     | jika gambar eksis, gambar akan diupdate atau dihapus dan diganti dengan yang baru
-    | 
+    |
     */
     public function update(Request $request, $id)
     {
@@ -242,9 +242,9 @@ class HalamanController extends Controller
 
     /*
     | DESTROY
-    | 
+    |
     | melakukan proses 'destroy'
-    | 
+    |
     */
     public function destroy($id)
     {
@@ -258,29 +258,29 @@ class HalamanController extends Controller
 
     /*
     | TRASH
-    | 
+    |
     | menampilkan data dengan status 'trash'
     | menampilkan jumlah data dengan status 'publish'
     | menampilkan jumlah data dengan status 'draft'
     | menampilkan jumlah data dengan status 'trash'
-    | 
+    |
     */
     public function trash()
     {
         $datas = Halaman::onlyTrashed()->paginate(5);
 
         $jumlahtrash = Halaman::onlyTrashed()->count();
-        $jumlahdraft = Halaman::where('status', 'Draf')->count();
-        $datapublish = Halaman::where('status', 'Publish')->count();
+        $jumlahdraft = Halaman::where('status', 'draf')->count();
+        $datapublish = Halaman::where('status', 'publish')->count();
 
         return view('dasbor.halaman.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /*
     | RESTORE
-    | 
+    |
     | melakukan proses 'restore'
-    | 
+    |
     */
     public function restore($id){
         $data = Halaman::onlyTrashed()->where('id',$id);
@@ -294,9 +294,9 @@ class HalamanController extends Controller
 
     /*
     | DELETE
-    | 
+    |
     | melakukan proses 'delete'
-    | 
+    |
     */
     public function delete($id)
     {
