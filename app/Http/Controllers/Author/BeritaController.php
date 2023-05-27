@@ -174,7 +174,7 @@ class BeritaController extends Controller
 
                     $berita->save();
                     $request->image->move(public_path('file/berita'), $posterName);
-                    
+
                     Alert::toast('Berita Berhasil dibuat!', 'success');
                     return redirect()->route('app.berita.draft');
                 } catch (\Throwable $th) {

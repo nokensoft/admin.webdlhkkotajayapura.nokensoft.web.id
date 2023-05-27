@@ -14,35 +14,62 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
-        $data = User::orderBy('id','DESC')->paginate(5);
-        return view('panel.admin.users.index',compact('data'))
+        $data = User::where([
+
+            [function ($query) {
+                if (($s = request()->s)) {
+                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status','Publish')->latest()->paginate(5);
+
+        $jumlahtrash = User::onlyTrashed()->count();
+        $jumlahdraft = User::where('status', 'Draft')->count();
+        $datapublish = User::where('status', 'Publish')->count();
+
+        return view('dasbor.admin.users.index',compact('data','jumlahtrash','jumlahdraft','datapublish'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function draft(){
+
+        $data = User::where([
+            ['name', '!=', Null],
+            [function ($query) {
+                if (($s = request()->s)) {
+                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status','Draft')->latest()->paginate(5);
+        $jumlahtrash = User::onlyTrashed()->count();
+        $jumlahdraft = User::where('status', 'Draft')->count();
+        $datapublish = User::where('status', 'Publish')->count();
+
+        return view('dasbor.admin.users.index',compact(
+            'data','jumlahtrash','jumlahdraft','datapublish'
+            )) ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function trash(){
+        $datas = User::onlyTrashed()->paginate(10);
+        return view('dasbor.admin.users.trash',compact('datas'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
+     }
+
     public function create()
     {
         $roles = Role::pluck('name','name')->all();
-        return view('panel.admin.users.create',compact('roles'));
+        return view('dasbor.admin.users.create',compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),
@@ -66,17 +93,17 @@ class UserController extends Controller
                 $account->slug = Str::slug($request->name);
 
                 $posterName = time().'.'.$request->picture->extension();
-                $path = public_path('file/users');
+                $path = public_path('gambar/pengguna');
                     if(!empty($account->picture) && file_exists($path.'/'.$account->picture)) :
                         unlink($path.'/'.$account->picture);
                     endif;
                 $account->picture = $posterName;
 
                 $account->save();
-                $request->picture->move(public_path('file/users'), $posterName);
+                $request->picture->move(public_path('gambar/pengguna'), $posterName);
                 $account->assignRole($request->role_id);
                 Alert::toast('Pengguna Berhasil dibuat!', 'success');
-                return redirect()->route('users.index');
+                return redirect()->route('pengguna.index');
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
@@ -84,38 +111,22 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $user = User::where('slug',$id)->first();
-        return view('panel.admin.users.show',compact('user'));
+        return view('dasbor.admin.users.show',compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $user = User::where('slug',$id)->first();
         $roles = Role::all();
-        return view('panel.admin.users.edit',compact('user','roles'));
+        return view('dasbor.admin.users.edit',compact('user','roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),
@@ -141,17 +152,17 @@ class UserController extends Controller
             if ($request->picture) {
 
                 $imageName = time() . '.' . $request->picture->extension();
-                $path = public_path('file/users');
+                $path = public_path('gambar/pengguna');
                 if (!empty($account->picture) && file_exists($path . '/' . $account->picture)) :
                     unlink($path . '/' . $account->picture);
                 endif;
                 $account->picture = $imageName;
-                $request->picture->move(public_path('file/users'), $imageName);
+                $request->picture->move(public_path('gambar/pengguna'), $imageName);
             }
             $account->update();
             $account->syncRoles(explode(',', $request->role_id));
             Alert::toast('Pengguna Berhasil diperbarui!', 'success');
-            return redirect()->route('users.index');
+            return redirect()->route('pengguna.index');
         } catch (\Throwable $th) {
             dd($th);
             Alert::toast('Failed', 'error');
@@ -160,17 +171,25 @@ class UserController extends Controller
     }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function restore($id){
+        $data = User::onlyTrashed()->where('id',$id);
+        $data->restore();
+        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+        return redirect()->route('pengguna.index');
+    }
+
+    public function delete($id) {
+        $data = User::findOrFail($id);
+        $data->delete();
+        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+        return redirect()->route('pengguna.index');
+    }
+
     public function destroy($id)
     {
         try {
             $user = User::find($id);
-            $path = public_path('file/users/' . $user->picture);
+            $path = public_path('gambar/pengguna/' . $user->picture);
 
             if (file_exists($path)) {
                 File::delete($path);

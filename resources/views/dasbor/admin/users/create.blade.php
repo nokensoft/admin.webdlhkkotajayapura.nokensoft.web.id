@@ -1,4 +1,4 @@
-@extends('layouts.base_panel')
+@extends('dasbor.layout.app')
 @section('content')
 <!-- start page content wrapper-->
 <!-- start page title -->
@@ -9,7 +9,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
                                 <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Mengelola Pengguna</a></li>
                                 <li class="breadcrumb-item active">Tambah</li>
                             </ol>

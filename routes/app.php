@@ -21,7 +21,7 @@ use App\Http\Controllers\Author\KategoriController;
 
 // OTHER CONTROLLERS
 use App\Http\Controllers\PengajuanPertanyaanController;
-
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('dasbor')->middleware('auth')->group(function () {
@@ -52,8 +52,6 @@ Route::prefix('dasbor')->middleware('auth')->group(function () {
         Route::get('berita/status/{id}','editStatus')->name('dasbor.berita.editStatus')->middleware(['role:supervisor']);
 
     });
-
-
 
     Route::controller(PengaturanControlller::class)->group(function(){
 

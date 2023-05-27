@@ -58,15 +58,15 @@
                                 </a>
                                 @endif
                             </th>
-                            <td> 
+                            <td>
                                 <a href="{{ url('berita/' . $berita->slug) }}" target="_blank">
                                     {{ $berita->judul }}
                                 </a>
                             </td>
                             <td> {{ Str::limit($berita->konten_singkat, 100) }} </td>
                             <td> <a href="{{ url('berita/kategori', $berita->kategori->kategori_slug) }}" target="_blank">{{ $berita->kategori->name }}</a> </td>
-                            <td> {{ $berita->author->name }} </td>                            
-                            <td class="text-center">                                
+                            <td> {{ $berita->author->name }} </td>
+                            <td class="text-center">
                                 <form action="{{ url('dasbor/berita', $berita->id) }}" method="POST">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

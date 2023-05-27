@@ -1,4 +1,4 @@
-@extends('layouts.base_panel')
+@extends('dasbor.layout.app')
 @section('content')
     <!-- start page content wrapper-->
       <!-- start page title -->
@@ -7,7 +7,7 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                                            <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
                                             <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Mengelola Pengguna</a></li>
                                             <li class="breadcrumb-item active">Sunting</li>
                                         </ol>
@@ -83,10 +83,10 @@
                                                             <label for="pic">Foto Profil</label>
                                                             <div class="d-block mb-3">
                                                                 @if ($user->picture)
-                                                                <img src="{{asset('file/users')}}/{{$user->picture}}" alt="allal"
+                                                                <img src="{{asset('gambar/pengguna')}}/{{$user->picture}}" alt="allal"
                                                                 class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
                                                                 @else
-                                                                <img src="{{asset('assets/admin/assets/images/upload.png')}}" id="preview-picture"
+                                                                <img src="{{asset('gambar/pengguna/00.jpg')}}" id="preview-picture"
                                                                 alt="Profile Picture" class="img-thumbnail w-50">
                                                                 @endif
                                                             </div>

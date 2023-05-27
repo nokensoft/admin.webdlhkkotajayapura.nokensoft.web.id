@@ -8,10 +8,10 @@
                     <!-- User box -->
                     <div class="text-center">
 
-                        @if (Auth::user()->picture)
-                        <img src="{{ asset( Auth::user()->picture) }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
-                        @else
+                        @if (!Auth::user()->picture)
                         <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+                        @else
+                        <img src="{{ asset('gambar/pengguna') }}/{{ Auth::user()->picture }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
                         @endif
 
                         <div class="dropdown">
@@ -68,7 +68,7 @@
                                 <div class="collapse" id="berita">
                                     <ul class="nav-second-level">
                                         <li>
-                                            
+
                                             <a href="{{ url('dasbor/berita') }}">
                                                 <span class="badge badge-success badge-pill float-right">
                                                     {{ $dasbor_jml_link_terkait ?? '0' }}
@@ -147,16 +147,16 @@
                                     <span> Pengguna </span>
                                 </a>
                             </li>
-                            
+
                         </ul>
 
                     </div>
                     @elseif (Auth::user()->hasRole('editor'))
-                    
+
                     @elseif (Auth::user()->hasRole('author'))
-                    
+
                     @elseif (Auth::user()->hasRole('supervisor'))
-                    
+
                     @endif
                     <!-- End Sidebar -->
 

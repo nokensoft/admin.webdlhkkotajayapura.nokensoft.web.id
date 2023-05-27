@@ -1,4 +1,4 @@
-@extends('layouts.base_panel')
+@extends('dasbor.layout.app')
 @section('content')
 <!-- start page content wrapper-->
 <!-- start page title -->
@@ -9,7 +9,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dasbor</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
                                 <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Mengelola Pengguna</a></li>
                                 <li class="breadcrumb-item active">Detail</li>
                             </ol>
@@ -52,7 +52,7 @@
                                                     <img src="{{asset('assets/admin/assets/images/upload.png')}}" id="preview-picture"
                                                     alt="Profile Picture" class="img-thumbnail w-50">
                                                     @else
-                                                    <img src="{{asset('file/users')}}/{{ $user->picture }}" id="preview-picture"
+                                                    <img src="{{asset('gambar/pengguna')}}/{{ $user->picture }}" id="preview-picture"
                                                     alt="Profile Picture" class="img-thumbnail w-50">
                                                     @endif
                                                 </div>
@@ -64,7 +64,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="card-box">
-                                        <a href="{{ route('pengguna.edit',['pengguna' => $user->slug]) }}" class="btn btn-warning">
+                                        <a href="{{ route('pengguna.edit',['id' => $user->slug]) }}" class="btn btn-warning">
                                             <i class="mdi mdi-account-edit mr-1"></i>Sunting
                                         </a>
                                         <a href="{{ route('pengguna.index') }}" class="btn btn-light">
