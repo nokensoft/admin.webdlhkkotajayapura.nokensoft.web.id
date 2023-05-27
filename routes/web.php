@@ -122,4 +122,5 @@ Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function 
 });
 
 require_once 'dasbor.php';
+require_once 'profil.php';
 

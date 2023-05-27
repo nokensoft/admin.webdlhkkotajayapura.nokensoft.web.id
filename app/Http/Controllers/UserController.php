@@ -92,7 +92,7 @@ class UserController extends Controller
                 $account->password = bcrypt($request->password);
                 $account->slug = Str::slug($request->name);
 
-                $posterName = time().'.'.$request->picture->extension();
+                $posterName = Str::slug($request->name). '.'.$request->picture->extension();
                 $path = public_path('gambar/pengguna');
                     if(!empty($account->picture) && file_exists($path.'/'.$account->picture)) :
                         unlink($path.'/'.$account->picture);
@@ -151,7 +151,7 @@ class UserController extends Controller
             }
             if ($request->picture) {
 
-                $imageName = time() . '.' . $request->picture->extension();
+                $imageName = Str::slug($request->name) . '.' . $request->picture->extension();
                 $path = public_path('gambar/pengguna');
                 if (!empty($account->picture) && file_exists($path . '/' . $account->picture)) :
                     unlink($path . '/' . $account->picture);

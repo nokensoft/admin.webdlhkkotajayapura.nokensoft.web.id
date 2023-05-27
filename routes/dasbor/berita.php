@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // DASBOR CONTROLLERS
 use App\Http\Controllers\Author\BeritaController;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 /*
     |--------------------------------------------------------------------------
     | BERITA
-    | 
+    |
     | index
     | draft
     | create
@@ -64,9 +64,9 @@ use Illuminate\Support\Facades\Route;
         // restore
         Route::post('berita/restore/{id}','restore')
             ->name('dasbor.berita.restore');
-        
+
         // delete
         Route::delete('berita/delete/{id}','delete')
             ->name('dasbor.berita.delete');
-            
+
     });

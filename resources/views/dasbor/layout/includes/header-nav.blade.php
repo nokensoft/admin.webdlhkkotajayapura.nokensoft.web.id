@@ -24,7 +24,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                                <a href="{{ url('pengguna/profil/detail') }}" class="dropdown-item notify-item">
+                                <a href="{{ url('dasbor/akun-saya') }}" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
                                     <span>Akun Saya</span>
                                 </a>
