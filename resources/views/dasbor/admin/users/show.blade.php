@@ -70,6 +70,15 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card-box">
+                                    @if (Auth::id() == $user->id)
+                                    <a href="{{ route('dasbor.akunsaya') }}"
+                                        class="btn btn-lg btn-outline-dark waves-effect waves-light">
+                                        <i class="mdi mdi-account-edit mr-1"></i>Sunting
+                                    </a>
+                                    <a href="{{ route('pengguna.index') }}" class="btn btn-light">
+                                        <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                                    </a>
+                                    @else
                                     <a href="{{ route('pengguna.edit',['id' => $user->slug]) }}"
                                         class="btn btn-lg btn-outline-dark waves-effect waves-light">
                                         <i class="mdi mdi-account-edit mr-1"></i>Sunting
@@ -77,6 +86,7 @@
                                     <a href="{{ route('pengguna.index') }}" class="btn btn-light">
                                         <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                     </a>
+                                    @endif
                                 </div>
                             </div> <!-- end col -->
                         </div>
