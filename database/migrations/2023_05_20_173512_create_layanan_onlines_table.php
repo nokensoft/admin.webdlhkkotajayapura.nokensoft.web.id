@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
 
             $table->string('judul')->nullable();
-            
+
             $table->string('keterangan_singkat')->nullable();
             $table->string('keterangan_lengkap')->nullable();
 
             $table->string('gambar')->nullable();
             $table->string('url')->nullable();
 
-            $table->string('status')->nullable();
+            $table->enum('status',['publish','draft'])->default('publish')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

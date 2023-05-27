@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('gambar')->nullable();
             $table->string('url')->nullable();
-            $table->string('status')->nullable();
+            $table->enum('status',['publish','draft'])->default('publish')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

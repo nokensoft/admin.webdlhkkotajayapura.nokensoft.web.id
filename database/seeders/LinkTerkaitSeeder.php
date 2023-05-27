@@ -23,8 +23,8 @@ class LinkTerkaitSeeder extends Seeder
             'slug'                  => 'kementerian-lingkungan-hidup-dan-kehutanan',
             'gambar'                => 'gambar/link-terkait/kementerian.png',
             'url'                   => 'https://www.menlhk.go.id',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         // Provinsi Papua
@@ -34,8 +34,8 @@ class LinkTerkaitSeeder extends Seeder
             'slug'                  => 'provinsi-papua',
             'gambar'                => 'gambar/link-terkait/kota-jayapura.png',
             'url'                   => 'https://www.papua.go.id',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         // Pemerintah Kota Jayapura
@@ -45,8 +45,8 @@ class LinkTerkaitSeeder extends Seeder
             'slug'                  => 'kota-jayapura',
             'gambar'                => 'gambar/link-terkait/kota-jayapura.png',
             'url'                   => 'https://jayapurakota.go.id/',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         // Aplikasi Lapor
@@ -56,10 +56,10 @@ class LinkTerkaitSeeder extends Seeder
             'slug'                  => 'aplikasi-lapor',
             'gambar'                => 'gambar/link-terkait/kota-jayapura.png',
             'url'                   => 'https://www.lapor.go.id',
-            
-            'status'                => 'Publish',
+
+
         ]);
-        
+
 
     }
 }

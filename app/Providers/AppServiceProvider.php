@@ -59,19 +59,19 @@ class AppServiceProvider extends ServiceProvider
 
             /*
             | DASBOR
-            | 
+            |
             | Jumlah data untuk ditampilkan di bagian dasbor
-            | 
+            |
             */
             'dasbor_jml_berita'                 => Berita::where('status','Publish')->count(),
             'dasbor_jml_kategori'               => KategoriBerita::where('status','Publish')->count(),
-            'dasbor_jml_layanan_online'         => LayananOnline::where('status','Publish')->count(),
-            'dasbor_jml_informasi_lingkungan'   => InformasiLingkungan::where('status','Publish')->count(),
-            'dasbor_jml_link_terkait'           => LinkTerkait::where('status','Publish')->count(),
-            'dasbor_jml_halaman'                => Halaman::where('status','Publish')->count(),
-            'dasbor_jml_pengguna'                => User::where('status','Publish')->count(),
+            'dasbor_jml_layanan_online'         => LayananOnline::where('status','publish')->count(),
+            'dasbor_jml_informasi_lingkungan'   => InformasiLingkungan::where('status','publish')->count(),
+            'dasbor_jml_link_terkait'           => LinkTerkait::where('status','publish')->count(),
+            'dasbor_jml_halaman'                => Halaman::where('status','publish')->count(),
+            'dasbor_jml_pengguna'                => User::where('status','publish')->count(),
             // 'dasbor_jml_pesan'               => Pesan::where('status','Publish')->count(),
         ]);
     }
-    
+
 }

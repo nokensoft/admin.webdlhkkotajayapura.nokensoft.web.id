@@ -26,16 +26,13 @@ return new class extends Migration
             $table->longText('konten')->nullable();
             $table->string('gambar')->nullable();
 
-            $table->enum('status', ['Publish','Draft'])->default('Publish')->nullable();
-
+            $table->enum('status', ['publish','draft'])->default('publish')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
 
-            $table->string('deleted_at')->nullable();
+
 
         });
     }

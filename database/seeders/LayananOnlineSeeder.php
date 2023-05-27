@@ -15,32 +15,29 @@ class LayananOnlineSeeder extends Seeder
      */
     public function run()
     {
-        // LayananOnline::factory()->count(5)->create();
 
-        // SIPAKOT
-        LayananOnline::create([
-            'id'                    => 1,
-            'judul'                 => 'SIPAKOT',
-            'keterangan_singkat'    => 'Sistem Informasi Pajak Air Tanah Bagi Para Wajib Pajak di Kota Jayapura',
-            'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/layanan-online/1.png',
-            'url'                   => 'https://sipakot.jayapurakota.go.id',
-            
-            'status'                => 'Publish',
-        ]);
+        LayananOnline::insert([
+            // SIPAKOT
+            [
+                'id'                    => 1,
+                'judul'                 => 'SIPAKOT',
+                'keterangan_singkat'    => 'Sistem Informasi Pajak Air Tanah Bagi Para Wajib Pajak di Kota Jayapura',
+                'keterangan_lengkap'    => '',
 
-        // Pengaduan
-        LayananOnline::create([
-            'id'                    => 2,
-            'judul'                 => 'Pengaduan',
-            'keterangan_singkat'    => 'Layanan Pengaduan Masyarakat Terhadap Masalah Kebersihan di Kota Jayapura',
-            'keterangan_lengkap'    => 'halaman/informasi-lingkungan',
+                'gambar'                => 'gambar/layanan-online/1.png',
+                'url'                   => 'https://sipakot.jayapurakota.go.id',
+            ],
+             // Pengaduan
+            [
+                'id'                    => 2,
+                'judul'                 => 'Pengaduan',
+                'keterangan_singkat'    => 'Layanan Pengaduan Masyarakat Terhadap Masalah Kebersihan di Kota Jayapura',
+                'keterangan_lengkap'    => 'halaman/informasi-lingkungan',
 
-            'gambar'                => 'gambar/layanan-online/2.png',
-            'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+                'gambar'                => 'gambar/layanan-online/2.png',
+                'url'                   => 'halaman/informasi-lingkungan',
+            ]
         ]);
 
     }

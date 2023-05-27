@@ -25,8 +25,8 @@ class InformasiLingkunganSeeder extends Seeder
 
             'gambar'                => 'gambar/informasi-lingkungan/1.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         InformasiLingkungan::create([
@@ -37,8 +37,8 @@ class InformasiLingkunganSeeder extends Seeder
 
             'gambar'                => 'gambar/informasi-lingkungan/2.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         InformasiLingkungan::create([
@@ -49,8 +49,8 @@ class InformasiLingkunganSeeder extends Seeder
 
             'gambar'                => 'gambar/informasi-lingkungan/3.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         InformasiLingkungan::create([
@@ -61,8 +61,8 @@ class InformasiLingkunganSeeder extends Seeder
 
             'gambar'                => 'gambar/informasi-lingkungan/4.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         InformasiLingkungan::create([
@@ -73,8 +73,8 @@ class InformasiLingkunganSeeder extends Seeder
 
             'gambar'                => 'gambar/informasi-lingkungan/5.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         InformasiLingkungan::create([
@@ -85,8 +85,8 @@ class InformasiLingkunganSeeder extends Seeder
 
             'gambar'                => 'gambar/informasi-lingkungan/6.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         InformasiLingkungan::create([
@@ -97,8 +97,8 @@ class InformasiLingkunganSeeder extends Seeder
 
             'gambar'                => 'gambar/informasi-lingkungan/7.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+
+
         ]);
 
         InformasiLingkungan::create([
@@ -109,10 +109,10 @@ class InformasiLingkunganSeeder extends Seeder
 
             'gambar'                => 'gambar/informasi-lingkungan/8.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
-            
-            'status'                => 'Publish',
+
+
         ]);
-        
+
 
     }
 }

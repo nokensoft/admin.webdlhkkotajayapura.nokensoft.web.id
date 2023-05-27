@@ -17,14 +17,14 @@ class HalamanSeeder extends Seeder
      */
     public function run()
     {
-        
+
         Halaman::insert([
             [
                 'judul_halaman'     => 'Profil Dinas',
                 'sub_judul'         => 'Gambaran Umum Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
                 'slug'              => 'profil-dinas',
-                                    
+
                 'konten_singkat'    => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura telah berdiri sejak tahun 2017. DLHK Kota Jayapura memiliki Tugas dan Fungsi dan juga tata kerja secara dinas',
 
                 'konten'            => '<blockquote><p>Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura dibentuk berdasarkan Peraturan Walikota Jaypura Nomor 47 Tahun 2017 tentang Perubahan Atas Peraturan Walikota Jayapura Nomor 31 Tahun 2016 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi Serta Tata Kerja Dinas-Dinas Daerah, mempunyai tugas membantu Walikota dalam melaksanakan Urusan Pemerintah yang menjadi kewenangan daerah di Bidang Lingkungan Hidup.</p></blockquote>
@@ -35,9 +35,9 @@ class HalamanSeeder extends Seeder
                                             <li>Pelaksanaan Evaluasi dan Pelaporan Daerah di Bidang Lingkungan Hidup;</li>
                                             <li>Pelaksanaan Tugas lain yang diberikan oleh Walikota sesuai dengan Tugas dan Fungsinya.;</li>
                                         </ol>',
-                
-                'status'            => "publish",
-                
+
+
+
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
@@ -46,12 +46,12 @@ class HalamanSeeder extends Seeder
                 'sub_judul'         => 'Profil Kepala Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
                 'slug'              => 'profil-pimpinan',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -61,12 +61,12 @@ class HalamanSeeder extends Seeder
                 'sub_judul'         => 'Visi dan Misi Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
                 'slug'              => 'visi-misi',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -76,12 +76,12 @@ class HalamanSeeder extends Seeder
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
                 'slug'              => 'tugas-pokok-fungsi',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -91,12 +91,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'bidang-layanan',
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -106,12 +106,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'informasi-lingkungan',
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -121,12 +121,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'video-profil-dinas',
                 'sub_judul'         => 'Video Profil Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -136,12 +136,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'profil-pejabat',
                 'sub_judul'         => 'Para Pejabat di Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
-            
-                'status'            => "publish",
+
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -151,12 +151,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'struktur-organisasi',
                 'sub_judul'         => 'Struktur Organisasi Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -166,12 +166,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'kontak',
                 'sub_judul'         => 'Silahkan hubungi kami melalui informasi kontak yang tertera',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -181,12 +181,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'media-sosial',
                 'sub_judul'         => 'Kami juga ada di berbagai platform media sosial',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -196,12 +196,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'informasi-lingkungan',
                 'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -211,12 +211,12 @@ class HalamanSeeder extends Seeder
                 'slug'              => 'layanan-online',
                 'sub_judul'         => 'Layanan online yang kami sediakan bagi masyarakat',
                 'gambar'            => '',
-                                    
+
                 'konten_singkat'    => '',
-            
+
                 'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
 
-                'status'            => "publish",
+
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
