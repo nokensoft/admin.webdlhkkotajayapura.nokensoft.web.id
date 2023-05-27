@@ -7,11 +7,11 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/layanan-online') }}">Layanan Online</a></li>
                     <li class="breadcrumb-item active">Trash</li>
                 </ol>
             </div>
-            <h4 class="page-title">Halaman</h4>
+            <h4 class="page-title">Layanan Online</h4>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ url('dasbor/halaman') }}" class="btn btn-danger mb-2"><i
+                        <a href="{{ url('dasbor/layanan-online') }}" class="btn btn-danger mb-2"><i
                             class="mdi mdi-arrow-left me-2"></i> Kembali</a>
                     </div>
                     <div class="col-sm-8">
@@ -36,26 +36,26 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
-                            <th>Judul Halaman</th>
-                            <th>Slug</th>
+                            <th>Judul</th>
+                            <th>Keterangan Singkat</th>
                             <th width="210px" class="text-center">Opsi</th>
                         </tr>
                         @foreach ($datas as $data)
                         <tr>
                             <td>{{ ++$i }}</td>
 
-                            <td>{{ $data->judul_halaman }}</td>
-                            <td> {{ $data->slug }}</td>
+                            <td>{{ $data->judul }}</td>
+                            <td> {{ $data->keterangan_singkat }}</td>
                             <td class="text-center">
                                 <div class="row">
                                     <div class="col-6">
-                                        <form action="{{ url('dasbor/halaman/restore',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/layanan-online/restore',$data->id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-success">Restore</button>
                                         </form>
                                     </div>
                                     <div class="col-6">
-                                        <form action="{{ url('dasbor/halaman/delete',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/layanan-online/delete',$data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>

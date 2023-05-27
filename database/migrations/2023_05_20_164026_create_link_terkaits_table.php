@@ -15,15 +15,16 @@ return new class extends Migration
     {
         Schema::create('link_terkaits', function (Blueprint $table) {
             $table->id();
-
+            $table->bigInteger('author')->unsigned()->nullable();
             $table->string('judul_link')->nullable();
             $table->string('slug')->nullable();
             $table->string('gambar')->nullable();
             $table->string('url')->nullable();
             $table->enum('status',['publish','draft'])->default('publish')->nullable();
 
-            $table->timestamps();
             $table->softDeletes();
+            $table->timestamps();
+            $table->foreign('author')->references('id')->on('users')->onUpdate('cascade');
         });
     }
 

@@ -8,7 +8,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/informasi-lingkungan') }}">Informasi Lingkungan</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/layanan-online') }}">Layanan Online</a></li>
                     <li class="breadcrumb-item active">Detail</li>
                 </ol>
             </div>
@@ -30,7 +30,7 @@
 
                 <div class="mb-3">
                     @if(empty($data->gambar))
-                        <img src="{{ asset('gambar/informasi-lingkungan/00.jpg') }}" class="img-fluid img-thumbnail col-md-4" alt="Gambar">
+                        <img src="{{ asset('gambar/layanan-online/00.jpg') }}" class="img-fluid img-thumbnail col-md-4" alt="Gambar">
                         @else
                         <img src="{{ asset($data->gambar) }}" class="img-thumbnail col-md-4" alt="Gambar">
                     @endif

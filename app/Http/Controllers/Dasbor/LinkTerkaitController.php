@@ -105,6 +105,7 @@ class LinkTerkaitController extends Controller
                $LinkTerkait = new LinkTerkait();
                $LinkTerkait->judul_link = $request->judul_link;
                $LinkTerkait->url = $request->url;
+               $LinkTerkait->author= Auth::user()->id;
                $LinkTerkait->status = $request->status;
                $LinkTerkait->slug = Str::slug($request->judul_link);
 
@@ -181,6 +182,7 @@ class LinkTerkaitController extends Controller
                $LinkTerkait = LinkTerkait::find($id);
                $LinkTerkait->judul_link = $request->judul_link;
                $LinkTerkait->sub_judul = $request->sub_judul;
+               $LinkTerkait->author= Auth::user()->id;
                $LinkTerkait->konten = $request->konten;
                $LinkTerkait->status = $request->status;
                $LinkTerkait->slug = Str::slug($request->judul_link);

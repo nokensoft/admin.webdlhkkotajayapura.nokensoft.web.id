@@ -9,5 +9,6 @@ Route::prefix('dasbor')->middleware('auth')->group(function () {
     require_once 'dasbor/halaman.php';
     require_once 'dasbor/link-terkait.php';
     require_once 'dasbor/informasi-lingkungan.php';
+    require_once 'dasbor/layanan-online.php';
 
 });
