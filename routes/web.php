@@ -1,13 +1,14 @@
 <?php
 
 // VISITOR CONTROLLERS
+
+use App\Http\Controllers\Dasbor\PesanController;
 use App\Http\Controllers\Visitor\BerandaController;
 
 // DASBOR CONTROLLERS
 use App\Http\Controllers\DasborController;
 
 // OTHER CONTROLLERS
-use App\Http\Controllers\PengajuanPertanyaanController;
 use App\Http\Controllers\UserController;
 
 // OTHER CLASSES
@@ -71,7 +72,7 @@ Route::get('/kontak', [BerandaController::class, 'kontak'])->name('kontak');
 |
 |
 */
-Route::post('/pengajuan', [PengajuanPertanyaanController::class, 'pengajuanPertanyaanStore'])->name('app.pengajuan.store');
+Route::post('/pesan', [PesanController::class, 'store'])->name('app.pesan.store');
 
 
 

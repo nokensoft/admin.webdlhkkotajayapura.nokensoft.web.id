@@ -20,6 +20,7 @@ class HalamanSeeder extends Seeder
 
         Halaman::insert([
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Profil Dinas',
                 'sub_judul'         => 'Gambaran Umum Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
@@ -42,6 +43,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Profil Pimpinan',
                 'sub_judul'         => 'Profil Kepala Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
@@ -57,6 +59,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Visi Misi',
                 'sub_judul'         => 'Visi dan Misi Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
@@ -72,6 +75,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Tugas Pokok & Fungsi',
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
                 'gambar'            => '',
@@ -86,7 +90,9 @@ class HalamanSeeder extends Seeder
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
+
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Bidang Layanan',
                 'slug'              => 'bidang-layanan',
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
@@ -102,6 +108,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Informasi Lingkungan',
                 'slug'              => 'informasi-lingkungan',
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
@@ -117,6 +124,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Video Profil Dinas',
                 'slug'              => 'video-profil-dinas',
                 'sub_judul'         => 'Video Profil Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
@@ -132,6 +140,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Profil Pejabat',
                 'slug'              => 'profil-pejabat',
                 'sub_judul'         => 'Para Pejabat di Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
@@ -147,6 +156,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Struktur Organisasi',
                 'slug'              => 'struktur-organisasi',
                 'sub_judul'         => 'Struktur Organisasi Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
@@ -162,6 +172,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Kontak',
                 'slug'              => 'kontak',
                 'sub_judul'         => 'Silahkan hubungi kami melalui informasi kontak yang tertera',
@@ -177,6 +188,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Media Sosial',
                 'slug'              => 'media-sosial',
                 'sub_judul'         => 'Kami juga ada di berbagai platform media sosial',
@@ -192,6 +204,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Informasi Lingkungan',
                 'slug'              => 'informasi-lingkungan',
                 'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
@@ -207,6 +220,7 @@ class HalamanSeeder extends Seeder
                 'updated_at'        => Carbon::now()
             ],
             [
+                'user_id'           => 3,
                 'judul_halaman'     => 'Layanan Online',
                 'slug'              => 'layanan-online',
                 'sub_judul'         => 'Layanan online yang kami sediakan bagi masyarakat',

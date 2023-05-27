@@ -1,6 +1,6 @@
 
 
-<form  method="post" action="{{ route('app.pengajuan.store') }}">
+<form  method="post" action="{{ route('app.pesan.store') }}">
     @csrf
     <div class="row">
         <div class="col-lg-6 mb-30 col-md-12">

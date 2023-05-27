@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('pesans', function (Blueprint $table) {
             $table->id();
+             // Contact
+             $table->string('nama')->nullable();
+             $table->string('email')->nullable();
+             $table->string('no_telf')->nullable();
+
+             // Messages
+             $table->string('judul_topik')->nullable();
+             $table->string('slug')->nullable();
+             $table->longText('keterangan')->nullable();
+             $table->softDeletes();
             $table->timestamps();
         });
     }

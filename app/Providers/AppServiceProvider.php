@@ -13,6 +13,7 @@ use App\Models\Pengaturan;
 use App\Models\Berita\Berita;
 use App\Models\Berita\KategoriBerita;
 use App\Models\InformasiLingkungan;
+use App\Models\Pesan;
 // use App\Models\Pesan;
 
 
@@ -69,8 +70,8 @@ class AppServiceProvider extends ServiceProvider
             'dasbor_jml_informasi_lingkungan'   => InformasiLingkungan::where('status','publish')->count(),
             'dasbor_jml_link_terkait'           => LinkTerkait::where('status','publish')->count(),
             'dasbor_jml_halaman'                => Halaman::where('status','publish')->count(),
-            'dasbor_jml_pengguna'                => User::where('status','publish')->count(),
-            // 'dasbor_jml_pesan'               => Pesan::where('status','Publish')->count(),
+            'dasbor_jml_pengguna'               => User::where('status','publish')->count(),
+            'dasbor_jml_pesan'                  =>  Pesan::count(),
         ]);
     }
 

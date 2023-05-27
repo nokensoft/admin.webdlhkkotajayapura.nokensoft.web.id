@@ -1,32 +1,41 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dasbor;
 
+use App\Models\Pesan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\PengajuanPertanyaan;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
-class PengajuanPertanyaanController extends Controller
+class PesanController extends Controller
 {
-
     public function index(){
-        $datas = PengajuanPertanyaan::orderBy('id','desc')->paginate(5);
-        $jumlahtrash = PengajuanPertanyaan::onlyTrashed()->count();
-        $datapublish = PengajuanPertanyaan::count();
-        return view('panel.admin.pages.pengajuan.index',compact('datas','jumlahtrash','datapublish'))
+        $datas = Pesan::where([
+            ['nama', '!=', Null],
+            [function ($query) {
+                if (($s = request()->s)) {
+                    $query->orWhere('nama', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->latest()->paginate(5);
+        $jumlahtrash = Pesan::onlyTrashed()->count();
+        $datapublish = Pesan::count();
+        return view('dasbor.pesan.index',compact('datas','jumlahtrash','datapublish'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function trash()
     {
-        $datas = PengajuanPertanyaan::onlyTrashed()->paginate(5);
-        $jumlahtrash = PengajuanPertanyaan::onlyTrashed()->count();
-        return view('panel.admin.pages.pengajuan.trash',compact('datas')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        $datas = Pesan::onlyTrashed()->paginate(5);
+        $jumlahtrash = Pesan::onlyTrashed()->count();
+        return view('dasbor.pesan.trash',compact('datas')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function pengajuanPertanyaanStore(Request $request) {
+    public function store(Request $request) {
         $validator = Validator::make(
             $request->all(),
             [
@@ -49,7 +58,7 @@ class PengajuanPertanyaanController extends Controller
         } else {
             try {
                 $random = Str::random(15);
-                $pengajuan = new PengajuanPertanyaan();
+                $pengajuan = new Pesan();
                 $pengajuan->nama = $request->nama;
                 $pengajuan->email = $request->email;
                 $pengajuan->no_telf = $request->no_telf;
@@ -67,20 +76,20 @@ class PengajuanPertanyaanController extends Controller
     }
 
     public function show($id){
-        $data = PengajuanPertanyaan::where('slug',$id)->first();
-        return view('panel.admin.pages.pengajuan.show',compact('data'));
+        $data = Pesan::where('slug',$id)->first();
+        return view('dasbor.pesan.show',compact('data'));
     }
 
     public function destroy($id)
     {
-        $data = PengajuanPertanyaan::findOrFail($id);
+        $data = Pesan::findOrFail($id);
         $data->delete();
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1200);
         return redirect()->back();
     }
 
     public function restore($id){
-        $data = PengajuanPertanyaan::onlyTrashed()->where('id',$id);
+        $data = Pesan::onlyTrashed()->where('id',$id);
         $data->restore();
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1200);
         return redirect()->back();
@@ -88,11 +97,12 @@ class PengajuanPertanyaanController extends Controller
 
     public function delete($id)
     {
-        $data = PengajuanPertanyaan::onlyTrashed()->findOrFail($id);
+        $data = Pesan::onlyTrashed()->findOrFail($id);
         $data->forceDelete();
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-        return to_route('app.pengajuan.trash');
+        return to_route('dasbor.pesan');
 
     }
+
 
 }
