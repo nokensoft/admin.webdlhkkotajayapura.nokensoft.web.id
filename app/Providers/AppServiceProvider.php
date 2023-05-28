@@ -53,6 +53,11 @@ class AppServiceProvider extends ServiceProvider
         // Paginator::defaultView('view-name');
 
         view()->share([
+            
+            /*
+            | VISITOR VARIABLES
+            |
+            */
 
             'pengaturan'                        => Pengaturan::first(),
             'faq'                               => Faq::where('status','publish')->get(),
@@ -71,7 +76,7 @@ class AppServiceProvider extends ServiceProvider
             'dasbor_jml_link_terkait'           => LinkTerkait::where('status','publish')->count(),
             'dasbor_jml_halaman'                => Halaman::where('status','publish')->count(),
             'dasbor_jml_pengguna'               => User::where('status','publish')->count(),
-            'dasbor_jml_pesan'                  =>  Pesan::count(),
+            'dasbor_jml_pesan'                  => Pesan::count(),
         ]);
     }
 

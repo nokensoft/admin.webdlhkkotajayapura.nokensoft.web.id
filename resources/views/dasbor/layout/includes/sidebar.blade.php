@@ -11,7 +11,7 @@
                         @if (!Auth::user()->picture)
                         <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
                         @else
-                        <img src="{{ asset('gambar/pengguna') }}/{{ Auth::user()->picture }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+                        <img src="{{ asset(Auth::user()->picture) }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
                         @endif
 
                         <div class="dropdown">

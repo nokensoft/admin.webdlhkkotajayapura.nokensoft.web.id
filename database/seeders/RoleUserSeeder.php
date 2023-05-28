@@ -57,7 +57,7 @@ class RoleUserSeeder extends Seeder
         $admin = User::create([
             'name'              => 'Admin',
             'slug'              => 'admin',
-            // 'picture'           => 'gambar/pengguna/01.jpg',
+            'picture'           => 'gambar/pengguna/01.jpg',
             'email'             => 'admin.dlhk@jayapurakab.go.id',
             'password'          => bcrypt('admin.dlhk@jayapurakab.go.id')
         ]);
@@ -67,7 +67,7 @@ class RoleUserSeeder extends Seeder
         $editor = User::create([
             'name'              => 'Editor',
             'slug'              => 'editor',
-            // 'picture'           => 'gambar/pengguna/02.jpg',
+            'picture'           => 'gambar/pengguna/02.jpg',
             'email'             => 'editor.dlhk@jayapurakab.go.id',
             'password'          => bcrypt('editor.dlhk@jayapurakab.go.id')
         ]);
@@ -77,7 +77,7 @@ class RoleUserSeeder extends Seeder
         $author = User::create([
             'name'              => 'Author',
             'slug'              => 'author',
-            // 'picture'           => 'gambar/pengguna/02.jpg',
+            'picture'           => 'gambar/pengguna/02.jpg',
             'email'             => 'author.dlhk@jayapurakab.go.id',
             'password'          => bcrypt('author.dlhk@jayapurakab.go.id')
         ]);
