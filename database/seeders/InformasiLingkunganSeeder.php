@@ -23,7 +23,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_singkat'    => 'Rencana Perlindungan dan Pengelolaan Lingkungan Hidup',
             'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/informasi-lingkungan/1.jpg',
+            'gambar'                => '1.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
 
 
@@ -35,7 +35,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_singkat'    => 'Index Kualitas Lingkungan Hidup',
             'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/informasi-lingkungan/2.jpg',
+            'gambar'                => '2.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
 
 
@@ -47,7 +47,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_singkat'    => 'Analisis Mengenai Dampak Lingkungan',
             'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/informasi-lingkungan/3.jpg',
+            'gambar'                => '3.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
 
 
@@ -59,7 +59,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_singkat'    => 'Dokumen Perizinan Lingkungan',
             'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/informasi-lingkungan/4.jpg',
+            'gambar'                => '4.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
 
 
@@ -71,7 +71,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_singkat'    => 'Rencana Perlindungan dan Pengelolaan Lingkungan Hidup',
             'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/informasi-lingkungan/5.jpg',
+            'gambar'                => '5.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
 
 
@@ -83,7 +83,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_singkat'    => 'Index Kualitas Lingkungan Hidup',
             'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/informasi-lingkungan/6.jpg',
+            'gambar'                => '6.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
 
 
@@ -95,7 +95,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_singkat'    => 'Analisis Mengenai Dampak Lingkungan',
             'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/informasi-lingkungan/7.jpg',
+            'gambar'                => '7.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
 
 
@@ -107,7 +107,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_singkat'    => 'Dokumen Perizinan Lingkungan',
             'keterangan_lengkap'    => '',
 
-            'gambar'                => 'gambar/informasi-lingkungan/8.jpg',
+            'gambar'                => '8.jpg',
             'url'                   => 'halaman/informasi-lingkungan',
 
 

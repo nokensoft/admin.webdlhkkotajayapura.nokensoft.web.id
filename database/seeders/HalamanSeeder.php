@@ -23,7 +23,7 @@ class HalamanSeeder extends Seeder
                 'user_id'           => 3,
                 'judul_halaman'     => 'Profil Dinas',
                 'sub_judul'         => 'Gambaran Umum Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '1.jpg',
                 'slug'              => 'profil-dinas',
 
                 'konten_singkat'    => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura telah berdiri sejak tahun 2017. DLHK Kota Jayapura memiliki Tugas dan Fungsi dan juga tata kerja secara dinas',
@@ -46,7 +46,7 @@ class HalamanSeeder extends Seeder
                 'user_id'           => 3,
                 'judul_halaman'     => 'Profil Pimpinan',
                 'sub_judul'         => 'Profil Kepala Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '2.jpg',
                 'slug'              => 'profil-pimpinan',
 
                 'konten_singkat'    => '',
@@ -62,7 +62,7 @@ class HalamanSeeder extends Seeder
                 'user_id'           => 3,
                 'judul_halaman'     => 'Visi Misi',
                 'sub_judul'         => 'Visi dan Misi Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '3.jpg',
                 'slug'              => 'visi-misi',
 
                 'konten_singkat'    => '',
@@ -78,7 +78,7 @@ class HalamanSeeder extends Seeder
                 'user_id'           => 3,
                 'judul_halaman'     => 'Tugas Pokok & Fungsi',
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '4.jpg',
                 'slug'              => 'tugas-pokok-fungsi',
 
                 'konten_singkat'    => '',
@@ -96,7 +96,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'     => 'Bidang Layanan',
                 'slug'              => 'bidang-layanan',
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '5.jpg',
 
                 'konten_singkat'    => '',
 
@@ -112,7 +112,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'     => 'Informasi Lingkungan',
                 'slug'              => 'informasi-lingkungan',
                 'sub_judul'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '6.jpg',
 
                 'konten_singkat'    => '',
 
@@ -128,7 +128,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'     => 'Video Profil Dinas',
                 'slug'              => 'video-profil-dinas',
                 'sub_judul'         => 'Video Profil Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '6.jpg',
 
                 'konten_singkat'    => '',
 
@@ -144,7 +144,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'     => 'Profil Pejabat',
                 'slug'              => 'profil-pejabat',
                 'sub_judul'         => 'Para Pejabat di Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '7.jpg',
 
                 'konten_singkat'    => '',
 
@@ -160,7 +160,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'     => 'Struktur Organisasi',
                 'slug'              => 'struktur-organisasi',
                 'sub_judul'         => 'Struktur Organisasi Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
-                'gambar'            => '',
+                'gambar'            => '8.jpg',
 
                 'konten_singkat'    => '',
 

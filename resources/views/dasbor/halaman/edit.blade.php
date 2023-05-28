@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Kelola Halaman</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
                     <li class="breadcrumb-item active">Ubah</li>
                 </ol>
             </div>
@@ -39,72 +39,92 @@
                 @csrf
                 @method('put')
 
-                <div class="mb-3">
-                    <label for="judul_halaman" class="form-label">Judul Halaman <span class="text-danger">*</span></label>
-                    <input type="text" id="judul_halaman" name="judul_halaman" class="form-control" placeholder="Judul Halaman" value="{{ $data->judul_halaman}}">
-                    @if ($errors->has('judul_halaman'))
-                        <span class="text-danger" role="alert">
-                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul_halaman') }}</small>
-                        </span>
-                    @endif
-                </div>
+                <div class="row">
+                    <div class="col-md-8">
 
-                <div class="mb-3">
-                    <label for="sub_judul" class="form-label">Sub Judul</label>
-                    <textarea name="sub_judul" id="sub_judul" rows="3" class="form-control" placeholder="Sub Judul">{{ $data->sub_judul}}</textarea>
-                    @if ($errors->has('sub_judul'))
-                        <span class="text-danger" role="alert">
-                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('sub_judul') }}</small>
-                        </span>
-                    @endif
-                </div>
+                        <div class="form-group">
+                            <label for="judul_halaman" class="form-label">Judul Halaman <span class="text-danger">*</span></label>
+                            <input type="text" id="judul_halaman" name="judul_halaman" class="form-control" placeholder="Judul Halaman" value="{{ $data->judul_halaman}}">
+                            @if ($errors->has('judul_halaman'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul_halaman') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item end-->
+        
+                        <div class="mb-3">
+                            <label for="sub_judul" class="form-label">Sub Judul</label>
+                            <textarea name="sub_judul" id="sub_judul" rows="3" class="form-control" placeholder="Sub Judul">{{ $data->sub_judul}}</textarea>
+                            @if ($errors->has('sub_judul'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('sub_judul') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item end-->
+        
+                        <div class="form-group">
+                            <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
+                            <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $data->konten}}</textarea>
+                            @if ($errors->has('konten'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item end-->
 
-                <div class="mb-3">
-                    <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                    <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $data->konten}}</textarea>
-                    @if ($errors->has('konten'))
-                        <span class="text-danger" role="alert">
-                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten') }}</small>
-                        </span>
-                    @endif
-                </div>
+                        <div class="form-group">
+                            <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
+                            <select class="form-control" name="status" id="exampleFormControlSelect1">
+                                <option>Status</option>
+                                <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
+                                <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
+                            </select>
+                            @if ($errors->has('status'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item end-->
 
-                <div class="mb-3">
-                    <div class="mb-2">
-                        @if(!$data->gambar)
-                            <img src="{{ asset('gambar/halaman/00.jpg') }}" alt="image" id="preview-gambar" class="img-thumbnail mb-3" width="300px" alt="Gambar">
-                        @else
-                            <img src="{{ asset($data->gambar) }}" id="preview-gambar" class="img-thumbnail mb-3" width="300px" alt="Gambar">
-                        @endif
-                    </div>
-                    <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
-                    <div class="custom-file">
-                        <input type="file" name="gambar" class="custom-file-input" id="gambar">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                    @if ($errors->has('gambar'))
-                        <span class="text-danger" role="alert">
-                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
-                        </span>
-                    @endif
-                </div>
+                    </div> <!-- col end -->
 
-                <div class="form-group">
-                    <label for="status" class="form-label d-block">Status "{{$data->status}}"
-                        @if($data->status == 'Publish') Selected @endif
-                        @if($data->status == 'Draft') Selected @endif
-                        <span class="text-danger">*</span></label>
-                    <select class="form-control col-md-3" name="status" id="exampleFormControlSelect1">
-                        <option>Status</option>
-                        <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
-                        <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
-                    </select>
-                    @if ($errors->has('status'))
-                        <span class="text-danger" role="alert">
-                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
-                        </span>
-                    @endif
-                </div>
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <div class="mb-2">
+                                @if(!$data->gambar)
+                                    <img src="{{ asset('gambar/halaman/00.jpg') }}" alt="image" id="preview-gambar" class="img-thumbnail img-fluid" alt="Gambar">
+                                @else
+                                    <img src="{{ asset('gambar/halaman/' . $data->gambar) }}" id="preview-gambar" class="img-thumbnail img-fluid" alt="Gambar">
+                                @endif
+                            </div>
+                            <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                            <div class="custom-file">
+                                <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                                <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                            </div>
+                            @if ($errors->has('gambar'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item end-->
+
+                    </div> <!-- col end -->
+
+                </div> <!-- row end -->
+
+                
+
+                
+
+                
 
             </div>
         </div> <!-- end card -->
@@ -174,6 +194,8 @@
                });
 
             });
+
+    CKEDITOR.config.height='400px';
 
 </script>
 

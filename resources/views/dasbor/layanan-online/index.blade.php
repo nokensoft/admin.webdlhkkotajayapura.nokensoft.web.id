@@ -1,21 +1,20 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item active">Kelola Layanan Online</li>
+                    <li class="breadcrumb-item active">Layanan Online</li>
                 </ol>
             </div>
             <h4 class="page-title">Layanan Online</h4>
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
 
 <div class="row">
     <div class="col-12">
@@ -108,9 +107,6 @@
     </div> <!-- end col -->
 
 </div>
-
 <!-- end row -->
-
-<!--end wrapper-->
 
 @stop

@@ -37,10 +37,10 @@ class HalamanController extends Controller
             }]
         ])->where('status','publish')->latest()->paginate(5);
 
-        $jumlahtrash = Halaman::onlyTrashed()->count();
+        $jumlahtrash    = Halaman::onlyTrashed()->count();
 
-        $jumlahdraft = Halaman::where('status', 'draft')->count();
-        $datapublish = Halaman::where('status', 'publish')->count();
+        $jumlahdraft    = Halaman::where('status', 'draft')->count();
+        $datapublish    = Halaman::where('status', 'publish')->count();
 
         return view('dasbor.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -67,10 +67,10 @@ class HalamanController extends Controller
             }]
         ])->where('status','draft')->latest()->paginate(5);
 
-        $jumlahtrash = Halaman::onlyTrashed()->count();
+        $jumlahtrash    = Halaman::onlyTrashed()->count();
 
-        $jumlahdraft = Halaman::where('status', 'draft')->count();
-        $datapublish = Halaman::where('status', 'publish')->count();
+        $jumlahdraft    = Halaman::where('status', 'draft')->count();
+        $datapublish    = Halaman::where('status', 'publish')->count();
 
         return view('dasbor.halaman.index',compact(
             'datas',
@@ -100,19 +100,18 @@ class HalamanController extends Controller
     */
     public function store(Request $request)
     {
-        $validator = Validator::make(
+        $validator      = Validator::make(
             $request->all(),
             [
                 'judul_halaman'             => 'required',
-                // 'konten'                  => 'required',
+                'konten'                    => 'required',
                 // 'gambar'                 => 'image|mimes:png,jpeg,jpg|max:4096',
-                'status'                 => 'required',
+                'status'                    => 'required',
             ],[
-                'judul_halaman.required' => 'Judul halaman tidak boleh kosong',
-                // 'konten.required'        => 'Konten halaman tidak boleh kosong',
-                // 'status.required'        => 'Status tidak boleh kosong',
+                'judul_halaman.required'    => 'Judul tidak boleh kosong',
+                'konten.required'           => 'Konten tidak boleh kosong',
                 // 'gambar.required'        => 'Gambar harus dengan jenis PNG,JPG,JPEG',
-                'status.required'        => 'Status tidak boleh kosong',
+                'status.required'           => 'Status tidak boleh kosong',
             ]
         );
         if ($validator->fails()) {
@@ -121,10 +120,10 @@ class HalamanController extends Controller
             try {
                $halaman = new Halaman();
 
-               $halaman->judul_halaman = $request->judul_halaman;
-               $halaman->sub_judul = $request->sub_judul;
-               $halaman->konten = $request->konten;
-               $halaman->status = $request->status;
+               $halaman->judul_halaman      = $request->judul_halaman;
+               $halaman->sub_judul          = $request->sub_judul;
+               $halaman->konten             = $request->konten;
+               $halaman->status             = $request->status;
 
                $halaman->slug = Str::slug($request->judul_halaman);
 
@@ -196,13 +195,13 @@ class HalamanController extends Controller
             [
                 'judul_halaman'             => 'required',
                 'konten'                    => 'required',
-                'gambar'                    => 'image|mimes:png,jpeg,jpg|max:4096',
+                // 'gambar'                    => 'image|mimes:png,jpeg,jpg|max:4096',
                 'status'                    => 'required',
             ],[
                 'judul_halaman.required'    => 'judul_halaman halaman tidak boleh kosong',
                 'konten.required'           => 'Konten halaman tidak boleh kosong',
+                // 'gambar.required'           => 'Gambar harus dengan jenis PNG,JPG,JPEG',
                 'status.required'           => 'Status tidak boleh kosong',
-                'gambar.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
             ]
         );
         if ($validator->fails()) {
@@ -211,12 +210,12 @@ class HalamanController extends Controller
             try {
                 $halaman = Halaman::find($id);
 
-                $halaman->judul_halaman = $request->judul_halaman;
-                $halaman->sub_judul = $request->sub_judul;
-                $halaman->konten = $request->konten;
-                $halaman->status = $request->status;
+                $halaman->judul_halaman     = $request->judul_halaman;
+                $halaman->sub_judul         = $request->sub_judul;
+                $halaman->konten            = $request->konten;
+                $halaman->status            = $request->status;
 
-                $halaman->slug = Str::slug($request->judul_halaman);
+                $halaman->slug              = Str::slug($request->judul_halaman);
 
                 if ($request->gambar) {
                     $imageName = $halaman->slug . '.' . $request->gambar->extension();
@@ -267,11 +266,11 @@ class HalamanController extends Controller
     */
     public function trash()
     {
-        $datas = Halaman::onlyTrashed()->paginate(5);
+        $datas          = Halaman::onlyTrashed()->paginate(5);
 
-        $jumlahtrash = Halaman::onlyTrashed()->count();
-        $jumlahdraft = Halaman::where('status', 'draf')->count();
-        $datapublish = Halaman::where('status', 'publish')->count();
+        $jumlahtrash    = Halaman::onlyTrashed()->count();
+        $jumlahdraft    = Halaman::where('status', 'draf')->count();
+        $datapublish    = Halaman::where('status', 'publish')->count();
 
         return view('dasbor.halaman.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -300,7 +299,7 @@ class HalamanController extends Controller
     */
     public function delete($id)
     {
-        $data = Halaman::onlyTrashed()->findOrFail($id);
+        $data           = Halaman::onlyTrashed()->findOrFail($id);
 
         if($data->gambar){
             File::delete($data->gambar);

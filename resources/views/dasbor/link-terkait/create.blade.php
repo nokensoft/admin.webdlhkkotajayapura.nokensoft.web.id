@@ -6,8 +6,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('dasbor.link-terkait') }}">Kelola Link Terkait</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/link-terkait') }}">Link Terkait</a></li>
                     <li class="breadcrumb-item active">Tambah</li>
                 </ol>
             </div>
@@ -79,7 +79,7 @@
             <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                 <i class="fe-save mr-1"></i> Simpan
             </button>
-            <a href="{{ route('dasbor.halaman') }}" class="btn btn-lg btn-light">
+            <a href="{{ route('dasbor.link-terkait') }}" class="btn btn-lg btn-light">
                 <i class="fe-arrow-left mr-1"></i> Kembali
             </a>
         </div>
@@ -124,5 +124,7 @@
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
+
+    CKEDITOR.config.height='400px';
 
 @endpush

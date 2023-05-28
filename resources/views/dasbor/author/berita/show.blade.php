@@ -15,7 +15,7 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
 
 <div class="row">
     <div class="col">
@@ -124,7 +124,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-primary">
+                <a href="{{ url('dasbor/berita/' . $data->slug.'/edit') }}" class="btn btn-lg btn-primary">
                     <i class="fe-edit"></i> Ubah
                 </a>
                 <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light">

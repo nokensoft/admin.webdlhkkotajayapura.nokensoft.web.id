@@ -34,14 +34,14 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                {{-- <form action="{{ route('dasbor.halaman.store') }}" method="post" enctype="multipart/form-data"> --}}
+
                 {!! Form::open(array('url' => route('dasbor.berita.store'),'files'=>'true')) !!}
                 @csrf
 
                 <div class="row">
                     <div class="col-md-8">
 
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="judul" class="form-label">Judul Berita <span class="text-danger">*</span></label>
                             <input type="text" name="judul" class="form-control" value="{{ old('judul') }}" placeholder="Judul Berita">
                             @if ($errors->has('judul'))
@@ -68,7 +68,7 @@
                         </div>
                         <!-- input item end-->
 
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="konten_singkat" class="form-label">Konten Singkat</label>
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3">{{ old('konten_singkat') }}</textarea>
                             @if ($errors->has('konten_singkat'))
@@ -79,9 +79,9 @@
                         </div>
                         <!-- input item end-->
 
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                            <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="10">{{ old('konten') }}</textarea>
+                            <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="50">{{ old('konten') }}</textarea>
                             @if ($errors->has('konten'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten') }}</small>
@@ -118,7 +118,7 @@
                             <div class="custom-file w-100">
                                 <input type="file" name="gambar" class="custom-file-input" id="gambar" value="">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
                                 @if ($errors->has('gambar'))
                                     <span class="text-danger" role="alert">
                                         <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
@@ -202,6 +202,8 @@
                });
 
             });
+
+    CKEDITOR.config.height='400px';
 </script>
 
 @endpush

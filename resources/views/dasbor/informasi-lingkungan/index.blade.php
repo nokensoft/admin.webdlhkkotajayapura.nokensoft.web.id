@@ -1,21 +1,20 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item active">Kelola Informasi Lingkungan</li>
+                    <li class="breadcrumb-item active">Informasi Lingkungan</li>
                 </ol>
             </div>
             <h4 class="page-title">Informasi Lingkungan</h4>
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
 
 <div class="row">
     <div class="col-12">
@@ -42,7 +41,7 @@
                                     <th>No</th>
                                     <th>Thumbnail</th>
                                     <th>Judul</th>
-                                    <th>Sub Judul</th>
+                                    <th>Keterangan Singkat</th>
                                     <th>URL</th>
                                     <th class="text-center">Opsi</th>
                                 </tr>
@@ -51,12 +50,10 @@
                                     <td>{{ ++$i }}</td>
                                     <td>
                                         @if(empty($data->gambar))
-                                        <img src="{{ asset('gambar/informasi-lingkungan/00.jpg') }}" class="img-thumbnail"
-                                            alt="Gambar" width="200px">
+                                        <img src="{{ asset('gambar/informasi-lingkungan/00.jpg') }}" class="img-thumbnail" alt="Gambar" width="200px">
                                         @else
-                                        <a href="{{ asset($data->gambar) }}" target="_blank">
-                                            <img src="{{ asset($data->gambar) }}" class="img-thumbnail" alt="Gambar"
-                                                width="200px">
+                                        <a href="{{ asset('gambar/informasi-lingkungan/' . $data->gambar) }}" target="_blank">
+                                            <img src="{{ asset('gambar/informasi-lingkungan/' . $data->gambar) }}" class="img-thumbnail" alt="Gambar" width="200px">
                                         </a>
                                         @endif
                                     </td>
@@ -108,9 +105,6 @@
     </div> <!-- end col -->
 
 </div>
-
 <!-- end row -->
-
-<!--end wrapper-->
 
 @stop

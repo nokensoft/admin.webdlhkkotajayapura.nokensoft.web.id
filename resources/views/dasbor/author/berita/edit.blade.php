@@ -52,7 +52,7 @@
                         <!-- input item end-->
 
                         <div class="form-group">
-                            <label for="category_id" class="form-label d-block">Pilih <span class="text-danger">*</span></label>
+                            <label for="category_id" class="form-label d-block">Kategori <span class="text-danger">*</span></label>
                             <select class="form-control" name="category_id" id="exampleFormControlSelect1">
                                 <option value="{{ $data->kategori->id }}" hidden>{{ $data->kategori->name }}</option>
                                 @foreach ($kategori as $kategori)
@@ -68,7 +68,7 @@
                         <!-- input item end-->
 
                         <div class="mb-3">
-                            <label for="konten_singkat" class="form-label">Konten Singkat</label>
+                            <label for="konten_singkat" class="form-label">Konten Singkat <span class="text-danger">*</span></label>
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3">{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
                             @if ($errors->has('konten_singkat'))
                                 <span class="text-danger" role="alert">
@@ -90,7 +90,7 @@
                         <!-- input item end-->
 
                         <div class="form-group">
-                            <label for="status" class="form-label">Status {{$data->status}} </label>
+                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
                             <select name="status" class="form-control">
                                 <option value="" hidden></option>
                                 <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
@@ -103,7 +103,6 @@
                             @endif
                         </div>
                         <!-- input item end -->
-
 
                     </div>
                     <!-- .col end-->
@@ -122,7 +121,7 @@
                             <div class="custom-file w-100">
                                 <input type="file" name="gambar" class="custom-file-input" id="gambar">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
                             </div>
                             @if ($errors->has('gambar'))
                                 <span class="text-danger" role="alert">
@@ -208,6 +207,8 @@
                });
 
             });
+
+    CKEDITOR.config.height='400px';
 
 </script>
 @endpush

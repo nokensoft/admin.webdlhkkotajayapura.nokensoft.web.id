@@ -6,8 +6,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('dasbor.link-terkait') }}">Kelola Link Terkait</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/link-terkait') }}">Link Terkait</a></li>
                     <li class="breadcrumb-item active">Ubah</li>
                 </ol>
             </div>
@@ -96,6 +96,7 @@
         </div>
     </div>
 </div>
+<!-- end row -->
 {!! Form::close() !!}
 
 @stop
@@ -105,7 +106,7 @@
 <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
 <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
+<link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
@@ -133,5 +134,6 @@
         $('.ckeditor').ckeditor();
     });
 
+    CKEDITOR.config.height='400px';
 
 @endpush

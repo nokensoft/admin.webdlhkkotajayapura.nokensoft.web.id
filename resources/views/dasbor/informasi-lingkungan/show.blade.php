@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -16,8 +15,7 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
-
+<!-- end row -->
 
 <div class="row">
     <div class="col-lg-12">
@@ -51,7 +49,6 @@
 
 </div>
 <!-- end row -->
-<!--end wrapper-->
 
 <div class="row">
     <div class="col">
@@ -67,7 +64,7 @@
         </div>
     </div>
 </div>
-
+<!-- end row -->
 
 @stop
 
@@ -76,11 +73,10 @@
 <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
 <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
+<link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
-
 
 @push('script-footer')
 <!-- Select2 js-->
@@ -93,12 +89,11 @@
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
 <!-- Dropzone file uploads-->
 <!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-        <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
-    -->
+<script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
+-->
 
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-
 
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
@@ -106,5 +101,4 @@
         $('.ckeditor').ckeditor();
     });
 
-
-  @endpush
+@endpush
