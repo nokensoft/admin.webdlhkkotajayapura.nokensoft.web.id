@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -19,11 +18,13 @@
 <!-- end page title -->
 
 @if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Whoops!</strong>
-    <ul>
+<div class="mb-3 alert alert-warning">
+    <strong class="d-block mb-2 text-dark">Perhatian!</strong>
+    <ul class="list-group">
         @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
+        <li style="list-style: none" class="mb-2">
+            <i class="fe-alert-triangle mr-1"></i> {{ $error }}
+        </li>
         @endforeach
     </ul>
 </div>
@@ -142,9 +143,11 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                <a href="{{ route('dasbor.layananonline') }}" class="btn btn-light">
-                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
+                    <i class="fe-save mr-1"></i> Simpan
+                </button>
+                <a href="{{ route('dasbor.layananonline') }}" class="btn btn-lg btn-light">
+                    <i class="fe-arrow-left mr-1"></i> Kembali
                 </a>
             </div> <!-- end card-body -->
         </div> <!-- end card -->

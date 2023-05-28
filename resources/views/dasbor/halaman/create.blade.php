@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -16,14 +15,16 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- row end -->
 
 @if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Whoops!</strong>
-    <ul>
+<div class="mb-3 alert alert-warning">
+    <strong class="d-block mb-2 text-dark">Perhatian!</strong>
+    <ul class="list-group">
         @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
+        <li style="list-style: none" class="mb-2">
+            <i class="fe-alert-triangle mr-1"></i> {{ $error }}
+        </li>
         @endforeach
     </ul>
 </div>
@@ -40,26 +41,33 @@
                 <div class="mb-3">
                     <label for="judul_halaman" class="form-label">Judul Halaman <span class="text-danger">*</span></label>
                     <input type="text" id="judul_halaman" name="judul_halaman" class="form-control" placeholder="Judul Halaman" value="{{ old('judul_halaman') }}">
-
                     @if ($errors->has('judul_halaman'))
                         <span class="text-danger" role="alert">
-                            <small>{{ $errors->first('judul_halaman') }}</small>
+                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul_halaman') }}</small>
                         </span>
                     @endif
-                    <!-- error message end -->
-
                 </div>
                 <!-- input item end -->
 
                 <div class="mb-3">
                     <label for="sub_judul" class="form-label">Sub Judul</label>
                     <textarea name="sub_judul" id="sub_judul" rows="3" class="form-control" placeholder="Sub Judul"></textarea>
+                    @if ($errors->has('sub_judul'))
+                        <span class="text-danger" role="alert">
+                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('sub_judul') }}</small>
+                        </span>
+                    @endif
                 </div>
                 <!-- input item end -->
 
                 <div class="mb-3">
                     <label for="konten" class="form-label">Konten Halaman <span class="text-danger">*</span></label>
                     <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ old('konten') }}</textarea>
+                    @if ($errors->has('konten'))
+                        <span class="text-danger" role="alert">
+                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten') }}</small>
+                        </span>
+                    @endif
                 </div>
                 <!-- input item end -->
 
@@ -72,6 +80,11 @@
                         <input type="file" name="gambar" class="custom-file-input" id="gambar">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
+                    @if ($errors->has('gambar'))
+                        <span class="text-danger" role="alert">
+                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
+                        </span>
+                    @endif
                 </div>
                 <!-- input item end -->
 
@@ -79,16 +92,14 @@
                     <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
                     <select class="form-control col-md-3" name="status" id="exampleFormControlSelect1">
                         <option value="">Status</option>
-                        <option value="publish" @if(old('status') == 'Publish') Selected @endif>Active</option>
-                        <option value="draft" @if(old('status') == 'Draft') Selected @endif>Inactive</option>
+                        <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
+                        <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
                     </select>
-
                     @if ($errors->has('status'))
                         <span class="text-danger" role="alert">
-                            <small>{{ $errors->first('status') }}</small>
+                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
                         </span>
                     @endif
-                    <!-- error message end -->
                 </div>
                 <!-- input item end -->
 

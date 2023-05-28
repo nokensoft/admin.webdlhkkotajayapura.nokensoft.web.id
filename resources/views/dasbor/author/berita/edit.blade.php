@@ -17,11 +17,13 @@
 </div>
 
 @if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Whoops!</strong>
-    <ul>
+<div class="mb-3 alert alert-warning">
+    <strong class="d-block mb-2 text-dark">Perhatian!</strong>
+    <ul class="list-group">
         @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
+        <li style="list-style: none" class="mb-2">
+            <i class="fe-alert-triangle mr-1"></i> {{ $error }}
+        </li>
         @endforeach
     </ul>
 </div>
@@ -43,7 +45,7 @@
                             <input type="text" name="judul" class="form-control" value="{{ old('judul',$data->judul) }}" placeholder="Judul Berita">
                             @if ($errors->has('judul'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-3">{{ $errors->first('judul') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -59,7 +61,7 @@
                             </select>
                             @if ($errors->has('category_id'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-3">{{ $errors->first('category_id') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('category_id') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -70,7 +72,7 @@
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3">{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
                             @if ($errors->has('konten_singkat'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-3">{{ $errors->first('konten_singkat') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten_singkat') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -81,7 +83,7 @@
                             <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="10">{{ old('konten',$data->konten) }}</textarea>
                             @if ($errors->has('konten'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-3">{{ $errors->first('konten') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -96,7 +98,7 @@
                             </select>
                             @if ($errors->has('status'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-3">{{ $errors->first('status') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -124,7 +126,7 @@
                             </div>
                             @if ($errors->has('gambar'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-3">{{ $errors->first('gambar') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
                                 </span>
                             @endif
                         </div>
