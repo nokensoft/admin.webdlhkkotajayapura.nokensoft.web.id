@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 // DASBOR CONTROLLERS
 use App\Http\Controllers\Author\KategoriController;
-
+use Illuminate\Support\Facades\Route;
 /*
     |--------------------------------------------------------------------------
     | KATEGORI
-    | 
+    |
     | index
     | draft
     | create
@@ -62,9 +62,9 @@ use App\Http\Controllers\Author\KategoriController;
         // restore
         Route::post('berita/kategori/restore/{id}','restore')
             ->name('dasbor.kategori.restore');
-        
+
         // delete
         Route::delete('berita/kategori/delete/{id}','delete')
             ->name('dasbor.kategori.delete');
-            
+
     });

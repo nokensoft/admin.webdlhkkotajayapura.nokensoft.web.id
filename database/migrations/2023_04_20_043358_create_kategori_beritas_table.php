@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('kategori_slug')->nullable();
             $table->string('deskripsi')->nullable();
-            
+
             $table->enum('status',['publish','draft'])->default('publish')->nullable();
             $table->softDeletes();
             $table->timestamps();

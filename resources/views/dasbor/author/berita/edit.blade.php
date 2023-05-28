@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Kelola Berita</a></li>
                     <li class="breadcrumb-item active">Ubah</li>
                 </ol>
             </div>
@@ -54,7 +54,7 @@
                     <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
                     <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $berita->konten}}</textarea>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="gambar" class="form-label">Gambar <span class="text-danger">*</span></label>
                     <div class="custom-file">
@@ -87,7 +87,7 @@
     <div class="card">
         <div class="card-body">
             <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-            <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
+            <a href="{{ route('dasbor.berita') }}" class="btn btn-light">
                 <i class="mdi mdi-arrow-left mr-1"></i>Kembali
             </a>
         </div>

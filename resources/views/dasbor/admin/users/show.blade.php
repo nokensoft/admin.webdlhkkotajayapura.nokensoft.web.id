@@ -10,12 +10,12 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Mengelola Pengguna</a>
+                            <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Kelola Pengguna</a>
                             </li>
                             <li class="breadcrumb-item active">Detail</li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Detail Pengguna</h4>
+                    <h4 class="page-title">Detail</h4>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('dasbor.berita') }}"></a>Berita</li>
+                                <li class="breadcrumb-item"><a href="{{ route('dasbor.berita') }}"></a>Kelola Berita</li>
                                 <li class="breadcrumb-item active">Ubah Status</li>
                             </ol>
                         </div>

@@ -8,7 +8,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/halaman') }}">Halaman</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Kelola Berita</a></li>
                     <li class="breadcrumb-item active">Tambah</li>
                 </ol>
             </div>
@@ -33,18 +33,18 @@
         <div class="card">
             <div class="card-body">
                 {{-- <form action="{{ route('dasbor.halaman.store') }}" method="post" enctype="multipart/form-data"> --}}
-                {!! Form::open(array('url' => route('dasbor.halaman.store'),'files'=>'true')) !!}
+                {!! Form::open(array('url' => route('dasbor.berita.store'),'files'=>'true')) !!}
                 @csrf
 
                 <div class="row">
                     <div class="col-md-8">
-                
+
                         <div class="mb-3">
                             <label for="judul_berita" class="form-label">Judul Berita <span class="text-danger">*</span></label>
                             {!! Form::text('judul_berita',null,['required','id'=>'judul_berita','class'=>'form-control','placeholder'=>'Judul berita'])!!}
                         </div>
                         <!-- input item end-->
-                        
+
                         <div class="form-group">
                             <label for="category_id" class="form-label d-block">Kategori <span class="text-danger">*</span></label>
                             <select class="form-control col-md-3" name="category_id" id="exampleFormControlSelect1">
@@ -55,19 +55,19 @@
                             </select>
                         </div>
                         <!-- input item end-->
-                
+
                         <div class="mb-3">
                             <label for="konten_singkat" class="form-label">Konten Singkat</label>
                             <textarea name="konten_singkat" class="form-control" id="konten_singkat" value="{{ old('konten_singkat') }}" cols="30" rows="3">{{ old('konten_singkat') }}</textarea>
                         </div>
                         <!-- input item end-->
-        
+
                         <div class="mb-3">
                             <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
                             <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ old('konten') }}</textarea>
                         </div>
                         <!-- input item end-->
-                
+
                         <div class="form-group">
                             <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
                             <select class="form-control col-md-3" name="status" id="exampleFormControlSelect1">
@@ -82,7 +82,7 @@
                     <!-- .col end-->
 
                     <div class="col-md-4">
-                
+
                         <div class="mb-3">
                             <div class="mb-2">
                                 <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" class="img-thumbnail img-fluid">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <!-- input item end-->
-                        
+
                     </div>
                     <!-- .col end-->
 
@@ -119,7 +119,7 @@
         <div class="card">
             <div class="card-body">
                 <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
+                <a href="{{ route('dasbor.berita') }}" class="btn btn-light">
                     <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                 </a>
             </div>

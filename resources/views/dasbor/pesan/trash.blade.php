@@ -7,11 +7,11 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/pesan') }}">Pesan</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/pesan') }}">Kelola Pesan</a></li>
                     <li class="breadcrumb-item active">Trash</li>
                 </ol>
             </div>
-            <h4 class="page-title">Layanan Online</h4>
+            <h4 class="page-title">Trash</h4>
         </div>
     </div>
 </div>

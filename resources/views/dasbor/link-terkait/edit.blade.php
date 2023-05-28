@@ -7,9 +7,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">App</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                    <li class="breadcrumb-item">Halaman</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('dasbor.link-terkait') }}">Kelola Link Terkait</a></li>
                     <li class="breadcrumb-item active">Ubah</li>
                 </ol>
             </div>

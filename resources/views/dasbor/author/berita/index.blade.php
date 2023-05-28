@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item active">Berita</li>
+                    <li class="breadcrumb-item active">Kelola Berita</li>
                 </ol>
             </div>
             <h4 class="page-title">Berita</h4>

@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Berita</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Kelola Berita</a></li>
                     <li class="breadcrumb-item active">Kategori</li>
                 </ol>
             </div>
@@ -42,7 +42,7 @@
                             <th class="text-center">No</th>
                             <th>Nama Kategori</th>
                             <th>Deskripsi</th>
-                            <th>kategori_slug</th>
+                            <th>Kategori Slug</th>
                             <th class="text-center" width="210px">Opsi</th>
                         </tr>
                         @foreach ($datas as  $data)
@@ -53,7 +53,7 @@
                             </td>
                             <td> {{ $data->deskripsi }} </td>
                             <td> {{ $data->kategori_slug }} </td>
-                            <td class="text-center">                                
+                            <td class="text-center">
                                 <form action="{{ url('dasbor/berita/kategori', $data->id) }}" method="POST">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
