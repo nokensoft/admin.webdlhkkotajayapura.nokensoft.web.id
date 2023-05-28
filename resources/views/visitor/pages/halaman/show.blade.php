@@ -45,9 +45,6 @@
 
 @endif    
 
-@include('visitor.sections.berita-terbaru')
-<!-- Berita Terbaru -->    
-
 @include('visitor.sections.link-terkait')
 <!-- Link Terkait --> 
 
