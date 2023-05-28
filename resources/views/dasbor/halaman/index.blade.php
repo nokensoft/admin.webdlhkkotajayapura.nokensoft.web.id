@@ -40,7 +40,7 @@
                             <table class="table table-bordered">
                                 <tr>
                                     <th>No</th>
-                                    <th>Thumbnail</th>
+                                    <th>Gambar</th>
                                     <th>Judul Halaman</th>
                                     <th>Sub Judul</th>
                                     <th>Author</th>
@@ -59,7 +59,9 @@
                                         </a>
                                         @endif
                                     </td>
-                                    <td>{{Str::limit($data->judul_halaman, 20)}}</td>
+                                    <td>
+                                        <a href="{{ url('halaman/' . $data->slug) }}" target="_blank">{{ $data->judul_halaman }}</a>
+                                    </td>
                                     <td>{!! Str::limit($data->sub_judul, 50) !!}</td>
                                     <td>{{ $data->user->name ?? '' }}</td>
                                     <td>

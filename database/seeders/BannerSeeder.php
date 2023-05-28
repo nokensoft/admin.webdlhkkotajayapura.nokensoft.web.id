@@ -30,7 +30,7 @@ class BannerSeeder extends Seeder
             'konten_text_2'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
 
             'link_1'                => '#sekilas-profil',
-            'link_1_label'          => 'Profil Dinas Lengkap',
+            'link_1_label'          => 'Sekilas Profil Dinas',
 
             'link_2'                => '',
             'link_2_label'          => '',

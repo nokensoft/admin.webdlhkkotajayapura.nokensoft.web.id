@@ -114,57 +114,20 @@
                                         <li class="menu-item-has-children">
                                             <a href="#">Layanan Online</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item-has-children right">
-                                                    <a href="#">Sistem Informasi</a>
-                                                    <ul class="sub-menu right">
-                                                        <li><a href="https://sipakot.jayapurakota.go.id" target="_blank">SIPAKOT</a></li>
-                                                        <li><a href="{{ url('kontak') }}">Pengaduan</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">AMDAL</a> </li>
-                                                <li><a href="#">Bank Sampah</a> </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Sub Menu</a>
-                                                    <ul class="sub-menu right">
-                                                        <li><a href="#">coming soon...</a></li>
-                                                        <li><a href="#">coming soon...</a></li>
-                                                        <li><a href="#">coming soon...</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="#">Sub Menu</a>
-                                                    <ul class="sub-menu right">
-                                                        <li><a href="#">coming soon...</a></li>
-                                                        <li><a href="#">coming soon...</a></li>
-                                                    </ul>
-                                                </li>
+                                                @foreach ($LayananOnline as $LayananOnlineItem)
+                                                <li><a href="{{ $LayananOnlineItem->url ?? '' }}" target="_blank">{{ $LayananOnlineItem->judul ?? '' }}</a></li>
+                                                @endforeach
                                             </ul>
                                         </li>
 
                                         <li class="menu-item-has-children">
                                             <a href="#">Informasi Lingkungan</a>
                                             <ul class="sub-menu">
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">RPPLH</a></li>
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">IKLH</a></li>
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">HPSN</a></li>
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">AMDAL</a></li>
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">KEHATI</a></li>
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">Konservasi Energi</a></li>
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">Mekanisme Perizinan</a></li>
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">Izin Lingkungan</a></li>
-                                                <li><a href="{{ url('halaman/informasi-lingkungan') }}">Pengolaan B3</a></li>
+                                                @foreach ($InformasiLingkungan as $InformasiLingkunganItem)
+                                                <li><a href="{{ $InformasiLingkunganItem->url ?? '' }}" target="_blank">{{ $InformasiLingkunganItem->judul ?? '' }}</a></li>
+                                                @endforeach
                                             </ul>
                                         </li>
-
-                                        {{-- <li class="menu-item-has-children">
-                                            <a href="#">Lainnya</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Sub Menu</a></li>
-                                                <li><a href="#">Sub Menu</a></li>
-                                                <li><a href="#">Sub Menu</a></li>
-                                                <li><a href="#">Sub Menu</a></li>
-                                            </ul>
-                                        </li> --}}
 
                                         <li class="rs-mega-menu mega-rs">
                                             <a href="{{ url('kontak') }}">Kontak</a>

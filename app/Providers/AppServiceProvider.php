@@ -61,6 +61,8 @@ class AppServiceProvider extends ServiceProvider
 
             'pengaturan'                        => Pengaturan::first(),
             'faq'                               => Faq::where('status','publish')->get(),
+            'LayananOnline'                     => LayananOnline::where('status','publish')->get(),
+            'InformasiLingkungan'               => InformasiLingkungan::where('status','publish')->get(),
             'banner'                            => Banner::where('status','publish')->first(),
 
             /*

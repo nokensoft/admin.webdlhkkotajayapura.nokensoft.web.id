@@ -3,36 +3,7 @@
 
 @if (!$halaman)    
 
-    <!-- Breadcrumbs Start -->
-    <div class="rs-breadcrumbs breadcrumbs-overlay">
-        <div class="breadcrumbs-img">
-            <img src="{{ asset('gambar/halaman/bg-header-1.jpg') }}" alt="gambar latar belakang">
-        </div>
-        <div class="breadcrumbs-text white-color">
-            <h1 class="page-title">404</h1>
-            <ul>
-                <li>
-                    <a class="active" href="{{ url('/beranda') }}">Beranda</a>
-                </li>
-                <li>404</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Breadcrumbs End -->            
-
-    <!-- Blog Section Start -->
-    <div class="rs-inner-blog orange-color pt-100 pb-100 md-pt-70 md-pb-70">
-        <div class="container">
-        <div class="blog-deatails">
-
-            <div class="blog-full text-center">
-                <h1>404</h1>
-                <p>Maaf, halaman yang anda cari tidak ditemukan. Tampilkan <a href="{{ url('beranda') }}">Beranda</a></p>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- Blog Section End -->  
+    @include('visitor.sections.halaman-404') 
 
 @else
 
@@ -60,7 +31,7 @@
 
             @if($halaman->gambar)
             <div class="bs-img">
-                <img src="{{ asset( $halaman->gambar ) }}" alt="Gambar">
+                <img src="{{ asset( 'gambar/halaman/' . $halaman->gambar ) }}" alt="Gambar">
             </div>
             @endif
 
@@ -72,6 +43,15 @@
     </div>
     <!-- Blog Section End -->  
 
-@endif         
+@endif    
+
+@include('visitor.sections.berita-terbaru')
+<!-- Berita Terbaru -->    
+
+@include('visitor.sections.link-terkait')
+<!-- Link Terkait --> 
+
+@include('visitor.sections.banner-3')
+<!-- Newsletter -->        
 
 @stop

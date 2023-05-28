@@ -24,7 +24,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_lengkap'    => '',
 
             'gambar'                => '1.jpg',
-            'url'                   => 'halaman/informasi-lingkungan',
+            'url'                   => 'halaman/rpplh',
 
 
         ]);
@@ -36,7 +36,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_lengkap'    => '',
 
             'gambar'                => '2.jpg',
-            'url'                   => 'halaman/informasi-lingkungan',
+            'url'                   => 'halaman/iklh',
 
 
         ]);
@@ -48,7 +48,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_lengkap'    => '',
 
             'gambar'                => '3.jpg',
-            'url'                   => 'halaman/informasi-lingkungan',
+            'url'                   => 'halaman/amdal',
 
 
         ]);
@@ -60,7 +60,7 @@ class InformasiLingkunganSeeder extends Seeder
             'keterangan_lengkap'    => '',
 
             'gambar'                => '4.jpg',
-            'url'                   => 'halaman/informasi-lingkungan',
+            'url'                   => 'halaman/izin-lingkungan',
 
 
         ]);

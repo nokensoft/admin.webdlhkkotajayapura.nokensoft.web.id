@@ -176,7 +176,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'     => 'Kontak',
                 'slug'              => 'kontak',
                 'sub_judul'         => 'Silahkan hubungi kami melalui informasi kontak yang tertera',
-                'gambar'            => '',
+                'gambar'            => '8.jpg',
 
                 'konten_singkat'    => '',
 
@@ -192,23 +192,7 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'     => 'Media Sosial',
                 'slug'              => 'media-sosial',
                 'sub_judul'         => 'Kami juga ada di berbagai platform media sosial',
-                'gambar'            => '',
-
-                'konten_singkat'    => '',
-
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
-
-
-
-                'created_at'        => Carbon::now(),
-                'updated_at'        => Carbon::now()
-            ],
-            [
-                'user_id'           => 3,
-                'judul_halaman'     => 'Informasi Lingkungan',
-                'slug'              => 'informasi-lingkungan',
-                'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
-                'gambar'            => '',
+                'gambar'            => '7.jpg',
 
                 'konten_singkat'    => '',
 
@@ -224,7 +208,87 @@ class HalamanSeeder extends Seeder
                 'judul_halaman'     => 'Layanan Online',
                 'slug'              => 'layanan-online',
                 'sub_judul'         => 'Layanan online yang kami sediakan bagi masyarakat',
-                'gambar'            => '',
+                'gambar'            => '6.jpg',
+
+                'konten_singkat'    => '',
+
+                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
+
+
+
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
+            ],
+            [
+                'user_id'           => 3,
+                'judul_halaman'     => 'Informasi Lingkungan',
+                'slug'              => 'informasi-lingkungan',
+                'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
+                'gambar'            => '5.jpg',
+
+                'konten_singkat'    => '',
+
+                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
+
+
+
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
+            ],
+            [
+                'user_id'           => 3,
+                'judul_halaman'     => 'RPPLH',
+                'slug'              => 'rpplh',
+                'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
+                'gambar'            => '4.jpg',
+
+                'konten_singkat'    => '',
+
+                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
+
+
+
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
+            ],
+            [
+                'user_id'           => 3,
+                'judul_halaman'     => 'IKLH',
+                'slug'              => 'iklh',
+                'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
+                'gambar'            => '3.jpg',
+
+                'konten_singkat'    => '',
+
+                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
+
+
+
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
+            ],
+            [
+                'user_id'           => 3,
+                'judul_halaman'     => 'AMDAL',
+                'slug'              => 'amdal',
+                'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
+                'gambar'            => '2.jpg',
+
+                'konten_singkat'    => '',
+
+                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>',
+
+
+
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now()
+            ],
+            [
+                'user_id'           => 3,
+                'judul_halaman'     => 'Izin Lingkungan',
+                'slug'              => 'izin-lingkungan',
+                'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
+                'gambar'            => '1.jpg',
 
                 'konten_singkat'    => '',
 
