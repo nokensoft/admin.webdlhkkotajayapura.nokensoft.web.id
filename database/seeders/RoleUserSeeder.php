@@ -54,44 +54,53 @@ class RoleUserSeeder extends Seeder
         */
 
         // ADMIN
-        $admin = User::create([
-            'name'              => 'Admin',
-            'slug'              => 'admin',
+        $adminDLHK = User::create([
+            'name'              => 'Admin DLHK',
+            'slug'              => 'admin-dlhk',
             'picture'           => 'gambar/pengguna/01.jpg',
-            'email'             => 'admin.dlhk@jayapurakab.go.id',
-            'password'          => bcrypt('admin.dlhk@jayapurakab.go.id')
+            'email'             => 'admin.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('admin.dlhk@jayapurakota.go.id')
         ]);
-        $admin->assignRole($adminRole);
+        $adminDLHK->assignRole($adminRole);
+        
+        $adminJanzen = User::create([
+            'name'              => 'Janzen Faidiban',
+            'slug'              => 'janzen-faidiban',
+            'picture'           => 'gambar/pengguna/05-janzen.jpg',
+            'email'             => 'janzen.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('janzen.dlhk@jayapurakota.go.id')
+        ]);
+        $adminJanzen->assignRole($adminRole);
 
         // EDITOR
-        $editor = User::create([
-            'name'              => 'Editor',
-            'slug'              => 'editor',
+        $editorDLHK = User::create([
+            'name'              => 'Editor DLHK',
+            'slug'              => 'editor-dlhk',
             'picture'           => 'gambar/pengguna/02.jpg',
-            'email'             => 'editor.dlhk@jayapurakab.go.id',
-            'password'          => bcrypt('editor.dlhk@jayapurakab.go.id')
+            'email'             => 'editor.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('editor.dlhk@jayapurakota.go.id')
         ]);
-        $editor->assignRole($editorRole);
+        $editorDLHK->assignRole($editorRole);
 
         // AUTHOR
-        $author = User::create([
-            'name'              => 'Author',
-            'slug'              => 'author',
+        $authorDLHK = User::create([
+            'name'              => 'Author DLHK',
+            'slug'              => 'author-dlhk',
             'picture'           => 'gambar/pengguna/02.jpg',
-            'email'             => 'author.dlhk@jayapurakab.go.id',
-            'password'          => bcrypt('author.dlhk@jayapurakab.go.id')
+            'email'             => 'author.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('author.dlhk@jayapurakota.go.id')
         ]);
-        $author->assignRole($authorRole);
+        $authorDLHK->assignRole($authorRole);
 
         // supervisor
-        $supervisor = User::create([
-            'name'              => 'Supervisor',
-            'slug'              => 'supervisor',
-            // 'picture'           => 'gambar/pengguna/03.jpg',
-            'email'             => 'supervisor.dlhk@jayapurakab.go.id',
-            'password'          => bcrypt('supervisor.dlhk@jayapurakab.go.id')
+        $supervisorDLHK = User::create([
+            'name'              => 'Supervisor DLHK',
+            'slug'              => 'supervisor-dlhk',
+            'picture'           => 'gambar/pengguna/03.jpg',
+            'email'             => 'supervisor.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('supervisor.dlhk@jayapurakota.go.id')
         ]);
-        $supervisor->assignRole($supervisorRole);
+        $supervisorDLHK->assignRole($supervisorRole);
 
 
 

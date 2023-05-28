@@ -22,7 +22,7 @@
                     @if(empty($data->gambar))
                         <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar">
                     @else
-                        <a href="{{ url('gambar/berita/' . $data->slug ?? '') }}">
+                        <a href="{{ url('berita/' . $data->slug ?? '') }}">
                             <img src="{{ asset('gambar/berita/'.$data->gambar) }}" alt="Gambar">
                         </a>
                     @endif

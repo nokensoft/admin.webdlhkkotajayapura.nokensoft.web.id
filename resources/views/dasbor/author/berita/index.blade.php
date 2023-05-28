@@ -46,35 +46,35 @@
                             <th>Penulis</th>
                             <th class="text-center" width="210px">Opsi</th>
                         </tr>
-                        @foreach ($data as  $berita)
+                        @foreach ($datas as  $data)
                         <tr>
                             <td class="text-center">{{ ++$i }}</td>
                             <th>
-                                @if (empty($berita->gambar))
-                                <img src="{{asset('gambar/berita/00.jpg')}}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
+                                @if (empty($data->gambar))
+                                <img src="{{ asset('gambar/berita/00.jpg') }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
                                 @else
-                                <a href="{{ asset($berita->gambar) }}" target="_blank">
-                                    <img src="{{ asset('gambar/berita/'.$berita->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
+                                <a href="{{ asset('gambar/berita/' . $data->gambar) }}" target="_blank">
+                                    <img src="{{ asset('gambar/berita/' . $data->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
                                 </a>
                                 @endif
                             </th>
                             <td>
-                                <a href="{{ url('berita/' . $berita->slug) }}" target="_blank">
-                                    {{ $berita->judul }}
+                                <a href="{{ url('berita/' . $data->slug) }}" target="_blank">
+                                    {{ $data->judul }}
                                 </a>
                             </td>
-                            <td> {{ Str::limit($berita->konten_singkat, 100) }} </td>
-                            <td> <a href="{{ url('berita/kategori', $berita->kategori->kategori_slug) }}" target="_blank">{{ $berita->kategori->name }}</a> </td>
-                            <td> {{ $berita->author->name }} </td>
+                            <td> {{ Str::limit($data->konten_singkat, 100) }} </td>
+                            <td> <a href="{{ url('berita/kategori', $data->kategori->kategori_slug) }}" target="_blank">{{ $data->kategori->name }}</a> </td>
+                            <td> {{ $data->author->name }} </td>
                             <td class="text-center">
-                                <form action="{{ url('dasbor/berita', $berita->id) }}" method="POST">
+                                <form action="{{ url('dasbor/berita', $data->id) }}" method="POST">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Opsi <i class="mdi mdi-chevron-down"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $berita->slug.'/detail') }}"><i class="fe-eye"></i> Detail</a>
-                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $berita->slug.'/edit') }}"><i class="fe-edit"></i> Ubah</a>
+                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/detail') }}"><i class="fe-eye"></i> Detail</a>
+                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/edit') }}"><i class="fe-edit"></i> Ubah</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
@@ -87,7 +87,7 @@
                         </table>
                     </div>
                     <!-- end .mt-4 -->
-                    {!! $data->render() !!}
+                    {!! $datas->render() !!}
                     <!-- end row-->
                 </div>
                 <!-- End inbox-rightbar-->

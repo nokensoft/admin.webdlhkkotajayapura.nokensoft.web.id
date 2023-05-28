@@ -14,9 +14,9 @@
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 @if (!Auth::user()->picture)
-                                <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar profil pengguna" class="rounded-circle">
+                                <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" class="rounded-circle">
                                 @else
-                                <img src="{{ asset(Auth::user()->picture) }}" alt="Gambar" class="rounded-circle">
+                                <img src="{{ asset(Auth::user()->picture) }}" alt="Gambar" title="{{ Auth::user()->name }}" class="rounded-circle">
                                 @endif
                                 <span class="pro-user-name ml-1">
                                     {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>

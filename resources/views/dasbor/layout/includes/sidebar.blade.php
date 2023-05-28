@@ -9,13 +9,13 @@
                     <div class="text-center">
 
                         @if (!Auth::user()->picture)
-                        <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+                        <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="user-img" class="rounded-circle avatar-md">
                         @else
-                        <img src="{{ asset(Auth::user()->picture) }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+                        <img src="{{ asset(Auth::user()->picture) }}" alt="user-img" title="{{ Auth::user()->name }}" class="rounded-circle avatar-md">
                         @endif
 
                         <div class="dropdown">
-                            <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block"
+                            <a href="{{ url('dasbor/pengguna/akun-saya') }}" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block"
                                 data-toggle="dropdown">{{ Auth::user()->name }}</a>
                             <div class="dropdown-menu user-pro-dropdown">
 

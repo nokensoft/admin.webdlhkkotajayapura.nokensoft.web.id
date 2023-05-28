@@ -7,8 +7,8 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
-                    <li class="breadcrumb-item active">Kelola Pengguna</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item active">Pengguna</li>
                 </ol>
             </div>
             <h4 class="page-title">Pengguna</h4>
@@ -25,7 +25,7 @@
                     @include('dasbor.admin.users.menu')
                 </div>
                 <div class="inbox-rightbar">
-                    <form action="{{ url('app/users') }}" method="get">
+                    <form action="{{ url('dasbor/pengguna') }}" method="get">
                         <div class="input-group mb-3">
                             <input type="search" name="s" class="form-control" placeholder="Search">
                             <button type="submit" class="btn btn-primary">Search</button>
@@ -47,11 +47,9 @@
                                 <td class="text-center">{{ ++$i }}</td>
                                 <td class="align-middle">
                                     @if ($user->picture)
-                                    <img src="{{asset('gambar/pengguna')}}/{{$user->picture}}" alt="allal"
-                                        class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                    <img src="{{ asset($user->picture) }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
                                     @else
-                                    <img src="{{asset('gambar/pengguna/00.jpg')}}" alt="allal"
-                                        class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                    <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
                                     @endif
                                 </td>
                                 <td>{{ $user->name }}</td>

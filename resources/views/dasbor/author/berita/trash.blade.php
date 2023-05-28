@@ -45,13 +45,14 @@
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>
-                                @if (empty($berita->gambar))
+                                @if (empty($data->gambar))
                                 <img src="{{asset('gambar/berita/00.jpg')}}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
                                 @else
-                                <a href="{{ asset($berita->gambar) }}" target="_blank">
-                                    <img src="{{ asset('gambar/berita/'.$berita->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
+                                <a href="{{ asset('gambar/berita/' . $data->gambar ?? '') }}" target="_blank">
+                                    <img src="{{ asset('gambar/berita/' . $data->gambar ?? '') }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
                                 </a>
                                 @endif
+                                {{ $data->gambar ?? 'asdfsdf'}}
                             </td>
                             <td>{{ $data->judul }}</td>
                             <td class="text-center">
