@@ -39,8 +39,8 @@ use Illuminate\Support\Facades\Route;
         Route::post('berita/kategori','store')
             ->name('dasbor.kategori.store');
 
-        // show
-        Route::get('berita/kategori/{id}/show','show')
+        // show / detail
+        Route::get('berita/kategori/{id}/detail','show')
             ->name('dasbor.kategori.show');
 
         // edit

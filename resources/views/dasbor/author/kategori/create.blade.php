@@ -7,7 +7,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                            <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Kelola Berita</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Berita</a></li>
                             <li class="breadcrumb-item"><a href="{{ url('dasbor/berita/kategori') }}">Kategori</a></li>
                             <li class="breadcrumb-item active">Tambah</li>
                         </ol>
@@ -38,7 +38,7 @@
                                 
                                 <div class="form-group">
                                     <label for="name" class="form-label">Judul Kategori <span class="text-danger">*</span></label>
-                                    <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Judul Kategori" required>
+                                    <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Judul Kategori">
                                     @if ($errors->has('name'))
                                     <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('name') }}</small>
@@ -48,25 +48,26 @@
                                 <!-- input item end -->
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Status <span class="text-danger">*</span></label>
-                                    <select name="status" class="form-control" required>
-                                        <option value="publish">Publish</option>
-                                        <option value="draft">Draft</option>
-                                    </select>
-                                    @if ($errors->has('status'))
+                                    <label for="deskripsi" class="form-label">Deskripsi <span class="text-danger">*</span></label>
+                                    <textarea name="deskripsi" class="form-control" rows="5" placeholder="Deskripsi Kategori">{{ old('deskripsi') }}</textarea>
+                                    @if ($errors->has('deskripsi'))
                                         <span class="text-danger" role="alert">
-                                            <small>{{ $errors->first('status') }}</small>
+                                            <small>{{ $errors->first('deskripsi') }}</small>
                                         </span>
                                     @endif
                                 </div>
                                 <!-- input item end -->
 
                                 <div class="form-group">
-                                    <label for="deskripsi" class="form-label">Deskripsi <span class="text-danger">*</span></label>
-                                    <textarea name="deskripsi" class="form-control" rows="5" required placeholder="Deskripsi Kategori">{{ old('deskripsi') }}</textarea>
-                                    @if ($errors->has('deskripsi'))
+                                    <label for="name" class="form-label">Status <span class="text-danger">*</span></label>
+                                    <select name="status" class="form-control">
+                                        <option hidden>Pilih</option>
+                                        <option value="Publish">Publish</option>
+                                        <option value="Draft">Draft</option>
+                                    </select>
+                                    @if ($errors->has('status'))
                                         <span class="text-danger" role="alert">
-                                            <small>{{ $errors->first('deskripsi') }}</small>
+                                            <small>{{ $errors->first('status') }}</small>
                                         </span>
                                     @endif
                                 </div>

@@ -1,14 +1,13 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Kelola Berita</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Berita</a></li>
                     <li class="breadcrumb-item active">Trash</li>
                 </ol>
             </div>
@@ -16,7 +15,7 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- row end -->
 
 <div class="row">
     <div class="col-12">
@@ -60,7 +59,7 @@
                                     <div class="col-6">
                                         <form action="{{ url('dasbor/berita/restore',$data->id) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-sm btn-success">Restore</button>
+                                            <button type="submit" class="btn btn-sm btn-success">Kembalikan</button>
                                         </form>
                                     </div>
                                     <div class="col-6">
@@ -68,7 +67,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger ms-1 show_confirm" data-toggle="tooltip"
-                                                title='Delete'>Delete</button>
+                                                title='Delete'>Hapus</button>
                                         </form>
                                     </div>
                                 </div>
@@ -87,15 +86,9 @@
     </div> <!-- end col -->
 
 </div>
-</div>
-
-<!-- end row -->
-
-<!--end wrapper-->
+<!-- row end -->
 
 @stop
-
-
 
 @push('script-footer')
 

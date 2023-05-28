@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Kelola Berita</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Berita</a></li>
                     <li class="breadcrumb-item active">Ubah</li>
                 </ol>
             </div>
@@ -40,32 +40,67 @@
 
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul Berita <span class="text-danger">*</span></label>
-                            <input type="text" name="judul" class="form-control" value="{{ old('judul',$data->judul) }}" placeholder="Judul Berita" required>
+                            <input type="text" name="judul" class="form-control" value="{{ old('judul',$data->judul) }}" placeholder="Judul Berita">
+                            @if ($errors->has('judul'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-3">{{ $errors->first('judul') }}</small>
+                                </span>
+                            @endif
                         </div>
                         <!-- input item end-->
 
                         <div class="form-group">
-                            <label for="category_id" class="form-label d-block">Kategori <span class="text-danger">*</span></label>
-                            <select class="form-control" name="category_id" id="exampleFormControlSelect1" required>
+                            <label for="category_id" class="form-label d-block">Pilih <span class="text-danger">*</span></label>
+                            <select class="form-control" name="category_id" id="exampleFormControlSelect1">
                                 <option value="{{ $data->kategori->id }}" hidden>{{ $data->kategori->name }}</option>
                                 @foreach ($kategori as $kategori)
                                 <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
                                 @endforeach
                             </select>
+                            @if ($errors->has('category_id'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-3">{{ $errors->first('category_id') }}</small>
+                                </span>
+                            @endif
                         </div>
                         <!-- input item end-->
 
                         <div class="mb-3">
                             <label for="konten_singkat" class="form-label">Konten Singkat</label>
-                            <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3" required>{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
+                            <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3">{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
+                            @if ($errors->has('konten_singkat'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-3">{{ $errors->first('konten_singkat') }}</small>
+                                </span>
+                            @endif
                         </div>
                         <!-- input item end-->
 
                         <div class="mb-3">
                             <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                            <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="10" required>{{ old('konten',$data->konten) }}</textarea>
+                            <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="10">{{ old('konten',$data->konten) }}</textarea>
+                            @if ($errors->has('konten'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-3">{{ $errors->first('konten') }}</small>
+                                </span>
+                            @endif
                         </div>
                         <!-- input item end-->
+
+                        <div class="form-group">
+                            <label for="status" class="form-label">Status {{$data->status}} </label>
+                            <select name="status" class="form-control">
+                                <option value="" hidden></option>
+                                <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
+                                <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
+                            </select>
+                            @if ($errors->has('status'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-3">{{ $errors->first('status') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item end -->
 
 
                     </div>
@@ -83,10 +118,15 @@
                             </div>
                             <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
                             <div class="custom-file w-100">
-                                <input type="file" name="gambar" class="custom-file-input" id="gambar" required>
+                                <input type="file" name="gambar" class="custom-file-input" id="gambar">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
+                            @if ($errors->has('gambar'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-3">{{ $errors->first('gambar') }}</small>
+                                </span>
+                            @endif
                         </div>
                         <!-- input item end-->
 

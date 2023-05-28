@@ -47,9 +47,17 @@ class KategoriController extends Controller
         return view('dasbor.author.kategori.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // CREATE
     public function create()
     {
         return view('dasbor.author.kategori.create');
+    }
+
+    // SHOW
+    public function show($slug)
+    {
+        $data = KategoriBerita::where('kategori_slug', $slug)->first();
+        return view('dasbor.author.kategori.show', compact('data'));
     }
 
     public function trash()

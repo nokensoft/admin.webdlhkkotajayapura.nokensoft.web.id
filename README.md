@@ -20,4 +20,5 @@ Buat model dengan controller, resources, factory, seeder, migration
 
 ## NOTES
 
-🏷️ buat semua 'slug' unique
+🏷️ dasbor > buat semua 'slug' unique
+🏷️ dasbor > berita > create : saat proses tambah tapi gambar kosong, munculkan pesan error di bawah field gambar

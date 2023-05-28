@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
 
-
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
@@ -45,18 +44,18 @@
                             <!-- input item end -->
 
                             <div class="form-group">
-                                <label for="name" class="form-label">Status {{$kategori->status}} </label>
+                                <label for="deskripsi" class="form-label">Deskripsi <span class="text-danger">*</span></label>
+                                <textarea name="deskripsi" class="form-control" rows="5">{{ old('deskripsi',$kategori->deskripsi) }}</textarea>
+                            </div>
+                            <!-- input item end -->
+
+                            <div class="form-group">
+                                <label for="status" class="form-label">Status {{$kategori->status}} </label>
                                 <select name="status" class="form-control">
                                     <option value="" hidden></option>
                                     <option value="Draft" @if($kategori->status == 'Draft') Selected @endif>Draft</option>
                                     <option value="Publish" @if($kategori->status == 'Publish') Selected @endif>Publish</option>
                                 </select>
-                            </div>
-                            <!-- input item end -->
-
-                            <div class="form-group">
-                                <label for="deskripsi" class="form-label">Deskripsi <span class="text-danger">*</span></label>
-                                <textarea name="deskripsi" class="form-control" rows="5">{{ old('deskripsi',$kategori->deskripsi) }}</textarea>
                             </div>
                             <!-- input item end -->
 
