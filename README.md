@@ -18,7 +18,7 @@ Buat model dengan controller, resources, factory, seeder, migration
     php artisan make:model NamaModel -crfsm
 ```
 
-## NOTES
+## NOTES for Johan
 
 🏷️ dasbor > buat semua 'slug' unique
 🏷️ dasbor > berita > create : saat proses tambah tapi gambar kosong, munculkan pesan error di bawah field gambar
