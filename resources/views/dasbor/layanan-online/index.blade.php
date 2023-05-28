@@ -39,9 +39,9 @@
                             <table class="table table-bordered">
                                 <tr>
                                     <th>No</th>
-                                    <th>Thumbnail</th>
+                                    <th>Gambar</th>
                                     <th>Judul</th>
-                                    <th>Sub Judul</th>
+                                    <th>Keterangan Singkat</th>
                                     <th>URL</th>
                                     <th class="text-center">Opsi</th>
                                 </tr>

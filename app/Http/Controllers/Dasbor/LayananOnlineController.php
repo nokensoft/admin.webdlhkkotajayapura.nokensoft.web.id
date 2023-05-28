@@ -80,16 +80,17 @@ class LayananOnlineController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'judul'                     => 'required',
-                'keterangan_singkat'        => 'required',
-                'keterangan_lengkap'        => 'max:255',
-                'url'                       => 'required',
-                'status'                    => 'required',
-                'gambar'                   => 'required|image|mimes:jpeg,png,jpg|max:2024',
-            ],[
+                'judul'                         => 'required',
+                'keterangan_singkat'            => 'required',
+                'keterangan_lengkap'            => 'required',
+                'url'                           => 'required',
+                'status'                        => 'required',
+                'gambar'                        => 'image|mimes:jpeg,png,jpg',
+            ],
+            [
                 'judul.required'                => 'Judul  tidak boleh kosong',
-                'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
-                'keterangan_lengkap.max'   => 'Keterangan Lengkap tidak boleh lebih dari 255 karakter.',
+                'keterangan_singkat.required'   => 'Keterangan singkat tidak boleh kosong',
+                'lengkap.required'              => 'Keterangan lengkap tidak boleh kosong',
                 'gambar.required'               => 'Gambar tidak boleh kosong',
                 'gambar.mimes'                  => 'Gambar harus dengan jenis PNG,JPG,JPEG',
                 'status.required'               => 'Status tidak boleh kosong',
@@ -144,16 +145,17 @@ class LayananOnlineController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'judul'                     => 'required',
-                'keterangan_singkat'        => 'required',
-                'keterangan_lengkap'        => 'max:255',
-                'url'                       => 'required',
-                'status'                    => 'required',
-                'gambar'                   => 'image|mimes:jpeg,png,jpg',
-            ],[
+                'judul'                         => 'required',
+                'keterangan_singkat'            => 'required',
+                'keterangan_lengkap'            => 'required',
+                'url'                           => 'required',
+                'status'                        => 'required',
+                'gambar'                        => 'image|mimes:jpeg,png,jpg',
+            ],
+            [
                 'judul.required'                => 'Judul  tidak boleh kosong',
-                'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
-                'keterangan_lengkap.max'   => 'Keterangan Lengkap tidak boleh lebih dari 255 karakter.',
+                'keterangan_singkat.required'   => 'Keterangan singkat tidak boleh kosong',
+                'lengkap.required'              => 'Keterangan lengkap tidak boleh kosong',
                 'gambar.required'               => 'Gambar tidak boleh kosong',
                 'gambar.mimes'                  => 'Gambar harus dengan jenis PNG,JPG,JPEG',
                 'status.required'               => 'Status tidak boleh kosong',

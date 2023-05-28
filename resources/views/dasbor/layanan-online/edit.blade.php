@@ -38,99 +38,108 @@
                 <form action="{{route('dasbor.layananonline.update',['id'=> $data->id])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                <div class="mb-3">
-                    <label for="judul" class="form-label">Judul <span class="text-danger">*</span></label>
-                    <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul" value="{{ old('judul',$data->judul) }}">
+                    
+                    <div class="row">
 
-                    @if ($errors->has('judul'))
-                        <span class="text-danger" role="alert">
-                            <small>{{ $errors->first('judul') }}</small>
-                        </span>
-                    @endif
-                    <!-- error message end -->
-                </div>
-                <!-- input item end -->
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="judul" class="form-label">Judul <span class="text-danger">*</span></label>
+                                <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul" value="{{ old('judul',$data->judul) }}">
 
-                <div class="mb-3">
-                    <label for="url" class="form-label">Tautan / URL  <span class="text-danger">*</span></label>
-                    <input type="text" id="url" name="url" class="form-control" placeholder="Misal : halaman/informasi-lingkungan " value="{{ old('url',$data->url) }}">
+                                @if ($errors->has('judul'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul') }}</small>
+                                    </span>
+                                @endif
+                                <!-- error message end -->
+                            </div>
+                            <!-- input item end -->
 
-                    @if ($errors->has('url'))
-                        <span class="text-danger" role="alert">
-                            <small>{{ $errors->first('url') }}</small>
-                        </span>
-                    @endif
-                    <!-- error message end -->
-                </div>
-                <!-- input item end -->
+                            <div class="form-group">
+                                <label for="url" class="form-label">Tautan / URL  <span class="text-danger">*</span></label>
+                                <input type="text" id="url" name="url" class="form-control" placeholder="Misal : halaman/informasi-lingkungan " value="{{ old('url',$data->url) }}">
 
-                <div class="mb-3">
-                    <label for="keterangan_singkat" class="form-label">Keterangan Singkat</label>
-                    <textarea name="keterangan_singkat" id="keterangan_singkat" rows="3" class="form-control" placeholder="Keterangan Singkat">{{ old('keterangan_singkat',$data->keterangan_singkat) }}</textarea>
-                    @if ($errors->has('keterangan_singkat'))
-                        <span class="text-danger" role="alert">
-                            <small>{{ $errors->first('keterangan_singkat') }}</small>
-                        </span>
-                    @endif
-                </div>
-                <!-- input item end -->
+                                @if ($errors->has('url'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('url') }}</small>
+                                    </span>
+                                @endif
+                                <!-- error message end -->
+                            </div>
+                            <!-- input item end -->
 
-                <div class="mb-3">
-                    <label for="keterangan_lengkap" class="form-label">Keterangan Lengkap <span class="text-danger">*</span></label>
-                    <textarea name="keterangan_lengkap" class="ckeditor form-control" id="keterangan_lengkap" cols="30" rows="10">{{ old('keterangan_lengkap',$data->keterangan_lengkap) }}</textarea>
-                    @if ($errors->has('keterangan_lengkap'))
-                    <span class="text-danger" role="alert">
-                        <small>{{ $errors->first('keterangan_lengkap') }}</small>
-                    </span>
-                @endif
-                </div>
-                <!-- input item end -->
+                            <div class="form-group">
+                                <label for="keterangan_singkat" class="form-label">Keterangan Singkat</label>
+                                <textarea name="keterangan_singkat" id="keterangan_singkat" rows="3" class="form-control" placeholder="Keterangan Singkat">{{ old('keterangan_singkat',$data->keterangan_singkat) }}</textarea>
+                                @if ($errors->has('keterangan_singkat'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('keterangan_singkat') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- input item end -->
 
-                <div class="mb-3">
+                            <div class="form-group">
+                                <label for="keterangan_lengkap" class="form-label">Keterangan Lengkap <span class="text-danger">*</span></label>
+                                <textarea name="keterangan_lengkap" class="ckeditor form-control" id="keterangan_lengkap" cols="30" rows="10">{{ old('keterangan_lengkap',$data->keterangan_lengkap) }}</textarea>
+                                @if ($errors->has('keterangan_lengkap'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('keterangan_lengkap') }}</small>
+                                </span>
+                            @endif
+                            </div>
+                            <!-- input item end -->
 
-                    <div class="mb-2">
-                        @if(empty($data->gambar))
-                        <img src="{{ asset('gambar/informasi-lingkungan/00.jpg') }}" class="img-thumbnail" id="preview-gambar"
-                            alt="Gambar" width="200px">
-                        @else
-                        <a href="{{ asset($data->gambar) }}" target="_blank">
-                            <img src="{{ asset($data->gambar) }}" class="img-thumbnail" alt="Gambar" id="preview-gambar"
-                                width="200px">
-                        </a>
-                        @endif
-                    </div>
-                    <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
-                    @if ($errors->has('gambar'))
-                        <span class="text-danger" role="alert">
-                            <small>{{ $errors->first('gambar') }}</small>
-                        </span>
-                    @endif
-                    <div class="custom-file">
-                        <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                            <div class="form-group">
+                                <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
+                                <select class="form-control" name="status" id="exampleFormControlSelect1">
+                                    <option value="">Status</option>
+                                    <option value="publish" @if(old('status',$data->status) == $data->status) Selected @endif>Active</option>
+                                    <option value="draft" @if(old('status',$data->status) ==   $data->status ) Selected @endif>Inactive</option>
+                                </select>
 
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
+                                @if ($errors->has('status'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
+                                    </span>
+                                @endif
+                                <!-- error message end -->
+                            </div>
+                            <!-- input item end -->
 
-                </div>
-                <!-- input item end -->
+                        </div> <!-- end col -->
 
-                <div class="form-group">
-                    <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
-                    <select class="form-control col-md-3" name="status" id="exampleFormControlSelect1">
-                        <option value="">Status</option>
-                        <option value="publish" @if(old('status',$data->status) == $data->status) Selected @endif>Active</option>
-                        <option value="draft" @if(old('status',$data->status) ==   $data->status ) Selected @endif>Inactive</option>
-                    </select>
+                        <div class="col-md-4">
 
-                    @if ($errors->has('status'))
-                        <span class="text-danger" role="alert">
-                            <small>{{ $errors->first('status') }}</small>
-                        </span>
-                    @endif
-                    <!-- error message end -->
-                </div>
-                <!-- input item end -->
+                            <div class="form-group">
 
+                                <div class="mb-2">
+                                    @if(empty($data->gambar))
+                                    <img src="{{ asset('gambar/informasi-lingkungan/00.jpg') }}" class="img-thumbnail img-fluid" id="preview-gambar" alt="Gambar">
+                                    @else
+                                    <a href="{{ asset($data->gambar) }}" target="_blank">
+                                        <img src="{{ asset($data->gambar) }}" class="img-thumbnail img-fluid" alt="Gambar" id="preview-gambar">
+                                    </a>
+                                    @endif
+                                </div>
+                                <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                                <div class="custom-file">
+                                    <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                                @if ($errors->has('gambar'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
+                                    </span>
+                                @endif
+
+                            </div>
+                            <!-- input item end -->
+
+                        </div> <!-- end col -->
+
+                    </div> <!-- end row -->                  
+                    
             </div>
         </div> <!-- end card -->
     </div> <!-- end col -->

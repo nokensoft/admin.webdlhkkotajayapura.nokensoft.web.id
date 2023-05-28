@@ -11,7 +11,7 @@
                         </li>
                     </ol>
                 </div>
-                <h4 class="page-title">Hello {{ Auth::user()->name }} </h4>
+                <h4 class="page-title">Dasbor</h4>
             </div>
         </div>
     </div>
@@ -23,14 +23,33 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                <i class="mdi mdi-newspaper font-22 avatar-title text-success"></i>
+                            <div class="avatar-lg rounded bg-soft-success border-success border">
+                                <i class="mdi mdi-newspaper display-4 avatar-title text-success"></i>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="text-right">
-                                <h3 class="mt-1"><span data-plugin="counterup">100</span></h3>
+                                <h3 class="mt-1 h1"><span data-plugin="counterup">{{ $dasbor_jml_berita ?? '' }}</span></h3>
                                 <p class="text-muted mb-1 text-truncate">Total Berita</p>
+                            </div>
+                        </div>
+                    </div> <!-- end row-->
+                </div> <!-- end widget-rounded-circle-->
+           </div>
+        </div> <!-- end col-->
+        <div class="col-md-6 col-xl-3">
+           <div class="card">
+                <div class="widget-rounded-circle card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="avatar-lg rounded bg-soft-success border-success border">
+                                <i class="mdi mdi-newspaper display-4 avatar-title text-success"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-right">
+                                <h3 class="mt-1 h1"><span data-plugin="counterup">{{ $dasbor_jml_kategori ?? '' }}</span></h3>
+                                <p class="text-muted mb-1 text-truncate">Total Kategori Berita</p>
                             </div>
                         </div>
                     </div> <!-- end row-->
@@ -43,14 +62,14 @@
             <div class="widget-rounded-circle card-body">
                 <div class="row">
                     <div class="col-6">
-                        <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                            <i class="fe-users font-22 avatar-title text-success"></i>
+                        <div class="avatar-lg rounded bg-soft-success border-success border">
+                            <i class="mdi mdi-leaf display-4 avatar-title text-success"></i>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="text-right">
-                            <h3 class="text-dark mt-1"><span data-plugin="counterup">127</span></h3>
-                            <p class="text-muted mb-1 text-truncate">Total Pengguna</p>
+                            <h3 class="text-dark mt-1 h1"><span data-plugin="counterup">{{ $dasbor_jml_informasi_lingkungan ?? '' }}</span></h3>
+                            <p class="text-muted mb-1 text-truncate">Total Info Lingkungan</p>
                         </div>
                     </div>
                 </div> <!-- end row-->
@@ -60,43 +79,103 @@
 
         <div class="col-md-6 col-xl-3">
             <div class="card">
-                <div class="widget-rounded-circle card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                <i class="fe-bar-chart-line- font-22 avatar-title text-info"></i>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-right">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">0.58</span>%</h3>
-                                <p class="text-muted mb-1 text-truncate">Conversion</p>
-                            </div>
-                        </div>
-                    </div> <!-- end row-->
-                </div> <!-- end widget-rounded-circle-->
+             <div class="widget-rounded-circle card-body">
+                 <div class="row">
+                     <div class="col-6">
+                         <div class="avatar-lg rounded bg-soft-success border-success border">
+                             <i class="mdi mdi-cursor-default-click display-4 avatar-title text-success"></i>
+                         </div>
+                     </div>
+                     <div class="col-6">
+                         <div class="text-right">
+                             <h3 class="text-dark mt-1 h1"><span data-plugin="counterup">{{ $dasbor_jml_layanan_online ?? '' }}</span></h3>
+                             <p class="text-muted mb-1 text-truncate">Total Layanan Online</p>
+                         </div>
+                     </div>
+                 </div> <!-- end row-->
+             </div> <!-- end widget-rounded-circle-->
             </div>
-        </div> <!-- end col-->
+         </div> <!-- end col-->
 
-        <div class="col-md-6 col-xl-3">
-            <div class="card">
+         <div class="col-md-6 col-xl-3">
+             <div class="card">
+              <div class="widget-rounded-circle card-body">
+                  <div class="row">
+                      <div class="col-6">
+                          <div class="avatar-lg rounded bg-soft-success border-success border">
+                              <i class="mdi mdi-link display-4 avatar-title text-success"></i>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                          <div class="text-right">
+                              <h3 class="text-dark mt-1 h1"><span data-plugin="counterup">{{ $dasbor_jml_link_terkait ?? '' }}</span></h3>
+                              <p class="text-muted mb-1 text-truncate">Total Link Terkait</p>
+                          </div>
+                      </div>
+                  </div> <!-- end row-->
+              </div> <!-- end widget-rounded-circle-->
+             </div>
+          </div> <!-- end col-->
+
+          <div class="col-md-6 col-xl-3">
+              <div class="card">
+               <div class="widget-rounded-circle card-body">
+                   <div class="row">
+                       <div class="col-6">
+                           <div class="avatar-lg rounded bg-soft-success border-success border">
+                               <i class="mdi mdi-text-box-multiple-outline display-4 avatar-title text-success"></i>
+                           </div>
+                       </div>
+                       <div class="col-6">
+                           <div class="text-right">
+                               <h3 class="text-dark mt-1 h1"><span data-plugin="counterup">{{ $dasbor_jml_halaman ?? '' }}</span></h3>
+                               <p class="text-muted mb-1 text-truncate">Total Halaman</p>
+                           </div>
+                       </div>
+                   </div> <!-- end row-->
+               </div> <!-- end widget-rounded-circle-->
+              </div>
+           </div> <!-- end col-->
+
+          <div class="col-md-6 col-xl-3">
+              <div class="card">
+               <div class="widget-rounded-circle card-body">
+                   <div class="row">
+                       <div class="col-6">
+                           <div class="avatar-lg rounded bg-soft-success border-success border">
+                               <i class="mdi mdi-forum-outline display-4 avatar-title text-success"></i>
+                           </div>
+                       </div>
+                       <div class="col-6">
+                           <div class="text-right">
+                               <h3 class="text-dark mt-1 h1"><span data-plugin="counterup">{{ $dasbor_jml_pesan ?? '' }}</span></h3>
+                               <p class="text-muted mb-1 text-truncate">Total Pesan</p>
+                           </div>
+                       </div>
+                   </div> <!-- end row-->
+               </div> <!-- end widget-rounded-circle-->
+              </div>
+           </div> <!-- end col-->
+
+           <div class="col-md-6 col-xl-3">
+               <div class="card">
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
-                                <i class="fe-eye font-22 avatar-title text-warning"></i>
+                            <div class="avatar-lg rounded bg-soft-success border-success border">
+                                <i class="mdi mdi-account-group display-4 avatar-title text-success"></i>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="text-right">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">78.41</span>k</h3>
-                                <p class="text-muted mb-1 text-truncate">Today's Visits</p>
+                                <h3 class="text-dark mt-1 h1"><span data-plugin="counterup">{{ $dasbor_jml_pengguna ?? '' }}</span></h3>
+                                <p class="text-muted mb-1 text-truncate">Total Pengguna</p>
                             </div>
                         </div>
                     </div> <!-- end row-->
                 </div> <!-- end widget-rounded-circle-->
-            </div>
-        </div> <!-- end col-->
+               </div>
+            </div> <!-- end col-->
     </div>
 
     @elseif (Auth::user()->hasRole('editor'))
@@ -106,8 +185,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                <i class="mdi mdi-newspaper font-22 avatar-title text-success"></i>
+                            <div class="avatar-lg rounded bg-soft-success border-success border">
+                                <i class="mdi mdi-newspaper display-4 avatar-title text-success"></i>
                             </div>
                         </div>
                         <div class="col-6">
@@ -126,8 +205,8 @@
             <div class="widget-rounded-circle card-body">
                 <div class="row">
                     <div class="col-6">
-                        <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                            <i class="fe-users font-22 avatar-title text-success"></i>
+                        <div class="avatar-lg rounded bg-soft-success border-success border">
+                            <i class="fe-users display-4 avatar-title text-success"></i>
                         </div>
                     </div>
                     <div class="col-6">
@@ -146,8 +225,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                <i class="fe-bar-chart-line- font-22 avatar-title text-info"></i>
+                            <div class="avatar-lg rounded bg-soft-info border-info border">
+                                <i class="fe-bar-chart-line- display-4 avatar-title text-info"></i>
                             </div>
                         </div>
                         <div class="col-6">
@@ -166,8 +245,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
-                                <i class="fe-eye font-22 avatar-title text-warning"></i>
+                            <div class="avatar-lg rounded bg-soft-warning border-warning border">
+                                <i class="fe-eye display-4 avatar-title text-warning"></i>
                             </div>
                         </div>
                         <div class="col-6">
@@ -188,8 +267,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                <i class="mdi mdi-newspaper font-22 avatar-title text-success"></i>
+                            <div class="avatar-lg rounded bg-soft-success border-success border">
+                                <i class="mdi mdi-newspaper display-4 avatar-title text-success"></i>
                             </div>
                         </div>
                         <div class="col-6">
@@ -208,8 +287,8 @@
             <div class="widget-rounded-circle card-body">
                 <div class="row">
                     <div class="col-6">
-                        <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                            <i class="fe-users font-22 avatar-title text-success"></i>
+                        <div class="avatar-lg rounded bg-soft-success border-success border">
+                            <i class="fe-users display-4 avatar-title text-success"></i>
                         </div>
                     </div>
                     <div class="col-6">
@@ -228,8 +307,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                <i class="fe-bar-chart-line- font-22 avatar-title text-info"></i>
+                            <div class="avatar-lg rounded bg-soft-info border-info border">
+                                <i class="fe-bar-chart-line- display-4 avatar-title text-info"></i>
                             </div>
                         </div>
                         <div class="col-6">
@@ -248,8 +327,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
-                                <i class="fe-eye font-22 avatar-title text-warning"></i>
+                            <div class="avatar-lg rounded bg-soft-warning border-warning border">
+                                <i class="fe-eye display-4 avatar-title text-warning"></i>
                             </div>
                         </div>
                         <div class="col-6">
@@ -270,8 +349,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                <i class="mdi mdi-newspaper font-22 avatar-title text-success"></i>
+                            <div class="avatar-lg rounded bg-soft-success border-success border">
+                                <i class="mdi mdi-newspaper display-4 avatar-title text-success"></i>
                             </div>
                         </div>
                         <div class="col-6">
@@ -290,8 +369,8 @@
             <div class="widget-rounded-circle card-body">
                 <div class="row">
                     <div class="col-6">
-                        <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                            <i class="fe-users font-22 avatar-title text-success"></i>
+                        <div class="avatar-lg rounded bg-soft-success border-success border">
+                            <i class="fe-users display-4 avatar-title text-success"></i>
                         </div>
                     </div>
                     <div class="col-6">
@@ -310,8 +389,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                <i class="fe-bar-chart-line- font-22 avatar-title text-info"></i>
+                            <div class="avatar-lg rounded bg-soft-info border-info border">
+                                <i class="fe-bar-chart-line- display-4 avatar-title text-info"></i>
                             </div>
                         </div>
                         <div class="col-6">
@@ -330,8 +409,8 @@
                 <div class="widget-rounded-circle card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
-                                <i class="fe-eye font-22 avatar-title text-warning"></i>
+                            <div class="avatar-lg rounded bg-soft-warning border-warning border">
+                                <i class="fe-eye display-4 avatar-title text-warning"></i>
                             </div>
                         </div>
                         <div class="col-6">

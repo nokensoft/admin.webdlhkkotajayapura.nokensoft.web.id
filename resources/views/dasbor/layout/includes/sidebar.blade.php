@@ -75,7 +75,7 @@
 
                                                 <a href="{{ url('dasbor/berita') }}">
                                                     <span class="badge badge-success badge-pill float-right">
-                                                        {{ $dasbor_jml_link_terkait ?? '0' }}
+                                                        {{ $dasbor_jml_berita  }}
                                                     </span>
                                                     Berita
                                                 </a>
@@ -83,7 +83,7 @@
                                             <li>
                                                 <a href="{{ url('dasbor/berita/kategori') }}">
                                                     <span class="badge badge-success badge-pill float-right">
-                                                        {{ $dasbor_jml_kategori ?? '0' }}
+                                                        {{ $dasbor_jml_kategori ?? '' }}
                                                     </span>
                                                     Kategori
                                                 </a>
@@ -96,7 +96,7 @@
                                     <a href="{{ url('dasbor/informasi-lingkungan') }}">
                                         <i class="mdi mdi-leaf"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $dasbor_jml_informasi_lingkungan ?? '0' }}
+                                            {{ $dasbor_jml_informasi_lingkungan ?? '' }}
                                         </span>
                                         <span> Info Lingkungan </span>
                                     </a>
@@ -106,7 +106,7 @@
                                     <a href="{{ url('dasbor/layanan-online') }}">
                                         <i class="mdi mdi-cursor-default-click"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $dasbor_jml_layanan_online ?? '0' }}
+                                            {{ $dasbor_jml_layanan_online ?? '' }}
                                         </span>
                                         <span> Layanan Online </span>
                                     </a>
@@ -116,7 +116,7 @@
                                     <a href="{{ url('dasbor/link-terkait') }}">
                                         <i class="mdi mdi-link"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $dasbor_jml_link_terkait ?? '0' }}
+                                            {{ $dasbor_jml_link_terkait ?? '' }}
                                         </span>
                                         <span> Link Terkait </span>
                                     </a>
@@ -126,7 +126,7 @@
                                     <a href="{{ url('dasbor/pesan') }}">
                                         <i class="mdi mdi-forum-outline"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $dasbor_jml_pesan ?? '0' }}
+                                            {{ $dasbor_jml_pesan ?? '' }}
                                         </span>
                                         <span> Pesan </span>
                                     </a>
@@ -136,7 +136,7 @@
                                     <a href="{{ url('dasbor/halaman') }}">
                                         <i class="mdi mdi-text-box-multiple-outline"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $dasbor_jml_halaman ?? '0' }}
+                                            {{ $dasbor_jml_halaman ?? '' }}
                                         </span>
                                         <span> Halaman </span>
                                     </a>
@@ -146,7 +146,7 @@
                                     <a href="{{ url('dasbor/pengguna') }}">
                                         <i class="mdi mdi-account-group"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $dasbor_jml_pengguna ?? '0' }}
+                                            {{ $dasbor_jml_pengguna ?? '' }}
                                         </span>
                                         <span> Pengguna </span>
                                     </a>
@@ -198,7 +198,7 @@
 
                                                 <a href="{{ url('dasbor/berita') }}">
                                                     <span class="badge badge-success badge-pill float-right">
-                                                        {{ $dasbor_jml_link_terkait ?? '0' }}
+                                                        {{ $dasbor_jml_link_terkait ?? '' }}
                                                     </span>
                                                     Berita
                                                 </a>
@@ -206,7 +206,7 @@
                                             <li>
                                                 <a href="{{ url('dasbor/berita/kategori') }}">
                                                     <span class="badge badge-success badge-pill float-right">
-                                                        {{ $dasbor_jml_kategori ?? '0' }}
+                                                        {{ $dasbor_jml_kategori ?? '' }}
                                                     </span>
                                                     Kategori
                                                 </a>
