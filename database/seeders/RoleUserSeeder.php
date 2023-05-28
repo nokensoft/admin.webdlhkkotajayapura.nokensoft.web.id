@@ -54,16 +54,9 @@ class RoleUserSeeder extends Seeder
         */
 
         // ADMIN
-        $adminDLHK = User::create([
-            'name'              => 'Admin DLHK',
-            'slug'              => 'admin-dlhk',
-            'picture'           => 'gambar/pengguna/01.jpg',
-            'email'             => 'admin.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('admin.dlhk@jayapurakota.go.id')
-        ]);
-        $adminDLHK->assignRole($adminRole);
         
         $adminJanzen = User::create([
+            'id'                => 1,
             'name'              => 'Janzen Faidiban',
             'slug'              => 'janzen-faidiban',
             'picture'           => 'gambar/pengguna/05-janzen.jpg',
@@ -71,6 +64,16 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('janzen.dlhk@jayapurakota.go.id')
         ]);
         $adminJanzen->assignRole($adminRole);
+
+        $adminDLHK = User::create([
+            'id'                => 2,
+            'name'              => 'Admin DLHK',
+            'slug'              => 'admin-dlhk',
+            'picture'           => 'gambar/pengguna/01.jpg',
+            'email'             => 'admin.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('admin.dlhk@jayapurakota.go.id')
+        ]);
+        $adminDLHK->assignRole($adminRole);
 
         // EDITOR
         $editorDLHK = User::create([
