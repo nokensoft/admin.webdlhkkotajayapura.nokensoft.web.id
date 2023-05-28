@@ -141,7 +141,7 @@ class BeritaSeeder extends Seeder
             </ol>            
             <p>Dengan mengikuti langkah-langkah ini, diharapkan acara penanaman pohon dapat berjalan dengan sukses dan meningkatkan kesadaran akan pentingnya menjaga kelestarian lingkungan di masyarakat.</p>',
 
-            'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
+            'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
 
             'status'            => 'Publish',
         ]);
