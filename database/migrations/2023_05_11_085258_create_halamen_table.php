@@ -26,7 +26,7 @@ return new class extends Migration
             $table->longText('konten')->nullable();
             $table->string('gambar')->nullable();
 
-            $table->enum('status', ['publish','draft'])->default('publish')->nullable();
+            $table->enum('status', ['Publish','Draft'])->default('Publish')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

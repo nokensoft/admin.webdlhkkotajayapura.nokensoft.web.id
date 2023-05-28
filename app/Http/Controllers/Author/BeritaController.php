@@ -94,18 +94,18 @@ class BeritaController extends Controller
     }
 
      // SHOW
-     public function show($id)
+     public function show($slug)
      {
-         $data = Berita::where('slug',$id)->first();
-         return view('dasbor.author.berita.show',compact('berita'));
+        $data = Berita::where('slug',$slug)->first();
+        return view('dasbor.author.berita.show',compact('data'));
      }
 
      // EDIT
-     public function edit($id)
+     public function edit($slug)
      {
         $kategori = KategoriBerita::where('status','publish')->get();
-        $data = Berita::where('slug',$id)->first();
-         return view('dasbor.author.berita.edit',compact('kategori','berita'));
+        $data = Berita::where('slug',$slug)->first();
+         return view('dasbor.author.berita.edit', compact('kategori','data'));
      }
 
     //  Delete

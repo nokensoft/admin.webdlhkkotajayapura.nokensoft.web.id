@@ -19,14 +19,14 @@ class KategoriBeritaSeeder extends Seeder
             'name'          => 'Laporan Tahunan',
             'kategori_slug'          => 'laporan-tahunan',
             'deskripsi'     => 'Laporan tahunan yang dikeluarkan oleh Dinas Lingkungan Hidup Kota Jayapura agar bisa diakses oleh masyarakat luas.',
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
 
         KategoriBerita::create([
             'name'          => 'Laporan Berkala',
             'kategori_slug' => 'laporan-berkala',
             'deskripsi'     => 'Laporan berkala yang dikeluarkan oleh Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura agar bisa diakses oleh masyarakat luas.',
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
 
         KategoriBerita::create([
@@ -40,14 +40,14 @@ class KategoriBeritaSeeder extends Seeder
             'name'          => 'Hari Raya',
             'kategori_slug'          => 'hari-raya',
             'deskripsi'     => 'Berbagai hari raya yang selalu dirayakan di tingkat lokal, nasional dan internasional.',
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
 
         KategoriBerita::create([
             'name'          => 'Siaran Pers',
             'kategori_slug'          => 'siaran-pers',
             'deskripsi'     => 'Siaran pers yang dilakukan oleh Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura kepada khalayak umum.',
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
     }
 }

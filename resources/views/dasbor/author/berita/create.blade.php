@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -16,7 +15,8 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
+
 @if ($errors->any())
 <div class="alert alert-danger">
     <strong>Whoops!</strong>
@@ -96,24 +96,25 @@
             </div>
         </div> <!-- end card -->
     </div> <!-- end col -->
-
-
 </div>
-<!--end wrapper-->
+<!-- end row -->
 
 <div class="row">
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                <a href="{{ route('dasbor.berita') }}" class="btn btn-light">
-                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
+                    <i class="fe-save"></i> Simpan
+                </button>
+                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light">
+                    <i class="fe-arrow-left mr-1"></i>Kembali
                 </a>
             </div>
         </div>
     </div>
 </div>
 <!-- end row -->
+
 {!! Form::close() !!}
 
 @stop
@@ -123,11 +124,10 @@
 <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
 <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
+<link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
-
 
 @push('script-footer')
 <!-- Select2 js-->
@@ -140,12 +140,11 @@
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
 <!-- Dropzone file uploads-->
 <!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-        <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
-    -->
+    <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
+-->
 
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-
 
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
@@ -162,7 +161,6 @@
                });
 
             });
-
 </script>
 
-  @endpush
+@endpush

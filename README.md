@@ -17,3 +17,7 @@ Buat model dengan controller, resources, factory, seeder, migration
 ```
     php artisan make:model NamaModel -crfsm
 ```
+
+## NOTES
+
+🏷️ buat semua 'slug' unique

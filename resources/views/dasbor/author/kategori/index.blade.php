@@ -42,7 +42,8 @@
                             <th class="text-center">No</th>
                             <th>Nama Kategori</th>
                             <th>Deskripsi</th>
-                            <th>Kategori Slug</th>
+                            <th>Slug</th>
+                            <th>Status</th>
                             <th class="text-center" width="210px">Opsi</th>
                         </tr>
                         @foreach ($datas as  $data)
@@ -53,6 +54,7 @@
                             </td>
                             <td> {{ $data->deskripsi }} </td>
                             <td> {{ $data->kategori_slug }} </td>
+                            <td> {{ $data->status }} </td>
                             <td class="text-center">
                                 <form action="{{ url('dasbor/berita/kategori', $data->id) }}" method="POST">
                                     <div class="btn-group">

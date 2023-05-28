@@ -42,11 +42,11 @@ use Illuminate\Support\Facades\Route;
             ->name('dasbor.berita.store');
 
         // show
-        Route::get('berita/{id}/show','show')
+        Route::get('berita/{slug}/detail','show')
             ->name('dasbor.berita.show');
 
         // edit
-        Route::get('berita/{id}/edit','edit')
+        Route::get('berita/{slug}/edit','edit')
             ->name('dasbor.berita.edit');
 
         // update

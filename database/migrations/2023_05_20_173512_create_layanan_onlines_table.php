@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->string('url')->nullable();
 
-            $table->enum('status',['publish','draft'])->default('publish')->nullable();
+            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

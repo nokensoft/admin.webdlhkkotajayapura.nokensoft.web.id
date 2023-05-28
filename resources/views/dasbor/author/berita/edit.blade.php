@@ -32,7 +32,7 @@
         <div class="card">
             <div class="card-body">
                 {{-- <form action="{{ route('dasbor.halaman.store') }}" method="post" enctype="multipart/form-data"> --}}
-                {!! Form::open(array('url' => route('dasbor.berita.update',['id'=> $berita->id]),'files'=>'true')) !!}
+                {!! Form::open(array('url' => route('dasbor.berita.update',['id'=> $data->id]),'files'=>'true')) !!}
                 @csrf
                 @method('put')
                 <div class="row">
@@ -40,14 +40,14 @@
 
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul Berita <span class="text-danger">*</span></label>
-                            <input type="text" name="judul" class="form-control" value="{{ old('judul',$berita->judul) }}" placeholder="Judul Berita" required>
+                            <input type="text" name="judul" class="form-control" value="{{ old('judul',$data->judul) }}" placeholder="Judul Berita" required>
                         </div>
                         <!-- input item end-->
 
                         <div class="form-group">
                             <label for="category_id" class="form-label d-block">Kategori <span class="text-danger">*</span></label>
                             <select class="form-control" name="category_id" id="exampleFormControlSelect1" required>
-                                <option value="{{ $berita->kategori->id }}" hidden>{{ $berita->kategori->name }}</option>
+                                <option value="{{ $data->kategori->id }}" hidden>{{ $data->kategori->name }}</option>
                                 @foreach ($kategori as $kategori)
                                 <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
                                 @endforeach
@@ -57,13 +57,13 @@
 
                         <div class="mb-3">
                             <label for="konten_singkat" class="form-label">Konten Singkat</label>
-                            <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3" required>{{ old('konten_singkat',$berita->konten_singkat) }}</textarea>
+                            <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3" required>{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
                         </div>
                         <!-- input item end-->
 
                         <div class="mb-3">
                             <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                            <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="10" required>{{ old('konten',$berita->konten) }}</textarea>
+                            <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="10" required>{{ old('konten',$data->konten) }}</textarea>
                         </div>
                         <!-- input item end-->
 
@@ -75,10 +75,10 @@
 
                         <div class="mb-3">
                             <div class="mb-2">
-                                @if(!$berita->gambar)
+                                @if(!$data->gambar)
                                 <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @else
-                                <img src="{{ asset('gambar/berita/'.$berita->gambar) }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset('gambar/berita/'.$data->gambar) }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @endif
                             </div>
                             <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
@@ -105,11 +105,13 @@
 <!--end wrapper-->
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col">
         <div class="card">
             <div class="card-body">
-                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                <a href="{{ route('dasbor.berita') }}" class="btn btn-light">
+                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
+                    <i class="fe-save"></i> Simpan
+                </button>
+                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light">
                     <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                 </a>
             </div>

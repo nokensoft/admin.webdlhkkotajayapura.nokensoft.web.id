@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('pertanyaan')->nullable();
             $table->longText('jawaban')->nullable();
 
-            $table->enum('status',['publish','draft'])->default('publish')->nullable();
+            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

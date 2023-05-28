@@ -49,8 +49,7 @@
                                     <p>{{ $pengaturan->deskripsi_situs }}</p>
                                     <img src="{{ asset('gambar/ilustrasi/3.png') }}" alt="gambar ilustrasi" class="mb-3">
                                     <a href="{{ url('halaman/profil-dinas') }}" class="btn btn-lg btn-success w-100">
-                                        <i class="fa-solid fa-arrow-right me-2"></i>
-                                        Tampilkan Profil Dinas
+                                        <i class="fa-solid fa-arrow-right me-2"></i> Tampilkan Profil Dinas
                                     </a>
                                 </div>
                                 <!-- Banner Sidebar End -->
@@ -70,10 +69,12 @@
 
                                             @if(empty($data->gambar))
                                             <a href="{{ url('berita/' . $data->slug ?? '') }}">
-                                                <img src="{{ asset('file/berita/gambar-0.jpg') }}" alt="Gambar" class="img-fluid">
+                                                <img src="{{ asset('gambar/berita/gambar-0.jpg') }}" alt="Gambar" class="img-fluid">
                                             </a>
                                             @else
-                                            <img src="{{ asset('gambar/berita/'.$data->gambar ) }}" alt="Gambar" class="img-fluid w-100">
+                                            <a href="{{ url('berita/' . $data->slug ?? '') }}" title="Selengkapnya">
+                                                <img src="{{ asset('gambar/berita/' . $data->gambar ) }}" alt="Gambar" class="img-fluid w-100">
+                                            </a>
                                             @endif
 
                                         </div>

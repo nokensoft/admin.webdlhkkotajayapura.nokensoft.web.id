@@ -38,7 +38,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
 
         Berita::create([
@@ -64,7 +64,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
 
         Berita::create([
@@ -90,7 +90,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
 
         Berita::create([
@@ -116,7 +116,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
 
         Berita::create([
@@ -142,7 +142,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
-            'status'        => 'publish',
+            'status'        => 'Publish',
         ]);
 
     }

@@ -1,116 +1,141 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                                <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Kelola Berita</a></li>
-                                <li class="breadcrumb-item active">Detail</li>
-                            </ol>
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Kelola Berita</a></li>
+                    <li class="breadcrumb-item active">Detail</li>
+                </ol>
+            </div>
+            <h4 class="page-title">Detail Berita </h4>
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    
+                    <div class="col-md-8">
+
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Judul</label>
+                            <div class="border p-3">
+                                {{ $data->judul ?? '' }}
+                            </div>
                         </div>
-                        <h4 class="page-title">Detaill Berita </h4>
+                        <!-- item end -->
+
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Slug</label>
+                            <div class="border p-3">
+                                {{ $data->slug ?? '' }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Kategori</label>
+                            <div class="border p-3">
+                                {{ $data->kategori->name }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Konten Singkat</label>
+                            <div class="border p-3">
+                                {!! $data->konten_singkat !!}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Konten</label>
+                            <div class="border p-3">
+                                {!! $data->konten !!}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Status</label>
+                            <div class="border p-3">
+                                {{ $data->status }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Penulis</label>
+                            <div class="border p-3">
+                                {{ $data->author->name }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Tanggal Terbit</label>
+                            <div class="border p-3">
+                                {{ $data->created_at }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Diubah Terbit</label>
+                            <div class="border p-3">
+                                {{ $data->updated_at }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+
+                    </div>
+                    <div class="col-md-4 order-sm-first order-md-last">
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Gambar</label>
+                            <div class="border p-3">
+                                @if(empty($data->gambar)) 
+                                <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" class="w-100">
+                                @else 
+                                <img src="{{ asset('gambar/berita/' . $data->gambar ) }}" alt="Gambar" class="w-100">
+                                @endif
+                            </div>
+                        </div>
+                        <!-- item end -->
+
                     </div>
                 </div>
             </div>
-            <!-- end page title -->
-
-            <div class="row">
-                <div class="card">
-                   <div class="col-lg-12">
-                        <div class="card-body">
-                            <h1></h1>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Judul</label>
-                                            {!! Form::text('title',$berita->title,['readonly','class'=>'form-control']) !!}
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Konten</label>
-                                            <textarea name="body" class="form-control" rows="8" readonly>{{ $berita->body }}</textarea>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="role_id" class="form-label">Kategori </label>
-                                            {!! Form::text('categori',$berita->kategori->name,['readonly','class'=>'form-control']) !!}
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="status" class="form-label">Status</label>
-                                            {!! Form::text('status',$berita->status,['readonly','class'=>'form-control']) !!}
-                                        </div>
-                                        @if($berita->status == 'revisi')
-
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Keterangan Revisi</label>
-                                            <textarea name="body" class="form-control" rows="4" readonly>{{ $berita->ket }}</textarea>
-                                        </div>
-                                        @endif
-                                    </div> <!-- end col -->
-
-                                    <div class="col-md-4">
-                                        <div class="card-box">
-                                            <div class="mb-3">
-                                                <label for="pic">Gambar</label>
-                                                <div class="d-block mb-3">
-                                                    @if(!$berita->image)
-                                                    <img src="{{asset('assets/admin/assets/images/upload.png')}}" id="preview-image"
-                                                    alt="Profile Picture" class="img-thumbnail w-100">
-                                                    @else
-                                                    <img src="{{asset('file/berita')}}/{{ $berita->image  }}" id="preview-image"
-                                                    alt="Profile Picture" class="img-thumbnail w-100">
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div> <!-- end card group -->
-                                    </div>
-
-                                </div> <!-- end row -->
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card-box">
-                                            @if(Auth::user()->hasRole('author'))
-                                            <a href="{{ route('dasbor.berita.edit',['id'=> $berita->slug]) }}" class="btn btn-warning">
-                                                <i class="mdi mdi-pencil mr-1"></i>Ubah
-                                            </a>
-                                            @endif
-                                            @if(Auth::user()->hasRole('supervisor'))
-                                            <a href="{{ route('dasbor.berita.editStatus',['id'=> $berita->slug]) }}" class="btn btn-warning">
-                                                <i class="fe-edit mr-1"></i> Ubah Status
-                                            </a>
-                                            @endif
-                                            <a href="{{ route('dasbor.berita') }}" class="btn btn-light">
-                                                <i class="mdi mdi-arrow-left mr-1"></i>Kembali
-                                            </a>
-                                        </div>
-                                    </div> <!-- end col -->
-                                </div>
-
-                            </form> <!-- end form -->
-                        </div>
-                   </div>
-                </div>
-            </div>
-
-    </div> <!-- end card -->
-
-</div> <!-- end col -->
-
-
-</div>
         </div>
     </div>
+</div>
 <!-- end row -->
-<!--end wrapper-->
 
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-primary">
+                    <i class="fe-edit"></i> Ubah
+                </a>
+                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light">
+                    <i class="fe-arrow-left mr-1"></i>Kembali
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
 
-
-  @stop
+@stop
 
 
