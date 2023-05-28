@@ -25,7 +25,7 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','publish')->latest()->paginate(5);
+        ])->where('status','publish')->orderBy('id','desc')->paginate(5);
 
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahrevisi = Berita::where('status', 'revisi')->count();
@@ -46,7 +46,7 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','draft')->latest()->paginate(5);
+        ])->where('status','draft')->orderBy('id','desc')->paginate(5);
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahrevisi = Berita::where('status', 'revisi')->count();
         $jumlahdraft = Berita::where('status', 'draft')->count();
@@ -83,7 +83,7 @@ class BeritaController extends Controller
         $datas = Berita::onlyTrashed()->paginate(10);
         return view('dasbor.author.berita.trash',compact('datas'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
-     }
+    }
 
      // CREATE
      public function create()
@@ -103,8 +103,8 @@ class BeritaController extends Controller
      // EDIT
      public function edit($id)
      {
-         $kategori = KategoriBerita::all();
-         $berita = Berita::where('slug',$id)->first();
+        $kategori = KategoriBerita::where('status','publish')->get();
+        $berita = Berita::where('slug',$id)->first();
          return view('dasbor.author.berita.edit',compact('kategori','berita'));
      }
 
@@ -113,30 +113,31 @@ class BeritaController extends Controller
         $data = Berita::findOrFail($id);
         $data->delete();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.berita');
+        return redirect()->back();
     }
 
     public function restore($id){
         $data = Berita::onlyTrashed()->where('id',$id);
         $data->restore();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('app.berita');
+        return redirect()->back();
     }
 
     public function delete($id)
     {
         try {
-            $berita = Berita::find($id);
-            $path = public_path('file/berita/' . $berita->image);
+            $berita = Berita::onlyTrashed()->findOrFail($id);
+            $path = public_path('gambar/berita/' . $berita->gambar);
 
             if (file_exists($path)) {
                 File::delete($path);
             }
-            $berita->delete();
+            $berita->forceDelete();
             Alert::toast('Berita Berhasil dihapus!', 'success');
             return redirect()->back();
         } catch (\Throwable $e) {
-            Alert::toast('Failed', ['error' => $e->getMessage()], 'error');
+            dd($e);
+            Alert::toast('Gagal', ['error' => $e->getMessage()], 'error');
             return redirect()->back();
         }
     }
@@ -146,11 +147,22 @@ class BeritaController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-                'judul' => 'required|max:255',
-                'body' => 'required',
-                'image' => 'required',
-                'image' => 'image|mimes:jpeg,png,jpg|max:4096',
-                'category_id' => 'required|integer'
+                'judul'             => 'required|max:255',
+                'konten'            => 'required',
+                'konten_singkat'    => 'required|max:255',
+                'gambar'            => 'required',
+                'gambar'            => 'image|mimes:jpeg,png,jpg|max:2097',
+                'category_id'       => 'required|integer',
+            ],[
+                'category_id.required'        => 'Kategori berita tidak boleh kosong',
+                'judul.required'              => 'Judul berita tidak boleh kosong',
+                'judul.max'                   => 'Judul berita maximal 255 Karakter',
+                'konten.required'             => 'Konten berita maximal 255 Karakter',
+                'konten_singkat.max'          => 'Keterangan singkat berita maximal 255 Karakter',
+                'konten_singkat.required'     => 'Keterangan singkat berita tidak boleh kosong',
+                'gambar.required'             => 'Gambar berita tidak boleh kosong',
+                'gambar.mimes'                => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                'gambar.max'                  => 'Gambar maximal 2MB',
             ]);
 
             if ($validator->fails()) {
@@ -161,22 +173,27 @@ class BeritaController extends Controller
                     $berita = new Berita();
                     $berita->judul = $request->judul;
                     $berita->slug = Str::slug($request->judul);
-                    $berita->body = $request->body;
+                    $berita->konten = $request->konten;
+                    $berita->konten_singkat = $request->konten_singkat;
                     $berita->category_id = $request->category_id;
                     $berita->user_id = Auth::user()->id;
 
-                    $posterName = time().'.'.$request->image->extension();
-                    $path = public_path('file/berita');
-                        if(!empty($berita->image) && file_exists($path.'/'.$berita->image)) :
-                            unlink($path.'/'.$berita->image);
+                    $posterName = Str::random(10).'.'.$request->gambar->extension();
+                    $path = public_path('gambar/berita');
+                        if(!empty($berita->gambar) && file_exists($path.'/'.$berita->gambar)) :
+                            unlink($path.'/'.$berita->gambar);
                         endif;
-                    $berita->image = $posterName;
+                    $berita->gambar = $posterName;
 
                     $berita->save();
-                    $request->image->move(public_path('file/berita'), $posterName);
+                    $request->gambar->move(public_path('gambar/berita'), $posterName);
 
                     Alert::toast('Berita Berhasil dibuat!', 'success');
-                    return redirect()->route('app.berita.draft');
+                    if ($berita->status == 'publish') {
+                        return redirect()->route('dasbor.berita');
+                     } else {
+                         return redirect()->route('dasbor.berita.draft');
+                     }
                 } catch (\Throwable $th) {
                     dd($th);
                     Alert::toast('Gagal', 'error');
@@ -189,13 +206,24 @@ class BeritaController extends Controller
      public function update(Request $request, $id)
      {
          $validator = Validator::make($request->all(),
-             [
-                 'judul' => 'required|max:255',
-                 'body' => 'required',
-                 'image' => 'required',
-                 'image' => 'image|mimes:jpeg,png,jpg|max:4096',
-                 'category_id' => 'required|integer'
-             ]);
+            [
+                'judul'             => 'required|max:255',
+                'konten'            => 'required',
+                'konten_singkat'    => 'required|max:255',
+                'gambar'            => 'required',
+                'gambar'            => 'image|mimes:jpeg,png,jpg|max:2097',
+                'category_id'       => 'required|integer',
+            ],[
+                'category_id.required'        => 'Kategori berita tidak boleh kosong',
+                'judul.required'              => 'Judul berita tidak boleh kosong',
+                'judul.max'                   => 'Judul berita maximal 255 Karakter',
+                'konten.required'             => 'Konten berita maximal 255 Karakter',
+                'konten_singkat.max'          => 'Keterangan singkat berita maximal 255 Karakter',
+                'konten_singkat.required'     => 'Keterangan singkat berita tidak boleh kosong',
+                'gambar.required'             => 'Gambar berita tidak boleh kosong',
+                'gambar.mimes'                => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                'gambar.max'                  => 'Gambar maximal 2MB',
+            ]);
 
              if ($validator->fails()) {
                  return redirect()->back()->withInput($request->all())->withErrors($validator);
@@ -204,22 +232,26 @@ class BeritaController extends Controller
                      $berita = Berita::find($id);
                      $berita->judul = $request->judul;
                      $berita->slug = Str::slug($request->judul);
-                     $berita->body = $request->body;
-                     $berita->status = 'draft';
+                     $berita->konten = $request->konten;
+                     $berita->konten_singkat = $request->konten_singkat;
                      $berita->category_id = $request->category_id;
                      $berita->user_id = Auth::user()->id;
-                     if($request->image){
-                         $posterName = time().'.'.$request->image->extension();
-                         $path = public_path('file/berita');
-                             if(!empty($berita->image) && file_exists($path.'/'.$berita->image)) :
-                                 unlink($path.'/'.$berita->image);
+                     if($request->gambar){
+                         $posterName = Str::random(10).'.'.$request->gambar->extension();
+                         $path = public_path('gambar/berita');
+                             if(!empty($berita->gambar) && file_exists($path.'/'.$berita->gambar)) :
+                                 unlink($path.'/'.$berita->gambar);
                              endif;
-                         $berita->image = $posterName;
-                         $request->image->move(public_path('file/berita'), $posterName);
+                         $berita->gambar = $posterName;
+                         $request->gambar->move(public_path('gambar/berita'), $posterName);
                      }
                      $berita->update();
                      Alert::toast('Berita Berhasil diperbarui!', 'success');
-                     return redirect()->route('app.berita.draft');
+                     if ($berita->status == 'publish') {
+                        return redirect()->route('dasbor.berita');
+                     } else {
+                         return redirect()->route('dasbor.berita.draft');
+                     }
                  } catch (\Throwable $th) {
                      Alert::toast('Gagal', 'error');
                      return redirect()->back();

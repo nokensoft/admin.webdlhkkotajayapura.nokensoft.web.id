@@ -16,7 +16,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- Breadcrumbs End -->            
+            <!-- Breadcrumbs End -->
 
             <!-- Blog Section Start -->
             <div class="rs-inner-blog pt-100 pb-100 md-pt-70 md-pb-70">
@@ -66,12 +66,14 @@
                                 <div class="col-lg-12 mb-70">
                                     <div class="blog-item">
                                         <div class="blog-img">
-                                            
+
 
                                             @if(empty($data->gambar))
-                                            <a href="{{ url('berita/' . $data->slug ?? '') }}"><img src="{{ asset('file/berita/gambar-0.jpg') }}" alt="Gambar" class="img-fluid"></a>
+                                            <a href="{{ url('berita/' . $data->slug ?? '') }}">
+                                                <img src="{{ asset('file/berita/gambar-0.jpg') }}" alt="Gambar" class="img-fluid">
+                                            </a>
                                             @else
-                                            <img src="{{ asset( $data->gambar ) }}" alt="Gambar" class="img-fluid w-100">
+                                            <img src="{{ asset('gambar/berita/'.$data->gambar ) }}" alt="Gambar" class="img-fluid w-100">
                                             @endif
 
                                         </div>
@@ -81,24 +83,24 @@
                                                 <ul class="btm-cate">
                                                     <li>
                                                         <div class="blog-date">
-                                                            <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }}                                                       
+                                                            <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }}
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="author">
-                                                            <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }}  
+                                                            <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }}
                                                         </div>
-                                                    </li>   
+                                                    </li>
                                                     <li>
                                                         <div class="tag-line">
                                                             <i class="fa fa-book"></i>
-                                                            <a href="{{ url('berita/kategori/' . $data->kategori->kategori_slug ) }}">{{ $data->kategori->name ?? '' }}</a> 
+                                                            <a href="{{ url('berita/kategori/' . $data->kategori->kategori_slug ) }}">{{ $data->kategori->name ?? '' }}</a>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="blog-desc">   
-                                                {!! $data->isi_singkat !!}                                     
+                                            <div class="blog-desc">
+                                                {!! $data->isi_singkat !!}
                                             </div>
                                             <div class="blog-button">
                                                 <a class="blog-btn" href="{{ url('berita/' . $data->slug ?? '') }}">Selengkapnya</a>
@@ -107,11 +109,11 @@
                                     </div>
                                 </div>
                                 @endforeach
-                                
+
                             </div>
                         </div>
                         <!-- .col End -->
-                    </div> 
+                    </div>
                     <!-- .row end -->
 
                     <div class="row">
@@ -123,7 +125,7 @@
 
                 </div>
             </div>
-          <!-- Blog Section End -->  
+          <!-- Blog Section End -->
 
 @include('visitor.sections.link-terkait')
 <!-- Link Terkait -->

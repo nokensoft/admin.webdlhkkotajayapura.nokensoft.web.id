@@ -35,7 +35,7 @@ class BannerSeeder extends Seeder
             'link_2'                => '',
             'link_2_label'          => '',
 
-            'status'                => 'Publish',
+            'status'                => 'publish',
         ]);
 
         // Banner 2
@@ -56,7 +56,7 @@ class BannerSeeder extends Seeder
             'link_2'                => '',
             'link_2_label'          => '',
 
-            'status'                => 'Publish',
+            'status'                => 'publish',
         ]);
 
         // Banner 3
@@ -77,7 +77,7 @@ class BannerSeeder extends Seeder
             'link_2'                => '',
             'link_2_label'          => '',
 
-            'status'                => 'Publish',
+            'status'                => 'publish',
         ]);
     }
 }

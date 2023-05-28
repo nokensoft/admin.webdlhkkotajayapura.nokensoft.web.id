@@ -37,26 +37,35 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
-                            <th>Title</th>
+                            <th>Gambar</th>
+                            <th>Judul</th>
                             <th class="text-center" width="210px">Opsi</th>
                         </tr>
                         @foreach ($datas as $data)
                         <tr>
                             <td>{{ ++$i }}</td>
-                            <td>{{ $data->title }}</td>
+                            <td>
+                                @if (empty($berita->gambar))
+                                <img src="{{asset('gambar/berita/00.jpg')}}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
+                                @else
+                                <a href="{{ asset($berita->gambar) }}" target="_blank">
+                                    <img src="{{ asset('gambar/berita/'.$berita->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
+                                </a>
+                                @endif
+                            </td>
+                            <td>{{ $data->judul }}</td>
                             <td class="text-center">
                                 <div class="row">
                                     <div class="col-6">
-                                        <form action="{{ url('app/berita/restore',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/berita/restore',$data->id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-success">Restore</button>
                                         </form>
                                     </div>
                                     <div class="col-6">
-                                        <form action="{{ url('app/berita/delete',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/berita/delete',$data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-
                                             <button type="submit" class="btn btn-sm btn-danger ms-1 show_confirm" data-toggle="tooltip"
                                                 title='Delete'>Delete</button>
                                         </form>

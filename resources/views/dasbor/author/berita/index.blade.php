@@ -51,10 +51,10 @@
                             <td class="text-center">{{ ++$i }}</td>
                             <th>
                                 @if (empty($berita->gambar))
-                                <img src="{{asset('assets/admin/assets/gambars/gambar-not.png')}}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
+                                <img src="{{asset('gambar/berita/00.jpg')}}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
                                 @else
                                 <a href="{{ asset($berita->gambar) }}" target="_blank">
-                                    <img src="{{ asset($berita->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
+                                    <img src="{{ asset('gambar/berita/'.$berita->gambar) }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
                                 </a>
                                 @endif
                             </th>

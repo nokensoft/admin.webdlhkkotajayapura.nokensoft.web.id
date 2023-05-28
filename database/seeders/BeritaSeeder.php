@@ -21,7 +21,7 @@ class BeritaSeeder extends Seeder
 
             'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura Satu',
             'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-satu',
-            'gambar'         => 'gambar/berita/01.jpg',
+            // 'gambar'         => 'gambar/berita/01.jpg',
             'konten'           => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
@@ -35,7 +35,7 @@ class BeritaSeeder extends Seeder
                                         <li>Additions Benefit of Service</li>
                                         <li>Rebuilding from fire or water damage</li>
                                     </ul>',
-                                    
+
             'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
 
             'status'        => 'publish',
@@ -47,7 +47,7 @@ class BeritaSeeder extends Seeder
 
             'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura-Dua',
             'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-dua',
-            'gambar'         => 'gambar/berita/02.jpg',
+            // 'gambar'         => 'gambar/berita/02.jpg',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
@@ -73,7 +73,7 @@ class BeritaSeeder extends Seeder
 
             'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura-Tiga',
             'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-tiga',
-            'gambar'         => 'gambar/berita/04.jpg',
+            // 'gambar'         => 'gambar/berita/04.jpg',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
@@ -99,7 +99,7 @@ class BeritaSeeder extends Seeder
 
             'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura Empat',
             'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-empat',
-            'gambar'         => 'gambar/berita/05.jpg',
+            // 'gambar'         => 'gambar/berita/05.jpg',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
@@ -115,7 +115,7 @@ class BeritaSeeder extends Seeder
                                     </ul>',
 
             'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
-            
+
             'status'        => 'publish',
         ]);
 
@@ -125,7 +125,7 @@ class BeritaSeeder extends Seeder
 
             'judul'         => 'Judul Berita Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura Lima',
             'slug'          => 'judul-berita-dinas-lingkungan-hidup-dan-kebersihan-kota-jayapura-lima',
-            'gambar'         => 'gambar/berita/06.jpg',
+            // 'gambar'         => 'gambar/berita/06.jpg',
             'konten'       => '<blockquote><p>Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.</p></blockquote>
                                     <div class="blog-desc mb-40">
                                         <p>
@@ -141,7 +141,7 @@ class BeritaSeeder extends Seeder
                                     </ul>',
 
             'konten_singkat'    => 'Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications.',
-            
+
             'status'        => 'publish',
         ]);
 

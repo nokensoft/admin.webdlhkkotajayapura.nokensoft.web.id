@@ -27,15 +27,13 @@ return new class extends Migration
             $table->enum('status',['publish','draft','revisi'])->default('draft')->nullable();
             $table->string('ket')->nullable();
 
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('kategori_beritas')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
 
-            $table->string('deleted_at')->nullable();
 
 
         });

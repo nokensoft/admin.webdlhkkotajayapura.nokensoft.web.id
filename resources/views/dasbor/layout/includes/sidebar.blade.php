@@ -231,6 +231,13 @@
                                         <span> Dasbor </span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('dasbor/berita') }}">
+                                        <i class="mdi mdi-newspaper"></i>
+                                        <span> Berita </span>
+                                    </a>
+                                </li>
+
 
                             </ul>
 

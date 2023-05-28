@@ -31,10 +31,10 @@ return new class extends Migration
             $table->longText('link_2')->nullable();
             $table->longText('link_2_label')->nullable();
 
-            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
+            $table->enum('status',['publish','draft'])->default('publish')->nullable();
 
             $table->string('link')->nullable();
-            
+
             $table->softDeletes();
             $table->timestamps();
         });

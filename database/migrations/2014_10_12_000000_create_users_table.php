@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('picture')->nullable();
             $table->string('slug')->nullable();
 
-            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
+            $table->enum('status',['publish','draft'])->default('publish')->nullable();
 
             $table->rememberToken();
             $table->softDeletes();

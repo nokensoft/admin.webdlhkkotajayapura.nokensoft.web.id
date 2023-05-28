@@ -40,15 +40,15 @@
                     <div class="col-md-8">
 
                         <div class="mb-3">
-                            <label for="judul_berita" class="form-label">Judul Berita <span class="text-danger">*</span></label>
-                            {!! Form::text('judul_berita',null,['required','id'=>'judul_berita','class'=>'form-control','placeholder'=>'Judul berita'])!!}
+                            <label for="judul" class="form-label">Judul Berita <span class="text-danger">*</span></label>
+                            <input type="text" name="judul" class="form-control" value="{{ old('judul') }}" placeholder="Judul Berita" required>
                         </div>
                         <!-- input item end-->
 
                         <div class="form-group">
                             <label for="category_id" class="form-label d-block">Kategori <span class="text-danger">*</span></label>
-                            <select class="form-control col-md-3" name="category_id" id="exampleFormControlSelect1">
-                                <option>Kategori</option>
+                            <select class="form-control" name="category_id" id="exampleFormControlSelect1" required>
+                                <option value="" hidden>Pilih Kategori</option>
                                 @foreach ($kategoris as $kategori)
                                 <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
                                 @endforeach
@@ -58,25 +58,16 @@
 
                         <div class="mb-3">
                             <label for="konten_singkat" class="form-label">Konten Singkat</label>
-                            <textarea name="konten_singkat" class="form-control" id="konten_singkat" value="{{ old('konten_singkat') }}" cols="30" rows="3">{{ old('konten_singkat') }}</textarea>
+                            <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3" required>{{ old('konten_singkat') }}</textarea>
                         </div>
                         <!-- input item end-->
 
                         <div class="mb-3">
                             <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                            <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ old('konten') }}</textarea>
+                            <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="10" required>{{ old('konten') }}</textarea>
                         </div>
                         <!-- input item end-->
 
-                        <div class="form-group">
-                            <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
-                            <select class="form-control col-md-3" name="status" id="exampleFormControlSelect1">
-                                <option>Status</option>
-                                <option value="Publish">Active</option>
-                                <option value="Draft">Inactive</option>
-                            </select>
-                        </div>
-                        <!-- input item end-->
 
                     </div>
                     <!-- .col end-->
@@ -85,11 +76,11 @@
 
                         <div class="mb-3">
                             <div class="mb-2">
-                                <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                             </div>
                             <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
                             <div class="custom-file w-100">
-                                <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                                <input type="file" name="gambar" class="custom-file-input" id="gambar" required>
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
@@ -101,10 +92,6 @@
 
                 </div>
 
-                {{-- <div class="mb-3">
-                    <label for="role_id" class="form-label">Kategori <span class="text-danger">*</span></label>
-                    {!! Form::select('category_id', $kategoris, [], ['required','id'=>'category_id','class'=>'form-control']) !!}
-                </div> --}}
 
             </div>
         </div> <!-- end card -->
@@ -165,6 +152,17 @@
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
+    $(document).ready(function (e) {
+               $('#gambar').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                  $('#preview-gambar').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+               });
 
+            });
+
+</script>
 
   @endpush

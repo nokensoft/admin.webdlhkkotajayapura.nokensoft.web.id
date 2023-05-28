@@ -7,7 +7,7 @@
             <h2 class="title">Publikasi Kegiatan DLHK Kota Jayapura</h2>
         </div>
         <!-- heading end -->
-    
+
         <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30"
             data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800"
             data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false"
@@ -15,15 +15,15 @@
             data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="false"
             data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="false"
             data-md-device="3" data-md-device-nav="false" data-md-device-dots="false">
-    
+
             @foreach ($beritas as $data )
             <div class="blog-item">
                 <div class="image-part">
                     @if(empty($data->gambar))
                         <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar">
                     @else
-                        <a href="{{ url('berita/' . $data->slug ?? '') }}">
-                            <img src="{{ asset( $data->gambar ) }}" alt="Gambar">
+                        <a href="{{ url('gambar/berita/' . $data->slug ?? '') }}">
+                            <img src="{{ asset('gambar/berita/'.$data->gambar) }}" alt="Gambar">
                         </a>
                     @endif
                 </div>
@@ -47,14 +47,14 @@
             </div>
             <!-- .blog-item end -->
             @endforeach
-    
+
         </div>
-    
+
         <div class="text-center mt-5">
             <a href="{{ url('berita/') }}" class="readon green-btn">
                 <i class="fa-solid fa-arrow-right me-2"></i> Tampilkan Berita Lainnya
             </a>
         </div>
-    
+
     </div>
 </div>
