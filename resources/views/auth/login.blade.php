@@ -45,14 +45,14 @@
                     <div class="auth-brand text-lg-start">
                         <div class="auth-logo">
                             <a href="{{ url('dasbor') }}" class="logo logo-dark">
-                                <img src="{{ asset($pengaturan->logo_dark) }}" alt="logo_situs" height="55px">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_lg_dark) }}" alt="logo_situs" height="55px">
                                 <span class="logo-lg-text-dark d-block ">
                                     {!! $pengaturan->deskripsi_situs !!}
                                 </span>
                             </a>
 
                             <a href="{{ url('dasbor') }}" class="logo logo-light">
-                                <img src="{{ asset( $pengaturan->logo_light) }}" alt="" height="55px">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_lg_light) }}" alt="" height="55px">
                                 <span class="logo-lg-text-dark d-block ">
                                     {!! $pengaturan->deskripsi_situs !!}
                                 </span>
