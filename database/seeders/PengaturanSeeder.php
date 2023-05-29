@@ -52,14 +52,14 @@ class PengaturanSeeder extends Seeder
             |
             */
             
-            'logo_dark'         => 'logo-dasbor-dark.png',
-            'logo_dark_sm'      => 'logo-dasbor-sm.png',
-            'logo_light'        => 'logo-dasbor-light.png',
-            'logo_light_sm'     => 'logo-dasbor-sm.png',
+            'logo_dasbor_lg_dark'   => 'logo_dasbor_lg_dark.png',
+            'logo_dasbor_sm_dark'   => 'logo_dasbor_sm_dark.png',
+            'logo_dasbor_lg_light'  => 'logo_dasbor_lg_light.png',
+            'logo_dasbor_sm_light'  => 'logo_dasbor_sm_light.png',
 
             // Dates
-            'created_at'        => Carbon::now(),
-            'updated_at'        => Carbon::now()
+            'created_at'            => Carbon::now(),
+            'updated_at'            => Carbon::now()
         ]);
     }
 

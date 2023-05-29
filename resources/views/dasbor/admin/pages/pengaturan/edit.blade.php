@@ -257,7 +257,128 @@
                             <label for="youtube" class="form-label">Youtube</label>
                             <input type="text" id="youtube" name="youtube" value="{{ old('youtube', $data->youtube) }}" class="form-control">
                         </div>
-                        <!-- input item end -->                        
+                        <!-- input item end -->   
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+                        @elseif(Request::segment(4) == 'logo-dasbor')
+
+
+                        <input type="hidden" name="inputGroup" value="logo-dasbor">
+
+                        <div class="mb-3">
+                            <label for="logo_dasbor_lg_dark" class="form-label">Logo Dasbor Large Dark</label>
+                            <div class="d-block mb-3">
+                                @if(!$data->logo_dasbor_lg_dark)
+                                <img src="{{ asset('gambar/0.jpg') }}" id="logo_dasbor_lg_dark" alt="gambar logo" class="img-thumbnail">
+                                @else
+                                <img src="{{ asset('gambar/pengaturan/' . $data->logo_dasbor_lg_dark) }}" id="logo_dasbor_lg_dark" alt="gambar logo" class="img-thumbnail">
+                                @endif
+                            </div>
+
+                            <div class="custom-file w-100">
+                                <input type="file" name="logo_dasbor_lg_dark" class="custom-file-input" id="logo" value="">
+                                <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                                @if ($errors->has('logo_dasbor_lg_dark'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('logo_dasbor_lg_dark') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            
+                        </div>
+                        <!-- input item end -->
+
+                        <div class="mb-3">
+                            <label for="logo_dasbor_sm_dark" class="form-label">Logo Dasbor Small Dark</label>
+                            <div class="d-block mb-3">
+                                @if(!$data->logo_dasbor_sm_dark)
+                                <img src="{{ asset('gambar/0.jpg') }}" id="logo_dasbor_sm_dark" alt="gambar logo" class="img-thumbnail">
+                                @else
+                                <img src="{{ asset('gambar/pengaturan/' . $data->logo_dasbor_sm_dark) }}" id="logo_dasbor_sm_dark" alt="gambar logo" class="img-thumbnail">
+                                @endif
+                            </div>
+
+                            <div class="custom-file w-100">
+                                <input type="file" name="logo_dasbor_sm_dark" class="custom-file-input" id="logo" value="">
+                                <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                                @if ($errors->has('logo_dasbor_sm_dark'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('logo_dasbor_sm_dark') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            
+                        </div>
+                        <!-- input item end -->
+
+                        <div class="mb-3">
+                            <label for="logo_dasbor_lg_light" class="form-label">Logo Dasbor Large Light</label>
+                            <div class="d-block mb-3">
+                                @if(!$data->logo_dasbor_lg_light)
+                                <img src="{{ asset('gambar/0.jpg') }}" id="logo_dasbor_lg_light" alt="gambar logo" class="img-thumbnail">
+                                @else
+                                <img src="{{ asset('gambar/pengaturan/' . $data->logo_dasbor_lg_light) }}" id="logo_dasbor_lg_light" alt="gambar logo" class="img-thumbnail">
+                                @endif
+                            </div>
+
+                            <div class="custom-file w-100">
+                                <input type="file" name="logo_dasbor_lg_light" class="custom-file-input" id="logo" value="">
+                                <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                                @if ($errors->has('logo_dasbor_lg_light'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('logo_dasbor_lg_light') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            
+                        </div>
+                        <!-- input item end -->
+
+                        <div class="mb-3">
+                            <label for="logo_dasbor_sm_light" class="form-label">Logo Dasbor Small Light</label>
+                            <div class="d-block mb-3">
+                                @if(!$data->logo_dasbor_sm_light)
+                                <img src="{{ asset('gambar/0.jpg') }}" id="logo_dasbor_sm_light" alt="gambar logo" class="img-thumbnail">
+                                @else
+                                <img src="{{ asset('gambar/pengaturan/' . $data->logo_dasbor_sm_light) }}" id="logo_dasbor_sm_light" alt="gambar logo" class="img-thumbnail">
+                                @endif
+                            </div>
+
+                            <div class="custom-file w-100">
+                                <input type="file" name="logo_dasbor_sm_light" class="custom-file-input" id="logo" value="">
+                                <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                                @if ($errors->has('logo_dasbor_sm_light'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('logo_dasbor_sm_light') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            
+                        </div>
+                        <!-- input item end -->
+
+
+
+
+
+
+
+
 
                         @endif
 

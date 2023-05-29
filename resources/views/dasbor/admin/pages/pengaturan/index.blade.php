@@ -139,4 +139,53 @@
     </div>
     <!-- end row -->
 
+    
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card">
+                {{-- <img class="card-img-top img-fluid" src="assets/images/small/img-2.jpg" alt="Card image cap"> --}}
+                <div class="card-body">
+                    <h5 class="card-title">Logo Dasbor</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Logo Dasbor Dark Large : 
+                            <span class="d-block pt-2">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_lg_dark ?? '') }}" alt="gambar logo lg dark" class="img-fluid">
+                            </span>
+                        </li>
+                        <li class="list-group-item">
+                            Logo Dasbor Dark Small : 
+                            <span class="d-block pt-2">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_sm_dark ?? '') }}" alt="gambar logo sm dark" class="img-fluid">
+                            </span>
+                        </li>
+                        <li class="list-group-item">
+                            Logo Dasbor Light Large : 
+                            <span class="d-block pt-2">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_lg_light ?? '') }}" alt="gambar logo lg light" class="img-fluid">
+                            </span>
+                        </li>    
+                        <li class="list-group-item">
+                            Logo Dasbor Light Small : 
+                            <span class="d-block pt-2">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_sm_light ?? '') }}" alt="gambar logo sm light" class="img-fluid">
+                            </span>
+                        </li>                       
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div>
+                        <a href="{{ url('dasbor/pengaturan/edit/logo-dasbor') }}" class="btn btn-lg btn-outline-primary border-0">
+                            <i class="fe-edit"></i> Ubah
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end col -->
+    
+    </div>
+    <!-- end row -->
+
 @stop

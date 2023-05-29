@@ -124,7 +124,67 @@ class PengaturanControlller extends Controller
                     $pengaturan->linkedin           = $request->linkedin;
                     $pengaturan->youtube            = $request->youtube;
 
-               } 
+               } elseif (isset($request->inputGroup) && $request->inputGroup == 'logo-dasbor'){
+
+                    // logo dasbor 
+
+                    if(!empty($request->logo_dasbor_lg_dark)) {
+
+                        $pengaturan->logo_dasbor_lg_dark = $request->logo_dasbor_lg_dark;
+
+                        $logo_dasbor_lg_dark_name = 'logo_dasbor_lg_dark' . '.' . $request->logo_dasbor_lg_dark->extension();
+                        $path = public_path('gambar/pengaturan/');
+                        if (!empty($request->logo_dasbor_lg_dark) && file_exists($path . '/' . $request->logo_dasbor_lg_dark)) :
+                            unlink($path . '/' . $request->logo_dasbor_lg_dark);
+                        endif;
+                        $pengaturan->logo_dasbor_lg_dark = $logo_dasbor_lg_dark_name;
+                        $request->logo_dasbor_lg_dark->move(public_path('gambar/pengaturan/'), $logo_dasbor_lg_dark_name);
+
+                    }
+
+                    if(!empty($request->logo_dasbor_sm_dark)) {
+
+                        $pengaturan->logo_dasbor_sm_dark = $request->logo_dasbor_sm_dark;
+
+                        $logo_dasbor_sm_dark_name = 'logo_dasbor_sm_dark' . '.' . $request->logo_dasbor_sm_dark->extension();
+                        $path = public_path('gambar/pengaturan/');
+                        if (!empty($request->logo_dasbor_sm_dark) && file_exists($path . '/' . $request->logo_dasbor_sm_dark)) :
+                            unlink($path . '/' . $request->logo_dasbor_sm_dark);
+                        endif;
+                        $pengaturan->logo_dasbor_sm_dark = $logo_dasbor_sm_dark_name;
+                        $request->logo_dasbor_sm_dark->move(public_path('gambar/pengaturan/'), $logo_dasbor_sm_dark_name);
+
+                    }
+
+                    if(!empty($request->logo_dasbor_lg_light)) {
+
+                        $pengaturan->logo_dasbor_lg_light = $request->logo_dasbor_lg_light;
+
+                        $logo_dasbor_lg_light_name = 'logo_dasbor_lg_light' . '.' . $request->logo_dasbor_lg_light->extension();
+                        $path = public_path('gambar/pengaturan/');
+                        if (!empty($request->logo_dasbor_lg_light) && file_exists($path . '/' . $request->logo_dasbor_lg_light)) :
+                            unlink($path . '/' . $request->logo_dasbor_lg_light);
+                        endif;
+                        $pengaturan->logo_dasbor_lg_light = $logo_dasbor_lg_light_name;
+                        $request->logo_dasbor_lg_light->move(public_path('gambar/pengaturan/'), $logo_dasbor_lg_light_name);
+
+                    }
+
+                    if(!empty($request->logo_dasbor_sm_light)) {
+
+                        $pengaturan->logo_dasbor_sm_light = $request->logo_dasbor_sm_light;
+
+                        $logo_dasbor_sm_light_name = 'logo_dasbor_sm_light' . '.' . $request->logo_dasbor_sm_light->extension();
+                        $path = public_path('gambar/pengaturan/');
+                        if (!empty($request->logo_dasbor_sm_light) && file_exists($path . '/' . $request->logo_dasbor_sm_light)) :
+                            unlink($path . '/' . $request->logo_dasbor_sm_light);
+                        endif;
+                        $pengaturan->logo_dasbor_sm_light = $logo_dasbor_sm_light_name;
+                        $request->logo_dasbor_sm_light->move(public_path('gambar/pengaturan/'), $logo_dasbor_sm_light_name);
+
+                    }
+
+           } 
 
                 $pengaturan->update();
 

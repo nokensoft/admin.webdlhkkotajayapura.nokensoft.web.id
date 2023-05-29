@@ -6,7 +6,7 @@
                 <div class="h-100" data-simplebar>
 
                     <!-- User box -->
-                    <div class="text-center">
+                    <div class="user-box text-center">
 
                         @if (!Auth::user()->picture)
                         <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="user-img" class="rounded-circle avatar-md">

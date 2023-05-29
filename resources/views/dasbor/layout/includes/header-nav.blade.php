@@ -55,19 +55,19 @@
                     <div class="logo-box">
                         <a href="{{ url('/dasbor') }}" class="logo logo-dark text-center">
                             <span class="logo-sm">
-                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dark_sm)}}" alt="Logo Situs" height="38">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_sm_dark) }}" alt="gambar logo sm dark" height="38">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dark)}}" alt="Logo Situs" height="38">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_lg_dark) }}" alt="gambar logo lg dark" height="38">
                             </span>
                         </a>
 
                         <a href="{{ url('/dasbor') }}" class="logo logo-light text-center">
                             <span class="logo-sm">
-                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_light_sm)}}" alt="" height="38">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_sm_light) }}" alt="gambar logo sm light" height="38">
                             </span>
                             <span class="logo-lg">
-                                    <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_light)}}" alt="" height="38">
+                                    <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_lg_light) }}" alt="gambar logo lg light" height="38">
                             </span>
                         </a>
                     </div>

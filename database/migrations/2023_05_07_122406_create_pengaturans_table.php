@@ -43,10 +43,10 @@ return new class extends Migration
             $table->string('youtube')->nullable();
 
             // DASBOR
-            $table->string('logo_dark')->nullable();
-            $table->string('logo_dark_sm')->nullable();
-            $table->string('logo_light')->nullable();
-            $table->string('logo_light_sm')->nullable();
+            $table->string('logo_dasbor_lg_dark')->nullable();
+            $table->string('logo_dasbor_sm_dark')->nullable();
+            $table->string('logo_dasbor_lg_light')->nullable();
+            $table->string('logo_dasbor_sm_light')->nullable();
 
             // Dates
             $table->timestamps();
