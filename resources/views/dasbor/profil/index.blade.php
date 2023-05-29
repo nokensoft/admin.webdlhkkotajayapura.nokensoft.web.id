@@ -25,7 +25,7 @@
                 alt="profile-image" id="preview-picture">
                 @else
                 <img src="{{asset('gambar/pengguna')}}/{{auth()->user()->picture}}" alt="allal"
-                class="rounded-circle avatar-lg img-thumbnail">
+                class="rounded-circle avatar-lg img-thumbnail" id="preview-picture">
                 @endif
                 <h4 class="mb-0"> {{ auth()->user()->name }} </h4>
                 <p class="text-muted">{{ auth()->user()->email }}</p>
