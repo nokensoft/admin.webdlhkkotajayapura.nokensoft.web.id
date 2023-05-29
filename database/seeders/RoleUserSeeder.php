@@ -54,9 +54,8 @@ class RoleUserSeeder extends Seeder
         */
 
         // ADMIN
-        
+
         $adminJanzen = User::create([
-            'id'                => 1,
             'name'              => 'Janzen Faidiban',
             'slug'              => 'janzen-faidiban',
             'picture'           => 'gambar/pengguna/05-janzen.jpg',
@@ -66,7 +65,6 @@ class RoleUserSeeder extends Seeder
         $adminJanzen->assignRole($adminRole);
 
         $adminDLHK = User::create([
-            'id'                => 2,
             'name'              => 'Admin DLHK',
             'slug'              => 'admin-dlhk',
             'picture'           => 'gambar/pengguna/01.jpg',

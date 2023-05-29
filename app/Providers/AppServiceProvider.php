@@ -53,16 +53,16 @@ class AppServiceProvider extends ServiceProvider
         // Paginator::defaultView('view-name');
 
         view()->share([
-            
+
             /*
             | VISITOR VARIABLES
             |
             */
 
             'pengaturan'                        => Pengaturan::first(),
-            'faq'                               => Faq::where('status','publish')->get(),
-            'LayananOnline'                     => LayananOnline::where('status','publish')->get(),
-            'InformasiLingkungan'               => InformasiLingkungan::where('status','publish')->get(),
+            'faq'                               => Faq::where('status','Publish')->get(),
+            'LayananOnline'                     => LayananOnline::where('status','Publish')->get(),
+            'InformasiLingkungan'               => InformasiLingkungan::where('status','Publish')->get(),
             'banner'                            => Banner::where('status','publish')->first(),
 
             /*
@@ -71,12 +71,12 @@ class AppServiceProvider extends ServiceProvider
             | Jumlah data untuk ditampilkan di bagian dasbor
             |
             */
-            'dasbor_jml_berita'                 => Berita::where('status','publish')->count(),
-            'dasbor_jml_kategori'               => KategoriBerita::where('status','publish')->count(),
-            'dasbor_jml_informasi_lingkungan'   => InformasiLingkungan::where('status','publish')->count(),
-            'dasbor_jml_layanan_online'         => LayananOnline::where('status','publish')->count(),
-            'dasbor_jml_link_terkait'           => LinkTerkait::where('status','publish')->count(),
-            'dasbor_jml_halaman'                => Halaman::where('status','publish')->count(),
+            'dasbor_jml_berita'                 => Berita::where('status','Publish')->count(),
+            'dasbor_jml_kategori'               => KategoriBerita::where('status','Publish')->count(),
+            'dasbor_jml_informasi_lingkungan'   => InformasiLingkungan::where('status','Publish')->count(),
+            'dasbor_jml_layanan_online'         => LayananOnline::where('status','Publish')->count(),
+            'dasbor_jml_link_terkait'           => LinkTerkait::where('status','Publish')->count(),
+            'dasbor_jml_halaman'                => Halaman::where('status','Publish')->count(),
             'dasbor_jml_pesan'                  => Pesan::count(),
             'dasbor_jml_pengguna'               => User::where('status','publish')->count(),
         ]);

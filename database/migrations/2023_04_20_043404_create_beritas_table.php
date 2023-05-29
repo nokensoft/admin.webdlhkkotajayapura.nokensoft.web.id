@@ -20,7 +20,7 @@ return new class extends Migration
             $table->bigInteger('category_id')->unsigned()->nullable();
 
             $table->string('judul')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->mediumText('konten')->nullable();
             $table->mediumText('konten_singkat')->nullable();
             $table->string('gambar')->nullable();

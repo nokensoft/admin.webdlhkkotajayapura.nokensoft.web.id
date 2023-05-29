@@ -35,12 +35,12 @@ class HalamanController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','publish')->latest()->paginate(5);
+        ])->where('status','Publish')->latest()->paginate(5);
 
         $jumlahtrash    = Halaman::onlyTrashed()->count();
 
-        $jumlahdraft    = Halaman::where('status', 'draft')->count();
-        $datapublish    = Halaman::where('status', 'publish')->count();
+        $jumlahdraft    = Halaman::where('status', 'Draft')->count();
+        $datapublish    = Halaman::where('status', 'Publish')->count();
 
         return view('dasbor.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -65,12 +65,12 @@ class HalamanController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','draft')->latest()->paginate(5);
+        ])->where('status','Draft')->latest()->paginate(5);
 
         $jumlahtrash    = Halaman::onlyTrashed()->count();
 
-        $jumlahdraft    = Halaman::where('status', 'draft')->count();
-        $datapublish    = Halaman::where('status', 'publish')->count();
+        $jumlahdraft    = Halaman::where('status', 'Draft')->count();
+        $datapublish    = Halaman::where('status', 'Publish')->count();
 
         return view('dasbor.halaman.index',compact(
             'datas',

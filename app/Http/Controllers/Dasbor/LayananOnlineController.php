@@ -23,12 +23,12 @@ class LayananOnlineController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','publish')->latest()->paginate(5);
+        ])->where('status','Publish')->latest()->paginate(5);
 
         $jumlahtrash = LayananOnline::onlyTrashed()->count();
 
-        $jumlahdraft = LayananOnline::where('status', 'draft')->count();
-        $datapublish = LayananOnline::where('status', 'publish')->count();
+        $jumlahdraft = LayananOnline::where('status', 'Draft')->count();
+        $datapublish = LayananOnline::where('status', 'Publish')->count();
 
         return view('dasbor.layanan-online.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -44,12 +44,12 @@ class LayananOnlineController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','draft')->latest()->paginate(5);
+        ])->where('status','Draft')->latest()->paginate(5);
 
         $jumlahtrash = LayananOnline::onlyTrashed()->count();
 
-        $jumlahdraft = LayananOnline::where('status', 'draft')->count();
-        $datapublish = LayananOnline::where('status', 'publish')->count();
+        $jumlahdraft = LayananOnline::where('status', 'Draft')->count();
+        $datapublish = LayananOnline::where('status', 'Publish')->count();
 
         return view('dasbor.layanan-online.index',compact(
             'datas',
@@ -64,8 +64,8 @@ class LayananOnlineController extends Controller
         $datas = LayananOnline::onlyTrashed()->paginate(5);
 
         $jumlahtrash = LayananOnline::onlyTrashed()->count();
-        $jumlahdraft = LayananOnline::where('status', 'draf')->count();
-        $datapublish = LayananOnline::where('status', 'publish')->count();
+        $jumlahdraft = LayananOnline::where('status', 'Draf')->count();
+        $datapublish = LayananOnline::where('status', 'Publish')->count();
 
         return view('dasbor.layanan-online.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }

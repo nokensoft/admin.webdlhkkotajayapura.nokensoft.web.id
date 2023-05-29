@@ -28,8 +28,8 @@ class BeritaController extends Controller
         ])->where('status', 'Publish')->orderBy('id', 'desc')->paginate(5);
 
         $jumlahtrash = Berita::onlyTrashed()->count();
-        $jumlahrevisi = Berita::where('status', 'revisi')->count();
-        $jumlahdraft = Berita::where('status', 'draft')->count();
+        $jumlahrevisi = Berita::where('status', 'Revisi')->count();
+        $jumlahdraft = Berita::where('status', 'Draft')->count();
         $datapublish = Berita::where('status', 'Publish')->count();
 
         return view('dasbor.author.berita.index', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish', 'jumlahrevisi'))->with('i', ($request->input('page', 1) - 1) * 5);
@@ -47,10 +47,10 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'draft')->orderBy('id', 'desc')->paginate(5);
+        ])->where('status', 'Draft')->orderBy('id', 'desc')->paginate(5);
         $jumlahtrash = Berita::onlyTrashed()->count();
-        $jumlahrevisi = Berita::where('status', 'revisi')->count();
-        $jumlahdraft = Berita::where('status', 'draft')->count();
+        $jumlahrevisi = Berita::where('status', 'Revisi')->count();
+        $jumlahdraft = Berita::where('status', 'Draft')->count();
         $datapublish = Berita::where('status', 'Publish')->count();
 
         return view('dasbor.author.berita.index', compact(
@@ -164,9 +164,9 @@ class BeritaController extends Controller
                 'judul'                     => 'required|max:255',
                 'konten'                    => 'required',
                 'konten_singkat'            => 'required|max:255',
-                'gambar'                    => 'required',
-                'gambar'                    => 'image|mimes:jpeg,png,jpg|max:2097',
+                'gambar'                    => 'required|image|mimes:jpeg,png,jpg|max:2097',
                 'category_id'               => 'required|integer',
+                'status'                    => 'required',
                 'status'                    => 'required',
             ],
             [
@@ -190,7 +190,7 @@ class BeritaController extends Controller
 
                 $data                       = new Berita();
                 $data->judul                = $request->judul;
-                $data->slug                 = Str::slug($request->judul);
+                $data->slug                 = Str::slug($request->judul).time();
                 $data->konten               = $request->konten;
                 $data->konten_singkat       = $request->konten_singkat;
                 $data->category_id          = $request->category_id;
@@ -215,7 +215,7 @@ class BeritaController extends Controller
                     return redirect()->route('dasbor.berita.draft');
                 }
             } catch (\Throwable $th) {
-                // dd($th);
+                dd($th);
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
             }
@@ -256,7 +256,7 @@ class BeritaController extends Controller
             try {
                 $data                       = Berita::find($id);
                 $data->judul                = $request->judul;
-                $data->slug                 = Str::slug($request->judul);
+                $data->slug                 = Str::slug($request->judul).time();
                 $data->konten               = $request->konten;
                 $data->konten_singkat       = $request->konten_singkat;
                 $data->category_id          = $request->category_id;

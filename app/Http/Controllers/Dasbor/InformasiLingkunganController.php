@@ -23,12 +23,12 @@ class InformasiLingkunganController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','publish')->latest()->paginate(5);
+        ])->where('status','Publish')->latest()->paginate(5);
 
         $jumlahtrash = InformasiLingkungan::onlyTrashed()->count();
 
-        $jumlahdraft = InformasiLingkungan::where('status', 'draft')->count();
-        $datapublish = InformasiLingkungan::where('status', 'publish')->count();
+        $jumlahdraft = InformasiLingkungan::where('status', 'Draft')->count();
+        $datapublish = InformasiLingkungan::where('status', 'Publish')->count();
 
         return view('dasbor.informasi-lingkungan.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -44,12 +44,12 @@ class InformasiLingkunganController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','draft')->latest()->paginate(5);
+        ])->where('status','Draft')->latest()->paginate(5);
 
         $jumlahtrash = InformasiLingkungan::onlyTrashed()->count();
 
-        $jumlahdraft = InformasiLingkungan::where('status', 'draft')->count();
-        $datapublish = InformasiLingkungan::where('status', 'publish')->count();
+        $jumlahdraft = InformasiLingkungan::where('status', 'Draft')->count();
+        $datapublish = InformasiLingkungan::where('status', 'Publish')->count();
 
         return view('dasbor.informasi-lingkungan.index',compact(
             'datas',
@@ -64,8 +64,8 @@ class InformasiLingkunganController extends Controller
         $datas = InformasiLingkungan::onlyTrashed()->paginate(5);
 
         $jumlahtrash = InformasiLingkungan::onlyTrashed()->count();
-        $jumlahdraft = InformasiLingkungan::where('status', 'draf')->count();
-        $datapublish = InformasiLingkungan::where('status', 'publish')->count();
+        $jumlahdraft = InformasiLingkungan::where('status', 'Draf')->count();
+        $datapublish = InformasiLingkungan::where('status', 'Publish')->count();
 
         return view('dasbor.informasi-lingkungan.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }

@@ -18,7 +18,6 @@ class LinkTerkaitSeeder extends Seeder
 
         // Kementerian
         LinkTerkait::create([
-            'id'                    => 1,
             'author'                => 1,
             'judul_link'            => 'Kementerian Lingkungan Hidup dan Kehutanan',
             'slug'                  => 'kementerian-lingkungan-hidup-dan-kehutanan',
@@ -28,7 +27,6 @@ class LinkTerkaitSeeder extends Seeder
 
         // Provinsi Papua
         LinkTerkait::create([
-            'id'                    => 2,
             'author'                => 1,
             'judul_link'            => 'Pemerintah Daerah Provinsi Papua',
             'slug'                  => 'provinsi-papua',
@@ -38,7 +36,6 @@ class LinkTerkaitSeeder extends Seeder
 
         // Pemerintah Kota Jayapura
         LinkTerkait::create([
-            'id'                    => 3,
             'author'                => 1,
             'judul_link'            => 'Pemerintah Kota Jayapura',
             'slug'                  => 'kota-jayapura',
@@ -48,7 +45,6 @@ class LinkTerkaitSeeder extends Seeder
 
         // Aplikasi Lapor
         LinkTerkait::create([
-            'id'                    => 4,
             'author'                => 1,
             'judul_link'            => 'Aplikasi Lapor',
             'slug'                  => 'aplikasi-lapor',
@@ -58,7 +54,6 @@ class LinkTerkaitSeeder extends Seeder
 
         // Aplikasi Lapor
         LinkTerkait::create([
-            'id'                    => 5,
             'author'                => 1,
             'judul_link'            => 'LPSE',
             'slug'                  => 'lpse-kota-jayapura',

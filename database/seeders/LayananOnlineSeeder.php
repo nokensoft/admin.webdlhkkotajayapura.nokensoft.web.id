@@ -20,7 +20,6 @@ class LayananOnlineSeeder extends Seeder
         LayananOnline::insert([
             // SIPAKOT
             [
-                'id'                    => 1,
                 'judul'                 => 'SIPAKOT',
                 'keterangan_singkat'    => 'Sistem Informasi Pajak Air Tanah Bagi Para Wajib Pajak di Kota Jayapura',
                 'keterangan_lengkap'    => '',
@@ -30,7 +29,6 @@ class LayananOnlineSeeder extends Seeder
             ],
              // Pengaduan
             [
-                'id'                    => 2,
                 'judul'                 => 'Pengaduan',
                 'keterangan_singkat'    => 'Layanan Pengaduan Masyarakat Terhadap Masalah Kebersihan di Kota Jayapura',
                 'keterangan_lengkap'    => 'halaman/informasi-lingkungan',

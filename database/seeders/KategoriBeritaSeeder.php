@@ -33,7 +33,7 @@ class KategoriBeritaSeeder extends Seeder
             'name'          => 'Hari Lingkungan Hidup',
             'kategori_slug' => 'hari-lingkungan-hidup',
             'deskripsi'     => 'Hari lingkungan hidup secara lokal, nasional dan internasional yang selalu diselenggarakan.',
-            'status'        => 'draft',
+            'status'        => 'Draft',
         ]);
 
         KategoriBerita::create([
