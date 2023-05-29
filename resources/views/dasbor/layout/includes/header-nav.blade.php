@@ -53,7 +53,7 @@
 
                     <!-- LOGO -->
                     <div class="logo-box">
-                        <a href="/" class="logo logo-dark text-center">
+                        <a href="{{ url('/dasbor') }}" class="logo logo-dark text-center">
                             <span class="logo-sm">
                                 <img src="{{ asset($pengaturan->logo_dark_sm)}}" alt="Logo Situs" height="38">
                             </span>
@@ -62,7 +62,7 @@
                             </span>
                         </a>
 
-                        <a href="/" class="logo logo-light text-center">
+                        <a href="{{ url('/dasbor') }}" class="logo logo-light text-center">
                             <span class="logo-sm">
                                 <img src="{{ asset($pengaturan->logo_light_sm)}}" alt="" height="38">
                             </span>
