@@ -25,8 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(PengaturanControlller::class)->group(function () {
 
     // index
-    Route::get('pengaturan', 'index')
-        ->name('dasbor.pengaturan');
+    Route::get('pengaturan', 'index')->name('dasbor.pengaturan');
+    Route::get('pengaturan/{inputGroup}', 'index')->name('dasbor.pengaturan.inputGroup');
 
     // draft
     Route::get('pengaturan/draft', 'draft')

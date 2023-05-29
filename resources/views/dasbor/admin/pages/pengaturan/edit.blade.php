@@ -76,9 +76,9 @@
                         <!-- input item end -->
 
 
-                        @elseif(Request::segment(4) == 'informasi-kontak')
+                        @elseif(Request::segment(4) == 'kontak')
 
-                        <input type="hidden" name="inputGroup" value="informasi-kontak">
+                        <input type="hidden" name="inputGroup" value="kontak">
 
                         <div class="mb-3">
                             <label for="alamat_email" class="form-label">Alamat Email</label>

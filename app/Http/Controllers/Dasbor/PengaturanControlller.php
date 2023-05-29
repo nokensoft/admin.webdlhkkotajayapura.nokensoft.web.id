@@ -60,9 +60,9 @@ class PengaturanControlller extends Controller
                     $pengaturan->deskripsi_situs    = $request->deskripsi_situs;
                     $pengaturan->copyright          = $request->copyright;
 
-                } elseif (isset($request->inputGroup) && $request->inputGroup == 'informasi-kontak'){
+                } elseif (isset($request->inputGroup) && $request->inputGroup == 'kontak'){
 
-                    // informasi kontak
+                    // kontak
                     $pengaturan->alamat_email       = $request->alamat_email;
                     $pengaturan->nomor_telepon      = $request->nomor_telepon;
                     $pengaturan->alamat_kantor      = $request->alamat_kantor;
@@ -189,11 +189,17 @@ class PengaturanControlller extends Controller
                 $pengaturan->update();
 
                 Alert::toast('Pengaturan Berhasil diperbarui!', 'success');
-                return redirect()->route('dasbor.pengaturan');
+
+                if(!empty($request->inputGroup)) {
+                    return redirect('dasbor/pengaturan/' . $request->inputGroup);
+                } else {
+                    return redirect()->route('dasbor.pengaturan');
+                }
+
 
             } catch (\Throwable $th) {
 
-                // dd($th);
+                dd($th);
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
 
