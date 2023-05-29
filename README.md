@@ -40,3 +40,7 @@ Password    : author.dlhk@jayapurakota.go.id
 SUPERVISOR
 Email       : supervisor.dlhk@jayapurakota.go.id
 Password    : supervisor.dlhk@jayapurakota.go.id
+
+LOGIN PAGE : https://dlhk.jayapurakota.go.id/login
+
+MAIN PAGE : https://dlhk.jayapurakota.go.id/
