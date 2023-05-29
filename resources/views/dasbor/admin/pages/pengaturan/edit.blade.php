@@ -398,10 +398,10 @@
     <div class="col">
         <div class="card-box">
             <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
-                <i class="mdi mdi-save mr-1"></i> Simpan
+                <i class="fe-save mr-1"></i> Simpan
             </button>
             <a href="{{ route('dasbor.pengaturan') }}" class="btn btn-lg btn-light">
-                <i class="mdi mdi-arrow-left mr-1"></i> Kembali
+                <i class="fe-arrow-left mr-1"></i> Kembali
             </a>
         </div>
     </div> <!-- end col -->
