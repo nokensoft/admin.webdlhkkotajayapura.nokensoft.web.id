@@ -22,3 +22,21 @@ Buat model dengan controller, resources, factory, seeder, migration
 
 🏷️ dasbor > buat semua 'slug' unique
 🏷️ dasbor > berita > create : saat proses tambah tapi gambar kosong, munculkan pesan error di bawah field gambar
+
+## HAK AKSES
+
+ADMIN
+Email       : admin.dlhk@jayapurakota.go.id
+Password    : admin.dlhk@jayapurakota.go.id
+
+AUTHOR
+Email       : editor.dlhk@jayapurakota.go.id
+Password    : editor.dlhk@jayapurakota.go.id
+
+EDITOR
+Email       : author.dlhk@jayapurakota.go.id
+Password    : author.dlhk@jayapurakota.go.id
+
+SUPERVISOR
+Email       : supervisor.dlhk@jayapurakota.go.id
+Password    : supervisor.dlhk@jayapurakota.go.id
