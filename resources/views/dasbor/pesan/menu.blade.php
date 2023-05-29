@@ -4,7 +4,7 @@
 
 <ul class="list-group">
     <a href="{{ url('dasbor/pesan') }}" class="list-group-item list-group-item-action">
-            <i class="dripicons-star mr-1"></i> Publish <span class="badge badge-soft-info float-right ms-2">{{$datapublish}}</span>
+            <i class="dripicons-star mr-1"></i> Pesan Masuk <span class="badge badge-soft-info float-right ms-2">{{$datapublish}}</span>
     </a>
 
     <a href="{{ url('dasbor/pesan/trash') }}" class="list-group-item list-group-item-action">

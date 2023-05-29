@@ -31,8 +31,7 @@ use Illuminate\Support\Facades\Route;
 
 
         // show / detail
-        Route::get('pesan/{id}/detail','show')
-            ->name('dasbor.pesan.show');
+        Route::get('pesan/{slug}/detail','show')->name('dasbor.pesan.show');
 
 
 

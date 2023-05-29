@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -16,26 +15,60 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
-
+<!-- end row -->
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
 
-                <h1 class="fw-bold mb-3">{{ $data->judul_topik }}</h1>
-                <p class="mb-3">{{ $data->keterangan }}</p>
+                <div class="mb-3">
+                    <label for="" class="font-weight-bold">Nama Lengkap</label>
+                    <div class="border p-3">
+                        {{ $data->judul_topik ?? ''}}
+                    </div>
+                </div>
+                <!-- item end -->
 
                 <div class="mb-3">
-                    <span class="fw-bold">Dibuat Oleh :</span> {!! $data->nama !!}
+                    <label for="" class="font-weight-bold">Alamat Email</label>
+                    <div class="border p-3">
+                        {{ $data->email ?? ''}}
+                    </div>
                 </div>
+                <!-- item end -->
+
                 <div class="mb-3">
-                    <span class="fw-bold">Email :</span> {!! $data->email !!}
+                    <label for="" class="font-weight-bold">Nomor HP / WA</label>
+                    <div class="border p-3">
+                        {{ $data->no_telf ?? ''}}
+                    </div>
                 </div>
+                <!-- item end -->
+
                 <div class="mb-3">
-                    <span class="fw-bold">Nomor HP/Wa :</span> {!! $data->no_telf !!}
+                    <label for="" class="font-weight-bold">Judul Pesan</label>
+                    <div class="border p-3">
+                        {{ $data->judul_topik ?? ''}}
+                    </div>
                 </div>
+                <!-- item end -->
+
+                <div class="mb-3">
+                    <label for="" class="font-weight-bold">Isi Pesan</label>
+                    <div class="border p-3">
+                        {{ $data->keterangan ?? ''}}
+                    </div>
+                </div>
+                <!-- item end -->
+                        
+                <div class="mb-3">
+                    <label for="" class="font-weight-bold">Tanggal Kirim</label>
+                    <div class="border p-3">
+                        {{ $data->created_at }}
+                    </div>
+                </div>
+                <!-- item end -->
 
             </div>
         </div> <!-- end card -->
@@ -44,19 +77,19 @@
 
 </div>
 <!-- end row -->
-<!--end wrapper-->
 
 <div class="row">
     <div class="col">
         <div class="card">
             <div class="card-body">
                 <a href="{{ route('dasbor.pesan') }}" class="btn btn-light">
-                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                    <i class="me-arrow-left mr-1"></i>Kembali
                 </a>
             </div>
         </div>
     </div>
 </div>
+<!-- end row -->
 
 
 @stop
@@ -81,20 +114,5 @@
 <!-- Init js -->
 
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
-<!-- Dropzone file uploads-->
-<!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-        <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
-    -->
 
-<!-- Init js-->
-<script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-
-
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
-
-
-  @endpush
+@endpush

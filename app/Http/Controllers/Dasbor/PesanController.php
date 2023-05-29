@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Validator;
 
 class PesanController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $datas = Pesan::where([
             ['nama', '!=', Null],
             [function ($query) {
@@ -24,18 +25,19 @@ class PesanController extends Controller
         ])->latest()->paginate(5);
         $jumlahtrash = Pesan::onlyTrashed()->count();
         $datapublish = Pesan::count();
-        return view('dasbor.pesan.index',compact('datas','jumlahtrash','datapublish'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.pesan.index', compact('datas', 'jumlahtrash', 'datapublish'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function trash()
     {
         $datas = Pesan::onlyTrashed()->paginate(5);
         $jumlahtrash = Pesan::onlyTrashed()->count();
-        return view('dasbor.pesan.trash',compact('datas')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.pesan.trash', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $validator = Validator::make(
             $request->all(),
             [
@@ -44,7 +46,8 @@ class PesanController extends Controller
                 'no_telf'          => 'required|string',
                 'judul_topik'      => 'required',
                 'keterangan'       => 'required',
-            ],[
+            ],
+            [
                 'nama.required'     => 'Nama tidak boleh kosong',
                 'email.required'     => 'Email tidak boleh kosong',
                 'no_telf.required'     => 'Nomor Telfon tidak boleh kosong',
@@ -75,9 +78,10 @@ class PesanController extends Controller
         }
     }
 
-    public function show($id){
-        $data = Pesan::where('slug',$id)->first();
-        return view('dasbor.pesan.show',compact('data'));
+    public function show($slug)
+    {
+        $data = Pesan::where('slug', $slug)->first();
+        return view('dasbor.pesan.show', compact('data'));
     }
 
     public function destroy($id)
@@ -88,8 +92,9 @@ class PesanController extends Controller
         return redirect()->back();
     }
 
-    public function restore($id){
-        $data = Pesan::onlyTrashed()->where('id',$id);
+    public function restore($id)
+    {
+        $data = Pesan::onlyTrashed()->where('id', $id);
         $data->restore();
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1200);
         return redirect()->back();
@@ -101,8 +106,5 @@ class PesanController extends Controller
         $data->forceDelete();
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
         return to_route('dasbor.pesan');
-
     }
-
-
 }

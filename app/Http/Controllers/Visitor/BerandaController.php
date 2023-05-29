@@ -274,13 +274,18 @@ class BerandaController extends Controller
                 $pengajuan->judul_topik = $request->judul_topik;
                 $pengajuan->keterangan = $request->keterangan;
                 $pengajuan->slug = $random;
+
                 $pengajuan->save();
+
                 alert()->success('Terima Kasih', 'Sukses!!')->autoclose(1200);
                 // return redirect()->back();
                 return redirect()->route('visitor.pesan.terkirim');
+
             } catch (\Throwable $th) {
+
                 Alert::toast('Oppss Ada yang salah', 'error');
                 return redirect()->back();
+                
             }
         }
     }

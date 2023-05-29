@@ -1,21 +1,20 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item active">Kelola Pesan</li>
+                    <li class="breadcrumb-item active">Pesan</li>
                 </ol>
             </div>
             <h4 class="page-title">Pesan</h4>
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
 
 <div class="row">
     <div class="col-12">
@@ -72,15 +71,10 @@
                                                     Opsi <i class="mdi mdi-chevron-down"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item"
-                                                        href="{{ url('dasbor/pesan/' . $data->slug.'/detail') }}"><i
-                                                            class="fe-eye"></i> Detail
-                                                        </a>
-
+                                                    <a class="dropdown-item" href="{{ url('dasbor/pesan/' . $data->slug.'/detail') }}"><i class="fe-eye"></i> Detail </a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="dropdown-item bg-danger text-light"><i
-                                                            class="fe-trash"></i> Hapus</button>
+                                                    <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -104,9 +98,6 @@
     </div> <!-- end col -->
 
 </div>
-
 <!-- end row -->
-
-<!--end wrapper-->
 
 @stop

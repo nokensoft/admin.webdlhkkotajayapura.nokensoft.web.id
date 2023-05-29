@@ -7,12 +7,12 @@
             <img src="{{ asset('gambar/halaman/bg-header-1.jpg') }}" alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
-            <h1 class="page-title">Pesan</h1>
+            <h1 class="page-title">Pesan Terkirim!</h1>
             <ul>
                 <li>
                     <a class="active" href="{{ url('/beranda') }}">Beranda</a>
                 </li>
-                <li>Pesan</li>
+                <li>Pesan Terkirim!</li>
             </ul>
         </div>
     </div>
@@ -33,8 +33,9 @@
                         <img src="{{ asset( 'gambar/ilustrasi/2.png' ) }}" alt="gambar ilustrasi">
                     </div>
                     <div class="col-md-8">
-                        <h1 class="display-1 fw-bold mt-5">Terkirim!</h1>
-                        <p>Terima kasih telah memanfaatkan kolom pesan pada website kami untuk berinteraksi. Pesan Anda telah terkirim ke sistem kami dan Admin website akan  mengecek dan menanggapinya.</p>
+                        <h1 class="display-1 fw-bold mt-5"><i class="fa-solid fa-paper-plane"></i> Terkirim!</h1>
+                        <p>Terima kasih telah memanfaatkan kolom pesan pada website kami untuk berinteraksi. Pesan Anda telah terkirim ke sistem kami dan Admin website akan  mengecek dan juga menanggapinya.</p>
+                        <p><b>Terima Kasih!</b></p>
                         <p>Kembali ke <a href="{{ url('beranda') }}" class="btn btn-success"><i class="fa-solid fa-home"></i> Beranda</a></p>  
                     </div>
                 </div>
