@@ -30,7 +30,7 @@
 </div>
 @endif
 
-<form action="{{ route('pengguna.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('dasbor.pengguna.store') }}" method="POST" enctype="multipart/form-data">
 @csrf
 <div class="row">
     <div class="col-12">
@@ -152,7 +152,7 @@
             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                 <i class="fe-save mr-1"></i> Simpan
             </button>
-            <a href="{{ route('pengguna.index') }}" class="btn btn-lg btn-light">
+            <a href="{{ route('dasbor.pengguna') }}" class="btn btn-lg btn-light">
                 <i class="fe-arrow-left mr-1"></i> Kembali
             </a>
         </div>
