@@ -93,7 +93,7 @@ class RoleUserSeeder extends Seeder
         ]);
         $authorDLHK->assignRole($authorRole);
 
-        // supervisor
+        // SUPERVISOR
         $supervisorDLHK = User::create([
             'name'              => 'Supervisor DLHK',
             'slug'              => 'supervisor-dlhk',
