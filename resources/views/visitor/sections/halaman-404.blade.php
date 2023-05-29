@@ -27,8 +27,9 @@
                     <img src="{{ asset('gambar/ilustrasi/3.png') }}" alt="gambar ilustrasi">
                 </div>
                 <div class="col-md-8">
-                    <h1>404</h1>
-                    <p>Maaf, halaman yang anda cari tidak ditemukan.</p>
+                    <h1 class="display-1 fw-bold mt-5">404</h1>
+                    <p>Maaf, halaman yang anda cari tidak ditemukan. Mungkin halaman yang Anda cari masi dalam tahap pengembangan atau sudah dihapus.</p>
+                    <p>Jika ada informasi penting yang sedang Anda cari di website ini, silahkan hubungi admin website dengan mengirim pesan pada halaman <a href="{{ url('/kontak') }}" class="btn btn-sm btn-success"><i class="fa-solid fa-arrow-right me-1"></i> Kontak</a>, ataupun juga dengan memanfaatkan informasi kontak yang tersedia pada halaman tersebut.</p>
                     <p>Kembali ke <a href="{{ url('beranda') }}" class="btn btn-success"><i class="fa-solid fa-home"></i> Beranda</a></p>                    
                 </div>
             </div>

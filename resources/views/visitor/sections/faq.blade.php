@@ -31,10 +31,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 padding-0 col-md-12">
+            <div class="col-lg-5 col-md-12">
                 <div class="rs-free-contact">
                     <div class="sec-title3">
-                        <h2 class="title white-color">Ajukan Pertanyaan Anda</h2>
+                        <h2 class="title white-color">Kirim Pesan Anda</h2>
+                        <p class="text-light">Silahkan masukan data diri Anda dengan baik dan benar. Di bagian kolom rincian, mohon agar merincikan pesan Anda dengan baik dan jelas.</p>
                     </div>
                     
                     @include('visitor.sections.form-kontak')

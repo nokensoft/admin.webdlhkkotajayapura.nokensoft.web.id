@@ -18,18 +18,19 @@
     </div>
     <!-- Breadcrumbs End --> 
     
-    <div class="rs-faq-part style1 pt-100 pb-100 md-pt-70 md-pb-70" style="background-image: url(assets/images/banner/home12/banner-home12.jpg);">
+    <div class="rs-faq-part style1 pt-100 pb-100 md-pt-70 md-pb-70">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 padding-0 col-md-12 md-mb-40">
-                    <div>
-                        <img src="{{ asset('gambar/ilustrasi/3.png') }}" alt="gambar ilustrasi">
-                    </div>
+                <div class="col-lg-5 col-md-12 md-mb-40">
+                    <img src="{{ asset('gambar/ilustrasi/3.png') }}" alt="gambar ilustrasi">
+                    <p class="">Fitur kirim pesan ini dibuat untuk memberikan cara bagi pengunjung situs web DLHK Kota Jayapura untuk menghubungi Admin web kami secara langsung.</p>
+                    <p class="">Melalui fitur ini, masyarakat atau pengunjung website kami juga dapat mengajukan permintaan informasi tertentu dengan cara memasukan rincian permintaan dengan sejelas-jelasnya. Admin website akan memprosesnya dan menghubungi Anda melalui nomor hp/wa dan juga email yang dikirimkan.</p>
                 </div>
-                <div class="col-lg-6 padding-0 col-md-12">
+                <div class="col-lg-7 col-md-12">
                     <div class="rs-free-contact">
                         <div class="sec-title3">
-                            <h2 class="title white-color">Ajukan Pertanyaan Anda</h2>
+                            <h2 class="title white-color">Kirim Pesan Anda</h2>
+                            <p class="text-light">Silahkan masukan data diri Anda dengan baik dan benar. Di bagian kolom rincian, mohon agar merincikan pesan Anda dengan baik dan jelas.</p>
                         </div>
 
                         @include('visitor.sections.form-kontak')
@@ -42,12 +43,6 @@
         
     </div>
 
-    
-
-    @include('visitor.sections.link-terkait')
-    <!-- Link Terkait --> 
-
-    @include('visitor.sections.banner-3')
-    <!-- Newsletter -->       
+     
 
 @stop

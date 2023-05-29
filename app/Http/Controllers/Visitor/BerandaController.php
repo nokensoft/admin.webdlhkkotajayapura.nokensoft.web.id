@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Visitor;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 // MODELS
 use App\Models\Berita\Berita;
 use App\Models\Berita\KategoriBerita;
 use App\Models\Halaman;
 use App\Models\Banner;
+use App\Models\Pesan;
 
 use App\Models\LinkTerkait;
 use App\Models\LayananOnline;
@@ -237,6 +241,53 @@ class BerandaController extends Controller
             'banner_3',
             )
         );
+    }
+
+    // PESAN
+    public function pesanStore(Request $request) {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'nama'                  => 'required',
+                'email'                 => 'required|email',
+                'no_telf'               => 'required|string',
+                'judul_topik'           => 'required',
+                'keterangan'            => 'required',
+            ],[
+                'nama.required'         => 'Nama lengkap tidak boleh kosong',
+                'email.required'        => 'Email tidak boleh kosong',
+                'no_telf.required'      => 'Nomor telepon tidak boleh kosong',
+                'judul_topik.required'  => 'Judul pesan tidak boleh kosong',
+                'keterangan.required'   => 'Rincian pertanyaan  tidak boleh kosong'
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+                $random = Str::random(15);
+                $pengajuan = new Pesan();
+                $pengajuan->nama = $request->nama;
+                $pengajuan->email = $request->email;
+                $pengajuan->no_telf = $request->no_telf;
+                $pengajuan->judul_topik = $request->judul_topik;
+                $pengajuan->keterangan = $request->keterangan;
+                $pengajuan->slug = $random;
+                $pengajuan->save();
+                alert()->success('Terima Kasih', 'Sukses!!')->autoclose(1200);
+                // return redirect()->back();
+                return redirect()->route('visitor.pesan.terkirim');
+            } catch (\Throwable $th) {
+                Alert::toast('Oppss Ada yang salah', 'error');
+                return redirect()->back();
+            }
+        }
+    }
+
+    public function pesanTerkirim() {
+
+        return view('visitor.pesan.terkirim');
     }
 
 

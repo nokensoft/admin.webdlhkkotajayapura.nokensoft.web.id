@@ -70,9 +70,9 @@ Route::get('/kontak', [BerandaController::class, 'kontak'])->name('kontak');
 /*
 | PENGAJUAN / PESAN
 |
-|
 */
-Route::post('/pesan', [PesanController::class, 'store'])->name('app.pesan.store');
+Route::post('/pesan', [BerandaController::class, 'pesanStore'])->name('visitor.pesan.store');
+Route::get('/pesan/terkirim', [BerandaController::class, 'pesanTerkirim'])->name('visitor.pesan.terkirim');
 
 
 

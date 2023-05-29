@@ -20,8 +20,7 @@ Buat model dengan controller, resources, factory, seeder, migration
 
 ## NOTES for Johan
 
-🏷️ dasbor > buat semua 'slug' unique
-🏷️ dasbor > berita > create : saat proses tambah tapi gambar kosong, munculkan pesan error di bawah field gambar
+🏷️ visitor > tambahkan capca di bagian kirim pesan
 
 ## HAK AKSES
 
