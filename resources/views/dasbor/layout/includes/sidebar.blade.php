@@ -24,6 +24,7 @@
                                     <i class="fe-user mr-1"></i>
                                     <span>Akun Saya</span>
                                 </a>
+
                                 @if (Auth::user()->hasRole('administrator'))
                                 <!-- item-->
                                 <a href="{{ url('dasbor/pengaturan') }}" class="dropdown-item notify-item">
@@ -31,6 +32,7 @@
                                     <span>Pengaturan</span>
                                 </a>
                                 @endif
+
                                 <!-- item-->
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item notify-item">
                                     <i class="fe-log-out mr-1"></i>
@@ -155,6 +157,7 @@
                             </ul>
 
                         </div>
+
                     @elseif (Auth::user()->hasRole('editor'))
                         <div id="sidebar-menu">
 
@@ -169,9 +172,39 @@
                                     </a>
                                 </li>
 
+                                <li>
+                                    <a href="#berita" data-toggle="collapse">
+                                        <i class="mdi mdi-newspaper"></i>
+                                        <span> Berita </span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <div class="collapse" id="berita">
+                                        <ul class="nav-second-level">
+                                            <li>
+
+                                                <a href="{{ url('dasbor/berita') }}">
+                                                    <span class="badge badge-success badge-pill float-right">
+                                                        {{ $dasbor_jml_link_terkait ?? '' }}
+                                                    </span>
+                                                    Berita
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('dasbor/berita/kategori') }}">
+                                                    <span class="badge badge-success badge-pill float-right">
+                                                        {{ $dasbor_jml_kategori ?? '' }}
+                                                    </span>
+                                                    Kategori
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
                             </ul>
 
                         </div>
+
                     @elseif (Auth::user()->hasRole('author'))
                         <div id="sidebar-menu">
 
@@ -218,6 +251,7 @@
                             </ul>
 
                         </div>
+
                     @elseif (Auth::user()->hasRole('supervisor'))
                         <div id="sidebar-menu">
 
@@ -231,17 +265,41 @@
                                         <span> Dasbor </span>
                                     </a>
                                 </li>
+
                                 <li>
-                                    <a href="{{ url('dasbor/berita') }}">
+                                    <a href="#berita" data-toggle="collapse">
                                         <i class="mdi mdi-newspaper"></i>
                                         <span> Berita </span>
+                                        <span class="menu-arrow"></span>
                                     </a>
+                                    <div class="collapse" id="berita">
+                                        <ul class="nav-second-level">
+                                            <li>
+
+                                                <a href="{{ url('dasbor/berita') }}">
+                                                    <span class="badge badge-success badge-pill float-right">
+                                                        {{ $dasbor_jml_link_terkait ?? '' }}
+                                                    </span>
+                                                    Berita
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('dasbor/berita/kategori') }}">
+                                                    <span class="badge badge-success badge-pill float-right">
+                                                        {{ $dasbor_jml_kategori ?? '' }}
+                                                    </span>
+                                                    Kategori
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
 
 
                             </ul>
 
                         </div>
+
                     @endif
                     <!-- End Sidebar -->
 
