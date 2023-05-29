@@ -47,8 +47,7 @@ Route::controller(PengaturanControlller::class)->group(function () {
     Route::get('pengaturan/edit/{inputGroup}', 'edit')->name('dasbor.pengaturan.inputGroup');
 
     // update
-    Route::put('pengaturan/{id}', 'update')
-        ->name('dasbor.pengaturan.update');
+    Route::put('pengaturan/update/{id}', 'update')->name('dasbor.pengaturan.update');
 
     // destroy
     Route::delete('pengaturan/{id}', 'destroy')

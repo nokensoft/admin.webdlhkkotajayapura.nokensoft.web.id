@@ -26,7 +26,7 @@
     </ul>
 </div>
 @endif
-{!! Form::model($data,array('url'=>'app/pengaturan/update/' . $data->id,'method'=>'post','files'=>'true'))!!}
+{!! Form::model($data,array('url'=>'dasbor/pengaturan/update/' . $data->id,'method'=>'post','files'=>'true'))!!}
     @csrf
     @method('put')
 
@@ -40,8 +40,10 @@
 
                         @if(Request::segment(4) == 'informasi-situs')
 
+                        <input type="hidden" name="inputGroup" value="informasi-situs">
+
                         <div class="mb-3">
-                            <label for="judul_situs" class="form-label">Judul Situs <span class="text-danger">*</span></label>
+                            <label for="judul_situs" class="form-label">Judul Situs</label>
                             <input type="text" id="judul_situs" name="judul_situs" placeholder="" class="form-control" value="{{ old('judul_situs', $data->judul_situs) }}">
                             @if ($errors->has('judul_situs'))
                                 <span class="text-danger" role="alert">
@@ -52,7 +54,7 @@
                         <!-- input item end -->
 
                         <div class="mb-3">
-                            <label for="product-name" class="form-label">Desckripsi Situs <span class="text-danger">*</span></label>
+                            <label for="deskripsi_situs" class="form-label">Deskripsi Situs</label>
                             <textarea name="deskripsi_situs" class="form-control" rows="3" placeholder="Type..">{{ old('deskripsi_situs', $data->deskripsi_situs) }}</textarea>
                             @if ($errors->has('deskripsi_situs'))
                                 <span class="text-danger" role="alert">
@@ -63,7 +65,7 @@
                         <!-- input item end -->
 
                         <div class="mb-3">
-                            <label for="copyright" class="form-label">Copyright <span class="text-danger">*</span></label>
+                            <label for="copyright" class="form-label">Copyright</label>
                             <textarea name="copyright" id="" rows="5" class="ckeditor form-control">{{ old('copyright', $data->copyright) }}</textarea>
                             @if ($errors->has('copyright'))
                                 <span class="text-danger" role="alert">
@@ -76,8 +78,10 @@
 
                         @elseif(Request::segment(4) == 'informasi-kontak')
 
+                        <input type="hidden" name="inputGroup" value="informasi-kontak">
+
                         <div class="mb-3">
-                            <label for="alamat_email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
+                            <label for="alamat_email" class="form-label">Alamat Email</label>
                             <input type="email" id="alamat_email" name="alamat_email" placeholder="" class="form-control" value="{{ old('alamat_email', $data->alamat_email) }}">
                             @if ($errors->has('alamat_email'))
                                 <span class="text-danger" role="alert">
@@ -88,8 +92,8 @@
                         <!-- input item end -->
 
                         <div class="mb-3">
-                            <label for="nomor_telepon" class="form-label">Nomor Telepon <span class="text-danger">*</span></label>
-                            <input type="email" id="nomor_telepon" name="nomor_telepon" placeholder="" class="form-control" value="{{ old('nomor_telepon', $data->nomor_telepon) }}">
+                            <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
+                            <input type="text" id="nomor_telepon" name="nomor_telepon" placeholder="" class="form-control" value="{{ old('nomor_telepon', $data->nomor_telepon) }}">
                             @if ($errors->has('nomor_telepon'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('nomor_telepon') }}</small>
@@ -99,7 +103,7 @@
                         <!-- input item end -->    
                             
                         <div class="mb-3">
-                            <label for="alamat_kantor" class="form-label">Alamat Kantor <span class="text-danger">*</span></label>
+                            <label for="alamat_kantor" class="form-label">Alamat Kantor</label>
                             <textarea name="alamat_kantor" class="form-control" rows="3" placeholder="Type..">{{ old('alamat_kantor', $data->alamat_kantor) }}</textarea>
                             @if ($errors->has('alamat_kantor'))
                                 <span class="text-danger" role="alert">
@@ -110,7 +114,7 @@
                         <!-- input item end -->
 
                         <div class="mb-3">
-                            <label for="product-name" class="form-label">Alamat Maps Kantor <span class="text-danger">*</span></label>
+                            <label for="product-name" class="form-label">Alamat Google Map</label>
                             <textarea name="alamat_google_map" class="form-control" rows="5" placeholder="Embed HTML link maps..">{{ old('alamat_google_map',$data->alamat_google_map) }}</textarea>
                             @if ($errors->has('alamat_google_map'))
                                 <span class="text-danger" role="alert">
@@ -130,8 +134,10 @@
                         
                         @elseif(Request::segment(4) == 'logo')
 
+                        <input type="hidden" name="inputGroup" value="logo">
+
                         <div class="mb-3">
-                            <label for="product-name" class="form-label">Logo <span class="text-danger">*</span></label>
+                            <label for="logo" class="form-label">Logo</label>
                             <div class="d-block mb-3">
                                 @if(!$data->logo)
                                 <img src="{{ asset('gambar/0.jpg') }}" id="logo" alt="gambar logo" class="img-thumbnail">
@@ -141,12 +147,37 @@
                             </div>
 
                             <div class="custom-file w-100">
-                                <input type="file" name="favicon" class="custom-file-input" id="favicon" value="">
+                                <input type="file" name="logo" class="custom-file-input" id="logo" value="">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
                                 <label class="custom-file-label" for="customFile">Pilih gambar</label>
-                                @if ($errors->has('favicon'))
+                                @if ($errors->has('logo'))
                                     <span class="text-danger" role="alert">
-                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('favicon') }}</small>
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('logo') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            
+                        </div>
+                        <!-- input item end -->
+
+
+                        <div class="mb-3">
+                            <label for="logo_loader" class="form-label">Logo Loader</label>
+                            <div class="d-block mb-3">
+                                @if(!$data->logo_loader)
+                                <img src="{{ asset('gambar/0.jpg') }}" id="logo_loader" alt="gambar logo loader" class="img-thumbnail">
+                                @else
+                                <img src="{{ asset('gambar/pengaturan/' . $data->logo_loader) }}" id="logo_loader" alt="gambar logo loader" class="img-thumbnail">
+                                @endif
+                            </div>
+
+                            <div class="custom-file w-100">
+                                <input type="file" name="logo_loader" class="custom-file-input" id="logo_loader" value="">
+                                <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
+                                <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                                @if ($errors->has('logo_loader'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('logo_loader') }}</small>
                                     </span>
                                 @endif
                             </div>
@@ -156,7 +187,7 @@
                         
 
                         <div class="mb-3">
-                            <label for="product-name" class="form-label">Favicon <span class="text-danger">*</span></label>
+                            <label for="favicon" class="form-label">Favicon</label>
                             <div class="d-block mb-3">
                                 @if(!$data->favicon)
                                 <img src="{{ asset('gambar/0.jpg') }}" id="favicon" alt="gambar logo" class="img-thumbnail">
@@ -189,41 +220,44 @@
 
                         
                         @elseif(Request::segment(4) == 'media-sosial')
+
+                        <input type="hidden" name="inputGroup" value="media-sosial">
                             
                         <div class="mb-3">
-                            <label for="product-name" class="form-label">Facobook</label>
-                            {!! Form::text('facebook',null,['id'=>'facebook','class'=>'form-control','placeholder'=>'username'])!!}
+                            <label for="instagram" class="form-label">Instagram</label>
+                            <input type="text" id="instagram" name="instagram" value="{{ old('instagram', $data->instagram) }}" class="form-control">
                         </div>
                         <!-- input item end -->
-
+                        
                         <div class="mb-3">
-                            <label for="product-name" class="form-label">Instagram</label>
-                            {!! Form::text('instagram',null,['id'=>'instagram','class'=>'form-control','placeholder'=>'username'])!!}
-                        </div>
-                        <!-- input item end -->
-
-                        <div class="mb-3">
-                            <label for="product-name" class="form-label">Twitter</label>
-                            {!! Form::text('twitter',null,['id'=>'twitter','class'=>'form-control','placeholder'=>'username'])!!}
-                        </div>
-                        <!-- input item end -->
-
-                        <div class="mb-3">
-                            <label for="product-name" class="form-label">Linkedin</label>
-                            {!! Form::text('linkedin',null,['id'=>'linkedin','class'=>'form-control','placeholder'=>'username'])!!}
-                        </div>
-                        <!-- input item end -->
-
-                        <div class="mb-3">
-                            <label for="product-name" class="form-label">Youtube</label>
-                            {!! Form::text('youtube',null,['id'=>'youtube','class'=>'form-control','placeholder'=>'username'])!!}
+                            <label for="facebook" class="form-label">Facobook</label>
+                            <input type="text" id="facebook" name="facebook" value="{{ old('facebook', $data->facebook) }}" class="form-control">
                         </div>
                         <!-- input item end -->                        
 
-                        <input type="hidden" name="input-group" value="informasi-situs">
+                        <div class="mb-3">
+                            <label for="twitter" class="form-label">Twitter</label>
+                            <input type="text" id="twitter" name="twitter" value="{{ old('twitter', $data->twitter) }}" class="form-control">
+                        </div>
+                        <!-- input item end -->                     
 
-                        
+                        <div class="mb-3">
+                            <label for="tiktok" class="form-label">Tiktok</label>
+                            <input type="text" id="tiktok" name="tiktok" value="{{ old('tiktok', $data->tiktok) }}" class="form-control">
+                        </div>
+                        <!-- input item end -->
 
+                        <div class="mb-3">
+                            <label for="linkedin" class="form-label">Linkedin</label>
+                            <input type="text" id="linkedin" name="linkedin" value="{{ old('linkedin', $data->linkedin) }}" class="form-control">
+                        </div>
+                        <!-- input item end -->
+
+                        <div class="mb-3">
+                            <label for="youtube" class="form-label">Youtube</label>
+                            <input type="text" id="youtube" name="youtube" value="{{ old('youtube', $data->youtube) }}" class="form-control">
+                        </div>
+                        <!-- input item end -->                        
 
                         @endif
 
