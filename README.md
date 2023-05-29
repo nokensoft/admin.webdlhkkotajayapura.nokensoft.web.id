@@ -20,6 +20,9 @@ Buat model dengan controller, resources, factory, seeder, migration
 
 ## NOTES for Johan
 
+🏷️ dasbor > pengguna > tambah
+🏷️ dasbor > pengguna > ubah
+🏷️ dasbor > pengguna > hapus
 🏷️ dasbor > pengguna > upload picture muncul review gambar dan munculkan error dibawah field picture
 🏷️ visitor > tambahkan capca di bagian kirim pesan
 

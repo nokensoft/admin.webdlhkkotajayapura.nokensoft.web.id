@@ -56,17 +56,17 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ implode('',$user->roles()->pluck('display_name')->toArray()) }}</td>
                                 <td class="text-center">
-                                    <form action="{{ route('pengguna.delete',['id' => $user->id]) }}" method="POST">
+                                    <form action="{{ route('dasbor.pengguna.delete',['id' => $user->id]) }}" method="POST">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Opsi <i class="mdi mdi-chevron-down"></i>
                                             </button>
                                             <div class="dropdown-menu">
                                                 @if (Auth::id() == $user->id)
-                                                <a class="dropdown-item" href="{{ route('pengguna.show',$user->slug) }}"><i class="fe-eye"></i> Detail</a>
+                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->id) }}"><i class="fe-eye"></i> Detail</a>
                                                 @else
-                                                <a class="dropdown-item" href="{{ route('pengguna.show',$user->slug) }}"><i class="fe-eye"></i> Detail</a>
-                                                <a class="dropdown-item" href="{{ route('pengguna.edit',$user->slug) }}"><i class="fe-edit"></i> Ubah</a>
+                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->id) }}"><i class="fe-eye"></i> Detail</a>
+                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.edit',$user->id) }}"><i class="fe-edit"></i> Ubah</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>

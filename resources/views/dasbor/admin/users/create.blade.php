@@ -15,24 +15,27 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
+
 @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong><br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+<div class="mb-3 alert alert-warning">
+    <strong class="d-block mb-2 text-dark">Perhatian!</strong>
+    <ul class="list-group">
+        @foreach ($errors->all() as $error)
+        <li style="list-style: none" class="mb-2">
+            <i class="fe-alert-triangle mr-1"></i> {{ $error }}
+        </li>
+        @endforeach
+    </ul>
+</div>
 @endif
 
+<form action="{{ route('pengguna.store') }}" method="POST" enctype="multipart/form-data">
+@csrf
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('pengguna.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
 
                     <div class="row">
 
@@ -41,30 +44,55 @@
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nama lengkap <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="{{ old('name') ?? '' }}">
+                                @if ($errors->has('name'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('name') }}</small>
+                                </span>
+                                @endif
                             </div>
                             <!-- inpute item end -->
         
                             <div class="mb-3">
                                 <label for="email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Alamat Email" value="{{ old('email') ?? '' }}">
+                                @if ($errors->has('email'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('email') }}</small>
+                                </span>
+                                @endif
                             </div>
                             <!-- inpute item end -->
         
                             <div class="mb-3">
                                 <label for="password" class="form-label">Kata Sandi <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi">
+                                @if ($errors->has('password'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('password') }}</small>
+                                </span>
+                                @endif
                             </div>
                             <!-- inpute item end -->
         
                             <div class="mb-3">
                                 <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Konfirmasi Kata Sandi">
+                                @if ($errors->has('confirm-password'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('confirm-password') }}</small>
+                                </span>
+                                @endif
                             </div>
                             <!-- inpute item end -->
         
                             <div class="mb-3">
                                 <label for="role_id" class="form-label">Peran <span class="text-danger">*</span></label>
                                 {!! Form::select('role_id',$roles,[],['required','id'=>'role_id','class'=>'form-control']) !!}
+                                @if ($errors->has('role_id'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('role_id') }}</small>
+                                </span>
+                                @endif
                             </div>
                             <!-- inpute item end -->
 
@@ -109,25 +137,30 @@
                         </div>
                         <!-- col end -->
 
-                    </div>                 
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="card-box">
-                                <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                <a href="{{ route('pengguna.index') }}" class="btn btn-light">
-                                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
-                                </a>
-                            </div>
-                        </div> <!-- end col -->
-                    </div>
-
-                </form> <!-- end form -->
+                    </div> 
+                    <!-- end row -->   
+                
             </div>
         </div>
     </div>
 </div>
+<!-- end row -->           
+
+<div class="row">
+    <div class="col">
+        <div class="card-box">
+            <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
+                <i class="fe-save mr-1"></i> Simpan
+            </button>
+            <a href="{{ route('pengguna.index') }}" class="btn btn-lg btn-light">
+                <i class="fe-arrow-left mr-1"></i> Kembali
+            </a>
+        </div>
+    </div> <!-- end col -->
+</div>
 <!-- end row -->
+
+</form> <!-- end form -->
 
 @stop
 

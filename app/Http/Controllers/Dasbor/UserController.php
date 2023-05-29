@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Dasbor;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Roles;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // INDEX
     public function index(Request $request)
     {
         $data = User::where([
@@ -41,6 +41,7 @@ class UserController extends Controller
 
     }
 
+    // DRAFT
     public function draft(Request $request)
     {
         $data = User::where([
@@ -61,44 +62,35 @@ class UserController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // CREATE
     public function create()
     {
         $roles = Role::pluck('display_name','display_name')->all();
         return view('panel.admin.pages.users.create', compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required',
-            'status' => 'required'
-        ],
-        [
-            'name.required' => 'Nama tidak boleh kosong',
-            'email.required' => 'Email tidak boleh kosong',
-            'email.email' => 'Email tidak valid',
-            'email.unique' => 'Email sudah terdaftar',
-            'password.required' => 'Password tidak boleh kosong',
-            'password.same' => 'Password tidak sama',
-            'roles.required' => 'Role tidak boleh kosong',
-            'status.required' => 'Status tidak boleh kosong',
-        ]
+    // STORE
+    public function store1111(Request $request)
+        {
+            $this->validate($request, [
+                'name'              => 'required',
+                'email'             => 'required|email|unique:users,email',
+                'password'          => 'required|same:confirm-password',
+                'roles'             => 'required',
+                'status'            => 'required'
+            ],
+            [
+                'name.required'     => 'Nama lengkap tidak boleh kosong',
+                'email.required'    => 'Alamat email tidak boleh kosong',
+                'email.email'       => 'Alamat email tidak sesuai format',
+                'email.unique'      => 'Alamat email sudah terdaftar',
+                'password.required' => 'Kata sandi tidak boleh kosong',
+                'password.same'     => 'Kata sandi tidak sama',
+                'roles.required'    => 'Role tidak boleh kosong',
+                'status.required'   => 'Status tidak boleh kosong',
+            ]
 
-    );
+        );
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
@@ -110,24 +102,62 @@ class UserController extends Controller
         return redirect()->route('dasbor.users');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
+
+    // STORE
+    public function store(Request $request)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name'              => 'required',
+                'email'             => 'required|email|unique:users,email',
+                'password'          => 'required|same:confirm-password',
+                'roles'             => 'required',
+                'status'            => 'required'
+            ],
+            [
+                'name.required'     => 'Nama lengkap tidak boleh kosong',
+                'email.required'    => 'Alamat email tidak boleh kosong',
+                'email.email'       => 'Alamat email tidak sesuai format',
+                'email.unique'      => 'Alamat email sudah terdaftar',
+                'password.required' => 'Kata sandi tidak boleh kosong',
+                'password.same'     => 'Kata sandi tidak sama',
+                'roles.required'    => 'Role tidak boleh kosong',
+                'status.required'   => 'Status tidak boleh kosong',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+
+                $input = $request->all();
+                $input['password'] = Hash::make($input['password']);
+
+                $user = User::create($input);
+                $user->assignRole($request->input('roles'));
+
+                alert()->success('Berhasil', 'Sukses!!')->autoclose(1100);
+                return redirect()->route('dasbor.users');
+
+            } catch (\Throwable $th) {
+                dd($th);
+                Alert::toast('Gagal', 'error');
+                return redirect()->back();
+            }
+        }
+    }
+
+    // SHOW
     public function show($id)
     {
         $user = User::find($id);
         return view('panel.admin.pages.users.show',compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // EDIT
     public function edit($id)
     {
         $user = User::find($id);
@@ -137,13 +167,7 @@ class UserController extends Controller
         return view('panel.admin.pages.users.edit',compact('user','roles','userRole'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // UPDATE
     public function update(Request $request, $id)
     {
         $this->validate($request, [
@@ -170,14 +194,7 @@ class UserController extends Controller
         return redirect()->route('dasbor.users');
     }
 
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // DESTROY
     public function destroy($id)
     {
         $data = User::findOrFail($id);
@@ -189,7 +206,7 @@ class UserController extends Controller
     }
 
 
-
+    // TRASH
     public function trash(){
         $datas = User::onlyTrashed()->paginate(5);
         $jumlahtrash = User::onlyTrashed()->count();
@@ -198,13 +215,14 @@ class UserController extends Controller
         return view('panel.admin.pages.users.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // RESTORE
     public function restore($id){
         User::withTrashed()->where('id',$id)->restore();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
         return redirect()->back();
     }
 
-
+    // DELETE
     public function delete($id){
         User::withTrashed()->where('id',$id)->forceDelete();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);

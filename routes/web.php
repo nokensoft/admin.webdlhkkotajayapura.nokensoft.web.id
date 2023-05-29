@@ -87,21 +87,21 @@ Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function 
         // ADMIN
         Route::group(['middleware' => ['role:administrator']], function () {
 
-            Route::get('pengguna', [UserController::class, 'index'])->name('pengguna.index');
-            Route::get('pengguna/tambah', [UserController::class, 'create'])->name('pengguna.create');
-            Route::get('pengguna/draft', [UserController::class, 'draft'])->name('pengguna.draft');
-            Route::get('pengguna/trash', [UserController::class, 'trash'])->name('pengguna.trash');
+            // Route::get('pengguna', [UserController::class, 'index'])->name('pengguna.index');
+            // Route::get('pengguna/tambah', [UserController::class, 'create'])->name('pengguna.create');
+            // Route::get('pengguna/draft', [UserController::class, 'draft'])->name('pengguna.draft');
+            // Route::get('pengguna/trash', [UserController::class, 'trash'])->name('pengguna.trash');
 
-            Route::get('pengguna/{id}/detail', [UserController::class, 'show'])->name('pengguna.show');
-            Route::get('pengguna/{id}/edit', [UserController::class, 'edit'])->name('pengguna.edit');
+            // Route::get('pengguna/{id}/detail', [UserController::class, 'show'])->name('pengguna.show');
+            // Route::get('pengguna/{id}/edit', [UserController::class, 'edit'])->name('pengguna.edit');
 
-            Route::post('pengguna/simpan', [UserController::class, 'store'])->name('pengguna.store');
-            Route::post('pengguna/pulihkan/{id}', [UserController::class, 'restore'])->name('pengguna.restore');
+            // Route::post('pengguna/store', [UserController::class, 'store'])->name('pengguna.store');
+            // Route::post('pengguna/pulihkan/{id}', [UserController::class, 'restore'])->name('pengguna.restore');
 
-            Route::delete('pengguna/hapus-permanen/{id}', [UserController::class, 'destroy'])->name('pengguna.destroy');
-            Route::delete('pengguna/hapus/{id}', [UserController::class, 'delete'])->name('pengguna.delete');
+            // Route::delete('pengguna/hapus-permanen/{id}', [UserController::class, 'destroy'])->name('pengguna.destroy');
+            // Route::delete('pengguna/hapus/{id}', [UserController::class, 'delete'])->name('pengguna.delete');
 
-            Route::put('pengguna/perbarui/{id}', [UserController::class, 'update'])->name('pengguna.update');
+            // Route::put('pengguna/update/{id}', [UserController::class, 'update'])->name('pengguna.update');
 
             // Route::controller(UserController::class)->group(function(){
 
@@ -118,9 +118,9 @@ Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function 
 
 
         });
-
-});
-
+        
+    });
+    
 require_once 'dasbor.php';
 require_once 'profil.php';
 
