@@ -77,7 +77,7 @@ class RoleUserSeeder extends Seeder
         $editorDLHK = User::create([
             'name'              => 'Editor DLHK',
             'slug'              => 'editor-dlhk',
-            'picture'           => 'gambar/pengguna/02.jpg',
+            'picture'           => 'gambar/pengguna/04.jpg',
             'email'             => 'editor.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('editor.dlhk@jayapurakota.go.id')
         ]);

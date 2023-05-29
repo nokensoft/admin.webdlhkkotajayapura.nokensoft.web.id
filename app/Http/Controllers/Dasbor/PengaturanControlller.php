@@ -17,17 +17,17 @@ class PengaturanControlller extends Controller
         $data = Pengaturan::whereId(1)->first();
         return view('dasbor.admin.pages.pengaturan.index', compact('data'));
     }
-    public function show($id)
+    public function show($slug)
     {
-
-        $data = Pengaturan::where('slug', $id)->first();
-        return view('panel.admin.pages.pengaturan.show', compact('data'));
+        $data = Pengaturan::whereId(1)->first();
+        return view('dasbor.admin.pages.pengaturan.show', compact('data'));
     }
-    public function edit($id)
+
+    public function edit()
     {
 
-        $data = Pengaturan::where('slug', $id)->first();
-        return view('panel.admin.pages.pengaturan.edit', compact('data'));
+        $data = Pengaturan::whereId(1)->first();
+        return view('dasbor.admin.pages.pengaturan.edit', compact('data'));
     }
 
     public function update(Request $request, $id)
@@ -35,14 +35,14 @@ class PengaturanControlller extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'judul_situs'             => 'required',
-                'deskripsi_situs'         => 'required',
-                'logo_situs'              => 'required|image|mimes:png|max:4096',
-                'favicon'                 => 'required|image|mimes:png|max:4096',
-                'alamat_email'            => 'required',
-                'nomor_telepon'           => 'required',
-                'alamat_google_map'       => 'required',
-                'copyright'               => 'required',
+                'judul_situs'                   => 'required',
+                'deskripsi_situs'               => 'required',
+                'logo_situs'                    => 'required|image|mimes:png|max:4096',
+                'favicon'                       => 'required|image|mimes:png|max:4096',
+                'alamat_email'                  => 'required',
+                'nomor_telepon'                 => 'required',
+                'alamat_google_map'             => 'required',
+                'copyright'                     => 'required',
             ]
         );
 
@@ -53,19 +53,19 @@ class PengaturanControlller extends Controller
                 $random = Str::random(15);
 
                 $pengaturan = Pengaturan::find($id);
-                $pengaturan->judul_situs = $request->judul_situs;
-                $pengaturan->deskripsi_situs = $request->deskripsi_situs;
-                $pengaturan->alamat_email = $request->alamat_email;
-                $pengaturan->nomor_telepon = $request->nomor_telepon;
-                $pengaturan->alamat_kantor = $request->alamat_kantor;
-                $pengaturan->alamat_google_map = $request->alamat_google_map;
-                $pengaturan->facebook = $request->facebook;
-                $pengaturan->instagram = $request->instagram;
-                $pengaturan->linkedin = $request->linkedin;
-                $pengaturan->twitter = $request->twitter;
-                $pengaturan->youtube = $request->youtube;
-                $pengaturan->copyright = $request->copyright;
-                $pengaturan->slug = $random;
+                $pengaturan->judul_situs        = $request->judul_situs;
+                $pengaturan->deskripsi_situs    = $request->deskripsi_situs;
+                $pengaturan->alamat_email       = $request->alamat_email;
+                $pengaturan->nomor_telepon      = $request->nomor_telepon;
+                $pengaturan->alamat_kantor      = $request->alamat_kantor;
+                $pengaturan->alamat_google_map  = $request->alamat_google_map;
+                $pengaturan->facebook           = $request->facebook;
+                $pengaturan->instagram          = $request->instagram;
+                $pengaturan->linkedin           = $request->linkedin;
+                $pengaturan->twitter            = $request->twitter;
+                $pengaturan->youtube            = $request->youtube;
+                $pengaturan->copyright          = $request->copyright;
+                $pengaturan->slug               = $random;
 
                 // Logo
                 $imageName = time() . '.' . $request->logo_situs->extension();

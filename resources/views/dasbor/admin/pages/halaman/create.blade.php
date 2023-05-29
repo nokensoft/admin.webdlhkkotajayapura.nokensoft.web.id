@@ -40,24 +40,27 @@
                     <label for="product-name" class="form-label">Judul Halaman <span class="text-danger">*</span></label>
                     {!! Form::text('judul_halaman',null,['required','id'=>'judul_halaman','class'=>'form-control','placeholder'=>'Judul Halaman'])!!}
                 </div>
+                <!-- input item end -->
 
                 <div class="mb-3">
                     <label for="product-konten" class="form-label">Konten Halaman <span class="text-danger">*</span></label>
                     <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}"
                         cols="30" rows="10">{{ old('konten') }}</textarea>
                 </div>
+                <!-- input item end -->
 
                 <div class="mb-3">
                     <label for="Kategori" class="form-label">Gambar</label>
                     <input type="file" name="gambar_cover" class="form-control" id="customFile">
                 </div>
+                <!-- input item end -->
 
                 <div class="mb-3">
                     <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
                     {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draf'=>'Inactive'],
                     null,['class'=>'form-control select2','id'=>'status','required']) !!}
-
                 </div>
+                <!-- input item end -->
 
 
 
@@ -89,7 +92,7 @@
 <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
 <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
+    <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
@@ -118,6 +121,6 @@
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
+</script>
 
-
-  @endpush
+@endpush
