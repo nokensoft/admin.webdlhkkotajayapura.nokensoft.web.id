@@ -34,7 +34,7 @@ class LayananOnlineSeeder extends Seeder
                 'keterangan_lengkap'    => 'halaman/informasi-lingkungan',
 
                 'gambar'                => 'gambar/layanan-online/2.png',
-                'url'                   => 'halaman/informasi-lingkungan',
+                'url'                   => 'https://dlhk.jayapurakota.go.id/kontak',
             ]
         ]);
 

@@ -125,7 +125,7 @@
                                             <a href="#">Informasi Lingkungan</a>
                                             <ul class="sub-menu">
                                                 @foreach ($InformasiLingkungan as $InformasiLingkunganItem)
-                                                <li><a href="{{ $InformasiLingkunganItem->url ?? '' }}" target="_blank">{{ $InformasiLingkunganItem->judul ?? '' }}</a></li>
+                                                <li><a href="{{ url($InformasiLingkunganItem->url) ?? '' }}" target="_blank">{{ $InformasiLingkunganItem->judul ?? '' }}</a></li>
                                                 @endforeach
                                             </ul>
                                         </li>
