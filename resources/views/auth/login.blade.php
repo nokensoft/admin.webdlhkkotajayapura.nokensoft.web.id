@@ -9,12 +9,12 @@
     <meta property="og:title" content="{{ $pengaturan->judul_situs }}" />
     <meta property="og:description" content="{{ $pengaturan->deskripsi_situs }}" />
     <meta property="og:site_name" content="{{ $pengaturan->judul_situs }}" />
-    <meta property="og:image" content="{{ asset($pengaturan->logo) }}" />
+    <meta property="og:image" content="{{ asset('gambar/pengaturan/' . $pengaturan->logo) }}" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <!-- FAVICON -->
-    <link rel="apple-touch-icon" href="{{ asset($pengaturan->favicon) }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset($pengaturan->favicon) }}">
+    <link rel="apple-touch-icon" href="{{ asset('gambar/pengaturan/' . $pengaturan->favicon) }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('gambar/pengaturan/' . $pengaturan->favicon) }}">
 
     <!-- Bootstrap css -->
     <link href="{{ asset('assets/admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />

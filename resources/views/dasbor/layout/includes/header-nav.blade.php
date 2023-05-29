@@ -90,10 +90,15 @@
                             </a>
                             <!-- End mobile menu toggle-->
                         </li>
+                        <li>
+                            <a href="{{ url('/') }}" target="_blank" class="nav-link">
+                                <i class="fe-globe"></i> Tampilkan Situs
+                            </a>
+                        </li>
                         @if (Auth::user()->hasRole('administrator'))
                         <li class="dropdown d-none d-xl-block">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                Jalan Pintas
+                                <i class="fe-file-plus"></i> Jalan Pintas
                                 <i class="mdi mdi-chevron-down"></i>
                             </a>
                             <div class="dropdown-menu">

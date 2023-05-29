@@ -29,7 +29,7 @@ class PengaturanSeeder extends Seeder
             'copyright'         => "2023, Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura - All Rights Reserved. Powered By <a href='https://nokensoft.com/' target='_blank'>Nokensoft</a>",
             
             'logo'              => 'logo-hijau.png',
-            'logo_loader'       => 'loader.png',
+            'logo_loader'       => 'logo-loader.png',
             'favicon'           => 'favicon.png',
             
             // Contact

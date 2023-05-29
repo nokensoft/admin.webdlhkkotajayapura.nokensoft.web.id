@@ -5,7 +5,7 @@
                     <div class="col-lg-3 col-md-12 col-sm-12 footer-widget md-mb-50">
                         <div class="footer-logo mb-30">
                             <a href="{{ url('/') }}">
-                                <img src="{{ asset('gambar/ilustrasi/1.png') }}" alt="gambar ilustrasi" title="{{ $pengaturan->judul_situs }}">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_loader) }}" alt="gambar ilustrasi" title="{{ $pengaturan->judul_situs }} ">
                             </a>
                         </div>
                         <div class="textwidget pr-60 md-pr-15">
