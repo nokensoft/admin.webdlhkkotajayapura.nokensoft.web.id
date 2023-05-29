@@ -34,8 +34,6 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                {{-- <form action="{{ route('dasbor.halaman.store') }}" method="post" enctype="multipart/form-data">
-                    --}}
                     {!! Form::open(array('url' => route('dasbor.link-terkait.store'),'files'=>'true')) !!}
                     @csrf
 
@@ -94,31 +92,19 @@
 @push('script-header')
 <!-- Plugins css-->
 <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
-<!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-
-<link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
 
-
 @push('script-footer')
 <!-- Select2 js-->
-<script src="{{ asset('assets/admin/assets/js/vendor.min.js')}}"></script>
 <script src="{{ asset('assets/admin/assets/libs/select2/js/select2.min.js')}}"></script>
 <!-- Quill js -->
 <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
 <!-- Init js -->
-
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
-<!-- Dropzone file uploads-->
-<!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-<script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
--->
-
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -126,5 +112,5 @@
     });
 
     CKEDITOR.config.height='400px';
-
+</script>
 @endpush

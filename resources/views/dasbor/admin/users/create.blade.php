@@ -1,163 +1,164 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
-                                <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Kelola Pengguna</a></li>
-                                <li class="breadcrumb-item active">Tambah</li>
-                            </ol>
-                        </div>
-                        <h4 class="page-title">Tambah</h4>
-                    </div>
-                </div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/pengguna') }}">Pengguna</a></li>
+                    <li class="breadcrumb-item active">Tambah</li>
+                </ol>
             </div>
-            <!-- end page title -->
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong><br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <div class="row">
-                <div class="card">
-                   <div class="col-lg-12">
-                        <div class="card-body">
-                            <form action="{{route('pengguna.store')}}" method="POST" enctype="multipart/form-data">
-                                @csrf
-
-                                <div class="row">
-                                    <div class="col-md-6">
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="name" class="form-label">Nama <span class="text-danger">*</span></label>
-                                                {!! Form::text('name',null,['required','id'=>'name','class'=>'form-control','placeholder'=>'Nama']) !!}
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                                {!! Form::text('email',null,['required','id'=>'email','class'=>'form-control','placeholder'=>'Email']) !!}
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="password" class="form-label">Kata Sandi <span class="text-danger">*</span></label>
-                                                {!! Form::password('password',['required','id'=>'password','class'=>'form-control','placeholder'=>'Password']) !!}
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi <span class="text-danger">*</span></label>
-                                            {!! Form::password('confirm-password',['required','id'=>'confirm-password','class'=>'form-control','placeholder'=>'Konfirmasi Password']) !!}
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="role_id" class="form-label">Peran <span class="text-danger">*</span></label>
-                                            {!! Form::select('role_id',$roles,[],['required','id'=>'role_id','class'=>'form-control']) !!}
-                                        </div>
-                                    </div> <!-- end col -->
-
-                                    <div class="col-md-6">
-                                        <div class="card-box">
-                                            <div class="mb-3">
-                                                <label for="pic">Foto Profil</label>
-                                                <div class="d-block mb-3">
-                                                    <img src="{{asset('assets/admin/assets/images/upload.png')}}" id="preview-picture"
-                                                    alt="Profile Picture" class="img-thumbnail w-50">
-                                                </div>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" name="picture" id="picture">
-                                                        <label class="custom-file-label" for="picture">Pilih Foto Profil</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end card group -->
-                                    </div>
-
-                                </div> <!-- end row -->
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card-box">
-                                            <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                                            <a href="{{ route('pengguna.index') }}" class="btn btn-light">
-                                                <i class="mdi mdi-arrow-left mr-1"></i>Kembali
-                                            </a>
-                                        </div>
-                                    </div> <!-- end col -->
-                                </div>
-
-                            </form> <!-- end form -->
-                        </div>
-                   </div>
-                </div>
-            </div>
-
-    </div> <!-- end card -->
-
-</div> <!-- end col -->
-
-
-</div>
+            <h4 class="page-title">Tambah</h4>
         </div>
     </div>
+</div>
+<!-- end page title -->
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong><br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ route('pengguna.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="row">
+
+                        <div class="col-md-8">
+
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama lengkap <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="{{ old('name') ?? '' }}">
+                            </div>
+                            <!-- inpute item end -->
+        
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Alamat Email" value="{{ old('email') ?? '' }}">
+                            </div>
+                            <!-- inpute item end -->
+        
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Kata Sandi <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi">
+                            </div>
+                            <!-- inpute item end -->
+        
+                            <div class="mb-3">
+                                <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Konfirmasi Kata Sandi">
+                            </div>
+                            <!-- inpute item end -->
+        
+                            <div class="mb-3">
+                                <label for="role_id" class="form-label">Peran <span class="text-danger">*</span></label>
+                                {!! Form::select('role_id',$roles,[],['required','id'=>'role_id','class'=>'form-control']) !!}
+                            </div>
+                            <!-- inpute item end -->
+
+                        <div class="form-group">
+                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                            <select name="status" class="form-control">
+                                <option value="" hidden>Pilih</option>
+                                <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
+                                <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
+                            </select>
+                            @if ($errors->has('status'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item end -->
+
+                        </div>
+                        <!-- col end -->
+                        
+                        <div class="col-md-4">
+
+                            <div class="mb-3">
+                                <div class="mb-2">
+                                    <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                </div>
+                                <label for="picture" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                                <div class="custom-file w-100">
+                                    <input type="file" name="picture" class="custom-file-input" id="picture" value="">
+                                    <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
+                                    <label class="custom-file-label" for="customFile">Pilih gambar</label>
+                                    @if ($errors->has('picture'))
+                                        <span class="text-danger" role="alert">
+                                            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('picture') }}</small>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <!-- input item end-->
+
+                        </div>
+                        <!-- col end -->
+
+                    </div>                 
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="card-box">
+                                <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
+                                <a href="{{ route('pengguna.index') }}" class="btn btn-light">
+                                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                                </a>
+                            </div>
+                        </div> <!-- end col -->
+                    </div>
+
+                </form> <!-- end form -->
+            </div>
+        </div>
+    </div>
+</div>
 <!-- end row -->
-<!--end wrapper-->
 
-
-
-  @stop
+@stop
 
 @push('script-header')
- <!-- Plugins css-->
- <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
-        <!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-
-        <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
-        <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
+<!-- Plugins css-->
+<link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
 
+@push('script-footer')
+<!-- Select2 js-->
+<script src="{{ asset('assets/admin/assets/libs/select2/js/select2.min.js')}}"></script>
+<!-- Quill js -->
+<script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
+<!-- Init js -->
+<script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
+<!-- Init js-->
+<script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $('#picture').change(function(){
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            $('#preview-picture').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(this.files[0]);
+        });
+    });
 
-  @push('script-footer')
-   <!-- Select2 js-->
-   <script src="{{ asset('assets/admin/assets/js/vendor.min.js')}}"></script>
-   <script src="{{ asset('assets/admin/assets/libs/select2/js/select2.min.js')}}"></script>
-        <!-- Quill js -->
-        <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
-   <!-- Init js -->
+    CKEDITOR.config.height='400px';
+</script>
 
-     <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
-        <!-- Dropzone file uploads-->
-        <!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-        <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
-    -->
-
-        <!-- Init js-->
-        <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-        <script type="text/javascript">
-            $(document).ready(function (e) {
-               $('#picture').change(function(){
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                  $('#preview-picture').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(this.files[0]);
-               });
-
-            });
-        </script>
-
-  @endpush
+@endpush

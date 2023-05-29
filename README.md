@@ -20,6 +20,7 @@ Buat model dengan controller, resources, factory, seeder, migration
 
 ## NOTES for Johan
 
+🏷️ dasbor > pengguna > upload picture muncul review gambar dan munculkan error dibawah field picture
 🏷️ visitor > tambahkan capca di bagian kirim pesan
 
 ## HAK AKSES
@@ -43,3 +44,6 @@ Password    : supervisor.dlhk@jayapurakota.go.id
 LOGIN PAGE : https://dlhk.jayapurakota.go.id/login
 
 MAIN PAGE : https://dlhk.jayapurakota.go.id/
+
+## NOTES for Janzen
+🏷️ drop down menu di bagian halaman create tidak jalan

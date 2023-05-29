@@ -1,6 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-    <!-- start page content wrapper-->
+
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
@@ -15,6 +15,8 @@
             </div>
         </div>
     </div>
+    <!-- row end -->
+
     @if (Auth::user()->hasRole('administrator'))
 
     <div class="row">
@@ -177,6 +179,7 @@
                </div>
             </div> <!-- end col-->
     </div>
+    <!-- row end -->
 
     @elseif (Auth::user()->hasRole('editor'))
 
@@ -220,6 +223,7 @@
             </div>
          </div> <!-- end col-->
     </div>
+    <!-- row end -->
 
     @elseif (Auth::user()->hasRole('author'))
 
@@ -263,6 +267,7 @@
             </div>
          </div> <!-- end col-->
     </div>
+    <!-- row end -->
 
     @elseif (Auth::user()->hasRole('supervisor'))
 
@@ -306,8 +311,8 @@
             </div>
          </div> <!-- end col-->
     </div>
+    <!-- row end -->
 
     @endif
-  <!--end wrapper-->
 
   @stop

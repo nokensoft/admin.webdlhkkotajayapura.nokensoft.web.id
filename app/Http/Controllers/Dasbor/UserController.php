@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dasbor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Roles;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
@@ -68,7 +69,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('display_name','display_name')->all();
-        return view('panel.admin.pages.users.create',compact('roles'));
+        return view('panel.admin.pages.users.create', compact('roles'));
     }
 
     /**

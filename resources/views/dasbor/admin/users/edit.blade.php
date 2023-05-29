@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -16,7 +15,8 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
+
 @if ($errors->any())
 <div class="alert alert-danger">
     <strong>Whoops!</strong><br><br>
@@ -48,8 +48,7 @@
                                     !!}
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="email" class="form-label">Email <span
-                                            class="text-danger">*</span></label>
+                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                                     {!!
                                     Form::text('email',$user->email,['required','id'=>'email','class'=>'form-control','placeholder'=>'Email'])
                                     !!}
@@ -128,24 +127,16 @@
         </div>
     </div>
 </div>
-
 <!-- end row -->
-<!--end wrapper-->
-
-
 
 @stop
 
 @push('script-header')
 <!-- Plugins css-->
 <link href="{{ asset('assets/admin/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
-<!-- <link href="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-
-        <link href="{{ asset('assets/admin/assets/libs/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css" /> -->
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
 @endpush
-
 
 @push('script-footer')
 <!-- Select2 js-->
@@ -154,13 +145,7 @@
 <!-- Quill js -->
 <script src="{{ asset('assets/admin/assets/libs/quill/quill.min.js')}}"></script>
 <!-- Init js -->
-
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
-<!-- Dropzone file uploads-->
-<!-- <script src="{{ asset('assets/admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-        <script src="{{ asset('assets/admin/assets/libs/dropify/js/dropify.min.js')}}"></script>
-    -->
-
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
@@ -175,6 +160,7 @@
                });
 
             });
+    CKEDITOR.config.height='400px';
 </script>
 
 @endpush
