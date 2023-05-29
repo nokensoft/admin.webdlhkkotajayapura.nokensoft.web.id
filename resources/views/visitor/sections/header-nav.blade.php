@@ -60,8 +60,8 @@
                     <div class="col-lg-2">
                         <div class="logo-cat-wrap">
                             <div class="logo-part">
-                                <a href="/">
-                                    <img src="{{ asset('assets/images/dlhk/logo-website-dlhk-green.png') }}" alt="Gambar">
+                                <a href="{{ url('/') }}">
+                                    <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo ?? '') }}" alt="Logo">
                                 </a>
                             </div>
                         </div>
@@ -77,12 +77,13 @@
                                 <nav class="rs-menu">
                                     <ul class="nav-menu">
                                         <li class="rs-mega-menu mega-rs">
-                                            <a href="/">Beranda</a>
+                                            <a href="{{ url('/beranda') }}">Beranda</a>
+                                        </li>
+                                        <li class="rs-mega-menu mega-rs">
+                                            <a href="{{ url('/berita') }}">Berita</a>
                                         </li>
                                         <li class="rs-mega-menu mega-rs menu-item-has-children">
                                             <a href="#profil">Profil</a>
-
-
                                             <ul class="mega-menu">
                                                 <li class="mega-menu-container">
                                                     <div class="mega-menu-innner">
