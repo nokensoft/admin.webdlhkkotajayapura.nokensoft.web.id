@@ -24,7 +24,7 @@ Buat model dengan controller, resources, factory, seeder, migration
 🏷️ dasbor > pengguna > ubah
 🏷️ dasbor > pengguna > hapus
 🏷️ dasbor > pengguna > upload picture muncul review gambar dan munculkan error dibawah field picture
-🏷️ visitor > tambahkan capca di bagian kirim pesan
+🏷️ visitor > tambahkan captcha di bagian kirim pesan
 
 ## HAK AKSES
 
