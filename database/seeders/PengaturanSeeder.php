@@ -25,7 +25,7 @@ class PengaturanSeeder extends Seeder
             // Site Information
             'judul_situs'       => 'LID DLHK Kota Jayapura',
             'deskripsi_situs'   => 'Layanan Informasi dan Dokumentasi Dinas Lingkungan Hidup Kota Jayapura',
-            'copyright'         => "2020 All Rights Reserved. Powered By <a href='https://nokensoft.com/' target='_blank'>Nokensoft</a>",
+            'copyright'         => "2023, Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura - All Rights Reserved. Powered By <a href='https://nokensoft.com/' target='_blank'>Nokensoft</a>",
             
             'logo'              => 'assets/images/dlhk/logo-website-dlhk-green.png',
             'logo_loader'       => 'assets/images/dlhk/banner/1.png',
