@@ -260,7 +260,8 @@ class BerandaController extends Controller
                 'no_telf.required'      => 'Nomor telepon tidak boleh kosong',
                 'judul_topik.required'  => 'Judul pesan tidak boleh kosong',
                 'keterangan.required'   => 'Rincian pertanyaan  tidak boleh kosong',
-                'captcha.required'      => 'captcha tidak boleh kosong'
+                'captcha.required'      => 'Captcha tidak boleh kosong',
+                'captcha.captcha'       => 'Kode captcha yang Anda masukan tidak sama',
             ]
         );
 
