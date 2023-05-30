@@ -82,8 +82,8 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('dasbor.pesan') }}" class="btn btn-light">
-                    <i class="me-arrow-left mr-1"></i>Kembali
+                <a href="{{ route('dasbor.pesan') }}" class="btn btn-lg btn-light">
+                    <i class="fe-arrow-left mr-1"></i> Kembali
                 </a>
             </div>
         </div>
