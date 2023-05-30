@@ -10,7 +10,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="{{route('dasbor')}}">Dasbor</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('pengguna.index')}}">Kelola Pengguna</a>
+                            <li class="breadcrumb-item"><a href="{{route('dasbor.pengguna')}}">Kelola Pengguna</a>
                             </li>
                             <li class="breadcrumb-item active">Detail</li>
                         </ol>
@@ -47,6 +47,13 @@
                                         Form::text('email',implode('',$user->roles()->pluck('display_name')->toArray()),['class'=>'form-control','placeholder'=>'Email'])
                                         !!}
                                     </div>
+                                    <br>
+                                    <div class="col-md-12">
+                                        <label for="email" class="form-label">Status</label>
+                                        {!!
+                                         Form::text('status',$user->status,['class'=>'form-control','placeholder'=>'status'])
+                                        !!}
+                                    </div>
                                 </div>
                             </div> <!-- end col -->
 
@@ -75,15 +82,15 @@
                                         class="btn btn-lg btn-outline-dark waves-effect waves-light">
                                         <i class="mdi mdi-account-edit mr-1"></i>Sunting
                                     </a>
-                                    <a href="{{ route('pengguna.index') }}" class="btn btn-light">
+                                    <a href="{{ route('dasbor.pengguna') }}" class="btn btn-light">
                                         <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                     </a>
                                     @else
-                                    <a href="{{ route('pengguna.edit',['id' => $user->slug]) }}"
+                                    <a href="{{ route('dasbor.pengguna.edit',$user->slug) }}"
                                         class="btn btn-lg btn-outline-dark waves-effect waves-light">
                                         <i class="mdi mdi-account-edit mr-1"></i>Sunting
                                     </a>
-                                    <a href="{{ route('pengguna.index') }}" class="btn btn-light">
+                                    <a href="{{ route('dasbor.pengguna') }}" class="btn btn-light">
                                         <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                                     </a>
                                     @endif

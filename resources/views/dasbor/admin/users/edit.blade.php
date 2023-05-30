@@ -53,7 +53,7 @@
                                 @endif
                             </div>
                             <!-- inpute item end -->
-        
+
                             <div class="mb-3">
                                 <label for="email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Alamat Email" value="{{ old('email') ?? $data->email }}">
@@ -64,9 +64,9 @@
                                 @endif
                             </div>
                             <!-- inpute item end -->
-        
+
                             <div class="mb-3">
-                                <label for="password" class="form-label">Kata Sandi <span class="text-danger">*</span></label>
+                                <label for="password" class="form-label">Kata Sandi </label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi">
                                 @if ($errors->has('password'))
                                 <span class="text-danger" role="alert">
@@ -75,9 +75,9 @@
                                 @endif
                             </div>
                             <!-- inpute item end -->
-        
+
                             <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi <span class="text-danger">*</span></label>
+                                <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi </label>
                                 <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Konfirmasi Kata Sandi">
                                 @if ($errors->has('confirm-password'))
                                 <span class="text-danger" role="alert">
@@ -86,13 +86,13 @@
                                 @endif
                             </div>
                             <!-- inpute item end -->
-        
+
                             <div class="mb-3">
-                                <label for="role_id" class="form-label">Peran <span class="text-danger">*</span></label>
-                                {!! Form::select('role_id',$roles,[],['required','id'=>'role_id','class'=>'form-control']) !!}
-                                @if ($errors->has('role_id'))
+                                <label for="peran" class="form-label">Peran <span class="text-danger">*</span></label>
+                                {!! Form::select('peran',$roles,[],['required','id'=>'peran','class'=>'form-control']) !!}
+                                @if ($errors->has('peran'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('role_id') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('peran') }}</small>
                                 </span>
                                 @endif
                             </div>
@@ -101,9 +101,9 @@
                         <div class="form-group">
                             <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
                             <select name="status" class="form-control">
-                                <option value="" hidden>Pilih</option>
-                                <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
-                                <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
+                                <option value="{{ $data->status }}" hidden>{{ $data->status }}</option>
+                                <option value="publish" @if(old('status') == 'publish') Selected @endif>Active</option>
+                                <option value="draft" @if(old('status') == 'draft') Selected @endif>Inactive</option>
                             </select>
                             @if ($errors->has('status'))
                                 <span class="text-danger" role="alert">
@@ -115,12 +115,16 @@
 
                         </div>
                         <!-- col end -->
-                        
+
                         <div class="col-md-4">
 
                             <div class="mb-3">
                                 <div class="mb-2">
-                                    <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                    @if ($data->picture)
+                                    <img src="{{ asset('gambar/pengguna/'.$data->picture) }}" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid">
+                                    @else
+                                    <img src="{{ asset($data->picture) }}" alt="Gambar" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid" >
+                                    @endif
                                 </div>
                                 <label for="picture" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
                                 <div class="custom-file w-100">
@@ -139,14 +143,14 @@
                         </div>
                         <!-- col end -->
 
-                    </div> 
-                    <!-- end row -->   
-                
+                    </div>
+                    <!-- end row -->
+
             </div>
         </div>
     </div>
 </div>
-<!-- end row -->           
+<!-- end row -->
 
 <div class="row">
     <div class="col">

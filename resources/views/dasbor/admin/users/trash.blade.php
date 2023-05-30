@@ -8,7 +8,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('pengguna.index')  }}">Kelola Pengguna</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('dasbor.pengguna')  }}">Kelola Pengguna</a></li>
                     <li class="breadcrumb-item active">Trash</li>
                 </ol>
             </div>
@@ -24,7 +24,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ route('pengguna.index') }}" class="btn btn-danger mb-2"><i
+                        <a href="{{ route('dasbor.pengguna') }}" class="btn btn-danger mb-2"><i
                             class="mdi mdi-arrow-left me-2"></i> Kembali
                         </a>
                     </div>
@@ -37,6 +37,7 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
+                            <th>Foto</th>
                             <th>Nama</th>
                             <th>Email</th>
                             <th class="text-center" width="210px">Opsi</th>
@@ -44,18 +45,25 @@
                         @foreach ($datas as $data)
                         <tr>
                             <td>{{ ++$i }}</td>
+                            <td class="align-middle">
+                                @if ($data->picture)
+                                <img src="{{ asset('gambar/pengguna/'. $data->picture) }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                @else
+                                <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                @endif
+                            </td>
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
                             <td class="text-center">
                                 <div class="row">
                                     <div class="col-6">
-                                        <form action="{{ route('pengguna.restore',['id' => $data->id]) }}" method="POST">
+                                        <form action="{{ route('dasbor.pengguna.restore',['id' => $data->id]) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-success">Restore</button>
                                         </form>
                                     </div>
                                     <div class="col-6">
-                                        <form action="{{ route('pengguna.destroy',['id' => $data->id]) }}" method="POST">
+                                        <form action="{{ route('dasbor.pengguna.destroy',['id' => $data->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 

@@ -58,7 +58,7 @@ class RoleUserSeeder extends Seeder
         $adminJanzen = User::create([
             'name'              => 'Janzen Faidiban',
             'slug'              => 'janzen-faidiban',
-            'picture'           => 'gambar/pengguna/05-janzen.jpg',
+            // 'picture'           => 'gambar/pengguna/05-janzen.jpg',
             'email'             => 'janzen.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('janzen.dlhk@jayapurakota.go.id')
         ]);
@@ -67,7 +67,7 @@ class RoleUserSeeder extends Seeder
         $adminDLHK = User::create([
             'name'              => 'Admin DLHK',
             'slug'              => 'admin-dlhk',
-            'picture'           => 'gambar/pengguna/01.jpg',
+            // 'picture'           => 'gambar/pengguna/01.jpg',
             'email'             => 'admin.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('admin.dlhk@jayapurakota.go.id')
         ]);
@@ -77,7 +77,7 @@ class RoleUserSeeder extends Seeder
         $editorDLHK = User::create([
             'name'              => 'Editor DLHK',
             'slug'              => 'editor-dlhk',
-            'picture'           => 'gambar/pengguna/04.jpg',
+            // 'picture'           => 'gambar/pengguna/04.jpg',
             'email'             => 'editor.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('editor.dlhk@jayapurakota.go.id')
         ]);
@@ -87,7 +87,7 @@ class RoleUserSeeder extends Seeder
         $authorDLHK = User::create([
             'name'              => 'Author DLHK',
             'slug'              => 'author-dlhk',
-            'picture'           => 'gambar/pengguna/02.jpg',
+            // 'picture'           => 'gambar/pengguna/02.jpg',
             'email'             => 'author.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('author.dlhk@jayapurakota.go.id')
         ]);
@@ -97,7 +97,7 @@ class RoleUserSeeder extends Seeder
         $supervisorDLHK = User::create([
             'name'              => 'Supervisor DLHK',
             'slug'              => 'supervisor-dlhk',
-            'picture'           => 'gambar/pengguna/03.jpg',
+            // 'picture'           => 'gambar/pengguna/03.jpg',
             'email'             => 'supervisor.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('supervisor.dlhk@jayapurakota.go.id')
         ]);

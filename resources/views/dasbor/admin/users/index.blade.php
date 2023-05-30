@@ -50,7 +50,10 @@
                                     <img src="{{ asset($user->picture) }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
                                     @else
                                     <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+
                                     @endif
+
+
                                 </td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
@@ -63,10 +66,10 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 @if (Auth::id() == $user->id)
-                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->id) }}"><i class="fe-eye"></i> Detail</a>
+                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->slug) }}"><i class="fe-eye"></i> Detail</a>
                                                 @else
-                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->id) }}"><i class="fe-eye"></i> Detail</a>
-                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.edit',$user->id) }}"><i class="fe-edit"></i> Ubah</a>
+                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->slug) }}"><i class="fe-eye"></i> Detail</a>
+                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.edit',$user->slug) }}"><i class="fe-edit"></i> Ubah</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
