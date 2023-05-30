@@ -188,7 +188,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Mews\Captcha\CaptchaServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -215,6 +215,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         // 'Image' => Intervention\Image\Facades\Image::class,
         // 'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ])->toArray(),
 
 ];

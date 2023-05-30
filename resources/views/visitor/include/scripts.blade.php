@@ -1,3 +1,4 @@
+
 <!-- modernizr js -->
 <script src="{{ asset('assets/visitor/assets/js/modernizr-2.8.3.min.js') }}"></script>
 <!-- jquery latest version -->
@@ -35,3 +36,5 @@
 <script src="{{ asset('assets/visitor/assets/js/contact.form.js') }}"></script>
 <!-- main js -->
 <script src="{{ asset('assets/visitor/assets/js/main.js') }}"></script>
+
+

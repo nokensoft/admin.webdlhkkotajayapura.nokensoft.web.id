@@ -73,6 +73,7 @@ Route::get('/kontak', [BerandaController::class, 'kontak'])->name('kontak');
 */
 Route::post('/pesan', [BerandaController::class, 'pesanStore'])->name('visitor.pesan.store');
 Route::get('/pesan/terkirim', [BerandaController::class, 'pesanTerkirim'])->name('visitor.pesan.terkirim');
+Route::get('/reload-captcha', [BerandaController::class, 'reloadCaptcha']);
 
 
 
@@ -118,9 +119,9 @@ Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function 
 
 
         });
-        
+
     });
-    
+
 require_once 'dasbor.php';
 require_once 'profil.php';
 

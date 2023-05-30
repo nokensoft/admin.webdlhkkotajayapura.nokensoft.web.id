@@ -26,7 +26,7 @@
 
     <!-- Sweet Alert -->
     @include('sweetalert::alert')
-    
+
 </body>
 
 </html>

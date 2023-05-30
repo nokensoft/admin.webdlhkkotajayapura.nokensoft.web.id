@@ -32,22 +32,22 @@ class BerandaController extends Controller
     | - informasiLingkungans
     | - faqs
     |--------------------------------------------------------------------------
-    */     
-    
+    */
+
     public function index() {
-        
+
         // data berita di halaman beranda
         $beritas = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
-        
+
         // data layanan online di halaman beranda
         $layananOnlines = LayananOnline::orderBy('id','asc')->where('status','publish')->paginate();
-        
+
         // data informasi lingkungan di halaman beranda
         $informasiLingkungans = InformasiLingkungan::orderBy('id','asc')->where('status','publish')->paginate();
-        
+
         // data faq di halaman beranda
         $faqs = Faq::orderBy('id','desc')->where('status','publish')->paginate();
-        
+
         // data link terkait di halaman beranda
         $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
@@ -56,13 +56,13 @@ class BerandaController extends Controller
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return  view('visitor.index', 
+        return  view('visitor.index',
                     compact(
-                        'beritas', 
-                        'layananOnlines', 
-                        'informasiLingkungans', 
+                        'beritas',
+                        'layananOnlines',
+                        'informasiLingkungans',
                         'faqs',
-                        'linkTerkaits', 
+                        'linkTerkaits',
                         'banner_1',
                         'banner_2',
                         'banner_3',
@@ -78,14 +78,14 @@ class BerandaController extends Controller
     | - show
     | - category
     |--------------------------------------------------------------------------
-    */ 
+    */
 
     // BERITA > INDEX
     public function beritaIndex() {
         $datas = Berita::where('status', 'publish')->paginate(2);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
-        
+
         // data link terkait di halaman beranda
         $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
@@ -94,10 +94,10 @@ class BerandaController extends Controller
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return  view('visitor.pages.berita.index', 
+        return  view('visitor.pages.berita.index',
                     compact(
-                            'datas', 
-                            'kategoris', 
+                            'datas',
+                            'kategoris',
                             'pageTitle',
                             'linkTerkaits',
                             'banner_1',
@@ -110,7 +110,7 @@ class BerandaController extends Controller
     // BERITA > SHOW
     public function beritaShow($slug) {
         $data = Berita::where('slug', $slug)->first();
-        
+
         // data link terkait di halaman beranda
         $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
@@ -119,7 +119,7 @@ class BerandaController extends Controller
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return  view('visitor.pages.berita.show', 
+        return  view('visitor.pages.berita.show',
                     compact(
                         'data',
                         'linkTerkaits',
@@ -132,7 +132,7 @@ class BerandaController extends Controller
 
     // BERITA > CATEGORY
     public function beritaKategori($kategori) {
-        
+
         $datas = Berita::select('*')
                                     ->join(
                                         'kategori_beritas',
@@ -142,7 +142,7 @@ class BerandaController extends Controller
                                     ->paginate(1);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
-        
+
         // data link terkait di halaman beranda
         $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
@@ -150,11 +150,11 @@ class BerandaController extends Controller
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
-                                    
-        return  view('visitor.pages.berita.index', 
+
+        return  view('visitor.pages.berita.index',
                         compact(
-                            'datas', 
-                            'kategoris', 
+                            'datas',
+                            'kategoris',
                             'pageTitle',
                             'linkTerkaits',
                             'banner_1',
@@ -170,13 +170,13 @@ class BerandaController extends Controller
     | - index
     | - show
     |--------------------------------------------------------------------------
-    */ 
+    */
 
     // HALAMAN > INDEX
     public function halamanIndex()
     {
         $halamans = Halaman::orderBy('judul_halaman', 'asc')->get();
-        
+
         // data link terkait di halaman beranda
         $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
@@ -184,8 +184,8 @@ class BerandaController extends Controller
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
-        
-        return view('visitor.pages.halaman.index', 
+
+        return view('visitor.pages.halaman.index',
                     compact(
                         'halamans',
                         'linkTerkaits',
@@ -202,7 +202,7 @@ class BerandaController extends Controller
         $halaman = Halaman::where('slug', $slug)
                             ->where('status', 'publish')
                             ->first();
-        
+
         // data link terkait di halaman beranda
         $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
@@ -211,7 +211,7 @@ class BerandaController extends Controller
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return view('visitor.pages.halaman.show', 
+        return view('visitor.pages.halaman.show',
         compact(
             'halaman',
             'linkTerkaits',
@@ -224,7 +224,7 @@ class BerandaController extends Controller
 
     // KONTAK
     public function kontak(){
-        
+
         // data link terkait di halaman beranda
         $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
 
@@ -233,7 +233,7 @@ class BerandaController extends Controller
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return view('visitor.pages.kontak', 
+        return view('visitor.pages.kontak',
         compact(
             'linkTerkaits',
             'banner_1',
@@ -253,12 +253,14 @@ class BerandaController extends Controller
                 'no_telf'               => 'required|string',
                 'judul_topik'           => 'required',
                 'keterangan'            => 'required',
+                'captcha'               => 'required|captcha'
             ],[
                 'nama.required'         => 'Nama lengkap tidak boleh kosong',
                 'email.required'        => 'Email tidak boleh kosong',
                 'no_telf.required'      => 'Nomor telepon tidak boleh kosong',
                 'judul_topik.required'  => 'Judul pesan tidak boleh kosong',
-                'keterangan.required'   => 'Rincian pertanyaan  tidak boleh kosong'
+                'keterangan.required'   => 'Rincian pertanyaan  tidak boleh kosong',
+                'captcha.required'      => 'captcha tidak boleh kosong'
             ]
         );
 
@@ -285,7 +287,7 @@ class BerandaController extends Controller
 
                 Alert::toast('Oppss Ada yang salah', 'error');
                 return redirect()->back();
-                
+
             }
         }
     }
@@ -295,5 +297,9 @@ class BerandaController extends Controller
         return view('visitor.pesan.terkirim');
     }
 
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
 
 }
