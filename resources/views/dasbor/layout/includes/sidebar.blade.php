@@ -11,7 +11,7 @@
                         @if (!Auth::user()->picture)
                         <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="user-img" class="rounded-circle avatar-md">
                         @else
-                        <img src="{{ asset(Auth::user()->picture) }}" alt="user-img" title="{{ Auth::user()->name }}" class="rounded-circle avatar-md">
+                        <img src="{{ asset('gambar/pengguna/' . Auth::user()->picture) }}" alt="user-img" title="{{ Auth::user()->name }}" class="rounded-circle avatar-md">
                         @endif
 
                         <div class="dropdown">
@@ -95,6 +95,16 @@
                                 </li>
 
                                 <li>
+                                    <a href="{{ url('dasbor/halaman') }}">
+                                        <i class="mdi mdi-text-box-multiple-outline"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $dasbor_jml_halaman ?? '' }}
+                                        </span>
+                                        <span> Halaman </span>
+                                    </a>
+                                </li>
+
+                                <li>
                                     <a href="{{ url('dasbor/informasi-lingkungan') }}">
                                         <i class="mdi mdi-leaf"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -131,16 +141,6 @@
                                             {{ $dasbor_jml_pesan ?? '' }}
                                         </span>
                                         <span> Pesan </span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{{ url('dasbor/halaman') }}">
-                                        <i class="mdi mdi-text-box-multiple-outline"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ $dasbor_jml_halaman ?? '' }}
-                                        </span>
-                                        <span> Halaman </span>
                                     </a>
                                 </li>
 

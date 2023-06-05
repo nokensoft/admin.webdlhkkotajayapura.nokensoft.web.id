@@ -104,6 +104,22 @@
                         </div>
                         <!-- input item end -->
 
+                        <div class="form-group">
+                            <label for="status_revisi" class="form-label">Status Revisi <span class="text-danger">*</span></label>
+                            <select name="status_revisi" class="form-control">
+                                <option value="" hidden></option>
+                                <option value="Ada" @if($data->status_revisi == 'Ada') Selected @endif>Ada</option>
+                                <option value="Belum" @if($data->status_revisi == 'Belum') Selected @endif>Belum</option>
+                                <option value="Setuju" @if($data->status_revisi == 'Setuju') Selected @endif>Setuju</option>
+                            </select>
+                            @if ($errors->has('status_revisi'))
+                                <span class="text-danger" role="alert">
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status_revisi') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item end -->
+
                     </div>
                     <!-- .col end-->
 

@@ -47,7 +47,7 @@
                                 <td class="text-center">{{ ++$i }}</td>
                                 <td class="align-middle">
                                     @if ($user->picture)
-                                    <img src="{{ asset($user->picture) }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                    <img src="{{ asset('gambar/pengguna/' . $user->picture) }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
                                     @else
                                     <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
 

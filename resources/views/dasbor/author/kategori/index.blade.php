@@ -44,7 +44,7 @@
                             <th>Deskripsi</th>
                             <th>Slug</th>
                             <th>Status</th>
-                            <th class="text-center" width="210px">Opsi</th>
+                            <th class="text-center" width="210px"></th>
                         </tr>
                         @foreach ($datas as  $data)
                         <tr>

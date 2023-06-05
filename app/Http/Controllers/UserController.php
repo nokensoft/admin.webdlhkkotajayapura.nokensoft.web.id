@@ -74,7 +74,8 @@ class UserController extends Controller
     // CREATE
     public function create()
     {
-        $roles = Role::pluck('name', 'name')->all();
+        // $roles = Role::pluck('name', 'name')->all();
+        $roles  = Role::get();
         return view('dasbor.admin.users.create', compact('roles'));
     }
 
@@ -153,7 +154,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $data   = User::where('slug', $id)->first();
-        $roles = Role::pluck('name', 'name')->all();
+        // $roles  = Role::pluck('name', 'name')->all();
+        $roles  = Role::get();
         return view('dasbor.admin.users.edit', compact('data', 'roles'));
     }
 
@@ -171,15 +173,15 @@ class UserController extends Controller
                 'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
             ],[
 
-                'name.required'                => 'Nama  tidak boleh kosong!',
-                'status.required'              => 'Status  tidak boleh kosong!',
-                'peran.required'               => 'Peran  tidak boleh kosong!',
-                'email.required'               => 'Email  tidak boleh kosong!',
-                'email.unique'                 => 'Email  sudah digunakan,Silakan gunakan email yang lain!',
-                'picture.mimes'                => 'Gambar harus dengan jenis PNG,JPG,JPEG!',
+                'name.required'             => 'Nama  tidak boleh kosong!',
+                'status.required'           => 'Status  tidak boleh kosong!',
+                'peran.required'            => 'Peran  tidak boleh kosong!',
+                'email.required'            => 'Email  tidak boleh kosong!',
+                'email.unique'              => 'Email  sudah digunakan,Silakan gunakan email yang lain!',
+                'picture.mimes'             => 'Gambar harus dengan jenis PNG,JPG,JPEG!',
 
-                'password.confirmed'               => 'Konfirmasi kata sandi tidak cocok!',
-                'password.min'                     => 'Kata sandi minimal 8 karakter',
+                'password.confirmed'        => 'Konfirmasi kata sandi tidak cocok!',
+                'password.min'              => 'Kata sandi minimal 8 karakter',
             ]
         );
 

@@ -36,7 +36,7 @@
                     <div class="btn-btm">
                         <div class="cat-list">
                             <ul class="post-categories">
-                                <li><a href="{{ url('berita/kategori/' . $data->kategori->kategori_slug ) }}">{{ $data->kategori->name ?? '' }}</a></li>
+                                <li><a href="{{ url('berita/kategori/'), $data->kategori->kategori_slug ?? ''  }}">{{ $data->kategori->name ?? '' }}</a></li>
                             </ul>
                         </div>
                         <div class="rs-view-btn">

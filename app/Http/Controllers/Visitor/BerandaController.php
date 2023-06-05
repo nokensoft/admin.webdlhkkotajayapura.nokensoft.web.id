@@ -266,7 +266,8 @@ class BerandaController extends Controller
         );
 
         if ($validator->fails()) {
-            return redirect()->back()->withInput($request->all())->withErrors($validator);
+            // return redirect()->back()->withInput($request->all())->withErrors($validator);
+            return redirect('/kontak')->withInput($request->all())->withErrors($validator);
         } else {
             try {
                 $random = Str::random(15);
@@ -288,7 +289,6 @@ class BerandaController extends Controller
 
                 Alert::toast('Oppss Ada yang salah', 'error');
                 return redirect()->back();
-
             }
         }
     }

@@ -87,31 +87,36 @@
                             </div>
                             <!-- inpute item end -->
 
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="peran" class="form-label">Peran <span class="text-danger">*</span></label>
-                                {!! Form::select('peran',$roles,[],['required','id'=>'peran','class'=>'form-control']) !!}
+                                <select name="peran" class="form-control">
+                                    <option value="" hidden></option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}" @if($role->id == $role->id) Selected @endif>{{ $role->display_name }}</option>
+                                    @endforeach
+                                </select>
                                 @if ($errors->has('peran'))
-                                <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('peran') }}</small>
-                                </span>
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
+                                    </span>
                                 @endif
                             </div>
-                            <!-- inpute item end -->
+                            <!-- input item end -->
 
-                        <div class="form-group">
-                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
-                            <select name="status" class="form-control">
-                                <option value="{{ $data->status }}" hidden>{{ $data->status }}</option>
-                                <option value="publish" @if(old('status') == 'publish') Selected @endif>Active</option>
-                                <option value="draft" @if(old('status') == 'draft') Selected @endif>Inactive</option>
-                            </select>
-                            @if ($errors->has('status'))
-                                <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
-                                </span>
-                            @endif
-                        </div>
-                        <!-- input item end -->
+                            <div class="form-group">
+                                <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                                <select name="status" class="form-control">
+                                    <option value="{{ $data->status }}" hidden>{{ $data->status }}</option>
+                                    <option value="publish" @if(old('status') == 'publish') Selected @endif>Active</option>
+                                    <option value="draft" @if(old('status') == 'draft') Selected @endif>Inactive</option>
+                                </select>
+                                @if ($errors->has('status'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- input item end -->
 
                         </div>
                         <!-- col end -->
@@ -121,9 +126,9 @@
                             <div class="mb-3">
                                 <div class="mb-2">
                                     @if ($data->picture)
-                                    <img src="{{ asset('gambar/pengguna/'.$data->picture) }}" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid">
+                                    <img src="{{ asset('gambar/pengguna/' . $data->picture) }}" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid">
                                     @else
-                                    <img src="{{ asset($data->picture) }}" alt="Gambar" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid" >
+                                    <img src="{{ asset('gambar/pengguna/' . $data->picture) }}" alt="Gambar" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid" >
                                     @endif
                                 </div>
                                 <label for="picture" class="form-label d-block">Gambar <span class="text-danger">*</span></label>

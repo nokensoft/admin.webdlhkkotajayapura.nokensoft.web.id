@@ -85,16 +85,21 @@
                             </div>
                             <!-- inpute item end -->
 
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="peran" class="form-label">Peran <span class="text-danger">*</span></label>
-                                {!! Form::select('peran',$roles,[],['required','id'=>'peran','class'=>'form-control']) !!}
+                                <select name="peran" class="form-control">
+                                    <option value="" hidden>Pilih</option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                                    @endforeach
+                                </select>
                                 @if ($errors->has('peran'))
-                                <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('peran') }}</small>
-                                </span>
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
+                                    </span>
                                 @endif
                             </div>
-                            <!-- inpute item end -->
+                            <!-- input item end -->
 
                         <div class="form-group">
                             <label for="status" class="form-label">Status <span class="text-danger">*</span></label>

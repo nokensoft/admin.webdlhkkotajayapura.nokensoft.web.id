@@ -174,6 +174,7 @@
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
