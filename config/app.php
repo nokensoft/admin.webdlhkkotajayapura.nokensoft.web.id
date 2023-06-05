@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://adminpanel-dhlk-kota-jayapura.herokuapp.com'),
+    'url' => env('APP_URL', ''),
 
-    'asset_url' => env('https://adminpanel-dhlk-kota-jayapura.herokuapp.com'),
+    'asset_url' => env('APP_URL', ''),
 
     /*
     |--------------------------------------------------------------------------
