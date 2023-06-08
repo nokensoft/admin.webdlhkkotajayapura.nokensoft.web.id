@@ -1,8 +1,8 @@
 <!-- Left sidebar -->
 <div class="inbox-leftbar">
-                <a href="{{ url('dasbor/halaman/create') }}" class="btn btn-primary shadow d-block mb-2 waves-effect waves-light">
-                        <i class="mdi mdi-plus-box me-2"></i> Tambah
-                </a>
+        <a href="{{ url('dasbor/halaman/create') }}" class="btn btn-primary shadow d-block mb-2 waves-effect waves-light">
+                <i class="mdi mdi-plus-box me-2"></i> Tambah
+        </a>
 
         <ul class="list-group">
                 <a href="{{ url('dasbor/halaman') }}" class="list-group-item list-group-item-action">

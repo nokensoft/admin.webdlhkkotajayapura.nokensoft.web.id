@@ -1,7 +1,6 @@
 @extends('dasbor.layout.app')
 @section('content')
-<!-- start page content wrapper-->
-<!-- start page title -->
+
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
@@ -15,15 +14,13 @@
         </div>
     </div>
 </div>
-<!-- end page title -->
+<!-- end row -->
 
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <div class="inbox-leftbar">
-                    @include('dasbor.admin.users.menu')
-                </div>
+                @include('dasbor.admin.users.menu')
                 <div class="inbox-rightbar">
                     <form action="{{ url('dasbor/pengguna') }}" method="get">
                         <div class="input-group mb-3">
@@ -88,6 +85,7 @@
                         </table>
                     </div>
                     <!-- end .mt-4 -->
+
                     {!! $data->render() !!}
                     <!-- end row-->
                 </div>
@@ -99,10 +97,6 @@
     </div> <!-- end col -->
 
 </div>
-
-
 <!-- end row -->
-
-<!--end wrapper-->
 
 @stop
