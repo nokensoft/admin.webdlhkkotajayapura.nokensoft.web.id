@@ -74,6 +74,7 @@ Route::get('/kontak', [BerandaController::class, 'kontak'])->name('kontak');
 | PENGAJUAN / PESAN
 |
 */
+
 Route::post('/pesan', [BerandaController::class, 'pesanStore'])->name('visitor.pesan.store');
 Route::get('/pesan/terkirim', [BerandaController::class, 'pesanTerkirim'])->name('visitor.pesan.terkirim');
 Route::get('/reload-captcha', [BerandaController::class, 'reloadCaptcha']);
@@ -83,6 +84,16 @@ Route::get('/reload-captcha', [BerandaController::class, 'reloadCaptcha']);
 Auth::routes([
     'register' => false
 ]);
+
+
+/*
+| CK EDITOR
+|
+*/
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 Route::group(['prefix' => '/dasbor', 'middleware' => ['web', 'auth']], function () {
 

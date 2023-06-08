@@ -81,7 +81,7 @@
 
                         <div class="form-group">
                             <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                            <textarea name="konten" class="ckeditor form-control" placeholder="Konten Berita" rows="50">{{ old('konten') }}</textarea>
+                            <textarea name="konten" id="ckeditor" class="ckeditor form-control" placeholder="Konten Berita" rows="50">{{ old('konten') }}</textarea>
                             @if ($errors->has('konten'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten') }}</small>
@@ -174,6 +174,20 @@
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+
+  </script>
+<script type="text/javascript">
+    CKEDITOR.replace('ckeditor', options);
+    CKEDITOR.config.height='4010px';
+</script>
+
 
 <script type="text/javascript">
     $(document).ready(function () {

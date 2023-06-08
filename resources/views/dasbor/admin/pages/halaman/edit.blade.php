@@ -46,7 +46,7 @@
                     !!}
                 </div>
                 <!-- input item end -->
-                
+
                 <div class="mb-3">
                     <label for="product-konten" class="form-label">Konten <span class="text-danger">*</span></label>
                     <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}"
@@ -59,7 +59,7 @@
                     <input type="file" name="gambar_cover" class="form-control" id="customFile">
                 </div>
                 <!-- input item end -->
-                
+
                 @if(!$data->gambar_cover)
                     <img src="{{ asset('assets/admin/assets/images/image-not.png') }}"
                     alt="image" class="img-fluid img-thumbnail" width="200">
@@ -127,11 +127,22 @@
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
 
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
+<script>
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+
+  </script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
-
+</script>
 
   @endpush

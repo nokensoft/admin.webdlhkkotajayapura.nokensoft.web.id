@@ -117,10 +117,18 @@
 
 
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script>
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+
+  </script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
+CKEDITOR.replace('.ckeditor', options);
+
 </script>
 
 @endpush

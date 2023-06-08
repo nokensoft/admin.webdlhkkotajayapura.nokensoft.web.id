@@ -57,6 +57,9 @@
                                         <a href="{{ asset('gambar/halaman/' . $data->gambar) }}" target="_blank">
                                             <img src="{{ asset('gambar/halaman/' . $data->gambar) }}" class="img-thumbnail" alt="Gambar" width="200px">
                                         </a>
+                                        {{-- <a href="{{ asset($data->gambar) }}" target="_blank">
+                                            <img src="{{ asset($data->gambar) }}" class="img-thumbnail" alt="Gambar" width="200px">
+                                        </a> --}}
                                         @endif
                                     </td>
                                     <td>

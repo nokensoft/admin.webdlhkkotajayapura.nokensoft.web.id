@@ -65,7 +65,7 @@
 
                         <div class="mb-3">
                             <label for="konten" class="form-label">Konten Halaman <span class="text-danger">*</span></label>
-                            <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ old('konten') }}</textarea>
+                            <textarea name="konten" class="ckeditor form-control" id="ckeditor" value="{{ old('konten') }}" cols="30" rows="10">{{ old('konten') }}</textarea>
                             @if ($errors->has('konten'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten') }}</small>
@@ -97,7 +97,7 @@
                             <div class="mb-2">
                                 <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                             </div>
-                            <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                            <label for="gambar" class="form-label d-block">Gambar<span class="text-danger">*</span></label>
                             <div class="custom-file">
                                 <input type="file" name="gambar" class="custom-file-input" id="gambar">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
@@ -158,14 +158,17 @@
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+
+  </script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
-
+    CKEDITOR.replace('ckeditor', options);
     CKEDITOR.config.height='4010px';
-
-
-
 </script>
 @endpush
