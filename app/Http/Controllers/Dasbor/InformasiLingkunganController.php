@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class InformasiLingkunganController extends Controller
 {
+    // INDEX
     public function index()
     {
         $datas = InformasiLingkungan::where([
@@ -23,16 +24,17 @@ class InformasiLingkunganController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','Publish')->latest()->paginate(5);
+        ])->where('status', 'Publish')->latest()->paginate(5);
 
         $jumlahtrash = InformasiLingkungan::onlyTrashed()->count();
 
         $jumlahdraft = InformasiLingkungan::where('status', 'Draft')->count();
         $datapublish = InformasiLingkungan::where('status', 'Publish')->count();
 
-        return view('dasbor.informasi-lingkungan.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.informasi-lingkungan.index', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // DRAFT
     public function draft()
     {
         $datas = InformasiLingkungan::where([
@@ -44,21 +46,22 @@ class InformasiLingkunganController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','Draft')->latest()->paginate(5);
+        ])->where('status', 'Draft')->latest()->paginate(5);
 
         $jumlahtrash = InformasiLingkungan::onlyTrashed()->count();
 
         $jumlahdraft = InformasiLingkungan::where('status', 'Draft')->count();
         $datapublish = InformasiLingkungan::where('status', 'Publish')->count();
 
-        return view('dasbor.informasi-lingkungan.index',compact(
+        return view('dasbor.informasi-lingkungan.index', compact(
             'datas',
             'jumlahtrash',
             'jumlahdraft',
             'datapublish'
-        )) ->with('i', (request()->input('page', 1) - 1) * 5);
+        ))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // TRASH
     public function trash()
     {
         $datas = InformasiLingkungan::onlyTrashed()->paginate(5);
@@ -67,14 +70,16 @@ class InformasiLingkunganController extends Controller
         $jumlahdraft = InformasiLingkungan::where('status', 'Draf')->count();
         $datapublish = InformasiLingkungan::where('status', 'Publish')->count();
 
-        return view('dasbor.informasi-lingkungan.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.informasi-lingkungan.trash', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // CREATE
     public function create()
     {
         return view('dasbor.informasi-lingkungan.create');
     }
 
+    // STORE
     public function store(Request $request)
     {
         $validator = Validator::make(
@@ -86,7 +91,8 @@ class InformasiLingkunganController extends Controller
                 'url'                       => 'required',
                 'status'                    => 'required',
                 'gambar'                   => 'required|image|mimes:jpeg,png,jpg|max:2024',
-            ],[
+            ],
+            [
                 'judul.required'                => 'Judul  tidak boleh kosong',
                 'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
                 'keterangan_lengkap.required'   => 'Keterangan Lengkap tidak boleh kosong',
@@ -101,14 +107,14 @@ class InformasiLingkunganController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-               $linkunganinfo = new InformasiLingkungan();
-               $linkunganinfo->judul = $request->judul;
-               $linkunganinfo->keterangan_singkat = $request->keterangan_singkat;
-               $linkunganinfo->keterangan_lengkap = $request->keterangan_lengkap;
-               $linkunganinfo->status = $request->status;
-               $linkunganinfo->url = $request->url;
+                $linkunganinfo = new InformasiLingkungan();
+                $linkunganinfo->judul = $request->judul;
+                $linkunganinfo->keterangan_singkat = $request->keterangan_singkat;
+                $linkunganinfo->keterangan_lengkap = $request->keterangan_lengkap;
+                $linkunganinfo->status = $request->status;
+                $linkunganinfo->url = $request->url;
 
-                if($request->gambar){
+                if ($request->gambar) {
                     $imageName = Str::random(8) . '.' . $request->gambar->extension();
                     $path = 'gambar/informasi-lingkungan/';
 
@@ -118,10 +124,9 @@ class InformasiLingkunganController extends Controller
                     $linkunganinfo->gambar = $path . $imageName;
                     $request->gambar->move($path, $imageName);
                 }
-               $linkunganinfo->save();
-               Alert::toast('Linkungan Hidup Berhasil dibuat!', 'success');
-               return redirect()->route('dasbor.informasilingkungan');
-
+                $linkunganinfo->save();
+                Alert::toast('Linkungan Hidup Berhasil dibuat!', 'success');
+                return redirect()->route('dasbor.informasilingkungan');
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
@@ -129,17 +134,21 @@ class InformasiLingkunganController extends Controller
         }
     }
 
-    public function show($id)
+    // SHOW
+    public function show($slug)
     {
-        $data = InformasiLingkungan::where('id',$id)->first();
-        return view('dasbor.informasi-lingkungan.show',compact('data'));
+        $data = InformasiLingkungan::where('slug', $slug)->first();
+        return view('dasbor.informasi-lingkungan.show', compact('data'));
     }
-    public function edit($id)
+    
+    // EDIT
+    public function edit($slug)
     {
-        $data = InformasiLingkungan::where('id',$id)->first();
-        return view('dasbor.informasi-lingkungan.edit',compact('data'));
+        $data = InformasiLingkungan::where('slug', $slug)->first();
+        return view('dasbor.informasi-lingkungan.edit', compact('data'));
     }
 
+    // UPDATE
     public function update(Request $request, $id)
     {
         $validator = Validator::make(
@@ -151,7 +160,8 @@ class InformasiLingkunganController extends Controller
                 'url'                       => 'required',
                 'status'                    => 'required',
                 'gambar'                   => 'image|mimes:jpeg,png,jpg',
-            ],[
+            ],
+            [
                 'judul.required'                => 'Judul  tidak boleh kosong',
                 'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
                 'keterangan_lengkap.required'   => 'Keterangan Lengkap tidak boleh kosong',
@@ -195,8 +205,10 @@ class InformasiLingkunganController extends Controller
         }
     }
 
-    public function restore($id){
-        $data = InformasiLingkungan::onlyTrashed()->where('id',$id);
+    // RESTORE
+    public function restore($id)
+    {
+        $data = InformasiLingkungan::onlyTrashed()->where('id', $id);
 
         $data->restore();
 
@@ -205,21 +217,23 @@ class InformasiLingkunganController extends Controller
         return redirect()->route('dasbor.informasilingkungan');
     }
 
+    // DESTROY
     public function destroy($id)
     {
         $data = InformasiLingkungan::find($id);
 
-        if($data->delete()) {
+        if ($data->delete()) {
             alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
             return redirect()->back();
         }
     }
 
+    // DELETE
     public function delete($id)
     {
         $data = InformasiLingkungan::onlyTrashed()->findOrFail($id);
 
-        if($data->gambar){
+        if ($data->gambar) {
             File::delete($data->gambar);
         }
 
@@ -228,7 +242,5 @@ class InformasiLingkunganController extends Controller
         alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
 
         return to_route('dasbor.informasilingkungan.trash');
-
     }
-
 }

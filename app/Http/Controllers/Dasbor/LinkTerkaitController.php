@@ -8,18 +8,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
-use Symfony\Component\Console\Input\Input;
 
 class LinkTerkaitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    // INDEX
     public function index()
     {
         $datas = LinkTerkait::where([
@@ -40,7 +35,7 @@ class LinkTerkaitController extends Controller
         return view('dasbor.link-terkait.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-
+    // DRAFT
     public function draft()
     {
         $datas = LinkTerkait::where([
@@ -65,23 +60,14 @@ class LinkTerkaitController extends Controller
         )) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // CREATE
     public function create()
     {
 
         return view('dasbor.link-terkait.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // STORE
     public function store(Request $request)
     {
         $validator = Validator::make(
@@ -128,37 +114,21 @@ class LinkTerkaitController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    // SHOW
+    public function show($slug)
     {
-        $data = LinkTerkait::where('slug',$id)->first();
-        return view('dasbor.link-terkait.show',compact('data'));
+        $data = LinkTerkait::where('slug', $slug)->first();
+        return view('dasbor.link-terkait.show', compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    // EDIT
+    public function edit($slug)
     {
-        $data = LinkTerkait::where('slug',$id)->first();
+        $data = LinkTerkait::where('slug',$slug)->first();
         return view('dasbor.link-terkait.edit',compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // UPDATE
     public function update(Request $request, $id)
     {
         $validator = Validator::make(
@@ -206,12 +176,7 @@ class LinkTerkaitController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // DESTROY
     public function destroy($id)
     {
         $data = LinkTerkait::find($id);
@@ -222,6 +187,7 @@ class LinkTerkaitController extends Controller
         }
     }
 
+    // TRASH
     public function trash()
     {
         $datas = LinkTerkait::onlyTrashed()->paginate(5);
@@ -231,7 +197,7 @@ class LinkTerkaitController extends Controller
         return view('dasbor.link-terkait.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-
+    // RESTORE
     public function restore($id){
         $data = LinkTerkait::onlyTrashed()->where('id',$id);
         $data->restore();
@@ -239,6 +205,7 @@ class LinkTerkaitController extends Controller
         return redirect()->route('dasbor.link-terkait');
     }
 
+    // DELETE
     public function delete($id)
     {
         $data = LinkTerkait::onlyTrashed()->findOrFail($id);
@@ -251,6 +218,5 @@ class LinkTerkaitController extends Controller
         return to_route('dasbor.link-terkait.trash');
 
     }
-
 
 }

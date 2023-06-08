@@ -18,14 +18,6 @@ Buat model dengan controller, resources, factory, seeder, migration
     php artisan make:model NamaModel -crfsm
 ```
 
-## NOTES for Johan
-
-🏷️ dasbor > pengguna > tambah
-🏷️ dasbor > pengguna > ubah
-🏷️ dasbor > pengguna > hapus
-🏷️ dasbor > pengguna > upload picture muncul review gambar dan munculkan error dibawah field picture
-🏷️ visitor > tambahkan captcha di bagian kirim pesan
-
 ## HAK AKSES
 
 ADMIN
@@ -48,5 +40,15 @@ LOGIN PAGE : https://dlhk.jayapurakota.go.id/login
 
 MAIN PAGE : https://dlhk.jayapurakota.go.id/
 
+
+## NOTES for Johan
+
+🏷️ dasbor > informasi lingkungan > tambahkan author / penulis
+🏷️ dasbor > informasi lingkungan > buat slug jadi unique
+🏷️ dasbor > ...
+🏷️ dasbor > ...
+🏷️ dasbor > ...
+🏷️ dasbor > ...
+
 ## NOTES for SAMUEL
-🏷️ saat pencarian berita tidak ditemukan, tampilkan alert berita tidak ditemukan
+🏷️ visitor > berita > saat pencarian berita tidak ditemukan, tampilkan alert/teks berita tidak ditemukan

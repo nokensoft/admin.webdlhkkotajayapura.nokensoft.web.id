@@ -28,7 +28,7 @@
     </div>
     @endif
 
-    <form action="{{route('dasbor.kategori.update',['id' => $kategori->id])}}" method="POST">
+    <form action="{{route('dasbor.kategori.update',['id' => $data->id])}}" method="POST">
         @csrf
         @method('put')
 
@@ -37,30 +37,27 @@
                 <div class="card">
                     <div class="card-body">
 
-                            <div class="form-group">
-                                <label for="name" class="form-label">Judul Kategori <span class="text-danger">*</span></label>
-                                <input type="text" name="name" class="form-control" value="{{ old('name',$kategori->name) }}">
-                            </div>
-                            <!-- input item end -->
+                        <div class="form-group">
+                            <label for="name" class="form-label">Judul Kategori <span class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control" value="{{ old('name',$data->name) }}">
+                        </div>
+                        <!-- input item end -->
 
-                            <div class="form-group">
-                                <label for="deskripsi" class="form-label">Deskripsi</label>
-                                <textarea name="deskripsi" class="form-control" rows="5">{{ old('deskripsi',$kategori->deskripsi) }}</textarea>
-                            </div>
-                            <!-- input item end -->
+                        <div class="form-group">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea name="deskripsi" class="form-control" rows="5">{{ old('deskripsi',$data->deskripsi) }}</textarea>
+                        </div>
+                        <!-- input item end -->
 
-                            <div class="form-group">
-                                <label for="status" class="form-label">Status {{$kategori->status}} </label>
-                                <select name="status" class="form-control">
-                                    <option value="" hidden></option>
-                                    <option value="Draft" @if($kategori->status == 'Draft') Selected @endif>Draft</option>
-                                    <option value="Publish" @if($kategori->status == 'Publish') Selected @endif>Publish</option>
-                                </select>
-                            </div>
-                            <!-- input item end -->
-
-                            
-
+                        <div class="form-group">
+                            <label for="status" class="form-label">Status {{$data->status}} </label>
+                            <select name="status" class="form-control">
+                                <option value="" hidden></option>
+                                <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
+                                <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
+                            </select>
+                        </div>
+                        <!-- input item end -->                          
                         
                     </div>
                 </div> <!-- end card -->
@@ -74,7 +71,10 @@
                     <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                         <i class="fe-save"></i> Simpan
                     </button>
-                    <a href="{{ route('dasbor.kategori') }}" class="btn btn-light waves-effect waves-light border">
+                    <a href="{{ url('dasbor/kategori/' . $data->slug . '/detail')  }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                        <i class="fe-eye mr-1"></i> Detail
+                    </a>
+                    <a href="{{ url('dasbor/kategori') }}" class="btn btn-light waves-effect waves-light border">
                         <i class="fe-arrow-left"></i> Kembali
                     </a>
                 </div>

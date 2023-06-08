@@ -43,6 +43,7 @@
                                     <th>Judul</th>
                                     <th>Keterangan Singkat</th>
                                     <th>URL</th>
+                                    <th>Penulis</th>
                                     <th class="text-center">Opsi</th>
                                 </tr>
                                 @foreach ($datas as $data)
@@ -63,6 +64,7 @@
                                     <td>
                                        <a href=" {{ $data->url }}"> {{ $data->url }}</a>
                                     </td>
+                                    <td>...</td>
 
                                     <td class="text-center">
                                         <form action="{{ url('dasbor/informasi-lingkungan', $data->id) }}" method="POST">
@@ -72,16 +74,11 @@
                                                     Opsi <i class="mdi mdi-chevron-down"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item"
-                                                        href="{{ url('dasbor/informasi-lingkungan/' . $data->id.'/detail') }}"><i
-                                                            class="fe-eye"></i> Detail</a>
-                                                    <a class="dropdown-item"
-                                                        href="{{ url('dasbor/informasi-lingkungan/' . $data->id.'/edit') }}"><i
-                                                            class="fe-edit"></i> Ubah</a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/informasi-lingkungan/' . $data->slug.'/detail') }}"> <i class="fe-eye"></i> Detail </a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/informasi-lingkungan/' . $data->slug.'/edit') }}"> <i class="fe-edit"></i> Ubah </a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="dropdown-item bg-danger text-light"><i
-                                                            class="fe-trash"></i> Hapus</button>
+                                                    <button type="submit" class="dropdown-item bg-danger text-light"> <i class="fe-trash"></i> Hapus </button>
                                                 </div>
                                             </div>
                                         </form>

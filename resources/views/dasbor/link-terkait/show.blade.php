@@ -27,9 +27,9 @@
 
                 <div class="mb-3">
                     @if(!$data->gambar_cover)
-                        <img src="{{ asset('gambar/halaman/cover-0.jpg') }}" alt="image" class="img-fluid img-thumbnail img-fluid">
+                        <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="gambar" class="img-fluid img-thumbnail img-fluid">
                         @else
-                        <img src="{{ asset('file/halaman/' . $data->gambar_cover ) }}" class="img-thumbnail img-fluid" alt="Picture">
+                        <img src="{{ asset('gambar/link-terkait/' . $data->gambar_cover ) }}" alt="gambar" class="img-thumbnail img-fluid">
                     @endif
                 </div>
 

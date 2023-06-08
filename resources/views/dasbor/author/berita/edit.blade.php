@@ -166,7 +166,10 @@
                 <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                     <i class="fe-save"></i> Simpan
                 </button>
-                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                <a href="{{ url('dasbor/berita/' . $data->slug . '/detail')  }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                    <i class="fe-eye mr-1"></i> Detail
+                </a>
+                <a href="{{ url('dasbor/berita') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                     <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                 </a>
             </div>

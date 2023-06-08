@@ -21,7 +21,7 @@ class LinkTerkaitSeeder extends Seeder
             'author'                => 1,
             'judul_link'            => 'Kementerian Lingkungan Hidup dan Kehutanan',
             'slug'                  => 'kementerian-lingkungan-hidup-dan-kehutanan',
-            'gambar'                => 'gambar/link-terkait/kementerian.png',
+            'gambar'                => 'kementerian.png',
             'url'                   => 'https://www.menlhk.go.id',
         ]);
 
@@ -30,7 +30,7 @@ class LinkTerkaitSeeder extends Seeder
             'author'                => 1,
             'judul_link'            => 'Pemerintah Daerah Provinsi Papua',
             'slug'                  => 'provinsi-papua',
-            'gambar'                => 'gambar/link-terkait/provinsi-papua.png',
+            'gambar'                => 'provinsi-papua.png',
             'url'                   => 'https://www.papua.go.id',
         ]);
 
@@ -39,7 +39,7 @@ class LinkTerkaitSeeder extends Seeder
             'author'                => 1,
             'judul_link'            => 'Pemerintah Kota Jayapura',
             'slug'                  => 'kota-jayapura',
-            'gambar'                => 'gambar/link-terkait/kota-jayapura.png',
+            'gambar'                => 'kota-jayapura.png',
             'url'                   => 'https://jayapurakota.go.id/',
         ]);
 
@@ -48,7 +48,7 @@ class LinkTerkaitSeeder extends Seeder
             'author'                => 1,
             'judul_link'            => 'Aplikasi Lapor',
             'slug'                  => 'aplikasi-lapor',
-            'gambar'                => 'gambar/link-terkait/lapor.png',
+            'gambar'                => 'lapor.png',
             'url'                   => 'https://www.lapor.go.id',
         ]);
 
@@ -57,7 +57,7 @@ class LinkTerkaitSeeder extends Seeder
             'author'                => 1,
             'judul_link'            => 'LPSE',
             'slug'                  => 'lpse-kota-jayapura',
-            'gambar'                => 'gambar/link-terkait/lpse.png',
+            'gambar'                => 'lpse.png',
             'url'                   => 'http://lpse.jayapurakota.go.id/eproc4/',
         ]);
 

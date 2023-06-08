@@ -90,7 +90,7 @@
                         <!-- item end -->
                         
                         <div class="mb-3">
-                            <label for="" class="font-weight-bold">Diubah Terbit</label>
+                            <label for="" class="font-weight-bold">Tanggal Diubah</label>
                             <div class="border p-3">
                                 {{ $data->updated_at }}
                             </div>

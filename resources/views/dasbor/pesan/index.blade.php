@@ -66,9 +66,7 @@
                                     <td class="text-center">
                                         <form action="{{ url('dasbor/pesan', $data->id) }}" method="POST">
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-secondary dropdown-toggle"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Opsi <i class="mdi mdi-chevron-down"></i>
+                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Opsi <i class="mdi mdi-chevron-down"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{ url('dasbor/pesan/' . $data->slug.'/detail') }}"><i class="fe-eye"></i> Detail </a>

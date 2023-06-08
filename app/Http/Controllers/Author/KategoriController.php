@@ -101,8 +101,8 @@ class KategoriController extends Controller
     // EDIT
     public function edit($id)
     {
-        $kategori = KategoriBerita::where('kategori_slug', $id)->first();
-        return view('dasbor.author.kategori.edit', compact('kategori'));
+        $data = KategoriBerita::where('kategori_slug', $id)->first();
+        return view('dasbor.author.kategori.edit', compact('data'));
     }
 
     // UPDATE

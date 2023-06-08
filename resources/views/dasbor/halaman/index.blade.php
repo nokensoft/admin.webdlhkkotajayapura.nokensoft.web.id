@@ -78,11 +78,11 @@
                                                     Opsi <i class="mdi mdi-chevron-down"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{ url('dasbor/halaman/' . $data->slug.'/detail') }}"><i class="fe-eye"></i> Detail</a>
-                                                    <a class="dropdown-item" href="{{ url('dasbor/halaman/' . $data->slug.'/edit') }}"><i class="fe-edit"></i> Ubah</a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/halaman/' . $data->slug.'/detail') }}"> <i class="fe-eye"></i> Detail </a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/halaman/' . $data->slug.'/edit') }}"> <i class="fe-edit"></i> Ubah </a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
+                                                    <button type="submit" class="dropdown-item bg-danger text-light"> <i class="fe-trash"></i> Hapus </button>
                                                 </div>
                                             </div>
                                         </form>

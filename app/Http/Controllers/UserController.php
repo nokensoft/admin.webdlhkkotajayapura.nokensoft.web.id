@@ -147,7 +147,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::where('slug', $id)->first();
-        return view('dasbor.admin.users.show', compact('user'));
+        $roles  = Role::get();
+        return view('dasbor.admin.users.show', compact('user', 'roles'));
     }
 
     // EDIT

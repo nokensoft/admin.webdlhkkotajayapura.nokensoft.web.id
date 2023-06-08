@@ -20,32 +20,70 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body">  
+                
+                <div class="row">
+                    <div class="col-md-8">
 
-                <h1 class="fw-bold mb-3">{{ $data->judul }}</h1>
-                <p class="mb-3">{{ $data->keterangan_singkat }}</p>
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Judul</label>
+                            <div class="border p-3">
+                                {{ $data->judul }}
+                            </div>
+                        </div>
+                        <!-- item end -->              
+                                
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Keterangan Singkat</label>
+                            <div class="border p-3">
+                                {{ $data->keterangan_singkat }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Status</label>
+                            <div class="border p-3">
+                                {{ $data->status }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                                
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Tanggal Terbit</label>
+                            <div class="border p-3">
+                                {{ $data->created_at }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Tanggal Diubah</label>
+                            <div class="border p-3">
+                                {{ $data->updated_at }}
+                            </div>
+                        </div>
+                        <!-- item end -->
 
+                    </div>
+                    <!-- .col end -->  
 
-                <div class="mb-3">
-                    @if(empty($data->gambar))
-                        <img src="{{ asset('gambar/informasi-lingkungan/00.jpg') }}" class="img-fluid img-thumbnail col-md-4" alt="Gambar">
-                        @else
-                        <img src="{{ asset($data->gambar) }}" class="img-thumbnail col-md-4" alt="Gambar">
-                    @endif
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            @if(empty($data->gambar))
+                                <img src="{{ asset('gambar/informasi-lingkungan/00.jpg') }}" class="img-fluid w-100 img-thumbnail" alt="Gambar">
+                                @else
+                                <img src="{{ asset('gambar/informasi-lingkungan/' . $data->gambar) }}" class="img-fluid w-100 img-thumbnail" alt="Gambar">
+                            @endif
+                        </div>
+                    </div>
+                    <!-- .col end -->  
                 </div>
-
-                <div class="mb-3">
-                    {!! $data->keterangan_lengkap !!}
-                </div>
-
-                <div class="mb-3">
-                    <span class="fw-bold">Status :</span> {!! $data->status !!}
-                </div>
+                <!-- .row end -->  
 
             </div>
         </div> <!-- end card -->
     </div> <!-- end col -->
-
 
 </div>
 <!-- end row -->
@@ -54,10 +92,10 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('dasbor.informasilingkungan.edit',$data->id) }}" class="btn btn-lg btn-outline-dark waves-effect waves-light">
+                <a href="{{ route('dasbor.informasilingkungan.edit',$data->id) }}" class="btn btn-lg btn-primary waves-effect waves-light">
                     <i class="fe-edit"></i> Edit
                 </a>
-                <a href="{{ route('dasbor.informasilingkungan') }}" class="btn btn-light waves-effect waves-light border">
+                <a href="{{ route('dasbor.informasilingkungan') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                     <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                 </a>
             </div>

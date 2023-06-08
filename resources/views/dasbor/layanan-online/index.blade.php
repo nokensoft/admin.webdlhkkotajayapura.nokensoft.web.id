@@ -69,21 +69,14 @@
                                     <td class="text-center">
                                         <form action="{{ url('dasbor/layanan-online', $data->id) }}" method="POST">
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-secondary dropdown-toggle"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Opsi <i class="mdi mdi-chevron-down"></i>
+                                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  Opsi <i class="mdi mdi-chevron-down"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item"
-                                                        href="{{ url('dasbor/layanan-online/' . $data->id.'/detail') }}"><i
-                                                            class="fe-eye"></i> Detail</a>
-                                                    <a class="dropdown-item"
-                                                        href="{{ url('dasbor/layanan-online/' . $data->id.'/edit') }}"><i
-                                                            class="fe-edit"></i> Ubah</a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/layanan-online/' . $data->id.'/detail') }}"> <i class="fe-eye"></i> Detail </a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/layanan-online/' . $data->id.'/edit') }}"> <i class="fe-edit"></i> Ubah </a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="dropdown-item bg-danger text-light"><i
-                                                            class="fe-trash"></i> Hapus</button>
+                                                    <button type="submit" class="dropdown-item bg-danger text-light"> <i class="fe-trash"></i> Hapus </button>
                                                 </div>
                                             </div>
                                         </form>
