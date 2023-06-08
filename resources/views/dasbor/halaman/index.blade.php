@@ -33,7 +33,7 @@
                             @endif
                             <div class="input-group mb-3">
                                 <input type="search" name="s" class="form-control" placeholder="Search">
-                                <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Search</button>
                             </div>
                         </form>
                         <div class="mt-3">

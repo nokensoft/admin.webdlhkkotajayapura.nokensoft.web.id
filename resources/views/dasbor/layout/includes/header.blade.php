@@ -21,7 +21,7 @@
 
 <!-- Head CSS -->
 <style>
-    .icon-sml {
+.icon-sml {
     width: 15px;
     height: 15px;
 }

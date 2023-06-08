@@ -28,7 +28,7 @@
                     <form action="{{ url('dasbor/pengguna') }}" method="get">
                         <div class="input-group mb-3">
                             <input type="search" name="s" class="form-control" placeholder="Search">
-                            <button type="submit" class="btn btn-primary">Search</button>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Search</button>
                         </div>
                     </form>
 
@@ -52,7 +52,6 @@
                                     <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
 
                                     @endif
-
 
                                 </td>
                                 <td>{{ $user->name }}</td>

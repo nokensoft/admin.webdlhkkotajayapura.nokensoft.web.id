@@ -82,7 +82,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('dasbor.pesan') }}" class="btn btn-lg btn-light">
+                <a href="{{ route('dasbor.pesan') }}" class="btn btn-lg btn-light waves-effect waves-light">
                     <i class="fe-arrow-left mr-1"></i> Kembali
                 </a>
             </div>

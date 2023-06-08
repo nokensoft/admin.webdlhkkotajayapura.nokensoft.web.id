@@ -56,7 +56,7 @@
                 <a href="{{ route('dasbor.halaman.edit',$data->slug) }}" class="btn btn-lg btn-outline-dark waves-effect waves-light">
                     <i class="fe-edit"></i> Edit
                 </a>
-                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
+                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light waves-effect waves-light border">
                     <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                 </a>
             </div>

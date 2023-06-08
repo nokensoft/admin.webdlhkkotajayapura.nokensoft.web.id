@@ -163,7 +163,7 @@
             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                 <i class="fe-save mr-1"></i> Simpan
             </button>
-            <a href="{{ route('dasbor.pengguna') }}" class="btn btn-lg btn-light">
+            <a href="{{ route('dasbor.pengguna') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                 <i class="fe-arrow-left mr-1"></i> Kembali
             </a>
         </div>

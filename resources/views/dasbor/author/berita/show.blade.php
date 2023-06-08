@@ -124,10 +124,10 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ url('dasbor/berita/' . $data->slug.'/edit') }}" class="btn btn-lg btn-primary">
+                <a href="{{ url('dasbor/berita/' . $data->slug.'/edit') }}" class="btn btn-lg btn-primary waves-effect waves-light">
                     <i class="fe-edit"></i> Ubah
                 </a>
-                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light">
+                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                     <i class="fe-arrow-left mr-1"></i>Kembali
                 </a>
             </div>

@@ -35,41 +35,42 @@ class BerandaController extends Controller
     |--------------------------------------------------------------------------
     */
 
-    public function index() {
+    public function index()
+    {
 
         // data berita di halaman beranda
-        $beritas = Berita::orderBy('id','desc')->where('status','publish')->paginate(6);
+        $beritas = Berita::orderBy('id', 'desc')->where('status', 'publish')->paginate(6);
 
         // data layanan online di halaman beranda
-        $layananOnlines = LayananOnline::orderBy('id','asc')->where('status','publish')->paginate();
+        $layananOnlines = LayananOnline::orderBy('id', 'asc')->where('status', 'publish')->paginate();
 
         // data informasi lingkungan di halaman beranda
-        $informasiLingkungans = InformasiLingkungan::orderBy('id','asc')->where('status','publish')->paginate();
+        $informasiLingkungans = InformasiLingkungan::orderBy('id', 'asc')->where('status', 'publish')->paginate();
 
         // data faq di halaman beranda
-        $faqs = Faq::orderBy('id','desc')->where('status','publish')->paginate();
+        $faqs = Faq::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
         // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return  view('visitor.index',
-                    compact(
-                        'beritas',
-                        'layananOnlines',
-                        'informasiLingkungans',
-                        'faqs',
-                        'linkTerkaits',
-                        'banner_1',
-                        'banner_2',
-                        'banner_3',
-                    )
-                );
-
+        return  view(
+            'visitor.index',
+            compact(
+                'beritas',
+                'layananOnlines',
+                'informasiLingkungans',
+                'faqs',
+                'linkTerkaits',
+                'banner_1',
+                'banner_2',
+                'banner_3',
+            )
+        );
     }
 
     /*
@@ -82,144 +83,151 @@ class BerandaController extends Controller
     */
 
     // BERITA > INDEX
-    public function beritaIndex() {
+    public function beritaIndex()
+    {
         $datas = Berita::where('status', 'publish')->paginate(2);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
 
         // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return  view('visitor.pages.berita.index',
-                    compact(
-                            'datas',
-                            'kategoris',
-                            'pageTitle',
-                            'linkTerkaits',
-                            'banner_1',
-                            'banner_2',
-                            'banner_3',
-                            )
-                    );
+        return  view(
+            'visitor.pages.berita.index',
+            compact(
+                'datas',
+                'kategoris',
+                'pageTitle',
+                'linkTerkaits',
+                'banner_1',
+                'banner_2',
+                'banner_3',
+            )
+        );
     }
 
     // BERITA > SHOW
-    public function beritaShow($slug) {
+    public function beritaShow($slug)
+    {
         $data = Berita::where('slug', $slug)->first();
 
         // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return  view('visitor.pages.berita.show',
-                    compact(
-                        'data',
-                        'linkTerkaits',
-                        'banner_1',
-                        'banner_2',
-                        'banner_3',
-                        )
-                    );
+        return  view(
+            'visitor.pages.berita.show',
+            compact(
+                'data',
+                'linkTerkaits',
+                'banner_1',
+                'banner_2',
+                'banner_3',
+            )
+        );
     }
 
     // BERITA > CATEGORY
-    public function beritaKategori($kategori) {
+    public function beritaKategori($kategori)
+    {
 
         $datas = Berita::select('*')
-                                    ->join(
-                                        'kategori_beritas',
-                                        'kategori_beritas.id', '=', 'beritas.category_id'
-                                        )
-                                    ->where('kategori_beritas.kategori_slug', $kategori)
-                                    ->paginate(1);
+            ->join(
+                'kategori_beritas',
+                'kategori_beritas.id',
+                '=',
+                'beritas.category_id'
+            )
+            ->where('kategori_beritas.kategori_slug', $kategori)
+            ->paginate(1);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
 
         // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return  view('visitor.pages.berita.index',
-                        compact(
-                            'datas',
-                            'kategoris',
-                            'pageTitle',
-                            'linkTerkaits',
-                            'banner_1',
-                            'banner_2',
-                            'banner_3',
-                        )
-                    );
+        return  view(
+            'visitor.pages.berita.index',
+            compact(
+                'datas',
+                'kategoris',
+                'pageTitle',
+                'linkTerkaits',
+                'banner_1',
+                'banner_2',
+                'banner_3',
+            )
+        );
     }
 
-      // JSON BERITA
-      public function beritaJson(Request $request)
-      {
-           $keyword = $request->keyword;
-           $page = $request->noAwal; // Halaman yang ingin ditampilkan
-           $perPage = 6; // Jumlah data per halaman
+    // JSON BERITA
+    public function beritaJson(Request $request)
+    {
+        $keyword    = $request->keyword;
+        $page       = $request->noAwal; // Halaman yang ingin ditampilkan
+        $perPage    = 4; // Jumlah data per halaman
 
-           $all = DB::table('beritas')
-            ->selectRaw('beritas.id')
-            ->selectRaw('beritas.slug')
-            ->selectRaw('beritas.gambar')
-            ->selectRaw('beritas.judul')
-            ->selectRaw('beritas.created_at')
-            ->selectRaw('beritas.konten_singkat')
-            ->selectRaw('users.name')
-            ->selectRaw('kategori_beritas.kategori_slug')
-            ->leftJoin('kategori_beritas', 'beritas.category_id', '=', 'kategori_beritas.id')
-            ->leftJoin('users', 'beritas.user_id', '=', 'users.id')
-            ->where('beritas.status','=','Publish')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->orderBy('beritas.id','desc')
-            ->get();
+        $all = DB::table('beritas')
+                ->selectRaw('beritas.id')
+                ->selectRaw('beritas.slug')
+                ->selectRaw('beritas.gambar')
+                ->selectRaw('beritas.judul')
+                ->selectRaw('beritas.created_at')
+                ->selectRaw('beritas.konten_singkat')
+                ->selectRaw('users.name')
+                ->selectRaw('kategori_beritas.kategori_slug')
+                ->leftJoin('kategori_beritas', 'beritas.category_id', '=', 'kategori_beritas.id')
+                ->leftJoin('users', 'beritas.user_id', '=', 'users.id')
+                ->where('beritas.status', '=', 'Publish')
+                ->skip(($page - 1) * $perPage)
+                ->take($perPage)
+                ->orderBy('beritas.id', 'desc')
+                ->get();
 
-            $count =  DB::table('beritas')->where('beritas.status','=','Publish')->count();
+        $count =  DB::table('beritas')->where('beritas.status', '=', 'Publish')->count();
 
-          if($keyword != null)
-          {
+        if ($keyword != null) {
 
             $all = DB::table('beritas')
-            ->selectRaw('beritas.id')
-            ->selectRaw('beritas.slug')
-            ->selectRaw('beritas.gambar')
-            ->selectRaw('beritas.judul')
-            ->selectRaw('beritas.created_at')
-            ->selectRaw('beritas.konten_singkat')
-            ->selectRaw('users.name')
-            ->selectRaw('kategori_beritas.kategori_slug')
-            ->leftJoin('kategori_beritas', 'beritas.category_id', '=', 'kategori_beritas.id')
-            ->leftJoin('users', 'beritas.user_id', '=', 'users.id')
-            ->where('beritas.status','=','Publish')
-            ->Where('beritas.judul', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->orderBy('beritas.id','desc')
-            ->get();
+                ->selectRaw('beritas.id')
+                ->selectRaw('beritas.slug')
+                ->selectRaw('beritas.gambar')
+                ->selectRaw('beritas.judul')
+                ->selectRaw('beritas.created_at')
+                ->selectRaw('beritas.konten_singkat')
+                ->selectRaw('users.name')
+                ->selectRaw('kategori_beritas.kategori_slug')
+                ->leftJoin('kategori_beritas', 'beritas.category_id', '=', 'kategori_beritas.id')
+                ->leftJoin('users', 'beritas.user_id', '=', 'users.id')
+                ->where('beritas.status', '=', 'Publish')
+                ->Where('beritas.judul', 'like', '%' . $keyword . '%')
+                ->skip(($page - 1) * $perPage)
+                ->take($perPage)
+                ->orderBy('beritas.id', 'desc')
+                ->get();
 
-            $count =DB::table('beritas')->where('beritas.status','=','Publish')->Where('beritas.judul', 'like', '%' . $keyword . '%')->count();;
-          };
+            $count = DB::table('beritas')->where('beritas.status', '=', 'Publish')->Where('beritas.judul', 'like', '%' . $keyword . '%')->count();;
+        };
 
-          return $data = ['datas' => $all,'count' => $count,'page' => $page];
-      }
+        return $data = ['datas' => $all, 'count' => $count, 'page' => $page, 'perPage' => $perPage];
+    }
 
 
-      /*
+    /*
     |--------------------------------------------------------------------------
     | HALAMAN
     | - index
@@ -233,73 +241,78 @@ class BerandaController extends Controller
         $halamans = Halaman::orderBy('judul_halaman', 'asc')->get();
 
         // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return view('visitor.pages.halaman.index',
-                    compact(
-                        'halamans',
-                        'linkTerkaits',
-                        'banner_1',
-                        'banner_2',
-                        'banner_3',
-                        )
-                    );
+        return view(
+            'visitor.pages.halaman.index',
+            compact(
+                'halamans',
+                'linkTerkaits',
+                'banner_1',
+                'banner_2',
+                'banner_3',
+            )
+        );
     }
 
     // HALAMAN > SHOW
     public function halamanShow($slug)
     {
         $halaman = Halaman::where('slug', $slug)
-                            ->where('status', 'publish')
-                            ->first();
+            ->where('status', 'publish')
+            ->first();
 
         // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return view('visitor.pages.halaman.show',
-        compact(
-            'halaman',
-            'linkTerkaits',
-            'banner_1',
-            'banner_2',
-            'banner_3',
+        return view(
+            'visitor.pages.halaman.show',
+            compact(
+                'halaman',
+                'linkTerkaits',
+                'banner_1',
+                'banner_2',
+                'banner_3',
             )
         );
     }
 
     // KONTAK
-    public function kontak(){
+    public function kontak()
+    {
 
         // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id','desc')->where('status','publish')->paginate();
+        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return view('visitor.pages.kontak',
-        compact(
-            'linkTerkaits',
-            'banner_1',
-            'banner_2',
-            'banner_3',
+        return view(
+            'visitor.pages.kontak',
+            compact(
+                'linkTerkaits',
+                'banner_1',
+                'banner_2',
+                'banner_3',
             )
         );
     }
 
     // PESAN
-    public function pesanStore(Request $request) {
+    public function pesanStore(Request $request)
+    {
         $validator = Validator::make(
             $request->all(),
             [
@@ -309,7 +322,8 @@ class BerandaController extends Controller
                 'judul_topik'           => 'required',
                 'keterangan'            => 'required',
                 'captcha'               => 'required|captcha'
-            ],[
+            ],
+            [
                 'nama.required'         => 'Nama lengkap tidak boleh kosong',
                 'email.required'        => 'Email tidak boleh kosong',
                 'no_telf.required'      => 'Nomor telepon tidak boleh kosong',
@@ -339,7 +353,6 @@ class BerandaController extends Controller
                 alert()->success('Terima Kasih', 'Sukses!!')->autoclose(1200);
                 // return redirect()->back();
                 return redirect()->route('visitor.pesan.terkirim');
-
             } catch (\Throwable $th) {
 
                 Alert::toast('Oppss Ada yang salah', 'error');
@@ -348,14 +361,14 @@ class BerandaController extends Controller
         }
     }
 
-    public function pesanTerkirim() {
+    public function pesanTerkirim()
+    {
 
         return view('visitor.pesan.terkirim');
     }
 
     public function reloadCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img()]);
+        return response()->json(['captcha' => captcha_img()]);
     }
-
 }

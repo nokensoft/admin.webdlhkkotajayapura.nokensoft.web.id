@@ -48,5 +48,5 @@ LOGIN PAGE : https://dlhk.jayapurakota.go.id/login
 
 MAIN PAGE : https://dlhk.jayapurakota.go.id/
 
-## NOTES for Janzen
-🏷️ drop down menu di bagian halaman create tidak jalan
+## NOTES for SAMUEL
+🏷️ saat pencarian berita tidak ditemukan, tampilkan alert berita tidak ditemukan

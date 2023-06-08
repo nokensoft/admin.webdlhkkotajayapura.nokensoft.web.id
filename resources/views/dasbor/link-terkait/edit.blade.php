@@ -87,10 +87,10 @@
 <div class="row">
     <div class="card">
         <div class="card-body">
-            <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
+            <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light waves-effect waves-light border">
                 <i class="fe-save mr-1"></i> Simpan
             </button>
-            <a href="{{ route('dasbor.halaman') }}" class="btn btn-lg btn-light">
+            <a href="{{ route('dasbor.halaman') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                 <i class="fe-arrow-left mr-1"></i> Kembali
             </a>
         </div>

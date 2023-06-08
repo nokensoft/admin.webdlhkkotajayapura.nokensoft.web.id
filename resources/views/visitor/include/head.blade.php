@@ -49,11 +49,19 @@
 
     <style>
             .page-item.active .page-link {
-                background-color: #28a745;
-                border-color: #28a745;
+                background-color: #198754;
+                border-color: #198754;
                 }
             .page-item a
             {
                 /* color: #121312 !important */
+            }
+            .page-link 
+            {
+                color: #198754;
+            }
+            .page-link:hover
+            {
+                color: #198754;
             }
     </style>

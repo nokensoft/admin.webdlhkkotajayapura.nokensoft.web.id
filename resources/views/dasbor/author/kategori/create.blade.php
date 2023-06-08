@@ -48,7 +48,7 @@
                                 <!-- input item end -->
 
                                 <div class="form-group">
-                                    <label for="deskripsi" class="form-label">Deskripsi <span class="text-danger">*</span></label>
+                                    <label for="deskripsi" class="form-label">Deskripsi</label>
                                     <textarea name="deskripsi" class="form-control" rows="5" placeholder="Deskripsi Kategori">{{ old('deskripsi') }}</textarea>
                                     @if ($errors->has('deskripsi'))
                                         <span class="text-danger" role="alert">
@@ -59,7 +59,7 @@
                                 <!-- input item end -->
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Status <span class="text-danger">*</span></label>
+                                    <label for="name" class="form-label">Status</label>
                                     <select name="status" class="form-control">
                                         <option hidden>Pilih</option>
                                         <option value="Publish">Publish</option>
@@ -84,7 +84,7 @@
                         <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                             <i class="fe-save"></i> Simpan
                         </button>
-                        <a href="{{ route('dasbor.kategori') }}" class="btn btn-lg btn-light">
+                        <a href="{{ route('dasbor.kategori') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                             <i class="fe-arrow-left"></i> Kembali
                         </a>
                     </div>

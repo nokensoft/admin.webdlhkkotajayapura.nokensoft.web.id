@@ -117,10 +117,10 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ url('dasbor/halaman/' . $data->slug.'/edit') }}" class="btn btn-lg btn-primary">
+                <a href="{{ url('dasbor/halaman/' . $data->slug.'/edit') }}" class="btn btn-lg btn-primary waves-effect waves-light border">
                     <i class="fe-edit"></i> Ubah
                 </a>
-                <a href="{{ route('dasbor.halaman') }}" class="btn btn-lg btn-light">
+                <a href="{{ route('dasbor.halaman') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                     <i class="fe-arrow-left mr-1"></i>Kembali
                 </a>
             </div>
@@ -128,56 +128,6 @@
     </div>
 </div>
 <!-- end row -->
-
-
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-
-                <h1 class="fw-bold mb-3">{{ $data->judul_halaman }}</h1>
-                <p class="mb-3">{{ $data->sub_judul }}</p>
-
-                <div class="mb-3">
-                    @if(empty($data->gambar))
-                        <img src="{{ asset('gambar/halaman/00.jpg') }}" class="img-fluid img-thumbnail col-md-4" alt="Gambar">
-                        @else
-                        <img src="{{ asset($data->gambar) }}" class="img-thumbnail col-md-4" alt="Gambar">
-                    @endif
-                </div>
-
-                <div class="mb-3">
-                    {!! $data->konten !!}
-                </div>
-
-                <div class="mb-3">
-                    <span class="fw-bold">Status :</span> {!! $data->status !!}
-                </div>
-
-            </div>
-        </div> <!-- end card -->
-    </div> <!-- end col -->
-
-
-</div>
-<!-- end row -->
-<!--end wrapper-->
-
-<div class="row">
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <a href="{{ route('dasbor.halaman.edit',$data->slug) }}" class="btn btn-lg btn-outline-dark waves-effect waves-light">
-                    <i class="fe-edit"></i> Edit
-                </a>
-                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
-                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 @stop
 

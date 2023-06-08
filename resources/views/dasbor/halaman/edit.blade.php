@@ -120,12 +120,6 @@
 
                 </div> <!-- row end -->
 
-
-
-
-
-
-
             </div>
         </div> <!-- end card -->
     </div> <!-- end col -->
@@ -137,9 +131,14 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Simpan</button>
-                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light">
-                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
+                    <i class="fe-save mr-1"></i> Simpan
+                </button>
+                <a href="{{ url('dasbor/halaman/' . $data->slug . '/detail') }}" target="_blank" class="btn btn-lg btn-light waves-effect waves-light border">
+                    <i class="fe-eye mr-1"></i> Detail
+                </a>
+                <a href="{{ url('dasbor/halaman') }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                    <i class="fe-arrow-left mr-1"></i> Kembali
                 </a>
             </div> <!-- end card-body -->
         </div> <!-- end card -->
@@ -179,8 +178,10 @@
   </script>
 <script type="text/javascript">
     CKEDITOR.replace('ckeditor', options);
-    CKEDITOR.config.height='4010px';
+
+    CKEDITOR.config.height='600px';
 </script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
@@ -195,6 +196,8 @@
                });
 
             });
+
+    CKEDITOR.config.height='600px';
 </script>
 
 @endpush

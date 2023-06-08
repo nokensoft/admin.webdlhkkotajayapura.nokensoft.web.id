@@ -44,7 +44,7 @@
                             <!-- input item end -->
 
                             <div class="form-group">
-                                <label for="deskripsi" class="form-label">Deskripsi <span class="text-danger">*</span></label>
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
                                 <textarea name="deskripsi" class="form-control" rows="5">{{ old('deskripsi',$kategori->deskripsi) }}</textarea>
                             </div>
                             <!-- input item end -->
@@ -74,7 +74,7 @@
                     <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                         <i class="fe-save"></i> Simpan
                     </button>
-                    <a href="{{ route('dasbor.kategori') }}" class="btn btn-light">
+                    <a href="{{ route('dasbor.kategori') }}" class="btn btn-light waves-effect waves-light border">
                         <i class="fe-arrow-left"></i> Kembali
                     </a>
                 </div>

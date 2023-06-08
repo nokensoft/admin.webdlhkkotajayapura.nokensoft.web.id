@@ -49,16 +49,25 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('http');
         }
 
-        // PAGINATORS
+        /*
+        | PAGINATORS
+        |
+        */
         Paginator::useBootstrap();
         // Paginator::useBootstrapFive();
         // Paginator::defaultView('view-name');
 
-        // VISITOR COUNTER
+        /*
+        | VISITOR QUERIES
+        |
+        */
         $Pengaturan = Pengaturan::first();
         $Pengaturan->visit()->withIP();
 
-        // Get Date
+        /*
+        | DATE CONFIGURATIONS
+        |
+        */
         $today      = Carbon::today()->toDateString();
         $bulanIni   = Carbon::now()->format('m');
         $tahunIni   = Carbon::now()->format('Y');
@@ -78,18 +87,17 @@ class AppServiceProvider extends ServiceProvider
             'InformasiLingkungan'               => InformasiLingkungan::where('status','Publish')->get(),
             'banner'                            => Banner::where('status','publish')->first(),
 
-
             /*
             |
             | VISITOR COUNTER
             |
             */
 
-            'totalVisitor'                         =>  DB::table('laravisits')->get()->count(),
-            'visitorHariIni'                       =>  DB::table('laravisits')->whereDate('created_at', $today)->count(),
-            'visitorMingguIni'                     =>  DB::table('laravisits')->whereBetween('created_at', [$startDate, $endDate])->get()->count(),
-            'visitorBulanIni'                      =>  DB::table('laravisits')->whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
-            'visitorTahunIni'                      => DB::table('laravisits')->whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
+            'totalVisitor'                      => DB::table('laravisits')->get()->count(),
+            'visitorHariIni'                    => DB::table('laravisits')->whereDate('created_at', $today)->count(),
+            'visitorMingguIni'                  => DB::table('laravisits')->whereBetween('created_at', [$startDate, $endDate])->get()->count(),
+            'visitorBulanIni'                   => DB::table('laravisits')->whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
+            'visitorTahunIni'                   => DB::table('laravisits')->whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
 
 
             /*
@@ -116,7 +124,6 @@ class AppServiceProvider extends ServiceProvider
 
             'dasbor_jml_pesan'                  => Pesan::count(),
             'dasbor_jml_pengguna'               => User::where('status','publish')->count(),
-
 
         ]);
 

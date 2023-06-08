@@ -1,6 +1,6 @@
 <!-- Left sidebar -->
 <div class="inbox-leftbar">
-        <a href="{{ url('dasbor/link-terkait/create') }}" class="btn btn-primary shadow d-block mb-2">
+        <a href="{{ url('dasbor/link-terkait/create') }}" class="btn btn-primary shadow d-block mb-2 waves-effect waves-light">
                 <i class="mdi mdi-plus-box me-2"></i> Tambah
         </a>
 

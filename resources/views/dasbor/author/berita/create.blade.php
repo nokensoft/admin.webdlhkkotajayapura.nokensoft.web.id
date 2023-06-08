@@ -81,7 +81,7 @@
 
                         <div class="form-group">
                             <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                            <textarea name="konten" id="ckeditor" class="ckeditor form-control" placeholder="Konten Berita" rows="50">{{ old('konten') }}</textarea>
+                            <textarea name="konten" id="ckeditor" class="ckeditor form-control" placeholder="Konten Berita" rows="30">{{ old('konten') }}</textarea>
                             @if ($errors->has('konten'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten') }}</small>
@@ -143,7 +143,7 @@
                 <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                     <i class="fe-save"></i> Simpan
                 </button>
-                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light">
+                <a href="{{ route('dasbor.berita') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                     <i class="fe-arrow-left mr-1"></i>Kembali
                 </a>
             </div>
@@ -182,12 +182,11 @@
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
 
-  </script>
+</script>
 <script type="text/javascript">
     CKEDITOR.replace('ckeditor', options);
-    CKEDITOR.config.height='4010px';
+    CKEDITOR.config.height='600px';
 </script>
-
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -204,7 +203,7 @@
 
             });
 
-    CKEDITOR.config.height='400px';
+    CKEDITOR.config.height='600px';
 </script>
 
 @endpush

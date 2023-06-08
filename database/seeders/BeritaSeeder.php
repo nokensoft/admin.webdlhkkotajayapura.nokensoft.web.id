@@ -149,7 +149,7 @@ class BeritaSeeder extends Seeder
 
             'judul'             => 'Menanam pohon untuk mengurangi dampak perubahan iklim',
             'slug'              => 'menanam-pohon-untuk-msasaengurangi-dampak-perubahan-iklim',
-            'gambar'            => '06.jpg',
+            'gambar'            => '07.jpg',
             'konten'            => '<p>Mengadakan acara penanaman pohon merupakan langkah penting dalam menjaga keberlanjutan lingkungan dan mengurangi dampak perubahan iklim. Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses:
 
             <ol>
@@ -164,7 +164,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
 
-            'status'            => 'Publish',
+            'status'            => 'Draft',
         ]);
 
 
@@ -174,7 +174,7 @@ class BeritaSeeder extends Seeder
 
             'judul'             => 'Menanam pohon untuk mengurangi dampak perubahan iklim',
             'slug'              => 'menanam-pohon-untaasaaqquk-mengurangi-dampak-perubahan-iklim',
-            'gambar'            => '06.jpg',
+            'gambar'            => '08.jpg',
             'konten'            => '<p>Mengadakan acara penanaman pohon merupakan langkah penting dalam menjaga keberlanjutan lingkungan dan mengurangi dampak perubahan iklim. Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses:
 
             <ol>
@@ -189,7 +189,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
 
-            'status'            => 'Publish',
+            'status'            => 'Revisi',
         ]);
 
         Berita::create([
@@ -213,7 +213,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
 
-            'status'            => 'Publish',
+            'status'            => 'Revisi',
         ]);
 
 

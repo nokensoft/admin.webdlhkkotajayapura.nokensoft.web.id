@@ -178,8 +178,8 @@
                 </div> <!-- end widget-rounded-circle-->
                </div>
             </div> <!-- end col-->
-    </div>
-    <!-- row end -->
+    </div> <!-- row end -->
+    
     <div class="row">
         <div class="col-md-6">
             <div class="card">
@@ -187,10 +187,10 @@
                     <h4 class="header-title mb-0"> Berita <i class="mdi mdi-newspaper "></i> </h4>
                     <div id="cardCollpase5" class="collapse pt-3 show" dir="ltr">
                         <div id="chartBerita"></div>
-                            {{-- Data Visitor --}}
-                            <input type="hidden" value="{{$dasbor_jml_berita}}" name="dasbor_jml_berita" id="dasbor_jml_berita">
-                            <input type="hidden" value="{{$dasbor_jml_berita_semua}}" name="dasbor_jml_berita_semua" id="dasbor_jml_berita_semua">
-                            <input type="hidden" value="{{$dasbor_jml_berita_draft}}" name="dasbor_jml_berita_draft" id="dasbor_jml_berita_draft">
+                            <!-- JUMLAH BERITA -->
+                            <input type="hidden" value="{{ $dasbor_jml_berita }}" name="dasbor_jml_berita" id="dasbor_jml_berita">
+                            <input type="hidden" value="{{ $dasbor_jml_berita_semua }}" name="dasbor_jml_berita_semua" id="dasbor_jml_berita_semua">
+                            <input type="hidden" value="{{ $dasbor_jml_berita_draft }}" name="dasbor_jml_berita_draft" id="dasbor_jml_berita_draft">
                     </div> <!-- collapsed end -->
                 </div> <!-- end card-body -->
             </div> <!-- end card-->
@@ -201,10 +201,10 @@
                     <h4 class="header-title mb-0"> Halaman <i class="mdi mdi-text-box-multiple-outline "></i> </h4>
                     <div id="cardCollpase5" class="collapse pt-3 show" dir="ltr">
                         <div id="chartHalaman"></div>
-                            {{-- Data Visitor --}}
-                            <input type="hidden" value="{{$dasbor_jml_halaman}}" name="dasbor_jml_halaman" id="dasbor_jml_halaman">
-                            <input type="hidden" value="{{$dasbor_jml_halaman_semua}}" name="dasbor_jml_halaman_semua" id="dasbor_jml_halaman_semua">
-                            <input type="hidden" value="{{$dasbor_jml_halaman_draft}}" name="dasbor_jml_halaman_draft" id="dasbor_jml_halaman_draft">
+                            <!-- JUMLAH HALAMAN -->
+                            <input type="hidden" value="{{ $dasbor_jml_halaman }}" name="dasbor_jml_halaman" id="dasbor_jml_halaman">
+                            <input type="hidden" value="{{ $dasbor_jml_halaman_semua }}" name="dasbor_jml_halaman_semua" id="dasbor_jml_halaman_semua">
+                            <input type="hidden" value="{{ $dasbor_jml_halaman_draft }}" name="dasbor_jml_halaman_draft" id="dasbor_jml_halaman_draft">
                     </div> <!-- collapsed end -->
                 </div> <!-- end card-body -->
             </div> <!-- end card-->
@@ -216,16 +216,17 @@
                     <div id="cardCollpase5" class="collapse pt-3 show" dir="ltr">
                         <div id="chartVisitor"></div>
                             {{-- Data Visitor --}}
-                            <input type="hidden" value="{{$totalVisitor}}" name="totalVisitor" id="totalVisitor">
-                            <input type="hidden" value="{{$visitorHariIni}}" name="visitorHariIni" id="visitorHariIni">
-                            <input type="hidden" value="{{$visitorMingguIni}}" name="visitorMingguIni" id="visitorMingguIni">
-                            <input type="hidden" value="{{$visitorBulanIni}}" name="visitorBulanIni" id="visitorBulanIni">
-                            <input type="hidden" value="{{$visitorTahunIni}}" name="visitorTahunIni" id="visitorTahunIni">
+                            <input type="hidden" value="{{ $totalVisitor }}" name="totalVisitor" id="totalVisitor">
+                            <input type="hidden" value="{{ $visitorHariIni }}" name="visitorHariIni" id="visitorHariIni">
+                            <input type="hidden" value="{{ $visitorMingguIni }}" name="visitorMingguIni" id="visitorMingguIni">
+                            <input type="hidden" value="{{ $visitorBulanIni }}" name="visitorBulanIni" id="visitorBulanIni">
+                            <input type="hidden" value="{{ $visitorTahunIni }}" name="visitorTahunIni" id="visitorTahunIni">
                     </div> <!-- collapsed end -->
                 </div> <!-- end card-body -->
             </div> <!-- end card-->
         </div> <!-- end col-->
-    </div>
+    </div> <!-- row end -->
+
     <script src="{{ asset('assets/js/grafik.js')}}"></script>
 
     @elseif (Auth::user()->hasRole('editor'))
@@ -269,8 +270,7 @@
                  </div> <!-- end widget-rounded-circle-->
             </div>
          </div> <!-- end col-->
-    </div>
-    <!-- row end -->
+    </div> <!-- row end -->
 
     @elseif (Auth::user()->hasRole('author'))
 
@@ -313,8 +313,7 @@
                  </div> <!-- end widget-rounded-circle-->
             </div>
          </div> <!-- end col-->
-    </div>
-    <!-- row end -->
+    </div> <!-- row end -->
 
     @elseif (Auth::user()->hasRole('supervisor'))
 
@@ -357,8 +356,7 @@
                  </div> <!-- end widget-rounded-circle-->
             </div>
          </div> <!-- end col-->
-    </div>
-    <!-- row end -->
+    </div> <!-- row end -->
 
     @endif
 

@@ -4,6 +4,7 @@ let visitorHariIni = document.getElementById('visitorHariIni').value;
 let visitorMingguIni = document.getElementById('visitorMingguIni').value;
 let visitorBulanIni = document.getElementById('visitorBulanIni').value;
 let visitorTahunIni = document.getElementById('visitorTahunIni').value;
+
 var chart = c3.generate({
     bindto: '#chartVisitor',
     data: {
@@ -25,11 +26,11 @@ var chart = c3.generate({
     }
 });
 
-
 // BERITA COUNTER
 let dasbor_jml_berita = document.getElementById('dasbor_jml_berita').value;
 let dasbor_jml_berita_draft = document.getElementById('dasbor_jml_berita_draft').value;
 let dasbor_jml_berita_semua = document.getElementById('dasbor_jml_berita_semua').value;
+
 var chart = c3.generate({
     bindto: '#chartBerita',
     data: {
@@ -53,6 +54,7 @@ var chart = c3.generate({
 let dasbor_jml_halaman = document.getElementById('dasbor_jml_halaman').value;
 let dasbor_jml_halaman_draft = document.getElementById('dasbor_jml_halaman_draft').value;
 let dasbor_jml_halaman_semua = document.getElementById('dasbor_jml_halaman_semua').value;
+
 var chart = c3.generate({
     bindto: '#chartHalaman',
     data: {

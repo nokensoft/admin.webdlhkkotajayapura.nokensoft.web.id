@@ -57,7 +57,7 @@
                 <a href="{{ route('dasbor.informasilingkungan.edit',$data->id) }}" class="btn btn-lg btn-outline-dark waves-effect waves-light">
                     <i class="fe-edit"></i> Edit
                 </a>
-                <a href="{{ route('dasbor.informasilingkungan') }}" class="btn btn-light">
+                <a href="{{ route('dasbor.informasilingkungan') }}" class="btn btn-light waves-effect waves-light border">
                     <i class="mdi mdi-arrow-left mr-1"></i>Kembali
                 </a>
             </div>

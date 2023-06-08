@@ -50,7 +50,7 @@
                                 </span>
                                 @endif
                             </div>
-                            <!-- inpute item end -->
+                            <!-- input item end -->
 
                             <div class="mb-3">
                                 <label for="email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
@@ -61,7 +61,7 @@
                                 </span>
                                 @endif
                             </div>
-                            <!-- inpute item end -->
+                            <!-- input item end -->
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Kata Sandi <span class="text-danger">*</span></label>
@@ -72,7 +72,7 @@
                                 </span>
                                 @endif
                             </div>
-                            <!-- inpute item end -->
+                            <!-- input item end -->
 
                             <div class="mb-3">
                                 <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi <span class="text-danger">*</span></label>
@@ -83,7 +83,7 @@
                                 </span>
                                 @endif
                             </div>
-                            <!-- inpute item end -->
+                            <!-- input item end -->
 
                             <div class="form-group">
                                 <label for="peran" class="form-label">Peran <span class="text-danger">*</span></label>
@@ -157,7 +157,7 @@
             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                 <i class="fe-save mr-1"></i> Simpan
             </button>
-            <a href="{{ route('dasbor.pengguna') }}" class="btn btn-lg btn-light">
+            <a href="{{ route('dasbor.pengguna') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                 <i class="fe-arrow-left mr-1"></i> Kembali
             </a>
         </div>

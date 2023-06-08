@@ -24,8 +24,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ route('dasbor.pengguna') }}" class="btn btn-danger mb-2"><i
-                            class="mdi mdi-arrow-left me-2"></i> Kembali
+                        <a href="{{ route('dasbor.pengguna') }}" class="btn btn-danger mb-2 waves-effect waves-light"><i class="mdi mdi-arrow-left me-2"></i> Kembali
                         </a>
                     </div>
 
