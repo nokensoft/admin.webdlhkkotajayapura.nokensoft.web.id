@@ -30,74 +30,128 @@
 </div>
 @endif
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
+<!-- 
+| ===============================================
+| FROM START 
+| ===============================================
+-->
 
-                <!-- <form action="{{ url('dasbor/halaman') }}" method="POST" enctype="multipart/form-data"> -->
-                {!! Form::model($data,array('url'=>'dasbor/halaman/'.$data->id,'method'=>'put','files'=>'true'))!!}
-                @csrf
-                @method('put')
-
-                <div class="mb-3">
-                    <label for="judul_halaman" class="form-label">Judul Halaman <span class="text-danger">*</span></label>
-                    {!!
-                    Form::text('judul_halaman',null,['required','id'=>'judul_halaman','class'=>'form-control','placeholder'=>'Judul Halaman'])
-                    !!}
+<form action="{{ url('dasbor/link-terkait/' . $data->id) }}" method="POST" enctype="multipart/form-data">
+@csrf
+@method('put')
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+    
+                    <div class="row">
+    
+                        <div class="col-md-8">
+                            
+                            <div class="form-group">
+                                <label for="judul_link" class="form-label">Judul Link <span class="text-danger">*</span></label>
+                                <input type="text" id="judul_link" name="judul_link" class="form-control" placeholder="Judul Link" value="{{ old('judul_link') ?? $data->judul_link }}">
+    
+                                @if ($errors->has('judul_link'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul_link') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- input item end -->
+                            
+                            <div class="form-group">
+                                <label for="url" class="form-label">URL <span class="text-danger">*</span></label>
+                                <input type="text" id="url" name="url" class="form-control" placeholder="URL" value="{{ old('url') ?? $data->url }}">
+    
+                                @if ($errors->has('url'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('url') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- input item end -->
+    
+                            <div class="form-group">
+                                <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
+                                <select class="form-control" name="status" id="exampleFormControlSelect1">
+                                    <option value="" hidden>Pilih</option>
+                                    <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
+                                    <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
+                                </select>
+    
+                                @if ($errors->has('status'))
+                                    <span class="text-danger" role="alert">
+                                        <small>{{ $errors->first('status') }}</small>
+                                    </span>
+                                @endif
+                                <!-- error message end -->
+                            </div>
+                            <!-- input item end -->
+                            
+                        </div>
+                        <!-- .col end -->
+    
+                        <div class="col-md-4">
+    
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    @if (!$data->gambar)
+                                    <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
+                                    @else 
+                                    <img src="{{ asset('gambar/link-terkait/' . $data->gambar ?? '') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
+                                    @endif
+                                </div>
+                                <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span> {{ asset('gambar/link-terkait/' . $data->gambar ?? '') }}</label>
+                                @if ($errors->has('gambar'))
+                                    <span class="text-danger" role="alert">
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
+                                    </span>
+                                @endif
+                                <div class="custom-file">
+                                    <input type="file" name="gambar" class="custom-file-input" id="gambar">
+    
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+    
+                            </div>
+                            <!-- input item end -->
+    
+                        </div> <!-- ebd col -->
+    
+                    </div>
+                    <!-- .row end -->
+    
                 </div>
-
-                <div class="mb-3">
-                    <label for="sub_judul" class="form-label">Sub Judul</label>
-                    {!!
-                    Form::text('sub_judul',null,['required','id'=>'sub_judul','class'=>'form-control','placeholder'=>'Sub Judul'])
-                    !!}
-                </div>
-
-                <div class="mb-3">
-                    <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
-                    <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $data->konten}}</textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="cover" class="form-label">Gambar <span class="text-danger">*</span></label>
-                    <input type="file" name="cover" class="form-control" id="customFile">
-                </div>
-
-                @if(!$data->cover)
-                    <img src="{{ asset('gambar/halaman/cover-0.jpg') }}" alt="image" class="img-thumbnail mb-3" width="200px" alt="Cover">
-                @else
-                    <img src="{{ asset('gambar/halaman')}}/{{ $data->cover }}" class="img-thumbnail mb-3" width="200px" alt="Cover">
-                @endif
-
-                <div class="mb-3">
-                    <label for="product-category" class="form-label">Status <span class="text-danger">*</span></label>
-                    {!! Form::select('status', [''=>'Status ...','Publish'=>'Active','Draf'=>'Inactive'],
-                    null,['class'=>'form-control select2','id'=>'status','required']) !!}
-                </div>
-
-            </div>
-        </div> <!-- end card -->
-    </div> <!-- end col -->
-
-
-</div>
-<!-- end row -->
-
-<div class="row">
-    <div class="card">
-        <div class="card-body">
-            <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light waves-effect waves-light border">
-                <i class="fe-save mr-1"></i> Simpan
-            </button>
-            <a href="{{ route('dasbor.halaman') }}" class="btn btn-lg btn-light waves-effect waves-light border">
-                <i class="fe-arrow-left mr-1"></i> Kembali
-            </a>
-        </div>
+            </div> <!-- end card -->
+        </div> <!-- end col -->
     </div>
-</div>
-<!-- end row -->
-{!! Form::close() !!}
+    <!-- end row -->
+    
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light waves-effect waves-light border">
+                        <i class="fe-save mr-1"></i> Simpan
+                    </button>
+                    <a href="{{ route('dasbor.link-terkait') }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                        <i class="fe-arrow-left mr-1"></i> Kembali
+                    </a>
+                </div>
+            </div> <!-- end .card -->
+        </div> <!-- end .col -->
+    </div>
+    <!-- end row -->
+    
+</form>
+
+<!-- 
+| ===============================================
+| FROM END 
+| ===============================================
+-->
 
 @stop
 

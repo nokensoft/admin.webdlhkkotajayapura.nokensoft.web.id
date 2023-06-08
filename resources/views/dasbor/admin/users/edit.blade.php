@@ -108,8 +108,8 @@
                                 <select name="status" class="form-control">
                                     <option value="" hidden>Pilih</option>
                                     <option value="{{ $data->status }}" hidden>{{ $data->status }}</option>
-                                    <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
-                                    <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
+                                    <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
+                                    <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
                                 </select>
                                 @if ($errors->has('status'))
                                     <span class="text-danger" role="alert">
@@ -126,8 +126,8 @@
 
                             <div class="mb-3">
                                 <div class="mb-2">
-                                    @if ($data->picture)
-                                    <img src="{{ asset('gambar/pengguna/' . $data->picture) }}" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid">
+                                    @if (!$data->picture)
+                                    <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid">
                                     @else
                                     <img src="{{ asset('gambar/pengguna/' . $data->picture) }}" alt="Gambar" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid" >
                                     @endif
@@ -164,7 +164,7 @@
             <button  type="submit" class="btn btn-lg btn-primary waves-effect waves-light">
                 <i class="fe-save mr-1"></i> Simpan
             </button>
-            <a href="{{ url('dasbor/pengguna', $data->slug . '/detail') }}" class="btn btn-lg btn-light waves-effect waves-light border">
+            <a href="{{ url('dasbor/pengguna/' . $data->slug . '/detail') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                 <i class="fe-eye mr-1"></i> Detail
             </a>
             <a href="{{ route('dasbor.pengguna') }}" class="btn btn-lg btn-light waves-effect waves-light border">

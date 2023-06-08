@@ -73,7 +73,8 @@
                                                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Opsi <i class="mdi mdi-chevron-down"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{ url('dasbor/link-terkait/' . $data->slug.'/detail') }}"> <i class="fe-eye"></i> Detail </a> <i class="fe-edit"></i> Ubah </a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/link-terkait/' . $data->slug.'/detail') }}"><i class="fe-eye"></i> Detail</a>
+                                                    <a class="dropdown-item" href="{{ url('dasbor/link-terkait/' . $data->slug.'/edit') }}"><i class="fe-edit"></i> Ubah</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item bg-danger text-light"> <i class="fe-trash"></i> Hapus </button>

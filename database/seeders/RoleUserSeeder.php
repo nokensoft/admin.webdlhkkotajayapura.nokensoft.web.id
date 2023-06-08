@@ -60,7 +60,8 @@ class RoleUserSeeder extends Seeder
             'slug'              => 'janzen-faidiban',
             'picture'           => '05-janzen.jpg',
             'email'             => 'janzen.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('janzen.dlhk@jayapurakota.go.id')
+            'password'          => bcrypt('janzen.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
         ]);
         $adminJanzen->assignRole($adminRole);
 
@@ -69,7 +70,8 @@ class RoleUserSeeder extends Seeder
             'slug'              => 'admin-dlhk',
             'picture'           => '01.jpg',
             'email'             => 'admin.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('admin.dlhk@jayapurakota.go.id')
+            'password'          => bcrypt('admin.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
         ]);
         $adminDLHK->assignRole($adminRole);
 
@@ -79,7 +81,8 @@ class RoleUserSeeder extends Seeder
             'slug'              => 'editor-dlhk',
             'picture'           => '04.jpg',
             'email'             => 'editor.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('editor.dlhk@jayapurakota.go.id')
+            'password'          => bcrypt('editor.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
         ]);
         $editorDLHK->assignRole($editorRole);
 
@@ -89,7 +92,8 @@ class RoleUserSeeder extends Seeder
             'slug'              => 'author-dlhk',
             'picture'           => '02.jpg',
             'email'             => 'author.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('author.dlhk@jayapurakota.go.id')
+            'password'          => bcrypt('author.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
         ]);
         $authorDLHK->assignRole($authorRole);
 
@@ -99,7 +103,8 @@ class RoleUserSeeder extends Seeder
             'slug'              => 'supervisor-dlhk',
             'picture'           => '03.jpg',
             'email'             => 'supervisor.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('supervisor.dlhk@jayapurakota.go.id')
+            'password'          => bcrypt('supervisor.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
         ]);
         $supervisorDLHK->assignRole($supervisorRole);
 
