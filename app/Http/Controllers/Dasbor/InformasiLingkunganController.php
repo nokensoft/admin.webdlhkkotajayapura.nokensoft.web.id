@@ -155,20 +155,20 @@ class InformasiLingkunganController extends Controller
             $request->all(),
             [
                 'judul'                     => 'required',
-                'keterangan_singkat'        => 'required',
-                'keterangan_lengkap'        => 'required|string|max:255',
-                'url'                       => 'required',
-                'status'                    => 'required',
-                'gambar'                   => 'image|mimes:jpeg,png,jpg',
+                // 'keterangan_singkat'        => 'required',
+                // 'keterangan_lengkap'        => 'required|string|max:255',
+                // 'url'                       => 'required',
+                // 'status'                    => 'required',
+                // 'gambar'                    => 'image|mimes:jpeg,png,jpg',
             ],
             [
                 'judul.required'                => 'Judul  tidak boleh kosong',
-                'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
-                'keterangan_lengkap.required'   => 'Keterangan Lengkap tidak boleh kosong',
-                'gambar.required'               => 'Gambar tidak boleh kosong',
-                'gambar.mimes'                  => 'Gambar harus dengan jenis PNG,JPG,JPEG',
-                'status.required'               => 'Status tidak boleh kosong',
-                'url.required'                  => 'Tautan / URL tidak boleh kosong',
+                // 'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
+                // 'keterangan_lengkap.required'   => 'Keterangan Lengkap tidak boleh kosong',
+                // 'gambar.required'               => 'Gambar tidak boleh kosong',
+                // 'gambar.mimes'                  => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                // 'status.required'               => 'Status tidak boleh kosong',
+                // 'url.required'                  => 'Tautan / URL tidak boleh kosong',
             ]
         );
         if ($validator->fails()) {

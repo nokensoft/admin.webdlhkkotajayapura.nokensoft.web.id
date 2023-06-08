@@ -78,7 +78,7 @@
                         <div class="form-group">
                             <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
                             <select class="form-control" name="status" id="exampleFormControlSelect1">
-                                <option>Status</option>
+                                <option value="" hidden>Pilih</option>
                                 <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
                                 <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
                             </select>

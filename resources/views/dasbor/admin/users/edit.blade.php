@@ -106,9 +106,10 @@
                             <div class="form-group">
                                 <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
                                 <select name="status" class="form-control">
+                                    <option value="" hidden>Pilih</option>
                                     <option value="{{ $data->status }}" hidden>{{ $data->status }}</option>
-                                    <option value="publish" @if(old('status') == 'publish') Selected @endif>Active</option>
-                                    <option value="draft" @if(old('status') == 'draft') Selected @endif>Inactive</option>
+                                    <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
+                                    <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
                                 </select>
                                 @if ($errors->has('status'))
                                     <span class="text-danger" role="alert">

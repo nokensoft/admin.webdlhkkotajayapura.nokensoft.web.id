@@ -61,7 +61,7 @@
                                 <div class="form-group">
                                     <label for="name" class="form-label">Status</label>
                                     <select name="status" class="form-control">
-                                        <option hidden>Pilih</option>
+                                        <option value="" hidden>Pilih</option>
                                         <option value="Publish">Publish</option>
                                         <option value="Draft">Draft</option>
                                     </select>

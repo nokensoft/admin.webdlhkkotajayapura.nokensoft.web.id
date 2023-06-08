@@ -97,7 +97,7 @@
                                 <div class="form-group">
                                     <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
                                     <select class="form-control" name="status" id="exampleFormControlSelect1">
-                                        <option value="">Status</option>
+                                        <option value="" hidden>Pilih</option>
                                         <option value="publish" @if(old('status') == 'publish') Selected @endif>Active</option>
                                         <option value="draft" @if(old('status') == 'draft') Selected @endif>Inactive</option>
                                     </select>

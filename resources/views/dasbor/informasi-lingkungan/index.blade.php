@@ -58,11 +58,11 @@
                                         </a>
                                         @endif
                                     </td>
-                                    <td>{{Str::limit($data->judul, 20)}}</td>
-                                    <td>{!! Str::limit($data->keterangan_singkat, 50) !!}</td>
+                                    <td>{{ $data->judul ?? '' }}</td>
+                                    <td>{{ $data->keterangan_singkat ?? '' }}</td>
 
                                     <td>
-                                       <a href=" {{ $data->url }}"> {{ $data->url }}</a>
+                                       <a href="{{ url($data->url) }}" target="_blank"> {{ $data->url ?? '' }}</a>
                                     </td>
                                     <td>...</td>
 

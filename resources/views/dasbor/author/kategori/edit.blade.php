@@ -52,7 +52,7 @@
                         <div class="form-group">
                             <label for="status" class="form-label">Status {{$data->status}} </label>
                             <select name="status" class="form-control">
-                                <option value="" hidden></option>
+                                <option value="" hidden>Pilih</option>
                                 <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
                                 <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
                             </select>

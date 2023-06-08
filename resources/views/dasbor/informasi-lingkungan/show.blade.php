@@ -92,7 +92,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('dasbor.informasilingkungan.edit',$data->id) }}" class="btn btn-lg btn-primary waves-effect waves-light">
+                <a href="{{ route('dasbor.informasilingkungan.edit',$data->slug) }}" class="btn btn-lg btn-primary waves-effect waves-light">
                     <i class="fe-edit"></i> Edit
                 </a>
                 <a href="{{ route('dasbor.informasilingkungan') }}" class="btn btn-lg btn-light waves-effect waves-light border">

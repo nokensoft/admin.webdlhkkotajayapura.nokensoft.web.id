@@ -107,7 +107,7 @@
                         <div class="form-group">
                             <label for="status_revisi" class="form-label">Status Revisi <span class="text-danger">*</span></label>
                             <select name="status_revisi" class="form-control">
-                                <option value="" hidden></option>
+                                <option value="" hidden>Pilih</option>
                                 <option value="Ada" @if($data->status_revisi == 'Ada') Selected @endif>Ada</option>
                                 <option value="Belum" @if($data->status_revisi == 'Belum') Selected @endif>Belum</option>
                                 <option value="Setuju" @if($data->status_revisi == 'Setuju') Selected @endif>Setuju</option>

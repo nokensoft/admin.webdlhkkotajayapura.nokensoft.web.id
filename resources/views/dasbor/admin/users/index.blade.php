@@ -40,6 +40,7 @@
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Peran</th>
+                                <th>Status</th>
                                 <th class="text-center">Opsi</th>
                             </tr>
                             @foreach ($data as $key => $user)
@@ -57,6 +58,7 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ implode('',$user->roles()->pluck('display_name')->toArray()) }}</td>
+                                <td>{{ $user->status }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('dasbor.pengguna.delete',['id' => $user->id]) }}" method="POST">
                                         <div class="btn-group">
