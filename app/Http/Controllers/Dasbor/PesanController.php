@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class PesanController extends Controller
 {
+    // INDEX
     public function index()
     {
         $datas = Pesan::where([
@@ -29,6 +30,7 @@ class PesanController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // TRASH
     public function trash()
     {
         $datas = Pesan::onlyTrashed()->paginate(5);
@@ -36,6 +38,7 @@ class PesanController extends Controller
         return view('dasbor.pesan.trash', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // STORE
     public function store(Request $request)
     {
         $validator = Validator::make(
@@ -78,12 +81,14 @@ class PesanController extends Controller
         }
     }
 
+    // SHOW
     public function show($slug)
     {
         $data = Pesan::where('slug', $slug)->first();
         return view('dasbor.pesan.show', compact('data'));
     }
 
+    // DESTROY
     public function destroy($id)
     {
         $data = Pesan::findOrFail($id);
@@ -92,6 +97,7 @@ class PesanController extends Controller
         return redirect()->back();
     }
 
+    // RESTORE
     public function restore($id)
     {
         $data = Pesan::onlyTrashed()->where('id', $id);
@@ -100,6 +106,7 @@ class PesanController extends Controller
         return redirect()->back();
     }
 
+    // DELETE
     public function delete($id)
     {
         $data = Pesan::onlyTrashed()->findOrFail($id);

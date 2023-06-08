@@ -44,7 +44,7 @@
                             <th>Deskripsi</th>
                             <th>Slug</th>
                             <th>Status</th>
-                            <th class="text-center" width="210px"></th>
+                            <th class="text-center"></th>
                         </tr>
                         @foreach ($datas as  $data)
                         <tr>
@@ -76,7 +76,7 @@
                         </table>
                     </div>
                     <!-- end .mt-4 -->
-                    {{-- {!! $data->render() !!} --}}
+                    {!! $datas->render() !!}
                     <!-- end row-->
                 </div>
                 <!-- End inbox-rightbar-->

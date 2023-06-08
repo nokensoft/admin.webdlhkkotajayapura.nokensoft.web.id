@@ -15,15 +15,7 @@ use Symfony\Component\Console\Input\Input;
 
 class HalamanController extends Controller
 {
-    /*
-    | INDEX
-    |
-    | menampilkan semua data
-    | menampilkan jumlah data dengan status 'publish'
-    | menampilkan jumlah data dengan status 'draft'
-    | menampilkan jumlah data dengan status 'trash'
-    |
-    */
+    // INDEX
     public function index()
     {
         $datas = Halaman::where([
@@ -45,15 +37,7 @@ class HalamanController extends Controller
         return view('dasbor.halaman.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /*
-    | DRAFT
-    |
-    | menampilkan data dengan status 'draft'
-    | menampilkan jumlah data dengan status 'publish'
-    | menampilkan jumlah data dengan status 'draft'
-    | menampilkan jumlah data dengan status 'trash'
-    |
-    */
+    // DRAFT
     public function draft()
     {
         $datas = Halaman::where([
@@ -80,24 +64,13 @@ class HalamanController extends Controller
         )) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /*
-    | CREATE
-    |
-    | menampilkan halaman form 'create'
-    |
-    */
+    // CREATE
     public function create()
     {
         return view('dasbor.halaman.create');
     }
 
-    /*
-    | STORE
-    |
-    | melakukan proses 'store'
-    | gambar disimpan ke dalam direktori 'gambar/halaman'
-    |
-    */
+    // STORE
     public function store(Request $request)
     {
         $validator      = Validator::make(
@@ -154,40 +127,21 @@ class HalamanController extends Controller
         }
     }
 
-    /*
-    | SHOW
-    |
-    | menampilkan halaman 'show/detail'
-    | data ditampilkan berdasarkan parameter 'slug'
-    |
-    */
+    // SHOW
     public function show($slug)
     {
         $data = Halaman::where('slug',$slug)->first();
         return view('dasbor.halaman.show',compact('data'));
     }
 
-    /*
-    | EDIT
-    |
-    | menampilkan halaman 'edit'
-    | data ditampilkan berdasarkan parameter 'slug'
-    |
-    */
+    // EDIT
     public function edit($slug)
     {
         $data = Halaman::where('slug',$slug)->first();
         return view('dasbor.halaman.edit',compact('data'));
     }
 
-    /*
-    | UPDATE
-    |
-    | melakukan proses 'update'
-    | gambar disimpan ke dalam direktori 'gambar/halaman'
-    | jika gambar eksis, gambar akan diupdate atau dihapus dan diganti dengan yang baru
-    |
-    */
+    // UPDATE
     public function update(Request $request, $id)
     {
         $validator = Validator::make(
@@ -239,12 +193,7 @@ class HalamanController extends Controller
         }
     }
 
-    /*
-    | DESTROY
-    |
-    | melakukan proses 'destroy'
-    |
-    */
+    // DESTROY
     public function destroy($id)
     {
         $data = Halaman::find($id);
@@ -255,15 +204,7 @@ class HalamanController extends Controller
         }
     }
 
-    /*
-    | TRASH
-    |
-    | menampilkan data dengan status 'trash'
-    | menampilkan jumlah data dengan status 'publish'
-    | menampilkan jumlah data dengan status 'draft'
-    | menampilkan jumlah data dengan status 'trash'
-    |
-    */
+    // TRASH
     public function trash()
     {
         $datas          = Halaman::onlyTrashed()->paginate(5);
@@ -275,12 +216,7 @@ class HalamanController extends Controller
         return view('dasbor.halaman.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /*
-    | RESTORE
-    |
-    | melakukan proses 'restore'
-    |
-    */
+    // RESTORE
     public function restore($id){
         $data = Halaman::onlyTrashed()->where('id',$id);
 
@@ -291,12 +227,7 @@ class HalamanController extends Controller
         return redirect()->route('dasbor.halaman');
     }
 
-    /*
-    | DELETE
-    |
-    | melakukan proses 'delete'
-    |
-    */
+    // DELETE
     public function delete($id)
     {
         $data           = Halaman::onlyTrashed()->findOrFail($id);
@@ -312,6 +243,5 @@ class HalamanController extends Controller
         return to_route('dasbor.halaman.trash');
 
     }
-
 
 }

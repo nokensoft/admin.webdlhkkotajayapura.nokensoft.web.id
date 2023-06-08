@@ -44,7 +44,8 @@
                                     <th>Keterangan Singkat</th>
                                     <th>URL</th>
                                     <th>Penulis</th>
-                                    <th class="text-center">Opsi</th>
+                                    <th>Status</th>
+                                    <th class="text-center"></th>
                                 </tr>
                                 @foreach ($datas as $data)
                                 <tr>
@@ -65,6 +66,7 @@
                                        <a href="{{ url($data->url) }}" target="_blank"> {{ $data->url ?? '' }}</a>
                                     </td>
                                     <td>...</td>
+                                    <td>{{ $data->status ?? '' }}</td>
 
                                     <td class="text-center">
                                         <form action="{{ url('dasbor/informasi-lingkungan', $data->id) }}" method="POST">

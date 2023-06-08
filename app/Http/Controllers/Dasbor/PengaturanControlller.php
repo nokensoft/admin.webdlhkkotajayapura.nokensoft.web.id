@@ -11,18 +11,22 @@ use Illuminate\Support\Facades\Validator;
 
 class PengaturanControlller extends Controller
 {
+    // INDEX
     public function index()
     {
 
         $data = Pengaturan::whereId(1)->first();
         return view('dasbor.admin.pages.pengaturan.index', compact('data'));
     }
+
+    // SHOW
     public function show($slug)
     {
         $data = Pengaturan::whereId(1)->first();
         return view('dasbor.admin.pages.pengaturan.show', compact('data'));
     }
 
+    // EDIT
     public function edit()
     {
 
@@ -30,6 +34,7 @@ class PengaturanControlller extends Controller
         return view('dasbor.admin.pages.pengaturan.edit', compact('data'));
     }
 
+    // UPDATE
     public function update(Request $request, $id)
     {
         $validator = Validator::make(
@@ -206,4 +211,5 @@ class PengaturanControlller extends Controller
             }
         }
     }
+
 }

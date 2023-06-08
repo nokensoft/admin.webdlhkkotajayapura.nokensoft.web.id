@@ -45,7 +45,8 @@
                                     <th>Sub Judul</th>
                                     <th>Author</th>
                                     <th>Alamat</th>
-                                    <th class="text-center">Opsi</th>
+                                    <th>Status</th>
+                                    <th class="text-center"></th>
                                 </tr>
                                 @foreach ($datas as $data)
                                 <tr>
@@ -70,6 +71,7 @@
                                     <td>
                                         <input type="text" value="{{ 'halaman/' . $data->slug }}" class="form-control">
                                     </td>
+                                    <td>{{ $data->status ?? '' }}</td>
 
                                     <td class="text-center">
                                         <form action="{{ url('dasbor/halaman', $data->id) }}" method="POST">

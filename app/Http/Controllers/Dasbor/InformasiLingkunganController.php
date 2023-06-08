@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class InformasiLingkunganController extends Controller
 {
+    
     // INDEX
     public function index()
     {

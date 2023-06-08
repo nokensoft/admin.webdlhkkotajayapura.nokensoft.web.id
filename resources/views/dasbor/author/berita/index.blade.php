@@ -43,8 +43,9 @@
                             <th>Judul</th>
                             <th>Konten Singkat</th>
                             <th>Kategori</th>
-                            <th>Status Revisi</th>
                             <th>Penulis</th>
+                            <th>Status</th>
+                            <th class="text-center"></th>
                         </tr>
                         @foreach ($datas as  $data)
                         <tr>
@@ -65,8 +66,8 @@
                             </td>
                             <td> {{ Str::limit($data->konten_singkat, 100) }} </td>
                             <td> <a href="{{ url('berita/kategori', $data->kategori->kategori_slug ?? '') }}" target="_blank">{{ $data->kategori->name ?? ''}}</a> </td>
-                            <td> {{ $data->status_revisi }} </td>
                             <td> {{ $data->author->name ?? '' }} </td>
+                            <td> {{ $data->status_revisi }} </td>
                             <td class="text-center">
                                 <form action="{{ url('dasbor/berita', $data->id) }}" method="POST">
                                     <div class="btn-group">

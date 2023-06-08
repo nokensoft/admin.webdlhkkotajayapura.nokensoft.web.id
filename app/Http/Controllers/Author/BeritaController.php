@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 
 class BeritaController extends Controller
 {
+    // INDEX
     public function index(Request $request)
     {
         $datas = Berita::where([
@@ -32,9 +33,10 @@ class BeritaController extends Controller
         $jumlahdraft = Berita::where('status', 'Draft')->count();
         $datapublish = Berita::where('status', 'Publish')->count();
 
-        return view('dasbor.author.berita.index', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish', 'jumlahrevisi'))->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('dasbor.author.berita.index', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish', 'jumlahrevisi'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // DRAFT
     public function draft()
     {
 
@@ -62,6 +64,7 @@ class BeritaController extends Controller
         ))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // REVISI
     public function revisi()
     {
 
@@ -89,6 +92,7 @@ class BeritaController extends Controller
         ))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // TRASH
     public function trash()
     {
         $datas = Berita::onlyTrashed()->paginate(10);

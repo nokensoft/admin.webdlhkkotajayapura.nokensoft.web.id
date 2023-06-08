@@ -44,7 +44,8 @@
                                     <th>Judul Link</th>
                                     <th>URL</th>
                                     <th>Author</th>
-                                    <th class="text-center" width="210px">Opsi</th>
+                                    <th>Status</th>
+                                    <th class="text-center"></th>
                                 </tr>
                                 @foreach ($datas as $data)
                                 <tr>
@@ -63,6 +64,7 @@
                                         <a href="{{ $data->url }}" target="_blank">{{ $data->url }}</a>
                                     </td>
                                     <td>{{ $data->user->name ?? '' }}</td>
+                                    <td>{{ $data->status ?? '' }}</td>
 
                                     <td class="text-center">
 

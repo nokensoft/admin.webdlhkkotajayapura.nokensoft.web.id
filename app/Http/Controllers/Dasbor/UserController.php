@@ -102,8 +102,6 @@ class UserController extends Controller
         return redirect()->route('dasbor.users');
     }
 
-    
-
     // STORE
     public function store(Request $request)
     {
@@ -204,7 +202,6 @@ class UserController extends Controller
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
         return redirect()->back();
     }
-
 
     // TRASH
     public function trash(){

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class LayananOnlineController extends Controller
 {
+    // INDEX
     public function index()
     {
         $datas = LayananOnline::where([
@@ -33,6 +34,7 @@ class LayananOnlineController extends Controller
         return view('dasbor.layanan-online.index',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // DRAFT
     public function draft()
     {
         $datas = LayananOnline::where([
@@ -59,6 +61,7 @@ class LayananOnlineController extends Controller
         )) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // TRASH
     public function trash()
     {
         $datas = LayananOnline::onlyTrashed()->paginate(5);
@@ -70,11 +73,13 @@ class LayananOnlineController extends Controller
         return view('dasbor.layanan-online.trash',compact('datas','jumlahtrash','jumlahdraft','datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // CREATE
     public function create()
     {
         return view('dasbor.layanan-online.create');
     }
 
+    // STORE
     public function store(Request $request)
     {
         $validator = Validator::make(
@@ -129,17 +134,21 @@ class LayananOnlineController extends Controller
         }
     }
 
+    // SHOW
     public function show($id)
     {
         $data = LayananOnline::where('id',$id)->first();
         return view('dasbor.layanan-online.show',compact('data'));
     }
+
+    // EDIT
     public function edit($id)
     {
         $data = LayananOnline::where('id',$id)->first();
         return view('dasbor.layanan-online.edit',compact('data'));
     }
 
+    // UPDATE
     public function update(Request $request, $id)
     {
         $validator = Validator::make(
@@ -196,6 +205,7 @@ class LayananOnlineController extends Controller
         }
     }
 
+    // RESTORE
     public function restore($id){
         $data = LayananOnline::onlyTrashed()->where('id',$id);
 
@@ -206,6 +216,7 @@ class LayananOnlineController extends Controller
         return redirect()->route('dasbor.layananonline');
     }
 
+    // DESTROY
     public function destroy($id)
     {
         $data = LayananOnline::find($id);
@@ -216,6 +227,7 @@ class LayananOnlineController extends Controller
         }
     }
 
+    // DELETE
     public function delete($id)
     {
         $data = LayananOnline::onlyTrashed()->findOrFail($id);
@@ -231,4 +243,5 @@ class LayananOnlineController extends Controller
         return to_route('dasbor.layananonline.trash');
 
     }
+    
 }

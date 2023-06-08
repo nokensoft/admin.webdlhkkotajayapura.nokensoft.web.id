@@ -43,7 +43,8 @@
                                     <th>Judul</th>
                                     <th>Keterangan Singkat</th>
                                     <th>URL</th>
-                                    <th class="text-center">Opsi</th>
+                                    <th>Status</th>
+                                    <th class="text-center"></th>
                                 </tr>
                                 @foreach ($datas as $data)
                                 <tr>
@@ -65,6 +66,7 @@
                                     <td>
                                        <a href=" {{ $data->url }}"> {{ $data->url }}</a>
                                     </td>
+                                    <td>{{ $data->status ?? '' }}</td>
 
                                     <td class="text-center">
                                         <form action="{{ url('dasbor/layanan-online', $data->id) }}" method="POST">
