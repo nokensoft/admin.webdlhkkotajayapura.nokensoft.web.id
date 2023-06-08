@@ -141,5 +141,81 @@ class BeritaSeeder extends Seeder
             'status'            => 'Publish',
         ]);
 
+
+
+        Berita::create([
+            'user_id'           => 1,
+            'category_id'       => 9,
+
+            'judul'             => 'Menanam pohon untuk mengurangi dampak perubahan iklim',
+            'slug'              => 'menanam-pohon-untuk-msasaengurangi-dampak-perubahan-iklim',
+            'gambar'            => '06.jpg',
+            'konten'            => '<p>Mengadakan acara penanaman pohon merupakan langkah penting dalam menjaga keberlanjutan lingkungan dan mengurangi dampak perubahan iklim. Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses:
+
+            <ol>
+                <li>Rencanakan acara dengan baik: Langkah pertama adalah merencanakan acara dengan matang. Tetapkan tanggal, waktu, dan tempat yang sesuai untuk kegiatan penanaman pohon. Pastikan acara ini tidak bertabrakan dengan kegiatan lain yang penting dan sampaikan informasi terkait kepada peserta, seperti keperluan membawa peralatan dan perlengkapan yang diperlukan.</li>
+                <li>Dapatkan izin yang diperlukan: Sebelum melaksanakan acara, pastikan untuk mendapatkan izin yang diperlukan dari pihak berwenang, seperti pemilik lahan atau lembaga terkait. Izin ini penting untuk memastikan kegiatan penanaman pohon dilakukan secara legal dan aman.</li>
+                <li>Rekrut sukarelawan: Untuk menjalankan acara ini dengan lancar, penting untuk merekrut sukarelawan yang ingin berpartisipasi. Anda dapat menghubungi lembaga lingkungan, komunitas lokal, atau sekolah untuk mengajak orang-orang bergabung. Pastikan untuk memberikan informasi yang jelas mengenai waktu, tempat, dan persyaratan partisipasi kepada sukarelawan yang berminat.</li>
+                <li>Persiapkan alat dan perlengkapan: Pastikan Anda memiliki alat dan perlengkapan yang memadai untuk kegiatan penanaman pohon. Ini termasuk sekop, cangkul, selotip tanda tanah, tali pengikat, dan air untuk penyiraman. Pastikan juga untuk menyediakan sarana kebersihan, seperti air bersih dan sabun, untuk keperluan mencuci tangan peserta.</li>
+                <li>Berikan instruksi yang jelas: Sebelum memulai penanaman pohon, berikan instruksi yang jelas kepada peserta acara. Jelaskan cara menanam pohon dengan benar, termasuk kedalaman lubang tanam, cara menempatkan bibit pohon, dan cara merawat pohon setelah ditanam. Pastikan setiap peserta memahami langkah-langkah yang harus diikuti untuk menjaga keberhasilan penanaman.</li>
+                <li>Peringatkan tentang kelestarian lingkungan: Selain penanaman pohon, penting untuk mengingatkan peserta tentang pentingnya menjaga kelestarian lingkungan. Berikan informasi tentang manfaat penanaman pohon, seperti menjaga kestabilan tanah, mengurangi erosi, menyediakan habitat bagi satwa liar, dan mengurangi emisi karbon. Ajak peserta untuk terlibat dalam kegiatan konservasi lingkungan lainnya dan berbagi pengetahuan mereka dengan orang lain.</li>
+            </ol>
+            <p>Dengan mengikuti langkah-langkah ini, diharapkan acara penanaman pohon dapat berjalan dengan sukses dan meningkatkan kesadaran akan pentingnya menjaga kelestarian lingkungan di masyarakat.</p>',
+
+            'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
+
+            'status'            => 'Publish',
+        ]);
+
+
+        Berita::create([
+            'user_id'           => 1,
+            'category_id'       => 9,
+
+            'judul'             => 'Menanam pohon untuk mengurangi dampak perubahan iklim',
+            'slug'              => 'menanam-pohon-untaasaaqquk-mengurangi-dampak-perubahan-iklim',
+            'gambar'            => '06.jpg',
+            'konten'            => '<p>Mengadakan acara penanaman pohon merupakan langkah penting dalam menjaga keberlanjutan lingkungan dan mengurangi dampak perubahan iklim. Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses:
+
+            <ol>
+                <li>Rencanakan acara dengan baik: Langkah pertama adalah merencanakan acara dengan matang. Tetapkan tanggal, waktu, dan tempat yang sesuai untuk kegiatan penanaman pohon. Pastikan acara ini tidak bertabrakan dengan kegiatan lain yang penting dan sampaikan informasi terkait kepada peserta, seperti keperluan membawa peralatan dan perlengkapan yang diperlukan.</li>
+                <li>Dapatkan izin yang diperlukan: Sebelum melaksanakan acara, pastikan untuk mendapatkan izin yang diperlukan dari pihak berwenang, seperti pemilik lahan atau lembaga terkait. Izin ini penting untuk memastikan kegiatan penanaman pohon dilakukan secara legal dan aman.</li>
+                <li>Rekrut sukarelawan: Untuk menjalankan acara ini dengan lancar, penting untuk merekrut sukarelawan yang ingin berpartisipasi. Anda dapat menghubungi lembaga lingkungan, komunitas lokal, atau sekolah untuk mengajak orang-orang bergabung. Pastikan untuk memberikan informasi yang jelas mengenai waktu, tempat, dan persyaratan partisipasi kepada sukarelawan yang berminat.</li>
+                <li>Persiapkan alat dan perlengkapan: Pastikan Anda memiliki alat dan perlengkapan yang memadai untuk kegiatan penanaman pohon. Ini termasuk sekop, cangkul, selotip tanda tanah, tali pengikat, dan air untuk penyiraman. Pastikan juga untuk menyediakan sarana kebersihan, seperti air bersih dan sabun, untuk keperluan mencuci tangan peserta.</li>
+                <li>Berikan instruksi yang jelas: Sebelum memulai penanaman pohon, berikan instruksi yang jelas kepada peserta acara. Jelaskan cara menanam pohon dengan benar, termasuk kedalaman lubang tanam, cara menempatkan bibit pohon, dan cara merawat pohon setelah ditanam. Pastikan setiap peserta memahami langkah-langkah yang harus diikuti untuk menjaga keberhasilan penanaman.</li>
+                <li>Peringatkan tentang kelestarian lingkungan: Selain penanaman pohon, penting untuk mengingatkan peserta tentang pentingnya menjaga kelestarian lingkungan. Berikan informasi tentang manfaat penanaman pohon, seperti menjaga kestabilan tanah, mengurangi erosi, menyediakan habitat bagi satwa liar, dan mengurangi emisi karbon. Ajak peserta untuk terlibat dalam kegiatan konservasi lingkungan lainnya dan berbagi pengetahuan mereka dengan orang lain.</li>
+            </ol>
+            <p>Dengan mengikuti langkah-langkah ini, diharapkan acara penanaman pohon dapat berjalan dengan sukses dan meningkatkan kesadaran akan pentingnya menjaga kelestarian lingkungan di masyarakat.</p>',
+
+            'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
+
+            'status'            => 'Publish',
+        ]);
+
+        Berita::create([
+            'user_id'           => 1,
+            'category_id'       => 9,
+
+            'judul'             => 'Menanam pohon untuk mengurangi dampak perubahan iklim',
+            'slug'              => 'menanam-pohon-untaasaaqquk-mengurangi-dampak-peasasasarubahan-iklim',
+            'gambar'            => '06.jpg',
+            'konten'            => '<p>Mengadakan acara penanaman pohon merupakan langkah penting dalam menjaga keberlanjutan lingkungan dan mengurangi dampak perubahan iklim. Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses:
+
+            <ol>
+                <li>Rencanakan acara dengan baik: Langkah pertama adalah merencanakan acara dengan matang. Tetapkan tanggal, waktu, dan tempat yang sesuai untuk kegiatan penanaman pohon. Pastikan acara ini tidak bertabrakan dengan kegiatan lain yang penting dan sampaikan informasi terkait kepada peserta, seperti keperluan membawa peralatan dan perlengkapan yang diperlukan.</li>
+                <li>Dapatkan izin yang diperlukan: Sebelum melaksanakan acara, pastikan untuk mendapatkan izin yang diperlukan dari pihak berwenang, seperti pemilik lahan atau lembaga terkait. Izin ini penting untuk memastikan kegiatan penanaman pohon dilakukan secara legal dan aman.</li>
+                <li>Rekrut sukarelawan: Untuk menjalankan acara ini dengan lancar, penting untuk merekrut sukarelawan yang ingin berpartisipasi. Anda dapat menghubungi lembaga lingkungan, komunitas lokal, atau sekolah untuk mengajak orang-orang bergabung. Pastikan untuk memberikan informasi yang jelas mengenai waktu, tempat, dan persyaratan partisipasi kepada sukarelawan yang berminat.</li>
+                <li>Persiapkan alat dan perlengkapan: Pastikan Anda memiliki alat dan perlengkapan yang memadai untuk kegiatan penanaman pohon. Ini termasuk sekop, cangkul, selotip tanda tanah, tali pengikat, dan air untuk penyiraman. Pastikan juga untuk menyediakan sarana kebersihan, seperti air bersih dan sabun, untuk keperluan mencuci tangan peserta.</li>
+                <li>Berikan instruksi yang jelas: Sebelum memulai penanaman pohon, berikan instruksi yang jelas kepada peserta acara. Jelaskan cara menanam pohon dengan benar, termasuk kedalaman lubang tanam, cara menempatkan bibit pohon, dan cara merawat pohon setelah ditanam. Pastikan setiap peserta memahami langkah-langkah yang harus diikuti untuk menjaga keberhasilan penanaman.</li>
+                <li>Peringatkan tentang kelestarian lingkungan: Selain penanaman pohon, penting untuk mengingatkan peserta tentang pentingnya menjaga kelestarian lingkungan. Berikan informasi tentang manfaat penanaman pohon, seperti menjaga kestabilan tanah, mengurangi erosi, menyediakan habitat bagi satwa liar, dan mengurangi emisi karbon. Ajak peserta untuk terlibat dalam kegiatan konservasi lingkungan lainnya dan berbagi pengetahuan mereka dengan orang lain.</li>
+            </ol>
+            <p>Dengan mengikuti langkah-langkah ini, diharapkan acara penanaman pohon dapat berjalan dengan sukses dan meningkatkan kesadaran akan pentingnya menjaga kelestarian lingkungan di masyarakat.</p>',
+
+            'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
+
+            'status'            => 'Publish',
+        ]);
+
+
     }
 }

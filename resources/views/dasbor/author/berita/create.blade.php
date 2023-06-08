@@ -173,7 +173,7 @@
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
 
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {

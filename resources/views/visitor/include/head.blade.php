@@ -46,3 +46,14 @@
 
          <!-- CSRF TOKEN -->
          <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <style>
+            .page-item.active .page-link {
+                background-color: #28a745;
+                border-color: #28a745;
+                }
+            .page-item a
+            {
+                /* color: #121312 !important */
+            }
+    </style>

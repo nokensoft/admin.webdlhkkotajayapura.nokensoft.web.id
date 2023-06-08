@@ -12,8 +12,12 @@
 <link href="{{ asset('assets/admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<!-- Head JS -->
-<script src="{{ asset('assets/admin/assets/js/head.js')}}"></script>
+<!-- C3 Chart css -->
+<link href="{{ asset('assets/admin/assets/libs/c3/c3.min.css')}}" rel="stylesheet" type="text/css" />
+
+<!--C3 Chart-->
+<script src="{{ asset('assets/admin/assets/libs/d3/d3.min.js')}}"></script>
+<script src="{{ asset('assets/admin/assets/libs/c3/c3.min.js')}}"></script>
 
 <!-- Head CSS -->
 <style>

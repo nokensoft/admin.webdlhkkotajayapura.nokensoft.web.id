@@ -21,6 +21,8 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -52,6 +54,17 @@ class AppServiceProvider extends ServiceProvider
         // Paginator::useBootstrapFive();
         // Paginator::defaultView('view-name');
 
+        // VISITOR COUNTER
+        $Pengaturan = Pengaturan::first();
+        $Pengaturan->visit()->withIP();
+
+        // Get Date
+        $today      = Carbon::today()->toDateString();
+        $bulanIni   = Carbon::now()->format('m');
+        $tahunIni   = Carbon::now()->format('Y');
+        $startDate  = Carbon::now()->startOfWeek();
+        $endDate    = Carbon::now()->endOfWeek();
+
         view()->share([
 
             /*
@@ -65,6 +78,20 @@ class AppServiceProvider extends ServiceProvider
             'InformasiLingkungan'               => InformasiLingkungan::where('status','Publish')->get(),
             'banner'                            => Banner::where('status','publish')->first(),
 
+
+            /*
+            |
+            | VISITOR COUNTER
+            |
+            */
+
+            'totalVisitor'                         =>  DB::table('laravisits')->get()->count(),
+            'visitorHariIni'                       =>  DB::table('laravisits')->whereDate('created_at', $today)->count(),
+            'visitorMingguIni'                     =>  DB::table('laravisits')->whereBetween('created_at', [$startDate, $endDate])->get()->count(),
+            'visitorBulanIni'                      =>  DB::table('laravisits')->whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
+            'visitorTahunIni'                      => DB::table('laravisits')->whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
+
+
             /*
             | DASBOR
             |
@@ -72,14 +99,27 @@ class AppServiceProvider extends ServiceProvider
             |
             */
             'dasbor_jml_berita'                 => Berita::where('status','Publish')->count(),
+            'dasbor_jml_berita_semua'           => Berita::count(),
+            'dasbor_jml_berita_draft'           => Berita::where('status','Draft')->count(),
+
             'dasbor_jml_kategori'               => KategoriBerita::where('status','Publish')->count(),
+            'dasbor_jml_kategori_semua'         => KategoriBerita::count(),
+            'dasbor_jml_kategori_draft'         => KategoriBerita::where('status','Draft')->count(),
+
             'dasbor_jml_informasi_lingkungan'   => InformasiLingkungan::where('status','Publish')->count(),
             'dasbor_jml_layanan_online'         => LayananOnline::where('status','Publish')->count(),
             'dasbor_jml_link_terkait'           => LinkTerkait::where('status','Publish')->count(),
+
             'dasbor_jml_halaman'                => Halaman::where('status','Publish')->count(),
+            'dasbor_jml_halaman_semua'          => Halaman::count(),
+            'dasbor_jml_halaman_draft'          => Halaman::where('status','Draft')->count(),
+
             'dasbor_jml_pesan'                  => Pesan::count(),
             'dasbor_jml_pengguna'               => User::where('status','publish')->count(),
+
+
         ]);
+
     }
 
 }

@@ -56,6 +56,9 @@ Route::get('/berita/{slug}', [BerandaController::class, 'beritaShow'])->name('be
 // - menampilkan berita berdasarkan kategori
 Route::get('/berita/kategori/{kategori}', [BerandaController::class, 'beritaKategori'])->name('berita.kategori.slug');
 
+// Json berita
+Route::post('/berita-json', [BerandaController::class, 'beritaJson'])->name('berita-json');
+
 
 /*
 | KONTAK

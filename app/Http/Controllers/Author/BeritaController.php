@@ -321,4 +321,6 @@ class BeritaController extends Controller
         return view('dasbor.author.berita.status', compact('data'));
     }
 
+
+
 }

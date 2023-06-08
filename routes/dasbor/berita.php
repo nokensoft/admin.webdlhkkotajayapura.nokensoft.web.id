@@ -69,4 +69,6 @@ use Illuminate\Support\Facades\Route;
         Route::delete('berita/delete/{id}','delete')
             ->name('dasbor.berita.delete');
 
+
+
     });

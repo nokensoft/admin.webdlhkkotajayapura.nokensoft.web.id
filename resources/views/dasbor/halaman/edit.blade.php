@@ -52,7 +52,7 @@
                             @endif
                         </div>
                         <!-- input item end-->
-        
+
                         <div class="mb-3">
                             <label for="sub_judul" class="form-label">Sub Judul</label>
                             <textarea name="sub_judul" id="sub_judul" rows="3" class="form-control" placeholder="Sub Judul">{{ $data->sub_judul}}</textarea>
@@ -63,7 +63,7 @@
                             @endif
                         </div>
                         <!-- input item end-->
-        
+
                         <div class="form-group">
                             <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
                             <textarea name="konten" class="ckeditor form-control" id="konten" value="{{ old('konten') }}" cols="30" rows="10">{{ $data->konten}}</textarea>
@@ -120,11 +120,11 @@
 
                 </div> <!-- row end -->
 
-                
 
-                
 
-                
+
+
+
 
             </div>
         </div> <!-- end card -->
@@ -167,7 +167,7 @@
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();

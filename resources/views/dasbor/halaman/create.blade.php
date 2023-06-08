@@ -88,7 +88,7 @@
                             @endif
                         </div>
                         <!-- input item end -->
-                        
+
                     </div> <!-- end col-8 -->
 
                     <div class="col-md-4">
@@ -110,7 +110,7 @@
                             @endif
                         </div>
                         <!-- input item end -->
-                        
+
                     </div> <!-- end col-4 -->
                 </div> <!-- end row -->
 
@@ -157,23 +157,15 @@
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
 
-    $(document).ready(function (e) {
-               $('#gambar').change(function(){
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                  $('#preview-gambar').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(this.files[0]);
-               });
+    CKEDITOR.config.height='4010px';
 
-            });
 
-    CKEDITOR.config.height='400px';
+
 </script>
 @endpush

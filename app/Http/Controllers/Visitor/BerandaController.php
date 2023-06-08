@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
 
 // MODELS
 use App\Models\Berita\Berita;
@@ -164,7 +165,61 @@ class BerandaController extends Controller
                     );
     }
 
-    /*
+      // JSON BERITA
+      public function beritaJson(Request $request)
+      {
+           $keyword = $request->keyword;
+           $page = $request->noAwal; // Halaman yang ingin ditampilkan
+           $perPage = 6; // Jumlah data per halaman
+
+           $all = DB::table('beritas')
+            ->selectRaw('beritas.id')
+            ->selectRaw('beritas.slug')
+            ->selectRaw('beritas.gambar')
+            ->selectRaw('beritas.judul')
+            ->selectRaw('beritas.created_at')
+            ->selectRaw('beritas.konten_singkat')
+            ->selectRaw('users.name')
+            ->selectRaw('kategori_beritas.kategori_slug')
+            ->leftJoin('kategori_beritas', 'beritas.category_id', '=', 'kategori_beritas.id')
+            ->leftJoin('users', 'beritas.user_id', '=', 'users.id')
+            ->where('beritas.status','=','Publish')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->orderBy('beritas.id','desc')
+            ->get();
+
+            $count =  DB::table('beritas')->where('beritas.status','=','Publish')->count();
+
+          if($keyword != null)
+          {
+
+            $all = DB::table('beritas')
+            ->selectRaw('beritas.id')
+            ->selectRaw('beritas.slug')
+            ->selectRaw('beritas.gambar')
+            ->selectRaw('beritas.judul')
+            ->selectRaw('beritas.created_at')
+            ->selectRaw('beritas.konten_singkat')
+            ->selectRaw('users.name')
+            ->selectRaw('kategori_beritas.kategori_slug')
+            ->leftJoin('kategori_beritas', 'beritas.category_id', '=', 'kategori_beritas.id')
+            ->leftJoin('users', 'beritas.user_id', '=', 'users.id')
+            ->where('beritas.status','=','Publish')
+            ->Where('beritas.judul', 'like', '%' . $keyword . '%')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->orderBy('beritas.id','desc')
+            ->get();
+
+            $count =DB::table('beritas')->where('beritas.status','=','Publish')->Where('beritas.judul', 'like', '%' . $keyword . '%')->count();;
+          };
+
+          return $data = ['datas' => $all,'count' => $count,'page' => $page];
+      }
+
+
+      /*
     |--------------------------------------------------------------------------
     | HALAMAN
     | - index
