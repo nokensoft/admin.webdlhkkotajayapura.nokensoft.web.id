@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Author;
+namespace App\Http\Controllers\Dasbor;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -87,7 +87,6 @@ class KategoriController extends Controller
                 Alert::toast('Kategori Berhasil dibuat!', 'success');
                 return redirect()->route('dasbor.kategori');
             } catch (\Throwable $th) {
-                dd($th);
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
             }

@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Author;
+namespace App\Http\Controllers\Dasbor;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Berita\Berita;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use App\Models\Berita\KategoriBerita;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class BeritaController extends Controller
 {

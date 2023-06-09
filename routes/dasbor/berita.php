@@ -1,7 +1,7 @@
 <?php
 
 // DASBOR CONTROLLERS
-use App\Http\Controllers\Author\BeritaController;
+use App\Http\Controllers\Dasbor\BeritaController;
 
 use Illuminate\Support\Facades\Route;
 

@@ -1,7 +1,7 @@
 <?php
 
 // DASBOR CONTROLLERS
-use App\Http\Controllers\Author\KategoriController;
+use App\Http\Controllers\Dasbor\KategoriController;
 use Illuminate\Support\Facades\Route;
 /*
     |--------------------------------------------------------------------------
