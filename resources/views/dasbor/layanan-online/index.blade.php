@@ -43,8 +43,8 @@
                                     <th>Judul</th>
                                     <th>Keterangan Singkat</th>
                                     <th>URL</th>
+                                    <th>Author</th>
                                     <th>Status</th>
-                                    <th>Penulis</th>
                                     <th class="text-center"></th>
                                 </tr>
                                 @foreach ($datas as $data)
@@ -67,8 +67,8 @@
                                     <td>
                                        <a href="{{ $data->url }}"> {{ Str::limit($data->url,10) }}</a>
                                     </td>
-                                    <td>{{ $data->status ?? '' }}</td>
                                     <td>{{ $data->user->name ?? '' }}</td>
+                                    <td>{{ $data->status ?? '' }}</td>
 
                                     <td class="text-center">
                                         <form action="{{ url('dasbor/layanan-online', $data->id) }}" method="POST">

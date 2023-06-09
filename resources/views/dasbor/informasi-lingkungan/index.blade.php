@@ -43,7 +43,7 @@
                                     <th>Judul</th>
                                     <th>Keterangan Singkat</th>
                                     <th>URL</th>
-                                    <th>Penulis</th>
+                                    <th>Author</th>
                                     <th>Status</th>
                                     <th class="text-center"></th>
                                 </tr>
