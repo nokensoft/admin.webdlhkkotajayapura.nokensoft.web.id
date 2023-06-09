@@ -65,7 +65,7 @@
                                     <td>
                                        <a href="{{ url($data->url) }}" target="_blank"> {{ $data->url ?? '' }}</a>
                                     </td>
-                                    <td>...</td>
+                                    <td> {{ $data->user->name ?? '' }} </td>
                                     <td>{{ $data->status ?? '' }}</td>
 
                                     <td class="text-center">

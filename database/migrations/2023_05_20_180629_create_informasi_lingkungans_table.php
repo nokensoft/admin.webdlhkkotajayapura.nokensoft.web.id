@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('informasi_lingkungans', function (Blueprint $table) {
             $table->id();
-
+            $table->bigInteger('author')->unsigned()->nullable();
             $table->string('judul')->nullable();
             $table->string('slug')->nullable();
             $table->string('keterangan_singkat')->nullable();
@@ -23,9 +23,9 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->string('url')->nullable();
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
-
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('author')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

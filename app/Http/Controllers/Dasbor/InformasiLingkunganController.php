@@ -6,13 +6,14 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\InformasiLingkungan;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
 class InformasiLingkunganController extends Controller
 {
-    
+
     // INDEX
     public function index()
     {
@@ -91,9 +92,12 @@ class InformasiLingkunganController extends Controller
                 'keterangan_lengkap'        => 'required|string|max:255',
                 'url'                       => 'required',
                 'status'                    => 'required',
-                'gambar'                   => 'required|image|mimes:jpeg,png,jpg|max:2024',
+                'slug'                      => 'unique:informasi_lingkungans,slug',
+                'gambar'                    => 'required|image|mimes:jpeg,png,jpg|max:2024',
             ],
             [
+                'slug.unique'                   => 'Data sudah ada!',
+
                 'judul.required'                => 'Judul  tidak boleh kosong',
                 'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
                 'keterangan_lengkap.required'   => 'Keterangan Lengkap tidak boleh kosong',
@@ -114,6 +118,8 @@ class InformasiLingkunganController extends Controller
                 $linkunganinfo->keterangan_lengkap = $request->keterangan_lengkap;
                 $linkunganinfo->status = $request->status;
                 $linkunganinfo->url = $request->url;
+                $linkunganinfo->author = Auth::user()->id;
+                $linkunganinfo->slug = Str::slug($request->judul).'-'.time();
 
                 if ($request->gambar) {
                     $imageName = Str::random(8) . '.' . $request->gambar->extension();
@@ -127,7 +133,11 @@ class InformasiLingkunganController extends Controller
                 }
                 $linkunganinfo->save();
                 Alert::toast('Linkungan Hidup Berhasil dibuat!', 'success');
-                return redirect()->route('dasbor.informasilingkungan');
+                if ($linkunganinfo->status == 'Publish') {
+                    return redirect()->route('dasbor.informasilingkungan');
+                } else {
+                    return redirect()->route('dasbor.informasilingkungan.draft');
+                }
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
@@ -141,7 +151,7 @@ class InformasiLingkunganController extends Controller
         $data = InformasiLingkungan::where('slug', $slug)->first();
         return view('dasbor.informasi-lingkungan.show', compact('data'));
     }
-    
+
     // EDIT
     public function edit($slug)
     {
@@ -161,9 +171,11 @@ class InformasiLingkunganController extends Controller
                 // 'url'                       => 'required',
                 // 'status'                    => 'required',
                 // 'gambar'                    => 'image|mimes:jpeg,png,jpg',
+                'slug'                      => 'unique:informasi_lingkungans,slug',
             ],
             [
                 'judul.required'                => 'Judul  tidak boleh kosong',
+                'slug.unique'                   => 'Data sudah ada!',
                 // 'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
                 // 'keterangan_lengkap.required'   => 'Keterangan Lengkap tidak boleh kosong',
                 // 'gambar.required'               => 'Gambar tidak boleh kosong',
@@ -182,7 +194,8 @@ class InformasiLingkunganController extends Controller
                 $linkunganinfo->keterangan_lengkap = $request->keterangan_lengkap;
                 $linkunganinfo->status = $request->status;
                 $linkunganinfo->url = $request->url;
-
+                $linkunganinfo->author = Auth::user()->id;
+                $linkunganinfo->slug = Str::slug($request->judul).'-'.time();
 
                 if ($request->gambar) {
                     $imageName =  Str::random(8) . '.' . $request->gambar->extension();
@@ -195,9 +208,13 @@ class InformasiLingkunganController extends Controller
                 }
 
                 $linkunganinfo->update();
-
                 Alert::toast('Informasi Lingkungan Berhasil diperbarui!', 'success');
-                return redirect()->route('dasbor.informasilingkungan');
+                if ($linkunganinfo->status == 'Publish') {
+                    return redirect()->route('dasbor.informasilingkungan');
+                } else {
+                    return redirect()->route('dasbor.informasilingkungan.draft');
+                }
+
             } catch (\Throwable $th) {
 
                 Alert::toast('Gagal', 'error');
