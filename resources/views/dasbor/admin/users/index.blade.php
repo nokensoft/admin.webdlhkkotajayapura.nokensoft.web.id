@@ -38,7 +38,7 @@
                                 <th>Email</th>
                                 <th>Peran</th>
                                 <th>Status</th>
-                                <th class="text-center">Opsi</th>
+                                <th></th>
                             </tr>
                             @foreach ($data as $key => $user)
                             <tr>

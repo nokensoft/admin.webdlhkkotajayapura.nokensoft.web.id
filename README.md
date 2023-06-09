@@ -42,12 +42,13 @@ MAIN PAGE : https://dlhk.jayapurakota.go.id/
 
 
 ## NOTES for Johan
-- [ ]  🏷️ dasbor > informasi lingkungan > tambahkan author / penulis :white_check_mark: 
+- [x]  🏷️ dasbor > informasi lingkungan > tambahkan author / penulis :white_check_mark: 
 
-- [ ] 🏷️ dasbor > informasi lingkungan > buat slug jadi unique :white_check_mark: 
-- [ ] 🏷️ dasbor > pindahkan controller BeritaController dan KategoriController ke dalam folder 'dasbor' dan hapus folder 'author' :white_check_mark: 
-- [ ] 🏷️ dasbor > pengguna > buat slug pengguna unique
-- [ ] 🏷️ dasbor > pengguna > bisa ubah data sendiri, jika email / username / kata sandi diubah : pada saat proses update redirect logout/keluar ke halaman login
+- [x] 🏷️ dasbor > informasi lingkungan > buat slug jadi unique :white_check_mark: 
+- [x] 🏷️ dasbor > pindahkan controller BeritaController dan KategoriController ke dalam folder 'dasbor' dan hapus folder 'author' :white_check_mark: 
+
+- [x] 🏷️ dasbor > pengguna > buat slug pengguna unique :white_check_mark: 
+- [x] 🏷️ dasbor > pengguna > bisa ubah data sendiri, jika email / username / kata sandi diubah : pada saat proses update redirect logout/keluar ke halaman login
 
 - [ ] 🏷️ dasbor > link terkait > ubah gambar ada error
 - [ ] 🏷️ dasbor > ...

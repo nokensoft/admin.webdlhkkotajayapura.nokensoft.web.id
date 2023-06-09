@@ -27,11 +27,11 @@ class UserController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'publish')->latest()->paginate(5);
+        ])->where('status', 'Publish')->latest()->paginate(5);
 
         $jumlahtrash = User::onlyTrashed()->count();
-        $jumlahdraft = User::where('status', 'draft')->count();
-        $datapublish = User::where('status', 'publish')->count();
+        $jumlahdraft = User::where('status', 'Draft')->count();
+        $datapublish = User::where('status', 'Publish')->count();
 
         return view('dasbor.admin.users.index', compact('data', 'jumlahtrash', 'jumlahdraft', 'datapublish'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
@@ -85,14 +85,16 @@ class UserController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required',
-                'status' => 'required',
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required|confirmed|min:8',
-                'peran' => 'required',
-                'picture' => 'required|image|mimes:jpeg,png,jpg|max:4096',
+                'name'           => 'required',
+                'status'         => 'required',
+                'email'          => 'required|email|unique:users,email',
+                'password'       => 'required|confirmed|min:8',
+                'peran'          => 'required',
+                'slug'           => 'unique:users,slug',
+                'picture'        => 'required|image|mimes:jpeg,png,jpg|max:4096',
 
             ],[
+                'slug.unique'                  => 'Data sudah ada!',
                 'name.required'                => 'Nama  tidak boleh kosong!',
                 'status.required'              => 'Status  tidak boleh kosong!',
                 'peran.required'               => 'Peran  tidak boleh kosong!',
@@ -117,7 +119,7 @@ class UserController extends Controller
                 $account->email = $request->email;
                 $account->status = $request->status;
                 $account->password = bcrypt($request->password);
-                $account->slug = Str::slug($request->name);
+                $account->slug = Str::slug($request->name).'-'.time();
 
                 $posterName = Str::slug($request->name) . '.' . $request->picture->extension();
                 $path = public_path('gambar/pengguna');
@@ -130,7 +132,7 @@ class UserController extends Controller
                 $request->picture->move(public_path('gambar/pengguna'), $posterName);
                 $account->assignRole($request->peran);
                 Alert::toast('Pengguna Berhasil dibuat!', 'success');
-                if ($account->status == 'publish') {
+                if ($account->status == 'Publish') {
                     return redirect()->route('dasbor.pengguna');
                 } else {
                     return redirect()->route('dasbor.pengguna.draft');
@@ -170,7 +172,8 @@ class UserController extends Controller
                 'status' => 'required',
                 'email' => 'required|email|unique:users,email,' . $id,
                 'password' => 'confirmed',
-                'peran' => 'required',
+                'peran'     => 'required',
+                'slug'      => 'unique:users,slug,'.$id,
                 'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
             ],[
 
@@ -194,9 +197,10 @@ class UserController extends Controller
                 $account->name = $request->name;
                 $account->email = $request->email;
                 $account->status = $request->status;
-                $account->slug = Str::slug($request->name);
+                $account->slug = Str::slug($request->name).'-'.time();
                 if ($request->password) {
                     $account->password = Hash::make($request->password);
+
                 }
                 if ($request->picture) {
 
@@ -211,7 +215,7 @@ class UserController extends Controller
                 $account->update();
                 $account->syncRoles(explode(',', $request->peran));
                 Alert::toast('Pengguna Berhasil diperbarui!', 'success');
-                if ($account->status == 'publish') {
+                if ($account->status == 'Publish') {
                     return redirect()->route('dasbor.pengguna');
                 } else {
                     return redirect()->route('dasbor.pengguna.draft');

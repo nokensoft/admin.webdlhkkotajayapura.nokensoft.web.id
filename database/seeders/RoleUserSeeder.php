@@ -57,7 +57,7 @@ class RoleUserSeeder extends Seeder
 
         $adminJanzen = User::create([
             'name'              => 'Janzen Faidiban',
-            'slug'              => 'janzen-faidiban',
+            'slug'              => 'janzen-faidiban'.time().Str::random(12),
             'picture'           => '05-janzen.jpg',
             'email'             => 'janzen.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('janzen.dlhk@jayapurakota.go.id'),
@@ -67,7 +67,7 @@ class RoleUserSeeder extends Seeder
 
         $adminDLHK = User::create([
             'name'              => 'Admin DLHK',
-            'slug'              => 'admin-dlhk',
+            'slug'              => 'admin-dlhk'.time().Str::random(12),
             'picture'           => '01.jpg',
             'email'             => 'admin.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('admin.dlhk@jayapurakota.go.id'),
@@ -78,7 +78,7 @@ class RoleUserSeeder extends Seeder
         // EDITOR
         $editorDLHK = User::create([
             'name'              => 'Editor DLHK',
-            'slug'              => 'editor-dlhk',
+            'slug'              => 'editor-dlhk'.time().Str::random(12),
             'picture'           => '04.jpg',
             'email'             => 'editor.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('editor.dlhk@jayapurakota.go.id'),
@@ -89,7 +89,7 @@ class RoleUserSeeder extends Seeder
         // AUTHOR
         $authorDLHK = User::create([
             'name'              => 'Author DLHK',
-            'slug'              => 'author-dlhk',
+            'slug'              => 'author-dlhk'.time().Str::random(12),
             'picture'           => '02.jpg',
             'email'             => 'author.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('author.dlhk@jayapurakota.go.id'),
@@ -100,7 +100,7 @@ class RoleUserSeeder extends Seeder
         // SUPERVISOR
         $supervisorDLHK = User::create([
             'name'              => 'Supervisor DLHK',
-            'slug'              => 'supervisor-dlhk',
+            'slug'              => 'supervisor-dlhk'.time().Str::random(12),
             'picture'           => '03.jpg',
             'email'             => 'supervisor.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('supervisor.dlhk@jayapurakota.go.id'),

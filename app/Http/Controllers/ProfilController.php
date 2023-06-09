@@ -81,8 +81,8 @@ class ProfilController extends Controller
                     $user = User::find(Auth::user()->id);
                     $user->password = Hash::make($request->password);
                     $user->save();
-                    Alert::toast('Kata sandi telah berhasil diubah, Silakan Login dengan kata sandi baru Anda!!', 'success');
-                    return redirect()->back();
+                    Auth::logout();
+                    return redirect('/login')->with(['success' => 'Berhasil! Silakan Login mengunakan kata sandi baru anda']);;
                } else {
                     Alert::toast('Terjadi sebuah kesalahan!','info');
                     return redirect()->back();
