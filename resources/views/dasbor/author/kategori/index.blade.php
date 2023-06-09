@@ -42,7 +42,7 @@
                             <th class="text-center">No</th>
                             <th>Nama Kategori</th>
                             <th>Deskripsi</th>
-                            <th>Slug</th>
+                            <th>Penulis</th>
                             <th>Status</th>
                             <th class="text-center"></th>
                         </tr>
@@ -53,7 +53,7 @@
                                 <a href="{{ url('berita/kategori', $data->kategori_slug) }}" target="_blank">{{ $data->name }}</a>
                             </td>
                             <td> {{ $data->deskripsi }} </td>
-                            <td> {{ $data->kategori_slug }} </td>
+                            <td> {{ $data->user->name ?? '' }} </td>
                             <td> {{ $data->status }} </td>
                             <td class="text-center">
                                 <form action="{{ url('dasbor/berita/kategori', $data->id) }}" method="POST">

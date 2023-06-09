@@ -65,6 +65,7 @@
                                             <div class="dropdown-menu">
                                                 @if (Auth::id() == $user->id)
                                                 <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->slug) }}"><i class="fe-eye"></i> Detail</a>
+                                                <a class="dropdown-item" href="{{ route('dasbor.akunsaya') }}"><i class="fe-edit"></i> Edit</a>
                                                 @else
                                                 <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->slug) }}"><i class="fe-eye"></i> Detail</a>
                                                 <a class="dropdown-item" href="{{ route('dasbor.pengguna.edit',$user->slug) }}"><i class="fe-edit"></i> Ubah</a>

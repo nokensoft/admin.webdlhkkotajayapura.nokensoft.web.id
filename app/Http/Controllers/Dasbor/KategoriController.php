@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Berita\KategoriBerita;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
@@ -80,6 +81,7 @@ class KategoriController extends Controller
         } else {
             try {
                 $kategori = new KategoriBerita();
+                $kategori->author = Auth::user()->id;
                 $kategori->name = $request->name;
                 $kategori->deskripsi = $request->deskripsi;
                 $kategori->kategori_slug = Str::slug($request->name);
@@ -128,6 +130,7 @@ class KategoriController extends Controller
         } else {
             try {
                 $kategori = KategoriBerita::find($id);
+                $kategori->author = Auth::user()->id;
                 $kategori->name = $request->name;
                 $kategori->deskripsi = $request->deskripsi;
                 $kategori->status = $request->status;

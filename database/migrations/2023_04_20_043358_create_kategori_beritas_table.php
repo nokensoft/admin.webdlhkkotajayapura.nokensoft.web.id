@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('kategori_slug')->nullable();
             $table->string('deskripsi')->nullable();
-
+            $table->bigInteger('author')->unsigned()->nullable();
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
             $table->softDeletes();
             $table->timestamps();
+            $table->foreign('author')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

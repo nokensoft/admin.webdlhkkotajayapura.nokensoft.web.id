@@ -23,9 +23,11 @@ class LayananOnlineSeeder extends Seeder
                 'judul'                 => 'SIPAKOT',
                 'keterangan_singkat'    => 'Sistem Informasi Pajak Air Tanah Bagi Para Wajib Pajak di Kota Jayapura',
                 'keterangan_lengkap'    => '',
+                'author'                => 1,
 
                 'gambar'                => 'gambar/layanan-online/1.png',
                 'url'                   => 'https://sipakot.jayapurakota.go.id',
+                'author'                => 1,
             ],
              // Pengaduan
             [
@@ -35,6 +37,7 @@ class LayananOnlineSeeder extends Seeder
 
                 'gambar'                => 'gambar/layanan-online/2.png',
                 'url'                   => 'https://dlhk.jayapurakota.go.id/kontak',
+                'author'                => 1,
             ]
         ]);
 

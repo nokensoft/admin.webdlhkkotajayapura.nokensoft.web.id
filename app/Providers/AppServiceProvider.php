@@ -123,7 +123,7 @@ class AppServiceProvider extends ServiceProvider
             'dasbor_jml_halaman_draft'          => Halaman::where('status','Draft')->count(),
 
             'dasbor_jml_pesan'                  => Pesan::count(),
-            'dasbor_jml_pengguna'               => User::where('status','publish')->count(),
+            'dasbor_jml_pengguna'               => User::where('status','Publish')->count(),
 
         ]);
 

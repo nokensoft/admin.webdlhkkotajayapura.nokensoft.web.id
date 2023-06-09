@@ -25,9 +25,11 @@ return new class extends Migration
             $table->string('url')->nullable();
 
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
+            $table->bigInteger('author')->unsigned()->nullable();
 
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('author')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

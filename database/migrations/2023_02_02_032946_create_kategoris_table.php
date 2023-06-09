@@ -17,18 +17,18 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('kategori_slug');
-            
+
             $table->string('deskripsi')->nullable();
             $table->string('katakunci')->nullable();
             $table->string('image')->nullable();
             $table->string('status');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
-           
+
 
             $table->timestamps();
             $table->softDeletes();
-           
+
         });
     }
 

@@ -20,6 +20,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'laporan-tahunan',
             'deskripsi'     => 'Laporan tahunan yang dikeluarkan oleh Dinas Lingkungan Hidup Kota Jayapura agar bisa diakses oleh masyarakat luas.',
             'status'        => 'Publish',
+            'author'        => 1,
         ]);
 
         KategoriBerita::create([
@@ -27,6 +28,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'laporan-berkala',
             'deskripsi'     => 'Laporan berkala yang dikeluarkan oleh Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura agar bisa diakses oleh masyarakat luas.',
             'status'        => 'Publish',
+            'author'        => 1,
         ]);
 
         KategoriBerita::create([
@@ -34,6 +36,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'hari-lingkungan-hidup',
             'deskripsi'     => 'Hari lingkungan hidup secara lokal, nasional dan internasional yang selalu diselenggarakan.',
             'status'        => 'Draft',
+            'author'        => 2,
         ]);
 
         KategoriBerita::create([
@@ -41,6 +44,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'hari-raya',
             'deskripsi'     => 'Berbagai hari raya yang selalu dirayakan di tingkat lokal, nasional dan internasional.',
             'status'        => 'Publish',
+            'author'        => 2,
         ]);
 
         KategoriBerita::create([
@@ -48,6 +52,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'siaran-pers',
             'deskripsi'     => 'Siaran pers yang dilakukan oleh Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura kepada khalayak umum.',
             'status'        => 'Publish',
+            'author'        => 3,
         ]);
 
         KategoriBerita::create([
@@ -56,6 +61,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'kelestarian-laut',
             'deskripsi'     => '...',
             'status'        => 'Publish',
+            'author'        => 3,
         ]);
 
         KategoriBerita::create([
@@ -64,6 +70,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'hutan',
             'deskripsi'     => '...',
             'status'        => 'Publish',
+            'author'        => 1,
         ]);
 
         KategoriBerita::create([
@@ -72,6 +79,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'kebersihan-kota',
             'deskripsi'     => '...',
             'status'        => 'Publish',
+            'author'        => 2,
         ]);
 
         KategoriBerita::create([
@@ -80,6 +88,7 @@ class KategoriBeritaSeeder extends Seeder
             'kategori_slug' => 'penghijauan',
             'deskripsi'     => '...',
             'status'        => 'Publish',
+            'author'        => 3,
         ]);
 
     }
