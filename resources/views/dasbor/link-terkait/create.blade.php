@@ -30,9 +30,9 @@
 </div>
 @endif
 
-<!-- 
+<!--
 | ===============================================
-| FROM START 
+| FROM START
 | ===============================================
 -->
 
@@ -47,7 +47,7 @@
                 <div class="row">
 
                     <div class="col-md-8">
-                        
+
                         <div class="form-group">
                             <label for="judul_link" class="form-label">Judul Link <span class="text-danger">*</span></label>
                             <input type="text" id="judul_link" name="judul_link" class="form-control" placeholder="Juul link" value="{{ old('judul_link') }}">
@@ -59,7 +59,7 @@
                             @endif
                         </div>
                         <!-- input item end -->
-                        
+
                         <div class="form-group">
                             <label for="url" class="form-label">URL <span class="text-danger">*</span></label>
                             <input type="text" id="url" name="url" class="form-control" placeholder="URL" value="{{ old('url') }}">
@@ -88,7 +88,7 @@
                             <!-- error message end -->
                         </div>
                         <!-- input item end -->
-                        
+
                     </div>
                     <!-- .col end -->
 
@@ -142,9 +142,9 @@
 
 </form>
 
-<!-- 
+<!--
 | ===============================================
-| FROM END 
+| FROM END
 | ===============================================
 -->
 
@@ -172,7 +172,17 @@
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
-
     CKEDITOR.config.height='400px';
+
+    $(document).ready(function (e) {
+        $('#gambar').change(function(){
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            $('#preview-gambar').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(this.files[0]);
+        });
+    });
+
 </script>
 @endpush

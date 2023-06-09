@@ -30,29 +30,29 @@
 </div>
 @endif
 
-<!-- 
+<!--
 | ===============================================
-| FROM START 
+| FROM START
 | ===============================================
 -->
 
 <form action="{{ url('dasbor/link-terkait/' . $data->id) }}" method="POST" enctype="multipart/form-data">
 @csrf
 @method('put')
-    
+
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-    
+
                     <div class="row">
-    
+
                         <div class="col-md-8">
-                            
+
                             <div class="form-group">
                                 <label for="judul_link" class="form-label">Judul Link <span class="text-danger">*</span></label>
                                 <input type="text" id="judul_link" name="judul_link" class="form-control" placeholder="Judul Link" value="{{ old('judul_link') ?? $data->judul_link }}">
-    
+
                                 @if ($errors->has('judul_link'))
                                     <span class="text-danger" role="alert">
                                         <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul_link') }}</small>
@@ -60,11 +60,11 @@
                                 @endif
                             </div>
                             <!-- input item end -->
-                            
+
                             <div class="form-group">
                                 <label for="url" class="form-label">URL <span class="text-danger">*</span></label>
                                 <input type="text" id="url" name="url" class="form-control" placeholder="URL" value="{{ old('url') ?? $data->url }}">
-    
+
                                 @if ($errors->has('url'))
                                     <span class="text-danger" role="alert">
                                         <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('url') }}</small>
@@ -72,7 +72,7 @@
                                 @endif
                             </div>
                             <!-- input item end -->
-    
+
                             <div class="form-group">
                                 <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
                                 <select class="form-control" name="status" id="exampleFormControlSelect1">
@@ -80,7 +80,7 @@
                                     <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
                                     <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
                                 </select>
-    
+
                                 @if ($errors->has('status'))
                                     <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('status') }}</small>
@@ -89,17 +89,17 @@
                                 <!-- error message end -->
                             </div>
                             <!-- input item end -->
-                            
+
                         </div>
                         <!-- .col end -->
-    
+
                         <div class="col-md-4">
-    
+
                             <div class="form-group">
                                 <div class="mb-2">
                                     @if (!$data->gambar)
                                     <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
-                                    @else 
+                                    @else
                                     <img src="{{ asset('gambar/link-terkait/' . $data->gambar ?? '') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
                                     @endif
                                 </div>
@@ -111,24 +111,24 @@
                                 @endif
                                 <div class="custom-file">
                                     <input type="file" name="gambar" class="custom-file-input" id="gambar">
-    
+
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
-    
+
                             </div>
                             <!-- input item end -->
-    
+
                         </div> <!-- ebd col -->
-    
+
                     </div>
                     <!-- .row end -->
-    
+
                 </div>
             </div> <!-- end card -->
         </div> <!-- end col -->
     </div>
     <!-- end row -->
-    
+
     <div class="row">
         <div class="col">
             <div class="card">
@@ -144,12 +144,12 @@
         </div> <!-- end .col -->
     </div>
     <!-- end row -->
-    
+
 </form>
 
-<!-- 
+<!--
 | ===============================================
-| FROM END 
+| FROM END
 | ===============================================
 -->
 
@@ -178,5 +178,15 @@
     });
 
     CKEDITOR.config.height='400px';
+
+    $(document).ready(function (e) {
+        $('#gambar').change(function(){
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            $('#preview-gambar').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(this.files[0]);
+        });
+    });
 </script>
 @endpush

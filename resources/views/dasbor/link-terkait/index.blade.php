@@ -7,11 +7,10 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/link-terkait') }}">Link Terkait</a></li>
-                    <li class="breadcrumb-item active">Trash</li>
+                    <li class="breadcrumb-item active">Link Terkait</li>
                 </ol>
             </div>
-            <h4 class="page-title">Trash</h4>
+            <h4 class="page-title">Link Terkait</h4>
         </div>
     </div>
 </div>

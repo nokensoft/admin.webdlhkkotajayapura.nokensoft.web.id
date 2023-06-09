@@ -94,7 +94,7 @@ class LinkTerkaitController extends Controller
                 $LinkTerkait->url = $request->url;
                 $LinkTerkait->author = Auth::user()->id;
                 $LinkTerkait->status = $request->status;
-                $LinkTerkait->slug = Str::slug($request->judul_link);
+                $LinkTerkait->slug = Str::slug($request->judul_link).time();
 
                 if ($request->gambar) {
                     $imageName = $LinkTerkait->slug . '.' . $request->gambar->extension();
@@ -138,7 +138,7 @@ class LinkTerkaitController extends Controller
                 'judul_link'                => 'required',
                 'url'                       => 'required',
                 // 'konten'                    => 'required',
-                // 'gambar'                    => 'image|mimes:png,jpeg,jpg|max:4096',
+                'gambar'                    => 'mimes:png,jpeg,jpg|max:4096',
                 // 'status'                    => 'required',
             ],
             [
@@ -146,7 +146,8 @@ class LinkTerkaitController extends Controller
                 'url.required'              => 'URL tidak boleh kosong',
                 // 'konten.required'           => 'Konten LinkTerkait tidak boleh kosong',
                 // 'status.required'           => 'Status tidak boleh kosong',
-                // 'gambar.required'            => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+
+                'gambar.mimes'               => 'Gambar harus dengan jenis PNG,JPG,JPEG',
             ]
         );
         if ($validator->fails()) {
@@ -155,11 +156,10 @@ class LinkTerkaitController extends Controller
             try {
                 $LinkTerkait = LinkTerkait::find($id);
                 $LinkTerkait->judul_link = $request->judul_link;
-                $LinkTerkait->sub_judul = $request->sub_judul;
                 $LinkTerkait->author = Auth::user()->id;
-                $LinkTerkait->konten = $request->konten;
+                $LinkTerkait->url = $request->url;
                 $LinkTerkait->status = $request->status;
-                $LinkTerkait->slug = Str::slug($request->judul_link);
+                $LinkTerkait->slug = Str::slug($request->judul_link).time();
 
                 if ($request->gambar) {
                     $imageName = $LinkTerkait->slug . '.' . $request->gambar->extension();

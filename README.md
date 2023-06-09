@@ -50,7 +50,7 @@ MAIN PAGE : https://dlhk.jayapurakota.go.id/
 - [x] 🏷️ dasbor > pengguna > buat slug pengguna unique :white_check_mark: 
 - [x] 🏷️ dasbor > pengguna > bisa ubah data sendiri, jika email / username / kata sandi diubah : pada saat proses update redirect logout/keluar ke halaman login
 
-- [ ] 🏷️ dasbor > link terkait > ubah gambar ada error
+- [x] 🏷️ dasbor > link terkait > ubah gambar ada error :white_check_mark: 
 - [ ] 🏷️ dasbor > ...
 - [ ] 🏷️ dasbor > ...
 
