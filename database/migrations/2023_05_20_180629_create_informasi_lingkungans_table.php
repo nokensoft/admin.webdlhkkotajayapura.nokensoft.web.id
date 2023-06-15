@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('judul')->nullable();
             $table->string('slug')->nullable();
             $table->string('keterangan_singkat')->nullable();
-            $table->string('keterangan_lengkap')->nullable();
+            $table->longText('keterangan_lengkap')->nullable();
             $table->string('gambar')->nullable();
             $table->string('url')->nullable();
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
