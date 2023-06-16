@@ -1,9 +1,10 @@
 <!-- Left sidebar -->
 <div class="inbox-leftbar">
+    @if(Auth::user()->hasRole(['administrator','author']))
         <a href="{{ url('dasbor/berita/create') }}" class="btn btn-primary shadow d-block mb-2 waves-effect waves-light">
-                <i class="mdi mdi-plus-box me-2"></i> Tambah
+            <i class="mdi mdi-plus-box me-2"></i> Tambah
         </a>
-
+    @endif
         <ul class="list-group">
                 <a href="{{ url('dasbor/berita') }}" class="list-group-item list-group-item-action">
                         <i class="dripicons-star mr-1"></i> Publish <span class="badge badge-soft-info float-right ms-2">{{$datapublish}}</span>

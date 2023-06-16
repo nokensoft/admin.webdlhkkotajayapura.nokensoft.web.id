@@ -25,6 +25,7 @@
                 @include('dasbor.author.berita.menu')
                 <!-- End Left sidebar -->
 
+
                 <div class="inbox-rightbar">
 
                     <form action="{{ route('dasbor.berita') }}" method="get">
@@ -45,6 +46,7 @@
                             <th>Kategori</th>
                             <th>Penulis</th>
                             <th>Status</th>
+                            <th>Ket</th>
                             <th class="text-center"></th>
                         </tr>
                         @foreach ($datas as  $data)
@@ -67,7 +69,8 @@
                             <td> {{ Str::limit($data->konten_singkat, 100) }} </td>
                             <td> <a href="{{ url('berita/kategori', $data->kategori->kategori_slug ?? '') }}" target="_blank">{{ $data->kategori->name ?? ''}}</a> </td>
                             <td> {{ $data->author->name ?? '' }} </td>
-                            <td> {{ $data->status_revisi }} </td>
+                            <td> {{ $data->status }} </td>
+                            <td> {{ $data->ket  }} </td>
                             <td class="text-center">
                                 <form action="{{ url('dasbor/berita', $data->id) }}" method="POST">
                                     <div class="btn-group">
@@ -75,11 +78,14 @@
                                             Opsi <i class="mdi mdi-chevron-down"></i>
                                         </button>
                                         <div class="dropdown-menu">
+
                                             <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/detail') }}"><i class="fe-eye"></i> Detail</a>
                                             <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/edit') }}"><i class="fe-edit"></i> Ubah</a>
+                                            @if(Auth::user()->hasRole(['administrator','author']))
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
+                                            @endif
                                         </div>
                                     </div>
                                 </form>

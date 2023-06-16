@@ -26,7 +26,7 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Publish')->orderBy('id', 'desc')->paginate(5);
+        ])->where('status', 'Publish')->orWhere('status','Verifikasi') ->orderBy('id', 'desc')->paginate(5);
 
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahrevisi = Berita::where('status', 'Revisi')->count();
@@ -199,6 +199,7 @@ class BeritaController extends Controller
                 $data->konten_singkat       = $request->konten_singkat;
                 $data->category_id          = $request->category_id;
                 $data->status               = $request->status;
+                $data->ket                  = $request->ket;
                 $data->user_id              = Auth::user()->id;
 
                 $posterName = $data->slug . Str::random(10) . '.' . $request->gambar->extension();
@@ -215,7 +216,10 @@ class BeritaController extends Controller
                 Alert::toast('Berita Berhasil dibuat!', 'success');
                 if ($data->status == 'Publish') {
                     return redirect()->route('dasbor.berita');
-                } else {
+                } else if($data->status == 'Verifikasi') {
+                    return redirect()->route('dasbor.berita');
+                }
+                else {
                     return redirect()->route('dasbor.berita.draft');
                 }
             } catch (\Throwable $th) {
@@ -265,6 +269,7 @@ class BeritaController extends Controller
                 $data->konten_singkat       = $request->konten_singkat;
                 $data->category_id          = $request->category_id;
                 $data->status               = $request->status;
+                $data->ket                  = $request->ket;
                 $data->user_id              = Auth::user()->id;
                 if ($request->gambar) {
                     $posterName             = Str::random(10) . '.' . $request->gambar->extension();
@@ -279,7 +284,10 @@ class BeritaController extends Controller
                 Alert::toast('Berita Berhasil diperbarui!', 'success');
                 if ($data->status == 'Publish') {
                     return redirect()->route('dasbor.berita');
-                } else {
+                } else if($data->status == 'Verifikasi') {
+                    return redirect()->route('dasbor.berita');
+                }
+                else {
                     return redirect()->route('dasbor.berita.draft');
                 }
             } catch (\Throwable $th) {

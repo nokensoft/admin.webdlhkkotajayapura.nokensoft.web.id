@@ -42,7 +42,10 @@
 
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul Berita <span class="text-danger">*</span></label>
-                            <input type="text" name="judul" class="form-control" value="{{ old('judul',$data->judul) }}" placeholder="Judul Berita">
+                            <input type="text" name="judul" class="form-control" value="{{ old('judul',$data->judul) }}"  placeholder="Judul Berita"
+                             @if (Auth::user()->hasRole('supervisor'))
+                             readonly
+                             @endif>
                             @if ($errors->has('judul'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul') }}</small>
@@ -53,10 +56,10 @@
 
                         <div class="form-group">
                             <label for="category_id" class="form-label d-block">Kategori <span class="text-danger">*</span></label>
-                            <select class="form-control" name="category_id" id="exampleFormControlSelect1">
-                                <option value="{{ $data->kategori->id }}" hidden>{{ $data->kategori->name }}</option>
+                            <select class="form-control"  name="category_id" id="exampleFormControlSelect1">
+                                {{-- <option value="{{ $data->category_id }}" hidden selected>{{ $data->kategori->name }}</option> --}}
                                 @foreach ($kategori as $kategori)
-                                <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
+                                <option value="{{ $kategori->id }}" @if($data->category_id == $data->category_id) Selected @endif>{{ $kategori->name }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('category_id'))
@@ -69,7 +72,9 @@
 
                         <div class="mb-3">
                             <label for="konten_singkat" class="form-label">Konten Singkat <span class="text-danger">*</span></label>
-                            <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3">{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
+                            <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3"  @if (Auth::user()->hasRole('supervisor'))
+                                readonly
+                                @endif>{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
                             @if ($errors->has('konten_singkat'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('konten_singkat') }}</small>
@@ -91,10 +96,16 @@
 
                         <div class="form-group">
                             <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
-                            <select name="status" class="form-control">
-                                <option value="" hidden></option>
-                                <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
-                                <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
+                            <select name="status" id="test" class="form-control" onchange="showDiv(this)">
+                                @if(Auth::user()->hasRole(['administrator','author']))
+                                    <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
+                                    <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
+                                @endif
+                                @if(Auth::user()->hasRole('supervisor'))
+                                    <option value="{{ $data->status }}" hidden>{{ $data->status }}</option>
+                                    <option value="Verifikasi" @if($data->status == 'Verifikasi') Selected @endif>Verifikasi</option>
+                                    <option value="Revisi" @if($data->status == 'Revisi') Selected @endif>Revisi</option>
+                                @endif
                             </select>
                             @if ($errors->has('status'))
                                 <span class="text-danger" role="alert">
@@ -103,23 +114,23 @@
                             @endif
                         </div>
                         <!-- input item end -->
-
-                        <div class="form-group">
-                            <label for="status_revisi" class="form-label">Status Revisi <span class="text-danger">*</span></label>
-                            <select name="status_revisi" class="form-control">
-                                <option value="" hidden>Pilih</option>
-                                <option value="Ada" @if($data->status_revisi == 'Ada') Selected @endif>Ada</option>
-                                <option value="Belum" @if($data->status_revisi == 'Belum') Selected @endif>Belum</option>
-                                <option value="Setuju" @if($data->status_revisi == 'Setuju') Selected @endif>Setuju</option>
-                            </select>
-                            @if ($errors->has('status_revisi'))
+                        <div class="mb-3" id="hidden_div_revisi" style="display:none;">
+                            <label for="ket" class="form-label">Keterangan Revisi</label>
+                            <textarea name="ket" class="form-control" placeholder="Berikan Keterangan Revisi" rows="3">{{ old('ket',$data->ket) }}</textarea>
+                            @if ($errors->has('ket'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status_revisi') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('ket') }}</small>
                                 </span>
                             @endif
                         </div>
-                        <!-- input item end -->
+                        <!-- input item end-->
 
+                        <!-- input item end -->
+                        <div class="mb-3" id="hidden_div_verifikasi" style="display:none;">
+                            <label for="ket" class="form-label">Keterangan Verifikasi</label>
+                            <input type="text" name="ket" class="form-control" value="Silakan Di Publish" >
+                        </div>
+                        <!-- input item end-->
                     </div>
                     <!-- .col end-->
 
@@ -229,5 +240,19 @@
 
     CKEDITOR.config.height='600px';
 </script>
-
+<script type="text/javascript">
+    function showDiv(select){
+       if(select.value=="Revisi") {
+            document.getElementById('hidden_div_revisi').style.display = "block";
+       } else {
+        document.getElementById('hidden_div_revisi').style.display = "none";
+       }
+       if(select.value=="Verifikasi"){
+            document.getElementById('hidden_div_verifikasi').style.display = "block";
+       }
+       else {
+         document.getElementById('hidden_div_verifikasi').style.display = "none";
+       }
+    }
+    </script>
 @endpush
