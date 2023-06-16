@@ -1,10 +1,9 @@
 <div class="why-choose-us style3">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 js-tilt md-mb-40">
+            <div class="col-lg-6  md-mb-40">
                 <div class="img-part">
-                    <img src="{{ asset('assets/visitor/assets/images/dlhk/banner/2.png') }}" alt="">
-
+                    <img src="{{ asset('gambar/ilustrasi/8.png') }}" alt="">
                 </div>
             </div>
             <div class="col-lg-6 pl-60 md-pl-15">
@@ -48,3 +47,4 @@
         </div>
     </div>
 </div>
+

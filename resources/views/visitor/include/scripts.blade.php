@@ -37,4 +37,6 @@
 <!-- main js -->
 <script src="{{ asset('assets/visitor/assets/js/main.js') }}"></script>
 
+<!-- vanilla-tilt.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js" integrity="sha512-RX/OFugt/bkgwRQg4B22KYE79dQhwaPp2IZaA/YyU3GMo/qY7GrXkiG6Dvvwnds6/DefCfwPTgCXnaC6nAgVYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

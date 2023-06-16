@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-12 md-mb-40">
-                    <img src="{{ asset('gambar/ilustrasi/6.png') }}" alt="gambar ilustrasi">
+                    <img src="{{ asset('gambar/ilustrasi/6.png') }}" alt="gambar ilustrasi" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
                     <p class="">Fitur kirim pesan ini dibuat untuk memberikan cara bagi pengunjung situs web DLHK Kota Jayapura untuk menghubungi Admin web kami secara langsung.</p>
                     <p class="">Melalui fitur ini, masyarakat atau pengunjung website kami juga dapat mengajukan permintaan informasi tertentu dengan cara memasukan rincian permintaan dengan sejelas-jelasnya. Admin website akan memprosesnya dan menghubungi Anda melalui nomor hp/wa dan juga email yang dikirimkan.</p>
                 </div>

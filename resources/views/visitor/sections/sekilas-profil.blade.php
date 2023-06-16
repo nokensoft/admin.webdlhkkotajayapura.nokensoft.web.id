@@ -1,7 +1,8 @@
 <div class="rs-services style1 pt-100 md-pt-70 pb-100" id="sekilas-profil">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 md-mb-40">
+            <div class="col-lg-6 md-mb-40" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                
                 <div class="img-part">
                     <img src="{{ asset('assets/images/dlhk/banner/1.png') }}" alt="">
                 </div>
@@ -21,7 +22,7 @@
                     <!-- button youtube channel -->
 
                     <!-- button play -->
-                    <a href="{{ url('halaman/video-profil-dinas') }}" class="btn btn-lg  btn-outline-success mt-3" target="_blank">
+                    <a href="{{ url('halaman/video-profil-dinas') }}" class="btn btn-lg  btn-outline-success mt-3" target="_blank" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
                         <i class="fa-solid fa-play-circle me-2"></i>Lihat Video Profil
                     </a>
                 </div>
@@ -29,3 +30,4 @@
         </div>
     </div>
 </div>
+

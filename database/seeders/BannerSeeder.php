@@ -28,6 +28,7 @@ class BannerSeeder extends Seeder
 
             'konten_text_1'         => 'Selamat datang di portal kami',
             'konten_text_2'         => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura',
+            'konten_text_3'         => 'Media publikasi dan  komunikasi antara pemerintah dan masyarakat serta mendorong partisipasi aktif semua kalangan dalam menjaga kebersihan dan melestarikan lingkungan hidup di Kota Jayapura.',
 
             'link_1'                => '#sekilas-profil',
             'link_1_label'          => 'Sekilas Profil Dinas',

@@ -24,6 +24,7 @@ return new class extends Migration
 
             $table->longText('konten_text_1')->nullable();
             $table->longText('konten_text_2')->nullable();
+            $table->longText('konten_text_3')->nullable();
 
             $table->longText('link_1')->nullable();
             $table->longText('link_1_label')->nullable();

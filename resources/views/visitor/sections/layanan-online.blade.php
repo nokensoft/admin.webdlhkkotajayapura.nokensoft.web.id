@@ -4,13 +4,13 @@
         <!-- heading start -->
         <div class="sec-title4 mb-50">
             <div class="row">
-                <div class="col-md-3">
-                    <img src="{{ asset('gambar/ilustrasi/4.png') }}" alt="gambar ilustrasi">
-                </div>
-                <div class="col-md-9">
+                <div class="col-md-9 text-center">
                     <div class="sub-title">Layanan Online</div>
-                    <h2 class="title purple-color col-md-8">Sistem Informasi dan Aplikasi Pendukung Pelayanan Secara Online</h2>
+                    <h2 class="title purple-color col-md-8 mx-auto">Sistem Informasi dan Aplikasi Pendukung Pelayanan Secara Online</h2>
                     <p>Sistem Informasi atau Aplikasi Pendukung pelayanan secara online diadakan untuk menunjang pelayanan Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura kepada masyarakat lebih efisien dan terjangkau dari mana saja.</p>
+                </div>
+                <div class="col-md-3" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                    <img src="{{ asset('gambar/ilustrasi/7.png') }}" alt="gambar ilustrasi">
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                             <p class="text">
                                 {{ $layananOnline->keterangan_singkat }}
                             </p>
-                            <a href="{{ $layananOnline->url }}" target="_blank" class="readon green-btn"><i class="fa-solid fa-globe me-2"></i> Buka Aplikasi</a>
+                            <a href="{{ $layananOnline->url }}" target="_blank" class="readon green-btn" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);"><i class="fa-solid fa-globe me-2"></i> Buka Aplikasi</a>
                         </div>
                     </div>
                 </div>

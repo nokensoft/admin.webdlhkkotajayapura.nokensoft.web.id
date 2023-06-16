@@ -66,8 +66,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-            `;
+        </div> `;
         }
 
         var jumlahData = res.count;
@@ -102,35 +101,26 @@
                 </li>`;
             }
 
-
         };
         htmlViewHalaman += `</ul> </nav>`;
         if(jumlahData == 0)
         {
             htmlView += `
-
-            <!-- Blog Section Start -->
-            <div class="rs-inner-blog orange-color pt-100 pb-100 md-pt-70 md-pb-70">
-                <div class="container">
-                <div class="blog-deatails">
-
-                    <div class="blog-full text-center">
-
+            <div class="col-lg-12 mb-70">
+                <div class="blog-item">
+                    <div class="blog-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="/gambar/ilustrasi/3.png" alt="gambar ilustrasi">
+                                <img src="/gambar/ilustrasi/6-300.png" alt="gambar ilustrasi">
                             </div>
                             <div class="col-md-8 my-auto">
-                                <h5 class="fw-bold mt-5"> Maaf, berita yang anda cari tidak ditemukan.</h5>
+                                <h5 class="fw-bold mt-5 h1 text-dark"> Maaf!</h5>
+                                <p><b>Berita yang Anda cari tidak ditemukan</b>. Silahkan coba lagi dengan kata kata kunci atau judul berita yang lain.</p>
                             </div>
-                        </div>
-
-
+                        </div>                    
                     </div>
                 </div>
-                </div>
-            </div>
-            <!-- Blog Section End --> `
+            </div> `
         }
         $('#penomoranHalaman').html(htmlViewHalaman);
         $('#berita').html(htmlView);
