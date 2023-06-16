@@ -218,7 +218,7 @@ class BeritaSeeder extends Seeder
 
         Berita::create([
             'user_id'           => 1,
-            'category_id'       => 9,
+            'category_id'       => 5,
 
             'judul'             => 'Serah Terima Jabatan dan Purna Tugas Penjabat Struktural',
             'slug'              => 'serah-terima-jabatan-dan-purna-tugas-penjabat-struktural',
@@ -234,7 +234,7 @@ class BeritaSeeder extends Seeder
 
         Berita::create([
             'user_id'           => 1,
-            'category_id'       => 9,
+            'category_id'       => 5,
 
             'judul'             => 'Foto Bersama Pada Kegiatan Serah Terima Jabatan',
             'slug'              => 'foto-bersama-pada-kegiatan-serah-terima-jabatan',
