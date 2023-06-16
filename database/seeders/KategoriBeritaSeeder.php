@@ -91,5 +91,14 @@ class KategoriBeritaSeeder extends Seeder
             'author'        => 3,
         ]);
 
+        KategoriBerita::create([
+            'id'            => 10,
+            'name'          => 'Layanan Online',
+            'kategori_slug' => 'layanan-online',
+            'deskripsi'     => '...',
+            'status'        => 'Publish',
+            'author'        => 3,
+        ]);
+
     }
 }

@@ -56,3 +56,4 @@ MAIN PAGE : https://dlhk.jayapurakota.go.id/
 
 ## NOTES for SAMUEL
 🏷️ visitor > berita > saat pencarian berita tidak ditemukan, tampilkan alert/teks berita tidak ditemukan
+🏷️ visitor > berita > kategori : munculkan berita per kategori pada link 'berita/kategori'

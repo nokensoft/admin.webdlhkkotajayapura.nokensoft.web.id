@@ -15,7 +15,7 @@
                         <li>
                             <a class="active" href="{{ url('/berita') }}">Berita</a>
                         </li>
-                        <li>{!! $data->judul !!}</li>
+                        <li>{!! $data->judul ?? '' !!}</li>
                     </ul>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         </div>
                         @else
                         <div class="bs-img">
-                            <img src="{{ asset('gambar/berita/'.$data->gambar) }}" alt="Gambar" class="w-100">
+                            <img src="{{ asset('gambar/berita/'.$data->gambar ?? '') }}" alt="Gambar" class="w-100">
                         </div>
                         @endif
 

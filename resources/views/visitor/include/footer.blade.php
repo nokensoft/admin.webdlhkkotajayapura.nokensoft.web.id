@@ -1,3 +1,22 @@
+
+<!-- Content you want after the sticky element -->
+<div class="fixed-bottom bg-warning p-2 pt-3">
+    <!-- The sticky element will appear as if its been placed here -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="d-flex">
+                    <img src="{{ asset('gambar/ilustrasi/3.png') }}" alt="gambar ilustrasi" class="" width="150px">
+                    <div>
+                        <p class="fs-5 me-auto mt-5"><b>INFO : Website ini masih dalam tahap pengembangan.</b> Silahkan kembali lagi dalam waktu mendatang untuk informasi yang lebih lengkap. <br> Terima kasih sudah berkunjung.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
     <footer id="rs-footer" class="rs-footer home9-style home12-style">
         <div class="footer-top">
             <div class="container">
