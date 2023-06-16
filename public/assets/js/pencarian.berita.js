@@ -105,7 +105,33 @@
 
         };
         htmlViewHalaman += `</ul> </nav>`;
+        if(jumlahData == 0)
+        {
+            htmlView += `
 
+            <!-- Blog Section Start -->
+            <div class="rs-inner-blog orange-color pt-100 pb-100 md-pt-70 md-pb-70">
+                <div class="container">
+                <div class="blog-deatails">
+
+                    <div class="blog-full text-center">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="/gambar/ilustrasi/3.png" alt="gambar ilustrasi">
+                            </div>
+                            <div class="col-md-8 my-auto">
+                                <h5 class="fw-bold mt-5"> Maaf, berita yang anda cari tidak ditemukan.</h5>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- Blog Section End --> `
+        }
         $('#penomoranHalaman').html(htmlViewHalaman);
         $('#berita').html(htmlView);
     }

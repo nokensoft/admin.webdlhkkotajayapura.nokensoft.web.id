@@ -14,6 +14,7 @@ use App\Models\Berita\Berita;
 use App\Models\Berita\KategoriBerita;
 use App\Models\InformasiLingkungan;
 use App\Models\Pesan;
+use App\Models\VisitorCounter;
 // use App\Models\Pesan;
 
 
@@ -93,11 +94,11 @@ class AppServiceProvider extends ServiceProvider
             |
             */
 
-            'totalVisitor'                      => DB::table('laravisits')->get()->count(),
-            'visitorHariIni'                    => DB::table('laravisits')->whereDate('created_at', $today)->count(),
-            'visitorMingguIni'                  => DB::table('laravisits')->whereBetween('created_at', [$startDate, $endDate])->get()->count(),
-            'visitorBulanIni'                   => DB::table('laravisits')->whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
-            'visitorTahunIni'                   => DB::table('laravisits')->whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
+            'totalVisitor'                      => VisitorCounter::get()->count(),
+            'visitorHariIni'                    => VisitorCounter::whereDate('created_at', $today)->count(),
+            'visitorMingguIni'                  => VisitorCounter::whereBetween('created_at', [$startDate, $endDate])->get()->count(),
+            'visitorBulanIni'                   => VisitorCounter::whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
+            'visitorTahunIni'                   => VisitorCounter::whereMonth('created_at', $bulanIni)->whereYear('created_at', $tahunIni)->count(),
 
 
             /*
