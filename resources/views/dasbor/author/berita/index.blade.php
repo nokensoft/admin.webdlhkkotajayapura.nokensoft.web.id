@@ -46,7 +46,9 @@
                             <th>Kategori</th>
                             <th>Penulis</th>
                             <th>Status</th>
+                            @if(Auth::user()->hasRole(['administrator','author']))
                             <th>Ket</th>
+                            @endif
                             <th class="text-center"></th>
                         </tr>
                         @foreach ($datas as  $data)
@@ -69,8 +71,19 @@
                             <td> {{ Str::limit($data->konten_singkat, 100) }} </td>
                             <td> <a href="{{ url('berita/kategori', $data->kategori->kategori_slug ?? '') }}" target="_blank">{{ $data->kategori->name ?? ''}}</a> </td>
                             <td> {{ $data->author->name ?? '' }} </td>
-                            <td> {{ $data->status }} </td>
+                            <td>
+                                @if($data->status == "Verifikasi")
+                                    <a href="{{ route('dasbor.berita.verifikasi') }}"> Terverifikasi </a>
+                                @elseif($data->status == "Revisi")
+                                <a href="{{ route('dasbor.berita.revisi') }}"> Revisi </a>
+                                @else
+                                {{ $data->status }}
+                                @endif
+
+                            </td>
+                            @if(Auth::user()->hasRole(['administrator','author']))
                             <td> {{ $data->ket  }} </td>
+                            @endif
                             <td class="text-center">
                                 <form action="{{ url('dasbor/berita', $data->id) }}" method="POST">
                                     <div class="btn-group">

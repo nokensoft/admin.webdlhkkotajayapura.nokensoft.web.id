@@ -25,7 +25,8 @@ return new class extends Migration
             $table->mediumText('konten_singkat')->nullable();
             $table->string('gambar')->nullable();
             $table->enum('status',['Publish','Draft','Revisi','Verifikasi'])->default('Draft')->nullable();
-            $table->string('ket')->nullable();
+            $table->string('ket_verfikasi')->nullable();
+            $table->string('ket_revisi')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

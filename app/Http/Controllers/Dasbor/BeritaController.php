@@ -49,7 +49,7 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Draft')->orderBy('id', 'desc')->paginate(5);
+        ])->where('status', 'Draft')->orWhere('status','Revisi')->orderBy('id', 'desc')->paginate(5);
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahrevisi = Berita::where('status', 'Revisi')->count();
         $jumlahdraft = Berita::where('status', 'Draft')->count();
@@ -77,13 +77,41 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'revisi')->latest()->paginate(5);
+        ])->where('status', 'Revisi')->latest()->paginate(5);
         $jumlahtrash = Berita::onlyTrashed()->count();
-        $jumlahrevisi = Berita::where('status', 'revisi')->count();
-        $jumlahdraft = Berita::where('status', 'draft')->count();
+        $jumlahrevisi = Berita::where('status', 'Revisi')->count();
+        $jumlahdraft = Berita::where('status', 'Draft')->count();
         $datapublish = Berita::where('status', 'Publish')->count();
 
         return view('dasbor.author.berita.revisi', compact(
+            'datas',
+            'jumlahtrash',
+            'jumlahdraft',
+            'datapublish',
+            'jumlahrevisi'
+        ))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    // REVISI
+    public function verifikasi()
+    {
+
+        $datas = Berita::where([
+            ['judul', '!=', Null],
+            [function ($query) {
+                if (($s = request()->s)) {
+                    $query->orWhere('judul', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status', 'Verifikasi')->latest()->paginate(5);
+        $jumlahtrash = Berita::onlyTrashed()->count();
+        $jumlahrevisi = Berita::where('status', 'Revisi')->count();
+        $jumlahdraft = Berita::where('status', 'Draft')->count();
+        $datapublish = Berita::where('status', 'Publish')->count();
+
+        return view('dasbor.author.berita.verifikasi', compact(
             'datas',
             'jumlahtrash',
             'jumlahdraft',
@@ -216,14 +244,11 @@ class BeritaController extends Controller
                 Alert::toast('Berita Berhasil dibuat!', 'success');
                 if ($data->status == 'Publish') {
                     return redirect()->route('dasbor.berita');
-                } else if($data->status == 'Verifikasi') {
-                    return redirect()->route('dasbor.berita');
                 }
                 else {
                     return redirect()->route('dasbor.berita.draft');
                 }
             } catch (\Throwable $th) {
-                dd($th);
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
             }
@@ -243,6 +268,7 @@ class BeritaController extends Controller
                 'gambar'                    => 'image|mimes:jpeg,png,jpg|max:2097',
                 'category_id'               => 'required|integer',
                 'status'                    => 'required',
+
             ],
             [
                 'category_id.required'      => 'Kategori berita tidak boleh kosong',
@@ -269,7 +295,8 @@ class BeritaController extends Controller
                 $data->konten_singkat       = $request->konten_singkat;
                 $data->category_id          = $request->category_id;
                 $data->status               = $request->status;
-                $data->ket                  = $request->ket;
+                $data->ket_verfikasi        = $request->ket_verfikasi;
+                $data->ket_revisi           = $request->ket_revisi;
                 $data->user_id              = Auth::user()->id;
                 if ($request->gambar) {
                     $posterName             = Str::random(10) . '.' . $request->gambar->extension();
@@ -284,8 +311,12 @@ class BeritaController extends Controller
                 Alert::toast('Berita Berhasil diperbarui!', 'success');
                 if ($data->status == 'Publish') {
                     return redirect()->route('dasbor.berita');
+
                 } else if($data->status == 'Verifikasi') {
-                    return redirect()->route('dasbor.berita');
+                    return redirect()->route('dasbor.berita.verifikasi');
+
+                } else if($data->status == 'Revisi') {
+                    return redirect()->route('dasbor.berita.revisi');
                 }
                 else {
                     return redirect()->route('dasbor.berita.draft');
@@ -297,41 +328,7 @@ class BeritaController extends Controller
         }
     }
 
-    // UBAH STATUS
-    public function updateStatus(Request $request, $id)
-    {
-        $validator = Validator::make(
-            $request->only('status', 'ket'),
-            [
-                'status' => 'required|max:255',
-                'ket'    => 'required_if:status,revisi',
-            ]
-        );
 
-        if ($validator->fails()) {
-            return redirect()->back()->withInput($request->all())->withErrors($validator);
-        } else {
-            try {
-                Berita::where('id', $id)->update([
-                    'status' => $request->status,
-                    'user_id' => Auth::user()->id,
-                    'ket' => $request->ket,
-                ]);
-                Alert::toast('Status Berhasil diperbarui!', 'success');
-                return redirect()->route('app.berita');
-            } catch (\Throwable $th) {
-                Alert::toast('Gagal', 'error');
-                return redirect()->back();
-            }
-        }
-    }
-
-    // EDIT STATUS
-    public function editStatus($id)
-    {
-        $data = Berita::where('slug', $id)->first();
-        return view('dasbor.author.berita.status', compact('data'));
-    }
 
 
 

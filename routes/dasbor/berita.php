@@ -33,6 +33,14 @@ use Illuminate\Support\Facades\Route;
         Route::get('berita/draft','draft')
             ->name('dasbor.berita.draft');
 
+        // revisi
+        Route::get('berita/revisi','revisi')
+            ->name('dasbor.berita.revisi');
+
+        // verifikasi
+        Route::get('berita/verifikasi','verifikasi')
+            ->name('dasbor.berita.verifikasi');
+
         // create
         Route::get('berita/create','create')
             ->name('dasbor.berita.create');

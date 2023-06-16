@@ -189,7 +189,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
 
-            'status'            => 'Revisi',
+            'status'            => 'Draft',
         ]);
 
         Berita::create([
@@ -213,7 +213,7 @@ class BeritaSeeder extends Seeder
 
             'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
 
-            'status'            => 'Revisi',
+            'status'            => 'Draft',
         ]);
 
 

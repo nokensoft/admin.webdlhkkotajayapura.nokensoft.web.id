@@ -8,10 +8,10 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('dasbor/berita') }}">Berita</a></li>
-                    <li class="breadcrumb-item active">Revisi</li>
+                    <li class="breadcrumb-item active">Terverifikasi</li>
                 </ol>
             </div>
-            <h4 class="page-title">Revisi Berita</h4>
+            <h4 class="page-title">Terverifikasi</h4>
         </div>
     </div>
 </div>
@@ -40,7 +40,7 @@
                             <th class="text-center">No</th>
                             <th>Image</th>
                             <th>Judul</th>
-                            <th>Revisi Oleh</th>
+                            <th>Verifikasi Oleh</th>
                             <th>Ket</th>
                             <th class="text-center" width="180px">Opsi</th>
                         </tr>
@@ -59,10 +59,9 @@
                             <td>
                                 {{ Str::limit($berita->judul, 20) }}
                             </td>
-
                             <th> {{ $berita->author->name }} </th>
                             <td>
-                                {{ $berita->ket_revisi ?? 'N/A' }}
+                                {{ $berita->ket_verfikasi }}
                             </td>
 
                             <td class="text-center">
@@ -70,10 +69,7 @@
                                 <a class="btn btn-sm btn-dark" href="{{ route('dasbor.berita.show',$berita->slug) }}">
                                     <i class="mdi mdi-eye"></i>
                                 </a>
-                                <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.edit',$berita->slug) }}">
-                                    <i class="mdi mdi-pencil text-warning"></i>
-                                </a>
-                                @if(Auth::user()->hasRole(['administrator','author']))
+                                @if(Auth::user()->hasRole('author'))
                                 <a class="btn btn-sm btn-light" href="{{ route('dasbor.berita.edit',$berita->slug) }}">
                                     <i class="mdi mdi-pencil text-warning"></i>
                                 </a>

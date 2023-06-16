@@ -116,10 +116,10 @@
                         <!-- input item end -->
                         <div class="mb-3" id="hidden_div_revisi" style="display:none;">
                             <label for="ket" class="form-label">Keterangan Revisi</label>
-                            <textarea name="ket" class="form-control" placeholder="Berikan Keterangan Revisi" rows="3">{{ old('ket',$data->ket) }}</textarea>
-                            @if ($errors->has('ket'))
+                            <textarea name="ket_revisi" class="form-control" required placeholder="Berikan Keterangan Revisi" rows="3">{{ old('ket_revisi',$data->ket_revisi) }}</textarea>
+                            @if ($errors->has('ket_revisi'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('ket') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('ket_revisi') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -127,8 +127,8 @@
 
                         <!-- input item end -->
                         <div class="mb-3" id="hidden_div_verifikasi" style="display:none;">
-                            <label for="ket" class="form-label">Keterangan Verifikasi</label>
-                            <input type="text" name="ket" class="form-control" value="Silakan Di Publish" >
+                            <label for="ket_verfikasi" class="form-label">Keterangan Verifikasi</label>
+                            <input type="text" name="ket_verfikasi" class="form-control" value="{{ old('ket_verfikasi',$data->ket_verfikasi) }}" >
                         </div>
                         <!-- input item end-->
                     </div>
