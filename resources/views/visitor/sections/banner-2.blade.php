@@ -16,7 +16,7 @@
 
             <!-- .col start -->
             <div class="col-lg-4 mx-auto">
-                <img src="{{ asset($banner_2->gambar_ilustrasi) }}" alt="{{ $banner_2->gambar_ilustrasi }}" class="img-fluid" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                <img src="{{ asset($banner_2->gambar_ilustrasi) }}" alt="{{ $banner_2->gambar_ilustrasi }}" class="img-fluid up-down-new" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
             </div>
             <!-- .col end -->
 
