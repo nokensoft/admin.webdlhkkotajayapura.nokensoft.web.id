@@ -12,7 +12,22 @@
                         <li>
                             <a class="active" href="{{ url('beranda') }}">Beranda</a>
                         </li>
-                        <li>{{ $pageTitle }}</li>
+
+                        @if ($slug != null)
+                            <li>
+                                    <a class="active" href="{{ route('berita') }}">{{ $pageTitle }} </a>
+                            </li>
+                            <li id="slug" data-value="{{$slug}}">
+                                <div id="kategori"></div>
+                            </li>
+                        @else
+                            <li>
+                                {{ $pageTitle }}
+                            </li>
+                            <li id="slug" data-value="null">
+                                <div id="kategori"></div>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -24,7 +39,7 @@
                     <div class="row">
 
                         <div class="col-lg-4 col-md-12 order-last">
-                            <div class="widget-area">                                
+                            <div class="widget-area">
 
                                 @include('visitor.widgets.pencarian-berita')
                                 @include('visitor.widgets.kategori-berita')
@@ -71,4 +86,7 @@
 @include('visitor.sections.banner-3')
 <!-- Newsletter -->
 
+<script>
+
+</script>
 @stop

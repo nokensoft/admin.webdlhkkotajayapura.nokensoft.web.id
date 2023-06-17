@@ -16,7 +16,7 @@
                     @if(empty($linkTerkait->gambar))
                     <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar">
                     @else
-                    <img src="{{ asset('gambar/link-terkait/' . $linkTerkait->gambar ) }}" alt="Gambar">
+                    <img src="{{ asset( $linkTerkait->gambar ) }}" alt="Gambar">
                     @endif
                 </a>
                 </div>

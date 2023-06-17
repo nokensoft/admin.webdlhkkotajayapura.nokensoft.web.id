@@ -1,3 +1,12 @@
+    var slug     = document.getElementById("slug");
+    var kategori = null;
+    if(slug != null)
+    {
+        var kategori = slug.dataset.value;
+    }
+
+
+
      keyword();
     function myFunction()
         {
@@ -14,7 +23,8 @@
           {
              _token: $('meta[name="csrf-token"]').attr('content'),
              keyword:keyword,
-             noAwal:noAwal
+             noAwal:noAwal,
+             kategori:kategori
            },
            function(data){
               post_row(data);
@@ -22,6 +32,12 @@
     }
         //row with ajax
     function post_row(res){
+
+    if(res.kategori != null)
+    {
+        let nama_kategori = res.kategori.name;
+        $('#kategori').html(nama_kategori);
+    }
     let htmlView = '';
     let htmlViewHalaman = '';
     for(let i = 0; i < res.datas.length; i++){
@@ -117,11 +133,13 @@
                                 <h5 class="fw-bold mt-5 h1 text-dark"> Maaf!</h5>
                                 <p><b>Berita yang Anda cari tidak ditemukan</b>. Silahkan coba lagi dengan kata kata kunci atau judul berita yang lain.</p>
                             </div>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
             </div> `
         }
         $('#penomoranHalaman').html(htmlViewHalaman);
         $('#berita').html(htmlView);
+
+
     }

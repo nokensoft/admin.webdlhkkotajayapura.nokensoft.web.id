@@ -85,7 +85,12 @@ class BerandaController extends Controller
     // BERITA > INDEX
     public function beritaIndex()
     {
-        $datas = Berita::where('status', 'publish')->paginate(2);
+
+
+        // Slug
+        $slug = null;
+
+        // $datas = Berita::where('status', 'publish')->paginate(2);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
 
@@ -100,13 +105,14 @@ class BerandaController extends Controller
         return  view(
             'visitor.pages.berita.index',
             compact(
-                'datas',
-                'kategoris',
+                // 'datas',
                 'pageTitle',
+                'kategoris',
                 'linkTerkaits',
                 'banner_1',
                 'banner_2',
                 'banner_3',
+                'slug',
             )
         );
     }
@@ -140,15 +146,20 @@ class BerandaController extends Controller
     public function beritaKategori($kategori)
     {
 
-        $datas = Berita::select('*')
-            ->join(
-                'kategori_beritas',
-                'kategori_beritas.id',
-                '=',
-                'beritas.category_id'
-            )
-            ->where('kategori_beritas.kategori_slug', $kategori)
-            ->paginate(1);
+        // $datas = Berita::select('*')
+        //     ->join(
+        //         'kategori_beritas',
+        //         'kategori_beritas.id',
+        //         '=',
+        //         'beritas.category_id'
+        //     )
+        //     ->where('kategori_beritas.kategori_slug', $kategori)
+        //     ->paginate(1);
+         // dd($id);
+
+        // Slug
+        $slug = $kategori;
+
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
 
@@ -163,13 +174,14 @@ class BerandaController extends Controller
         return  view(
             'visitor.pages.berita.index',
             compact(
-                'datas',
+                // 'datas',
                 'kategoris',
                 'pageTitle',
                 'linkTerkaits',
                 'banner_1',
                 'banner_2',
                 'banner_3',
+                'slug',
             )
         );
     }
@@ -180,6 +192,8 @@ class BerandaController extends Controller
         $keyword    = $request->keyword;
         $page       = $request->noAwal; // Halaman yang ingin ditampilkan
         $perPage    = 4; // Jumlah data per halaman
+        $kategori    = $request->kategori;
+        $dataKategori = null;
 
         $all = DB::table('beritas')
                 ->selectRaw('beritas.id')
@@ -223,7 +237,33 @@ class BerandaController extends Controller
             $count = DB::table('beritas')->where('beritas.status', '=', 'Publish')->Where('beritas.judul', 'like', '%' . $keyword . '%')->count();;
         };
 
-        return $data = ['datas' => $all, 'count' => $count, 'page' => $page, 'perPage' => $perPage];
+        if($kategori != 'null')
+        {
+        $all = DB::table('beritas')
+        ->selectRaw('beritas.id')
+        ->selectRaw('beritas.slug')
+        ->selectRaw('beritas.gambar')
+        ->selectRaw('beritas.judul')
+        ->selectRaw('beritas.created_at')
+        ->selectRaw('beritas.konten_singkat')
+        ->selectRaw('users.name')
+        ->selectRaw('kategori_beritas.kategori_slug')
+        ->selectRaw('kategori_beritas.name as name_kategori')
+        ->leftJoin('kategori_beritas', 'beritas.category_id', '=', 'kategori_beritas.id')
+        ->leftJoin('users', 'beritas.user_id', '=', 'users.id')
+        ->where('beritas.status', '=', 'Publish')
+        ->where('kategori_beritas.kategori_slug', '=', $kategori)
+        ->Where('beritas.judul', 'like', '%' . $keyword . '%')
+        ->skip(($page - 1) * $perPage)
+        ->take($perPage)
+        ->orderBy('beritas.id', 'desc')
+        ->get();
+            $count =  $all->count();
+            $dataKategori = KategoriBerita::selectRaw('kategori_beritas.name')->where('kategori_slug', $kategori)->first();
+
+        }
+
+        return $data = ['datas' => $all, 'count' => $count, 'page' => $page, 'perPage' => $perPage, 'kategori' => $dataKategori];
     }
 
 
