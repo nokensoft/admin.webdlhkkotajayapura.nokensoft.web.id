@@ -104,7 +104,7 @@
                                     @endif
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="picture" id="picture">
+                                            <input type="file" class="custom-file-input" name="picture" id="picture" accept="image/*">
                                             <label class="custom-file-label" for="picture">Pilih Foto Profil</label>
                                         </div>
                                     </div>

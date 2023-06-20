@@ -30,9 +30,9 @@
 </div>
 @endif
 
-<!-- 
+<!--
 | ===============================================
-| FROM START 
+| FROM START
 | ===============================================
 -->
 
@@ -42,8 +42,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-body">     
-                    
+                <div class="card-body">
+
                     <div class="row">
                         <div class="col-md-8">
 
@@ -120,7 +120,7 @@
                             <div class="mb-3">
 
                                 <div class="mb-2">
-                                    <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
+                                    <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" accept="image/*" id="preview-gambar" class="img-thumbnail w-100">
                                 </div>
                                 <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
                                 @if ($errors->has('gambar'))
@@ -168,9 +168,9 @@
 
 </form>
 
-<!-- 
+<!--
 | ===============================================
-| FROM END 
+| FROM END
 | ===============================================
 -->
 
