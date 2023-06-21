@@ -23,7 +23,7 @@ class BannerSeeder extends Seeder
             'judul'                 => 'Banner Utama',
             'slug'                  => 'banner-utama',
 
-            'gambar_ilustrasi'      => 'gambar/ilustrasi/6.png',
+            'gambar_ilustrasi'      => 'gambar/ilustrasi/9.png',
             'gambar_latar_belakang' => 'gambar/latar-belakang/1.jpg',
 
             'konten_text_1'         => 'Selamat datang di portal kami',
