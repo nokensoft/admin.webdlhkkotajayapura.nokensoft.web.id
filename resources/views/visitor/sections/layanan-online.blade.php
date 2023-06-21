@@ -10,7 +10,7 @@
                     <p>Sistem Informasi atau Aplikasi Pendukung pelayanan secara online diadakan untuk menunjang pelayanan Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura kepada masyarakat lebih efisien dan terjangkau dari mana saja.</p>
                 </div>
                 <div class="col-md-3" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
-                    <img src="{{ asset('gambar/ilustrasi/7.png') }}" alt="gambar ilustrasi">
+                    <img src="{{ asset('gambar/ilustrasi/6.png') }}" alt="gambar ilustrasi">
                 </div>
             </div>
         </div>

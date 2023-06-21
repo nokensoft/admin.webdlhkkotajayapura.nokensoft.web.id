@@ -4,7 +4,7 @@
             <div class="col-lg-6 md-mb-40" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
                 
                 <div class="img-part">
-                    <img src="{{ asset('gambar/ilustrasi/6.png') }}" alt="" class="up-down-new">
+                    <img src="{{ asset('gambar/ilustrasi/10.png') }}" alt="" class="up-down-new">
                 </div>
             </div>
             <div class="col-lg-6 pl-60 md-pl-15">

@@ -142,7 +142,7 @@
         <!-- Auth fluid right content -->
         <div class="auth-fluid-right text-center">
             <div class="auth-user-testimonial">
-                <img src="{{ asset('assets/images/dlhk/banner/2.png') }}" alt="Gambar" width="500px">
+                <img src="{{ asset('assets/images/dlhk/banner/6.png') }}" alt="Gambar" width="500px">
                 <h2 class="mb-3 text-white text-uppercase display-3 font-weight-bold">{!! $pengaturan->judul_situs !!}
                 </h2>
                 <p class="text-uppercase h2 text-light mb-5">{!! $pengaturan->deskripsi_situs !!}</p>
