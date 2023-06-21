@@ -127,7 +127,7 @@
                                 </div>
                                 <label for="picture" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
                                 <div class="custom-file w-100">
-                                    <input type="file" name="picture" class="custom-file-input" id="picture">
+                                    <input type="file" name="picture" class="custom-file-input" id="picture" accept="image/*">
                                     <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
                                     <label class="custom-file-label" for="customFile">Pilih gambar</label>
                                     @if ($errors->has('picture'))

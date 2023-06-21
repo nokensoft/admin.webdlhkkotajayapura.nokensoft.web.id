@@ -99,7 +99,7 @@
                             </div>
                             <label for="gambar" class="form-label d-block">Gambar<span class="text-danger">*</span></label>
                             <div class="custom-file">
-                                <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                                <input type="file" name="gambar" class="custom-file-input" id="gambar" accept="image/*">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
                                 <label class="custom-file-label" for="customFile">Pilih gambar</label>
                             </div>

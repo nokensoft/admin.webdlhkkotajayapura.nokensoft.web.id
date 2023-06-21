@@ -30,9 +30,9 @@
 </div>
 @endif
 
-<!-- 
+<!--
 | ===============================================
-| FROM START 
+| FROM START
 | ===============================================
 -->
 
@@ -47,7 +47,7 @@
                     <div class="row">
 
                         <div class="col-md-8">
-                    
+
                             <div class="mb-3">
                                 <label for="judul" class="form-label">Judul <span class="text-danger">*</span></label>
                                 <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul" value="{{ old('judul',$data->judul) }}">
@@ -95,7 +95,7 @@
                                 @endif
                             </div>
                             <!-- input item end -->
-                            
+
                             <div class="form-group">
                                 <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
                                 <select class="form-control" name="status" id="exampleFormControlSelect1">
@@ -117,7 +117,7 @@
                         <!-- .col end -->
 
                         <div class="col-md-4">
-                            
+
                             <div class="mb-3">
                                 <div class="mb-2">
                                     @if(empty($data->gambar))
@@ -135,7 +135,7 @@
                                     </span>
                                 @endif
                                 <div class="custom-file">
-                                    <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                                    <input type="file" name="gambar" class="custom-file-input" id="gambar" accept="image/*">
 
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
@@ -178,9 +178,9 @@
 
 </form>
 
-<!-- 
+<!--
 | ===============================================
-| FROM END 
+| FROM END
 | ===============================================
 -->
 

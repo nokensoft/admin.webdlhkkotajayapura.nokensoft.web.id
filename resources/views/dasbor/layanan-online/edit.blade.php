@@ -30,9 +30,9 @@
 </div>
 @endif
 
-<!-- 
+<!--
 | ===============================================
-| FROM START 
+| FROM START
 | ===============================================
 -->
 
@@ -43,7 +43,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                        
+
                         <div class="row">
 
                             <div class="col-md-8">
@@ -129,7 +129,7 @@
                                     </div>
                                     <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
                                     <div class="custom-file">
-                                        <input type="file" name="gambar" class="custom-file-input" id="gambar">
+                                        <input type="file" name="gambar" class="custom-file-input" id="gambar" accept="image/*">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                     @if ($errors->has('gambar'))
@@ -143,8 +143,8 @@
 
                             </div> <!-- end col -->
 
-                        </div> <!-- end row -->                  
-                        
+                        </div> <!-- end row -->
+
                 </div>
             </div> <!-- end card -->
         </div> <!-- end col -->
@@ -171,9 +171,9 @@
 
 </form>
 
-<!-- 
+<!--
 | ===============================================
-| FROM END 
+| FROM END
 | ===============================================
 -->
 
