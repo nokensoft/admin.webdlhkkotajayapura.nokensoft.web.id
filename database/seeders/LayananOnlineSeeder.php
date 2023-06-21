@@ -30,15 +30,15 @@ class LayananOnlineSeeder extends Seeder
                 'author'                => 1,
             ],
              // Pengaduan
-            [
-                'judul'                 => 'Pengaduan',
-                'keterangan_singkat'    => 'Layanan Pengaduan Masyarakat Terhadap Masalah Kebersihan di Kota Jayapura',
-                'keterangan_lengkap'    => 'halaman/informasi-lingkungan',
+            // [
+            //     'judul'                 => 'Pengaduan',
+            //     'keterangan_singkat'    => 'Layanan Pengaduan Masyarakat Terhadap Masalah Kebersihan di Kota Jayapura',
+            //     'keterangan_lengkap'    => 'halaman/informasi-lingkungan',
 
-                'gambar'                => 'gambar/layanan-online/2.png',
-                'url'                   => 'https://dlhk.jayapurakota.go.id/kontak',
-                'author'                => 1,
-            ]
+            //     'gambar'                => 'gambar/layanan-online/2.png',
+            //     'url'                   => 'https://dlhk.jayapurakota.go.id/kontak',
+            //     'author'                => 1,
+            // ]
         ]);
 
     }

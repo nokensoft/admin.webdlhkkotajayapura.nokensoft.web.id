@@ -19,15 +19,15 @@
         <div class="row">
 
             @foreach ($layananOnlines as $layananOnline)
-            <div class="col-lg-6 mb-30">
+            <div class="col-lg-6 mx-auto mb-30">
                 <div class="services-item">
                     <div class="services-image">
                         <div class="services-icons">
                             @if(empty($layananOnline->gambar))
-                            <img src="{{ asset('gambar/layanan-online/-0.jpg') }}" alt="Gambar">
+                            <img src="{{ asset('gambar/layanan-online/0.jpg') }}" alt="Gambar" width="300px">
                             @else
                             <a href="{{ $layananOnline->url }}" target="_blank">
-                                <img src="{{ asset( $layananOnline->gambar ) }}" alt="Gambar">
+                                <img src="{{ asset( $layananOnline->gambar ) }}" alt="Gambar" width="300px">
                             </a>
                             @endif
                         </div>
@@ -35,7 +35,7 @@
                             <div class="services-title">
                                 <h2 class="title">{{ $layananOnline->judul }}</h2>
                             </div>
-                            <p class="text">
+                            <p class="text col-md-8 mx-auto">
                                 {{ $layananOnline->keterangan_singkat }}
                             </p>
                             <a href="{{ $layananOnline->url }}" target="_blank" class="readon green-btn" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);"><i class="fa-solid fa-globe me-2"></i> Buka Aplikasi</a>

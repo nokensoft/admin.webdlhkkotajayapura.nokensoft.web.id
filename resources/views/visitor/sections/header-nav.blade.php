@@ -80,7 +80,7 @@
                                             <a href="{{ url('/beranda') }}">Beranda</a>
                                         </li>
                                         <li class="rs-mega-menu mega-rs">
-                                            <a href="{{ url('/berita') }}">Berita</a>
+                                            <a href="{{ url('berita') }}">Berita</a>
                                         </li>
                                         <li class="rs-mega-menu mega-rs menu-item-has-children">
                                             <a href="#profil">Profil</a>
