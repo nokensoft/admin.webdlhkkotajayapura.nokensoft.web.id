@@ -1,14 +1,13 @@
 
 <!-- Content you want after the sticky element -->
-<div class="fixed-bottom bg-warning p-2 pt-3">
+<div class="fixed-bottom bg-warning p-2">
     <!-- The sticky element will appear as if its been placed here -->
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
+            <div class="col-12 pt-3">
                 <div class="d-flex">
-                    <img src="{{ asset('gambar/ilustrasi/3.png') }}" alt="gambar ilustrasi" class="" width="150px">
                     <div>
-                        <p class="fs-5 me-auto mt-5"><b>INFO : Website ini masih dalam tahap pengembangan.</b> Silahkan kembali lagi dalam waktu mendatang untuk informasi yang lebih lengkap. <br> Terima kasih sudah berkunjung.</p>
+                        <p class="fs-5 me-auto"><b><i class="fa-solid fa-info-circle"></i> INFO : Website ini masih dalam tahap pengembangan.</b> <br> Silahkan kembali lagi dalam waktu mendatang untuk informasi yang lebih lengkap. Terima kasih sudah berkunjung.</p>
                     </div>
                 </div>
             </div>
