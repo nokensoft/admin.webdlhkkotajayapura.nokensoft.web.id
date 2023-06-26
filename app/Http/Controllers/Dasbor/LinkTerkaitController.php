@@ -31,7 +31,6 @@ class LinkTerkaitController extends Controller
         $jumlahdraft = LinkTerkait::where('status', 'Draft')->count();
         $datapublish = LinkTerkait::where('status', 'Publish')->count();
 
-
         return view('dasbor.link-terkait.index', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

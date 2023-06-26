@@ -1,5 +1,5 @@
 
-<!-- Content you want after the sticky element -->
+{{-- <!-- Content you want after the sticky element -->
 <div class="fixed-bottom bg-warning p-2">
     <!-- The sticky element will appear as if its been placed here -->
     <div class="container">
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-  </div>
+  </div> --}}
 
 
     <footer id="rs-footer" class="rs-footer home9-style home12-style">
