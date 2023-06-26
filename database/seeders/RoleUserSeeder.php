@@ -65,7 +65,7 @@ class RoleUserSeeder extends Seeder
         ]);
         $adminJanzen->assignRole($adminRole);
 
-        $adminJanzen = User::create([
+        $adminMesalin = User::create([
             'name'              => 'Mesalin Maimbu',
             'slug'              => 'mesalin-maimbu'.time().Str::random(12),
             'picture'           => '06-mesalin.jpg',
@@ -73,17 +73,7 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('mesalin.dlhk@jayapurakota.go.id'),
             'status'           => 'Publish',
         ]);
-        $adminJanzen->assignRole($adminRole);
-
-        $adminJanzen = User::create([
-            'name'              => 'Alex Deu',
-            'slug'              => 'alex-Deu'.time().Str::random(12),
-            'picture'           => '07-alex-deu.jpg',
-            'email'             => 'alex.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('alex.dlhk@jayapurakota.go.id'),
-            'status'           => 'Publish',
-        ]);
-        $adminJanzen->assignRole($adminRole);
+        $adminMesalin->assignRole($adminRole);
 
         $adminDLHK = User::create([
             'name'              => 'Admin DLHK',
@@ -127,6 +117,16 @@ class RoleUserSeeder extends Seeder
             'status'           => 'Publish',
         ]);
         $supervisorDLHK->assignRole($supervisorRole);
+
+        $supervisorAlex = User::create([
+            'name'              => 'Alex Deu',
+            'slug'              => 'alex-Deu'.time().Str::random(12),
+            'picture'           => '07-alex-deu.jpg',
+            'email'             => 'alex.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('alex.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+        ]);
+        $supervisorAlex->assignRole($supervisorRole);
 
 
 
