@@ -199,7 +199,6 @@ class BeritaController extends Controller
                 'gambar'                    => 'required|image|mimes:jpeg,png,jpg|max:2097',
                 'category_id'               => 'required|integer',
                 'status'                    => 'required',
-                'status'                    => 'required',
             ],
             [
                 'category_id.required'      => 'Kategori berita tidak boleh kosong',
@@ -227,7 +226,6 @@ class BeritaController extends Controller
                 $data->konten_singkat       = $request->konten_singkat;
                 $data->category_id          = $request->category_id;
                 $data->status               = $request->status;
-                $data->ket                  = $request->ket;
                 $data->user_id              = Auth::user()->id;
 
                 $posterName = $data->slug . Str::random(10) . '.' . $request->gambar->extension();
