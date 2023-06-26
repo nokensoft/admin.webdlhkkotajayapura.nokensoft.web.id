@@ -1,4 +1,4 @@
-<div id="layanan-online" class="rs-services home12-style" style="background-image: url({{ asset($banner_2->gambar_latar_belakang) }});background-size:cover;" data-tilt data-tilt-reverse="true">
+<div id="layanan-online" class="rs-services home12-style" style="background-image: url({{ asset($banner_2->gambar_latar_belakang) }});background-size:cover;">
     
     <!-- .row container -->
     <div class="container">
