@@ -65,6 +65,16 @@ class RoleUserSeeder extends Seeder
         ]);
         $adminJanzen->assignRole($adminRole);
 
+        $adminJanzen = User::create([
+            'name'              => 'Mesalin Maimbu',
+            'slug'              => 'mesalin-maimbu'.time().Str::random(12),
+            'picture'           => '06-mesalin.jpg',
+            'email'             => 'mesalin.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('mesalin.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+        ]);
+        $adminJanzen->assignRole($adminRole);
+
         $adminDLHK = User::create([
             'name'              => 'Admin DLHK',
             'slug'              => 'admin-dlhk'.time().Str::random(12),
