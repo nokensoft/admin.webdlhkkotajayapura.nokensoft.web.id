@@ -1,6 +1,16 @@
     <!-- meta tag -->
     <meta charset="utf-8">
-    <title>{{ $pengaturan->judul_situs }}</title>
+    <title>{{ $pengaturan->judul_situs }}</title>   
+    <meta property="og:title" content="{{ $pengaturan->judul_situs }}">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ $pengaturan->logo_meta }}">
+    <meta property="og:url" content="{{ $pengaturan->alamat_web }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="{{ $pengaturan->logo_meta }}">
+    <meta property="og:description" content="{{ $pengaturan->deskripsi_situs }}">
+    <meta property="og:site_name" content="{{ $pengaturan->judul_situs }}">
+    <meta name="twitter:image:alt" content="Cover Website DLHK Kota Jayapura">
+
     <meta name="description" content="">
     <!-- responsive tag -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">

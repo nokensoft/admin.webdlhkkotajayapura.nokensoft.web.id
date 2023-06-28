@@ -29,6 +29,7 @@ class PengaturanSeeder extends Seeder
             'copyright'         => "2023, Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura - All Rights Reserved. Powered By <a href='https://nokensoft.com/' target='_blank'>Nokensoft</a>",
             
             // Contact
+            'alamat_web'      => "https://dlhk@jayapurakota.go.id/",
             'alamat_email'      => "support.dlhk@jayapurakota.go.id",
             'nomor_telepon'     => "(+880)155-69569",
             'alamat_kantor'     => "Kompleks Kantor Walikota Jayapura, Kota Jayapura, Papua - Indonesia.",
@@ -37,6 +38,7 @@ class PengaturanSeeder extends Seeder
             // logo
             'logo'              => 'logo-hijau.png',
             'logo_loader'       => 'logo-loader.png',
+            'logo_meta'         => 'https://dlhk.jayapurakota.go.id/gambar/logo_meta.jpg',
             'favicon'           => 'favicon.png',
             
             // Social Media

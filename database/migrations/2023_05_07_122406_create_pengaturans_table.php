@@ -26,9 +26,11 @@ return new class extends Migration
 
             $table->string('logo')->nullable();
             $table->string('logo_loader')->nullable();
+            $table->string('logo_meta')->nullable();
             $table->string('favicon')->nullable();
 
             // Contact
+            $table->string('alamat_web')->nullable();
             $table->string('alamat_email')->nullable();
             $table->string('nomor_telepon')->nullable();
             $table->string('alamat_kantor')->nullable();
