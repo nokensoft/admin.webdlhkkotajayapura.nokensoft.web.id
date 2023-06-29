@@ -28,7 +28,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Nama Kategori</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->name ?? '' }}
                             </div>
                         </div>
@@ -36,7 +36,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Deskripsi</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->deskripsi ?? '' }}
                             </div>
                         </div>
@@ -44,7 +44,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Status</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->status ?? '' }}
                             </div>
                         </div>

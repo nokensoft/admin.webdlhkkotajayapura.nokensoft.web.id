@@ -84,10 +84,13 @@ class KategoriController extends Controller
                 $kategori->author = Auth::user()->id;
                 $kategori->name = $request->name;
                 $kategori->deskripsi = $request->deskripsi;
-                $kategori->kategori_slug = Str::slug($request->name);
+                $kategori->kategori_slug = Str::slug($kategori->name);
+                $kategori->status = $request->status;
+
                 $kategori->save();
                 Alert::toast('Kategori Berhasil dibuat!', 'success');
-                return redirect()->route('dasbor.kategori');
+                return redirect('dasbor/berita/kategori/' .$kategori->kategori_slug. '/detail');
+
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
@@ -134,10 +137,14 @@ class KategoriController extends Controller
                 $kategori->name = $request->name;
                 $kategori->deskripsi = $request->deskripsi;
                 $kategori->status = $request->status;
-                $kategori->kategori_slug = Str::slug($request->name);
+                $kategori->kategori_slug = Str::slug($kategori->name);
+
                 $kategori->update();
+
                 Alert::toast('Kategori Berhasil diperbarui!', 'success');
-                return redirect()->route('dasbor.kategori');
+                // return redirect()->route('dasbor.kategori');
+                return redirect('dasbor/berita/kategori/' .$kategori->kategori_slug. '/detail');
+
             } catch (\Throwable $th) {
                 dd($th);
                 Alert::toast('Gagal', 'error');
