@@ -96,8 +96,8 @@ class BerandaController extends Controller
         $datas = Berita::where([
 
             [function ($query) {
-                if (($s = request()->keyword)) {
-                    $query->orWhere('judul', 'LIKE', '%' . $s . '%')
+                if (($k = request()->k)) {
+                    $query->orWhere('judul', 'LIKE', '%' . $k . '%')
                         // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
