@@ -55,7 +55,7 @@
                                 <!-- MENAMPILKAN BERITA -->
                                 {{-- <div id="berita"></div> --}}
 
-                                @foreach($datas as $data) 
+                                @forelse($datas as $data) 
                                 <div class="col-lg-12 mb-70">
 
                                     <div class="blog-item">
@@ -100,8 +100,15 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                @empty 
+
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong class="d-block">Sayang sekali!</strong> Berita yang Anda cari tidak tersedia di database kami. Silahkan coba lagi dengan kata kunci yang lain.
+                                    <a href="{{ route('berita') }}" class="btn-close" role="link"></a>
+                                </div>
                                 
-                                @endforeach
+                                @endforelse
 
 
 
@@ -117,7 +124,9 @@
                         <div class="col-12">
 
                             <!-- PENOMORAN HALAMAN -->
-                            <div id="penomoranHalaman"></div>
+                            {{-- <div id="penomoranHalaman"></div> --}}
+
+                            {{ $datas->links() }}
 
                         </div>
                         <!-- .col End -->

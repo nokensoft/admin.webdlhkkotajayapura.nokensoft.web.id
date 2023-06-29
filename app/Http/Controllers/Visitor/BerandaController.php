@@ -90,7 +90,21 @@ class BerandaController extends Controller
         // Slug
         $slug = null;
 
-        $datas = Berita::where('status', 'publish')->paginate(2);
+        // $datas = Berita::where('status', 'publish')->paginate(2);
+
+
+        $datas = Berita::where([
+
+            [function ($query) {
+                if (($s = request()->keyword)) {
+                    $query->orWhere('judul', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->where('status', 'publish')->paginate();
+
+
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
 
