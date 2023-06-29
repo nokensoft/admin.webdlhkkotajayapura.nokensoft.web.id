@@ -27,7 +27,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Judul</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->judul ?? '' }}
                             </div>
                         </div>
@@ -35,7 +35,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Slug</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->slug ?? '' }}
                             </div>
                         </div>
@@ -43,56 +43,60 @@
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Kategori</label>
-                            <div class="border p-3">
-                                {{ $data->kategori->name }}
+                            <div class="border-bottom py-1">
+                                {!! $data->kategori->name ?? '<div class="alert alert-warning"><i class="fe-alert-triangle mr-1"></i> Bagian ini sebaiknya dilengkapi</div>' !!}
                             </div>
                         </div>
                         <!-- item end -->
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Konten Singkat</label>
-                            <div class="border p-3">
-                                {!! $data->konten_singkat !!}
+                            <div class="border-bottom py-1">
+                                {!! $data->konten_singkat ?? '<div class="alert alert-warning"><i class="fe-alert-triangle mr-1"></i> Bagian ini sebaiknya dilengkapi</div>' !!}
                             </div>
                         </div>
                         <!-- item end -->
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Konten</label>
-                            <div class="border p-3">
-                                {!! $data->konten !!}
+                            <div class="border-bottom py-1">
+                                {!! $data->konten ?? '<div class="alert alert-warning"><i class="fe-alert-triangle mr-1"></i> Bagian ini sebaiknya dilengkapi</div>' !!}
                             </div>
                         </div>
                         <!-- item end -->
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Status</label>
-                            <div class="border p-3">
-                                {{ $data->status }}
+                            <div class="border-bottom py-1">
+                                @if($data->status == 'Publish')
+                                    <i class="fe-check"></i> {!! $data->status ?? '' !!}
+                                @else 
+                                    <i class="fe-alert-triangle"></i> {!! $data->status ?? '' !!}
+                                @endif
                             </div>
                         </div>
                         <!-- item end -->
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Penulis</label>
-                            <div class="border p-3">
-                                {{ $data->author->name }}
+                            <div class="border-bottom py-1">
+                                {{ $data->author->name ?? '' }}
                             </div>
                         </div>
                         <!-- item end -->
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Tanggal Terbit</label>
-                            <div class="border p-3">
-                                {{ $data->created_at }}
+                            <div class="border-bottom py-1">
+                                {{ $data->created_at ?? '' }}
                             </div>
                         </div>
                         <!-- item end -->
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Tanggal Diubah</label>
-                            <div class="border p-3">
-                                {{ $data->updated_at }}
+                            <div class="border-bottom py-1">
+                                {{ $data->updated_at ?? '' }}
                             </div>
                         </div>
                         <!-- item end -->
@@ -105,6 +109,9 @@
                             <div class="border p-3">
                                 @if(empty($data->gambar)) 
                                 <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" class="w-100">
+                                <div class="mt-2">
+                                    <div class="alert alert-warning"><i class="fe-alert-triangle mr-1"></i> Bagian ini sebaiknya dilengkapi</div>
+                                </div>
                                 @else 
                                 <img src="{{ asset('gambar/berita/' . $data->gambar ) }}" alt="Gambar" class="w-100">
                                 @endif

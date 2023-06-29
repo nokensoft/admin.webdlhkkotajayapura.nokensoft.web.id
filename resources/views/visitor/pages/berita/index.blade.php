@@ -53,7 +53,58 @@
                             <div class="row">
 
                                 <!-- MENAMPILKAN BERITA -->
-                                <div id="berita"></div>
+                                {{-- <div id="berita"></div> --}}
+
+                                @foreach($datas as $data) 
+                                <div class="col-lg-12 mb-70">
+
+                                    <div class="blog-item">
+                                        <div class="blog-img">
+                                            <a href="{{ url('berita/' . $data->slug) }}" title="Selengkapnya">
+                                                <img src="{{ asset('gambar/berita/' . $data->gambar ?? '') }}" alt="Gambar" class="img-fluid w-100">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <h3 class="blog-title text-capitalize"><a href="{{ url('berita/' . $data->slug) }}">{{ $data->judul ?? '' }} </a></h3>
+                                            <div class="blog-meta">
+                                                <ul class="btm-cate">
+                                                    <li>
+                                                        <div class="tag-line">
+                                                            <i class="fa fa-book"></i>
+                                                            <a href="/berita/kategori/{{ $data->kategori->kategori_slug ?? '' }} ">{{ $data->kategori->name ?? '' }} </a>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="blog-date">
+                                                            <i class="fa fa-calendar-check-o"></i> {{ $data->created_at ?? '' }}
+                                                        </div>
+                                                    </li>
+                                                    {{-- <li>
+                                                        <div class="blog-date">
+                                                            <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d F Y') }}
+                                                        </div>
+                                                    </li> --}}
+                                                    {{-- <li>
+                                                        <div class="author">
+                                                            <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }}
+                                                        </div>
+                                                    </li> --}}
+                                                </ul>
+                                            </div>
+                                            <div class="blog-desc">
+                                                {{ $data->konten_singkat ?? '' }}
+                                            </div>
+                                            <div class="blog-button">
+                                                <a class="blog-btn" href="{{ url('berita/' . $data->slug) }}">Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                @endforeach
+
+
+
 
                             </div>
                         </div>

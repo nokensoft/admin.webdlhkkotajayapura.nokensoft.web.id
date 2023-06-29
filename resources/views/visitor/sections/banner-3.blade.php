@@ -1,5 +1,5 @@
 <div class="rs-newsletter style1 green-color mb--90 sm-mb-0 sm-pb-70">
-    <div class="container shadow p-4" data-tilt data-tilt-reverse="true">
+    <div class="container shadow p-4">
         <div class="newsletter-wrap shadow" style="background-image: url({{ asset($banner_3->gambar_latar_belakang) }});background-size:cover;">
             <div class="row y-middle text-white pt-50">
                 <div class="col">

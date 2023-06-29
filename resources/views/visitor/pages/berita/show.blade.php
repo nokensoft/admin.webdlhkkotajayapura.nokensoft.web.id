@@ -45,21 +45,24 @@
                             </div>
 
                             <ul class="single-post-meta">
-                                <li>
-                                    <span class="p-date"> <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }} </span>
-                                </li>
-                                <li>
-                                    <span class="p-date"> <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }} </span>
-                                </li>
                                 <li class="Post-cate">
                                     <div class="tag-line">
                                         <i class="fa fa-book"></i>
                                         <a href="{{ url('berita/kategori/'), $data->kategori->kategori_slug ?? ''   }}">{{ $data->kategori->name ?? '' }}</a>
                                     </div>
                                 </li>
+                                <li>
+                                    <span class="p-date"> <i class="fa fa-calendar-check-o"></i> {{ $data->created_at }} </span>
+                                </li>
+                                {{-- <li>
+                                    <span class="p-date"> <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }} </span>
+                                </li> --}}
+                                {{-- <li>
+                                    <span class="p-date"> <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }} </span>
+                                </li> --}}
                             </ul>
 
-                            <div class="d-block">
+                            <div class="d-block fs-5">
                                 {!! $data->konten !!}
                             </div>
 

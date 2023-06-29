@@ -42,12 +42,11 @@
                             <th class="text-center">No</th>
                             <th>Gambar</th>
                             <th>Judul</th>
-                            <th>Konten Singkat</th>
                             <th>Kategori</th>
                             <th>Penulis</th>
                             <th>Status</th>
                             @if(Auth::user()->hasRole(['administrator','author']))
-                            <th>Ket</th>
+                            <th>Keterangan</th>
                             @endif
                             <th class="text-center"></th>
                         </tr>
@@ -68,7 +67,6 @@
                                     {{ $data->judul }}
                                 </a>
                             </td>
-                            <td> {{ Str::limit($data->konten_singkat, 100) }} </td>
                             <td> <a href="{{ url('berita/kategori', $data->kategori->kategori_slug ?? '') }}" target="_blank">{{ $data->kategori->name ?? ''}}</a> </td>
                             <td> {{ $data->author->name ?? '' }} </td>
                             <td>

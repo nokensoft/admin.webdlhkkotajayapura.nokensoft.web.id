@@ -50,7 +50,6 @@
                                     <img src="{{ asset('gambar/berita/' . $data->gambar ?? '') }}" class="img-fluid img-thumbnail" alt="Gambar" width="200px">
                                 </a>
                                 @endif
-                                {{ $data->gambar ?? 'asdfsdf'}}
                             </td>
                             <td>{{ $data->judul }}</td>
                             <td class="text-center">

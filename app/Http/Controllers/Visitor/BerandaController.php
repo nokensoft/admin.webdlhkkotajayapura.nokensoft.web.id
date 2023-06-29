@@ -90,7 +90,7 @@ class BerandaController extends Controller
         // Slug
         $slug = null;
 
-        // $datas = Berita::where('status', 'publish')->paginate(2);
+        $datas = Berita::where('status', 'publish')->paginate(2);
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
 
@@ -105,7 +105,7 @@ class BerandaController extends Controller
         return  view(
             'visitor.pages.berita.index',
             compact(
-                // 'datas',
+                'datas',
                 'pageTitle',
                 'kategoris',
                 'linkTerkaits',
@@ -143,22 +143,27 @@ class BerandaController extends Controller
     }
 
     // BERITA > CATEGORY
-    public function beritaKategori($kategori)
+    public function beritaKategori($kategori_slug)
     {
 
-        // $datas = Berita::select('*')
-        //     ->join(
-        //         'kategori_beritas',
-        //         'kategori_beritas.id',
-        //         '=',
-        //         'beritas.category_id'
-        //     )
-        //     ->where('kategori_beritas.kategori_slug', $kategori)
-        //     ->paginate(1);
-         // dd($id);
+        $datas = Berita::select('*')
+            ->join(
+                'kategori_beritas',
+                'kategori_beritas.id', '=', 'beritas.category_id'
+            )
+            ->where('kategori_beritas.kategori_slug', $kategori_slug)
+            ->paginate();
+        
+        // // =======================
+        // // get kategory id from kategory request
+        // $getKategoriID = KategoriBerita::where('kategori_slug', $kategori)->first();
+        
+        // // get berita by category id
+        // $datas = Berita::where('category_id', $getKategoriID->id)->paginate();
+        // // =======================
 
         // Slug
-        $slug = $kategori;
+        $slug = $kategori_slug;
 
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
         $pageTitle = 'Berita';
@@ -174,7 +179,7 @@ class BerandaController extends Controller
         return  view(
             'visitor.pages.berita.index',
             compact(
-                // 'datas',
+                'datas',
                 'kategoris',
                 'pageTitle',
                 'linkTerkaits',

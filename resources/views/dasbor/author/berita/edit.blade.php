@@ -33,6 +33,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
+
                 {{-- <form action="{{ route('dasbor.halaman.store') }}" method="post" enctype="multipart/form-data"> --}}
                 {!! Form::open(array('url' => route('dasbor.berita.update',['id'=> $data->id]),'files'=>'true')) !!}
                 @csrf
@@ -55,11 +56,11 @@
                         <!-- input item end-->
 
                         <div class="form-group">
-                            <label for="category_id" class="form-label d-block">Kategori <span class="text-danger">*</span></label>
+                            <label for="category_id" class="form-label d-block">Kategori</label>
                             <select class="form-control"  name="category_id" id="exampleFormControlSelect1">
-                                {{-- <option value="{{ $data->category_id }}" hidden selected>{{ $data->kategori->name }}</option> --}}
-                                @foreach ($kategori as $kategori)
-                                <option value="{{ $kategori->id }}" @if($data->category_id == $data->category_id) Selected @endif>{{ $kategori->name }}</option>
+                                <option hidden @if($data->category_id == $data->category_id) Selected @else @endif>Pilih</option>
+                                @foreach ($kategoris as $kategori)
+                                <option value="{{ $kategori->id }}" @if($kategori->id == $data->category_id) Selected @endif>{{ $kategori->name }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('category_id'))
@@ -67,11 +68,17 @@
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('category_id') }}</small>
                                 </span>
                             @endif
+
+                            <div class="mt-2">
+                                <a href="{{ url('dasbor/berita/kategori') ?? '' }}" class="btn btn-sm btn-primary"><i class="fa-solid fa-plus"></i> Kategori Baru</a>
+                            </div>
                         </div>
                         <!-- input item end-->
 
                         <div class="mb-3">
-                            <label for="konten_singkat" class="form-label">Konten Singkat <span class="text-danger">*</span></label>
+                            <label for="konten_singkat" class="form-label">Konten Singkat</label> 
+                            <span class="ml-1 cursor" role="button" title="Konten singkat akan ditampilkan dibagian intro dari sebuah berita."><i class="fa-solid fa-info-circle"></i></span>
+
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3"  @if (Auth::user()->hasRole('supervisor'))
                                 readonly
                                 @endif>{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
@@ -84,7 +91,7 @@
                         <!-- input item end-->
 
                         <div class="mb-3">
-                            <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
+                            <label for="konten" class="form-label">Konten</label>
                             <textarea name="konten" class="ckeditor form-control"  id="ckeditor" placeholder="Konten Berita" rows="10">{{ old('konten',$data->konten) }}</textarea>
                             @if ($errors->has('konten'))
                                 <span class="text-danger" role="alert">
@@ -95,7 +102,7 @@
                         <!-- input item end-->
 
                         <div class="form-group">
-                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                            <label for="status" class="form-label">Status</label>
                             <select name="status" id="test" class="form-control" onchange="showDiv(this)">
                                 @if(Auth::user()->hasRole(['administrator','author']))
                                     <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
@@ -114,9 +121,11 @@
                             @endif
                         </div>
                         <!-- input item end -->
-                        <div class="mb-3" id="hidden_div_revisi" style="display:none;">
+
+                        @if (Auth::user()->hasRole('supervisor'))
+                        <div class="mb-3" id="">
                             <label for="ket" class="form-label">Keterangan Revisi</label>
-                            <textarea name="ket_revisi" class="form-control" required placeholder="Berikan Keterangan Revisi" rows="3">{{ old('ket_revisi',$data->ket_revisi) }}</textarea>
+                            <textarea name="ket_revisi" class="form-control" placeholder="Berikan Keterangan Revisi" rows="3" >{{ old('ket_revisi', $data->ket_revisi) }}</textarea>
                             @if ($errors->has('ket_revisi'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('ket_revisi') }}</small>
@@ -126,11 +135,14 @@
                         <!-- input item end-->
 
                         <!-- input item end -->
-                        <div class="mb-3" id="hidden_div_verifikasi" style="display:none;">
+                        <div class="mb-3" id="">
                             <label for="ket_verfikasi" class="form-label">Keterangan Verifikasi</label>
-                            <input type="text" name="ket_verfikasi" class="form-control" value="{{ old('ket_verfikasi',$data->ket_verfikasi) }}" >
+                            <input type="text" name="ket_verfikasi" class="form-control" value="{{ old('ket_verfikasi', $data->ket_verfikasi) }}" >
                         </div>
                         <!-- input item end-->
+
+                        @endif
+
                     </div>
                     <!-- .col end-->
 
@@ -144,7 +156,7 @@
                                 <img src="{{ asset('gambar/berita/'.$data->gambar) }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @endif
                             </div>
-                            <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                            <label for="gambar" class="form-label d-block">Gambar</label>
                             <div class="custom-file w-100">
                                 <input type="file" name="gambar" class="custom-file-input" id="gambar">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>

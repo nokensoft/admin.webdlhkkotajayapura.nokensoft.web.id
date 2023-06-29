@@ -17,7 +17,7 @@
 </div>
 <!-- end row -->
 
-@if ($errors->any())
+{{-- @if ($errors->any())
 <div class="mb-3 alert alert-warning">
     <strong class="d-block mb-2 text-dark">Perhatian!</strong>
     <ul class="list-group">
@@ -28,7 +28,7 @@
         @endforeach
     </ul>
 </div>
-@endif
+@endif --}}
 
 <div class="row">
     <div class="col-lg-12">
@@ -53,11 +53,11 @@
                         <!-- input item end-->
 
                         <div class="form-group">
-                            <label for="category_id" class="form-label d-block">Kategori <span class="text-danger">*</span></label>
+                            <label for="category_id" class="form-label d-block">Kategori</label>
                             <select name="category_id" class="form-control" id="exampleFormControlSelect1">
                                 <option value="" hidden>Pilih</option>
                                 @foreach ($kategoris as $kategori)
-                                <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
+                                <option value="{{ $kategori->id }}" @if(old('category_id') == $kategori->id) Selected @endif>{{ $kategori->name }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('category_id'))
@@ -65,11 +65,18 @@
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('category_id') }}</small>
                                 </span>
                             @endif
+
+                            <div class="mt-2">
+                                <a href="{{ url('dasbor/berita/kategori') ?? '' }}" class="btn btn-sm btn-primary"><i class="fa-solid fa-plus"></i> Kategori Baru</a>
+                            </div>
+
                         </div>
                         <!-- input item end-->
 
                         <div class="form-group">
                             <label for="konten_singkat" class="form-label">Konten Singkat</label>
+                            <span class="ml-1 cursor" role="button" title="Konten singkat akan ditampilkan dibagian intro dari sebuah berita."><i class="fa-solid fa-info-circle"></i></span>
+
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3">{{ old('konten_singkat') }}</textarea>
                             @if ($errors->has('konten_singkat'))
                                 <span class="text-danger" role="alert">
@@ -80,7 +87,7 @@
                         <!-- input item end-->
 
                         <div class="form-group">
-                            <label for="konten" class="form-label">Konten <span class="text-danger">*</span></label>
+                            <label for="konten" class="form-label">Konten</label>
                             <textarea name="konten" id="ckeditor" class="ckeditor form-control" placeholder="Konten Berita" rows="30">{{ old('konten') }}</textarea>
                             @if ($errors->has('konten'))
                                 <span class="text-danger" role="alert">
@@ -90,12 +97,12 @@
                         </div>
                         <!-- input item end-->
 
-                        <div class="form-group">
-                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                        {{-- <div class="form-group">
+                            <label for="status" class="form-label">Status</label>
                             <select name="status" class="form-control">
                                 <option value="" hidden>Pilih</option>
                                 <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
-                                <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
+                                <option value="Draft" @if(old('status') == 'Draft' ?? 'Selected') Selected @endif>Draft</option>
                             </select>
                             @if ($errors->has('status'))
                                 <span class="text-danger" role="alert">
@@ -103,7 +110,7 @@
                                 </span>
                             @endif
                         </div>
-                        <!-- input item end -->
+                        <!-- input item end --> --}}
 
                     </div>
                     <!-- .col end-->
@@ -114,7 +121,7 @@
                             <div class="mb-2">
                                 <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                             </div>
-                            <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                            <label for="gambar" class="form-label d-block">Gambar</label>
                             <div class="custom-file w-100">
                                 <input type="file" name="gambar" class="custom-file-input" id="gambar" value="">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
