@@ -16,7 +16,7 @@
     </div>
 </div>
 
-@if ($errors->any())
+{{-- @if ($errors->any())
 <div class="mb-3 alert alert-warning">
     <strong class="d-block mb-2 text-dark">Perhatian!</strong>
     <ul class="list-group">
@@ -27,7 +27,7 @@
         @endforeach
     </ul>
 </div>
-@endif
+@endif --}}
 
 <div class="row">
     <div class="col-lg-12">
