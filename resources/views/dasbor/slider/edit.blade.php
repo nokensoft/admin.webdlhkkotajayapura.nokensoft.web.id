@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/link-terkait') }}">Link Terkait</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/slider') }}">Link Terkait</a></li>
                     <li class="breadcrumb-item active">Ubah</li>
                 </ol>
             </div>
@@ -36,7 +36,7 @@
 | ===============================================
 -->
 
-<form action="{{ url('dasbor/link-terkait/' . $data->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('dasbor/slider/' . $data->id) }}" method="POST" enctype="multipart/form-data">
 @csrf
 @method('put')
 
@@ -98,12 +98,12 @@
                             <div class="form-group">
                                 <div class="mb-2">
                                     @if (!$data->gambar)
-                                    <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
+                                    <img src="{{ asset('gambar/slider/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
                                     @else
-                                    <img src="{{ asset('gambar/link-terkait/' . $data->gambar ?? '') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
+                                    <img src="{{ asset('gambar/slider/' . $data->gambar ?? '') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
                                     @endif
                                 </div>
-                                <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span> {{ asset('gambar/link-terkait/' . $data->gambar ?? '') }}</label>
+                                <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span> {{ asset('gambar/slider/' . $data->gambar ?? '') }}</label>
                                 @if ($errors->has('gambar'))
                                     <span class="text-danger" role="alert">
                                         <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
@@ -136,7 +136,7 @@
                     <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light waves-effect waves-light border">
                         <i class="fe-save mr-1"></i> Simpan
                     </button>
-                    <a href="{{ route('dasbor.link-terkait') }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                    <a href="{{ route('dasbor.slider') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                         <i class="fe-arrow-left mr-1"></i> Kembali
                     </a>
                 </div>

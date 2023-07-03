@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/link-terkait') }}">Link Terkait</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/slider') }}">Link Terkait</a></li>
                     <li class="breadcrumb-item active">Tambah</li>
                 </ol>
             </div>
@@ -36,7 +36,7 @@
 | ===============================================
 -->
 
-<form action="{{ route('dasbor.link-terkait.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('dasbor.slider.store') }}" method="POST" enctype="multipart/form-data">
 @csrf
 
 <div class="row">
@@ -49,20 +49,20 @@
                     <div class="col-md-8">
 
                         <div class="form-group">
-                            <label for="judul_link" class="form-label">Judul Link <span class="text-danger">*</span></label>
-                            <input type="text" id="judul_link" name="judul_link" class="form-control" placeholder="Juul link" value="{{ old('judul_link') }}">
+                            <label for="judul" class="form-label">Judul <span class="text-danger">*</span></label>
+                            <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul slider" value="{{ old('judul') }}">
 
-                            @if ($errors->has('judul_link'))
+                            @if ($errors->has('judul'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul_link') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul') }}</small>
                                 </span>
                             @endif
                         </div>
                         <!-- input item end -->
 
                         <div class="form-group">
-                            <label for="url" class="form-label">URL <span class="text-danger">*</span></label>
-                            <input type="text" id="url" name="url" class="form-control" placeholder="URL" value="{{ old('url') }}">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <input type="text" id="deskripsi" name="deskripsi" class="form-control" placeholder="Deskripsi singkat" value="{{ old('deskripsi') }}">
 
                             @if ($errors->has('url'))
                                 <span class="text-danger" role="alert">
@@ -96,7 +96,7 @@
 
                         <div class="form-group">
                             <div class="mb-2">
-                                <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
+                                <img src="{{ asset('gambar/slider/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
                             </div>
                             <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
                             @if ($errors->has('gambar'))
@@ -131,7 +131,7 @@
                 <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light waves-effect waves-light border">
                     <i class="fe-save mr-1"></i> Simpan
                 </button>
-                <a href="{{ route('dasbor.link-terkait') }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                <a href="{{ route('dasbor.slider') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                     <i class="fe-arrow-left mr-1"></i> Kembali
                 </a>
             </div>

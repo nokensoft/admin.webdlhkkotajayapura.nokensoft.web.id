@@ -7,11 +7,10 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/link-terkait') }}">Link Terkait</a></li>
-                    <li class="breadcrumb-item active">Kelola</li>
+                    <li class="breadcrumb-item active">Slider</li>
                 </ol>
             </div>
-            <h4 class="page-title">Halaman</h4>
+            <h4 class="page-title">Slider</h4>
         </div>
     </div>
 </div>
@@ -23,7 +22,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ url('dasbor/link-terkait') }}" class="btn btn-danger mb-2 waves-effect waves-light"><i class="mdi mdi-arrow-left me-2"></i> Kembali</a>
+                        <a href="{{ url('dasbor/slider') }}" class="btn btn-danger mb-2 waves-effect waves-light"><i class="mdi mdi-arrow-left me-2"></i> Kembali</a>
                     </div>
                     <div class="col-sm-8">
 
@@ -48,13 +47,13 @@
                             <td class="text-center">
                                 <div class="row">
                                     <div class="col-6">
-                                        <form action="{{ url('dasbor/link-terkait/restore',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/slider/restore',$data->id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-success">Restore</button>
                                         </form>
                                     </div>
                                     <div class="col-6">
-                                        <form action="{{ url('dasbor/link-terkait/delete',$data->id) }}" method="POST">
+                                        <form action="{{ url('dasbor/slider/delete',$data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip"

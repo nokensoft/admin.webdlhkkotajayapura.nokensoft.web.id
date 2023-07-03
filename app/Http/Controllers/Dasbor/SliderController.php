@@ -6,10 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Image;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
 class SliderController extends Controller
 {
     /**
@@ -27,7 +30,7 @@ class SliderController extends Controller
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
                     $query->orWhere('judul', 'LIKE', '%' . $s . '%')
-                        ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
@@ -52,7 +55,7 @@ class SliderController extends Controller
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
                     $query->orWhere('judul', 'LIKE', '%' . $s . '%')
-                        ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
@@ -60,9 +63,10 @@ class SliderController extends Controller
         // $datas = Slider::where('status',1)->latest()->paginate(5);
 
         $jumlahtrash = Slider::onlyTrashed()->count();
-        $jumlahdraft = Slider::where('status', 0)->count();
+        $jumlahdraft = Slider::where('status', 'Draft')->count();
+        $datapublish = Slider::where('status', 'Publish')->count();
 
-        return view('dasbor.slider.index',compact('datas','jumlahtrash','jumlahdraft')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.slider.index',compact('datas','jumlahtrash','jumlahdraft', 'datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
@@ -82,36 +86,50 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // STORE
     public function store(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul'            => 'required',
+                // 'gambar'              => 'image|mimes:png,jpeg,jpg|max:4096',
+                // 'status'                    => 'required',
+            ],
+            [
+                'judul.required'   => 'Bagian ini tidak boleh kosong',
+                // 'status.required'           => 'Status tidak boleh kosong',
+                // 'gambar.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+            ]
+        );
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+                $slider = new Slider();
+                $slider->judul = $request->judul;
+                $slider->deskripsi = $request->deskripsi;
+                $slider->status = $request->status;
 
-        $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required',
-        ]);
+                if ($request->gambar) {
+                    $imageName = $slider->slug . '.' . $request->gambar->extension();
+                    $path = public_path('gambar/slider');
+                    if (!empty($slider->gambar) && file_exists($path . '/' . $slider->gambar)) :
+                        unlink($path . '/' . $slider->gambar);
+                    endif;
+                    $slider->gambar = $imageName;
+                    $request->gambar->move(public_path('gambar/slider'), $imageName);
+                }
+                $slider->save();
 
-        //upload image
-        $image = $request->file('image');
-        $image->storeAs('public/resource/sliders', $image->hashName());
+                Alert::toast('Berhasil!', 'success');
+                return redirect()->route('dasbor.slider');
 
-        //create slider
-        $slider = Slider::create([
-            'image'=> $image->hashName(),
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'status' => $request->status,
-
-        ]);
-
-        if ($slider) {
-            alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+            } catch (\Throwable $th) {
+                Alert::toast('Gagal', 'error');
+                return redirect()->back();
+            }
         }
-
-
-        return redirect('app/slider');
-
     }
 
 
@@ -197,7 +215,7 @@ class SliderController extends Controller
         $Slider->update($data);
               }
               alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-              return redirect('app/slider');
+              return redirect('dasbor/slider');
     }
 
     /**
