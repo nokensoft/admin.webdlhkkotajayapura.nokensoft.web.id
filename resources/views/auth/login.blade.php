@@ -97,7 +97,7 @@
                                 </span>
                                 @enderror
                             </div>
-                            <a href="" class="text-muted float-end"><small>Lupa Kata Sandi?</small></a>
+                            <a href="https://wa.me/+6282199558191?text=Hello admin, saya ada kendala login ke halaman dasbor website SIPAKOT. Mohon bantuan 🙏" target="_blank" title="Hubungi admin web" class="text-muted float-end"><small>Lupa Kata Sandi?</small></a>
                         </div>
                         <!-- group item end -->
 
