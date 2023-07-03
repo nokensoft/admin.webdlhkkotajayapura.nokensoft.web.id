@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             LayananOnlineSeeder::class,
             InformasiLingkunganSeeder::class,
             FaqSeeder::class,
+            SliderSeeder::class,
         ]);
     }
 }

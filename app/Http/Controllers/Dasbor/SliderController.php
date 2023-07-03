@@ -20,14 +20,14 @@ class SliderController extends Controller
     public function index(Request $request)
     {
         // $datas = Slider::where('status',1)->when(request()->q, function($datas) {
-        //     $datas = $datas->where('title', 'like', '%'. request()->s . '%');
+        //     $datas = $datas->where('judul', 'like', '%'. request()->s . '%');
         // })->latest()->paginate(5);
         $datas = Slider::where([
-            ['title', '!=', Null],
+            ['judul', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
-                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
-                        ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('judul', 'LIKE', '%' . $s . '%')
+                        ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
@@ -35,23 +35,24 @@ class SliderController extends Controller
         // $datas = Slider::where('status',1)->latest()->paginate(5);
 
         $jumlahtrash = Slider::onlyTrashed()->count();
-        $jumlahdraft = Slider::where('status', 0)->count();
+        $jumlahdraft = Slider::where('status', 'Draft')->count();
+        $datapublish = Slider::where('status', 'Publish')->count();
 
-        return view('panel.admin.pages.slider.index',compact('datas','jumlahtrash','jumlahdraft')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.slider.index',compact('datas','jumlahtrash','jumlahdraft', 'datapublish')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function draft(Request $request)
     {
         // $datas = Slider::where('status',1)->when(request()->q, function($datas) {
-        //     $datas = $datas->where('title', 'like', '%'. request()->s . '%');
+        //     $datas = $datas->where('judul', 'like', '%'. request()->s . '%');
         // })->latest()->paginate(5);
 
         $datas = Slider::where([
-            ['title', '!=', Null],
+            ['judul', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
-                    $query->orWhere('title', 'LIKE', '%' . $s . '%')
-                        ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('judul', 'LIKE', '%' . $s . '%')
+                        ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
@@ -61,7 +62,7 @@ class SliderController extends Controller
         $jumlahtrash = Slider::onlyTrashed()->count();
         $jumlahdraft = Slider::where('status', 0)->count();
 
-        return view('panel.admin.pages.slider.index',compact('datas','jumlahtrash','jumlahdraft')) ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('dasbor.slider.index',compact('datas','jumlahtrash','jumlahdraft')) ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
@@ -72,7 +73,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('panel.admin.pages.slider.create');
+        return view('dasbor.slider.create');
     }
 
     /**
@@ -85,8 +86,8 @@ class SliderController extends Controller
     {
 
         $request->validate([
-            'title' => 'required',
-            'subtitle' => 'required',
+            'judul' => 'required',
+            'deskripsi' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'required',
         ]);
@@ -98,8 +99,8 @@ class SliderController extends Controller
         //create slider
         $slider = Slider::create([
             'image'=> $image->hashName(),
-            'title' => $request->title,
-            'subtitle' => $request->subtitle,
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
             'status' => $request->status,
 
         ]);
@@ -138,7 +139,7 @@ class SliderController extends Controller
     {
         $data = Slider::whereId($id)->first();
 
-      return view('panel.admin.pages.slider.edit',compact('data'));
+      return view('dasbor.slider.edit',compact('data'));
     }
 
     /**
@@ -171,8 +172,8 @@ class SliderController extends Controller
 
 
              'image'=> $filename,
-             'title' => $request->title,
-             'subtitle' => $request->subtitle,
+             'judul' => $request->judul,
+             'deskripsi' => $request->deskripsi,
              'status' => $request->status,
 
             );
@@ -185,8 +186,8 @@ class SliderController extends Controller
               else {
                   $data = $request->all();
                   $data = array(
-                    'title' => $request->title,
-                    'subtitle' => $request->subtitle,
+                    'judul' => $request->judul,
+                    'deskripsi' => $request->deskripsi,
                     'status' => $request->status,);
 
 
@@ -226,7 +227,7 @@ class SliderController extends Controller
 {
     $datas = Slider::onlyTrashed()->paginate(10);
 
-    return view('panel.admin.pages.slider.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
+    return view('dasbor.slider.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
 }
 
 

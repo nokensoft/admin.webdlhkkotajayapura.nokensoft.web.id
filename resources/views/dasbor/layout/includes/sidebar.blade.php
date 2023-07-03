@@ -105,6 +105,16 @@
                                 </li>
 
                                 <li>
+                                    <a href="{{ url('dasbor/slider') }}">
+                                        <i class="mdi mdi-image-area"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ '0' }}
+                                        </span>
+                                        <span> Slider </span>
+                                    </a>
+                                </li>
+
+                                <li>
                                     <a href="{{ url('dasbor/informasi-lingkungan') }}">
                                         <i class="mdi mdi-leaf"></i>
                                         <span class="badge badge-success badge-pill float-right">

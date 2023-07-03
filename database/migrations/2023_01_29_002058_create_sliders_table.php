@@ -15,15 +15,18 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('subtitle');
-            $table->string('image');
+
+            $table->bigInteger('user_id')->unsigned()->nullable();
+
+            $table->string('judul')->nullable();
+            $table->string('slug')->unique()->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->string('gambar')->nullable();
           
-            $table->string('status');
+            $table->enum('status',['Publish','Draft','Revisi','Verifikasi'])->default('Draft')->nullable();
      
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
-           
 
             $table->timestamps();
             $table->softDeletes();
