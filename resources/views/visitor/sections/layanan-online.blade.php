@@ -1,4 +1,4 @@
-<div id="layanan-online" class="rs-services home12-style" style="background-image: url({{ asset('assets/images/bg/home12/services-bg.jpg') }})">
+<div id="layanan-online" class="rs-services home12-style" style="background-color: azure;">
     <div class="container">
 
         <!-- heading start -->

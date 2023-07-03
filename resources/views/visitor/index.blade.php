@@ -4,17 +4,18 @@
 @include('visitor.sections.banner-1')
 <!-- Banner 1 -->
 
-@include('visitor.sections.sekilas-profil')
-<!-- Sekilas Profil -->
-
-@include('visitor.sections.layanan-online')
-<!-- Layanan Online -->
-
 @include('visitor.sections.berita-terbaru')
 <!-- Berita Terbaru -->
 
-@include('visitor.sections.banner-2')
+@include('visitor.sections.sekilas-profil')
+<!-- Sekilas Profil -->
+
+{{-- @include('visitor.sections.banner-2') --}}
+@include('visitor.sections.slider-1')
 <!-- Banner 2 -->
+
+@include('visitor.sections.layanan-online')
+<!-- Layanan Online -->
 
 @include('visitor.sections.informasi-lingkungan')
 <!-- Informasi Lingkungan -->

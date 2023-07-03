@@ -1,4 +1,4 @@
-<div class="why-choose-us style3">
+<div class="why-choose-us style3" style="background-image: url({{ asset('assets/images/bg/home12/services-bg.jpg') }})">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6  md-mb-40">
