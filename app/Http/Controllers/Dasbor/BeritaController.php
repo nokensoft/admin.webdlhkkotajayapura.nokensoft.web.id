@@ -177,6 +177,7 @@ class BeritaController extends Controller
             if (file_exists($path)) {
                 File::delete($path);
             }
+            
             $data->forceDelete();
             Alert::toast('Berita Berhasil dihapus!', 'success');
             return redirect()->back();
