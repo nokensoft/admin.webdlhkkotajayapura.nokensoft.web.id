@@ -54,16 +54,25 @@
                                 <li>
                                     <span class="p-date"> <i class="fa fa-calendar-check-o"></i> {{ $data->created_at }} </span>
                                 </li>
-                                {{-- <li>
-                                    <span class="p-date"> <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }} </span>
-                                </li> --}}
-                                {{-- <li>
-                                    <span class="p-date"> <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }} </span>
-                                </li> --}}
                             </ul>
 
                             <div class="d-block fs-5">
                                 {!! $data->konten !!}
+                            </div>
+
+                            <div class="mt-3">
+                                <p class="mb-3 text-muted">Bagikan di media sosial :</p>
+                                <div>
+                                    <a href="#" class="btn btn-outline-success">
+                                        <i class="fa-brands fa-facebook"></i> Facebook
+                                    </a>
+                                    <a href="#" class="btn btn-outline-success">
+                                        <i class="fa-brands fa-twitter"></i> Twitter
+                                    </a>
+                                    <a href="#" class="btn btn-outline-success">
+                                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                                    </a>
+                                </div>
                             </div>
 
                        </div>
