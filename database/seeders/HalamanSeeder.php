@@ -29,13 +29,13 @@ class HalamanSeeder extends Seeder
                 'konten_singkat'    => 'Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura telah berdiri sejak tahun 2017. DLHK Kota Jayapura memiliki Tugas dan Fungsi dan juga tata kerja secara dinas',
 
                 'konten'            => '<blockquote><p>Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura dibentuk berdasarkan Peraturan Walikota Jaypura Nomor 47 Tahun 2017 tentang Perubahan Atas Peraturan Walikota Jayapura Nomor 31 Tahun 2016 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi Serta Tata Kerja Dinas-Dinas Daerah, mempunyai tugas membantu Walikota dalam melaksanakan Urusan Pemerintah yang menjadi kewenangan daerah di Bidang Lingkungan Hidup.</p></blockquote>
-                                        <p>Untuk menyelenggarakan tugas sebagaimana tersebut di atas, Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura mempunyai fungsi:</p>
-                                        <ol class="unorder-list mb-20">
-                                            <li>Perumusan Kebijakan Daerah di Bidang Lingkungan Hidup;</li>
-                                            <li>Pelaksanaan Kebijakan Daerah di Bidang Lingkungan Hidup;</li>
-                                            <li>Pelaksanaan Evaluasi dan Pelaporan Daerah di Bidang Lingkungan Hidup;</li>
-                                            <li>Pelaksanaan Tugas lain yang diberikan oleh Walikota sesuai dengan Tugas dan Fungsinya.;</li>
-                                        </ol>',
+                <p>Untuk menyelenggarakan tugas sebagaimana tersebut di atas, Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura mempunyai fungsi:</p>
+                <ol class="unorder-list mb-20">
+                    <li>Perumusan Kebijakan Daerah di Bidang Lingkungan Hidup;</li>
+                    <li>Pelaksanaan Kebijakan Daerah di Bidang Lingkungan Hidup;</li>
+                    <li>Pelaksanaan Evaluasi dan Pelaporan Daerah di Bidang Lingkungan Hidup;</li>
+                    <li>Pelaksanaan Tugas lain yang diberikan oleh Walikota sesuai dengan Tugas dan Fungsinya.;</li>
+                </ol>',
 
 
 
@@ -51,12 +51,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -70,12 +66,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -89,12 +81,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -109,12 +97,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -128,12 +112,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -147,12 +127,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -166,12 +142,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -185,12 +157,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -204,12 +172,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -223,12 +187,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -242,12 +202,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -261,12 +217,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
 
 
@@ -286,12 +238,8 @@ class HalamanSeeder extends Seeder
     
                 <p>Melalui RPPLH, diharapkan bahwa lingkungan hidup dapat dijaga kelestariannya, sumber daya alam dapat dimanfaatkan secara berkelanjutan, dan kerusakan lingkungan dapat dicegah atau diminimalkan. RPPLH juga berperan dalam mempromosikan kesadaran lingkungan di antara masyarakat serta mendorong adanya upaya kolektif untuk menjaga dan memelihara keindahan alam dan keberlanjutan ekosistem. Dengan implementasi yang tepat, RPPLH dapat menjadi instrumen penting dalam mencapai pembangunan yang berkelanjutan dan harmoni antara manusia dan lingkungan hidup.</p>',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
 
 
@@ -302,19 +250,20 @@ class HalamanSeeder extends Seeder
                 'user_id'           => 3,
                 'judul_halaman'     => 'IKLH',
                 'slug'              => 'iklh',
-                'sub_judul'         => 'Kami mempublikasikan berbagai informasi tentang kinerja kami',
+                'sub_judul'         => 'Indeks Kualitas Hidup',
                 'gambar'            => '3.jpg',
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
-
-
+                'konten'            => '<p>Indeks Kualitas Hidup atau disingkat IKH merupakah sebuah index yang digunakan untuk mengukur tingkat kesejahteraan masyarakat pada suatu tempat atau daerah terntentu. Ada tiga indikator utama di dalam IKH, yaitu :
+                <ol type="1">
+                    <li>Tingkat harapan hidup;</li>
+                    <li>Angka Kematian;</li>
+                    <li>Tingkat melek huruf.</li>
+                </ol></p>
+                <p>IKH dapat digunakan dalam berbagai konteks pembangunan dengan tujuan untuk mengukur dan memperoleh gambaran tingkat kesejahteraan secara umum. Contohnya dalam bidang kesehatan, pendidikan dan politik.</p>
+  
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
@@ -328,12 +277,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>...</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
 
 
@@ -349,12 +294,8 @@ class HalamanSeeder extends Seeder
 
                 'konten_singkat'    => '',
 
-                'konten'            => '<p><h2>Maaf!</h2> Halaman ini dalam tahap pengembangan. Silahkan kembali lagi kemudian untuk mendapatkan informasi yang Anda cari.</p>
-                <p>Lingkungan alam adalah segala sesuatu yang mengelilingi kita, termasuk udara, tanah, air, flora, dan fauna. Lingkungan memainkan peran penting dalam kelangsungan hidup kita dan semua makhluk hidup lainnya di bumi. Namun, saat ini, lingkungan alam kita menghadapi tantangan serius yang mengancam keberlanjutan dan keseimbangannya. Penebangan hutan yang tidak terkendali, polusi udara dan air, perubahan iklim, dan kepunahan spesies hanyalah beberapa contoh dari masalah lingkungan yang dihadapi saat ini. Untuk menjaga lingkungan kita, diperlukan tindakan kolektif dari semua individu dan pemerintah di seluruh dunia.</p>
-
-                <p>Melindungi dan melestarikan lingkungan adalah tanggung jawab bersama. Kita perlu berusaha mengurangi emisi gas rumah kaca dengan menggunakan sumber energi terbarukan dan mengadopsi praktik berkelanjutan. Menjaga keanekaragaman hayati sangat penting, sehingga ekosistem dapat tetap seimbang. Penting juga untuk mengelola limbah dengan bijaksana dan meminimalkan penggunaan bahan kimia berbahaya. Edukasi dan kesadaran lingkungan harus ditingkatkan agar masyarakat lebih sadar akan pentingnya menjaga dan merawat lingkungan alam kita.</p>
-
-                <p>Setiap individu memiliki peran penting dalam menjaga lingkungan. Kita bisa mulai dengan melakukan tindakan sederhana seperti mengurangi, mendaur ulang, dan menggunakan kembali barang-barang sehari-hari. Menghemat air, menggunakan kendaraan ramah lingkungan, dan mengurangi konsumsi energi juga merupakan langkah-langkah yang berdampak positif terhadap lingkungan. Selain itu, penting juga untuk mendukung organisasi dan kebijakan yang berkomitmen untuk melindungi lingkungan. Dengan menjaga lingkungan alam kita, kita tidak hanya memastikan kelangsungan hidup generasi masa kini, tetapi juga mewariskan bumi yang lestari kepada generasi mendatang.</p>',
+                'konten'            => '<p>....</p>
+                <p class="alert alert-info"><b>Disclaimer:</b> Konten pada halaman ini belum diinput secara menyeluruh. Informasi lebih lengkap akan diperbaharui segera.</p>',
 
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
