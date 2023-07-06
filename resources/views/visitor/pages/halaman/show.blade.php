@@ -36,7 +36,7 @@
             @endif
 
             <div class="blog-full">
-                {!! $halaman->konten !!}
+                {!! $halaman->konten_singkat !!}
             </div>
         </div>
         </div>

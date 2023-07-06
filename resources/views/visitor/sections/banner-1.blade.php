@@ -33,8 +33,8 @@
         <div class="shape-img">
             <img class="up-down-new" src="{{ asset('assets/visitor/assets/images/banner/home12/dotted-shape.png') }}" alt="">
         </div>
-        <div class="intro-img">
-            <img class="spine2" src="{{ asset('assets/visitor/assets/images/banner/home12/intro-box.png') }}" alt="">
-        </div>
+        {{-- <div class="intro-img">
+            <img class="up-down-new" src="{{ asset('assets/visitor/assets/images/banner/home12/intro-box.png') }}" alt="">
+        </div> --}}
     </div>    
 </div>

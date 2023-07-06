@@ -61,6 +61,24 @@ class LinkTerkaitSeeder extends Seeder
             'url'                   => 'http://lpse.jayapurakota.go.id/eproc4/',
         ]);
 
+        // Aplikasi SIPSN
+        LinkTerkait::create([
+            'author'                => 1,
+            'judul_link'            => 'SIPSN',
+            'slug'                  => 'sipsn-kementerian',
+            'gambar'                => 'sipsn.png',
+            'url'                   => 'https://sipsn.menlhk.go.id/sipsn/login',
+        ]);
+
+        // Aplikasi HINO CONNECT
+        LinkTerkait::create([
+            'author'                => 1,
+            'judul_link'            => 'HINNO CONNECT',
+            'slug'                  => 'hinno-connect',
+            'gambar'                => 'hino-connect.png',
+            'url'                   => 'https://sipsn.menlhk.go.id/sipsn/login',
+        ]);
+
 
     }
 }
