@@ -72,6 +72,9 @@
                                     <a href="#" class="btn btn-outline-success">
                                         <i class="fa-brands fa-linkedin"></i> LinkedIn
                                     </a>
+                                    <a href="#" class="btn btn-outline-success">
+                                        <i class="fa-brands fa-whatsapp"></i> Whatsapp
+                                    </a>
                                 </div>
                             </div>
 
