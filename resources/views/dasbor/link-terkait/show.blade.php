@@ -17,35 +17,80 @@
 </div>
 <!-- end row -->
 
+
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col">
         <div class="card">
             <div class="card-body">
+                <div class="row">
+                    
+                    <div class="col-md-8">
 
-                <h1 class="fw-bold mb-3">{{ $data->judul_halaman }}</h1>
-                <p class="mb-3">{{ $data->sub_judul }}</p>
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Judul</label>
+                            <div class="border-bottom py-1">
+                                {{ $data->judul_link ?? ''}}
+                            </div>
+                        </div>
+                        <!-- item end -->
 
-                <div class="mb-3">
-                    @if(!$data->gambar_cover)
-                        <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="gambar" class="img-fluid img-thumbnail img-fluid">
-                        @else
-                        <img src="{{ asset('gambar/link-terkait/' . $data->gambar_cover ) }}" alt="gambar" class="img-thumbnail img-fluid">
-                    @endif
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">
+                                URL <i class="fa-solid fa-info-circle" data-toggle="tooltip" data-placement="right" title='URL merupakan link atau alamat sebuah halaman web secara internal (dari web ini) atau secara eksternal  (dari web lainnya)' role="button"></i>
+                            </label>
+                            <div class="border-bottom py-1">
+                                <a href="{{ $data->url ?? '' }}" target="_blank">{{ $data->url ?? '' }}</a>
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Status</label>
+                            <div class="border-bottom py-1">
+                                {{ $data->status }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Tanggal Terbit</label>
+                            <div class="border-bottom py-1">
+                                {{ $data->created_at }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Tanggal Diubah</label>
+                            <div class="border-bottom py-1">
+                                {{ $data->updated_at }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+
+                    </div>
+                    <div class="col-md-4 order-sm-first order-md-last">
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Gambar</label>
+                            <div class="border-bottom py-1">
+                                @if(empty($data->gambar)) 
+                                <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar" class="w-100">
+                                @else 
+                                <img src="{{ asset('gambar/link-terkait/' . $data->gambar ) }}" alt="Gambar" class="w-100">
+                                @endif
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                        <!-- item end -->
+
+                    </div>
                 </div>
-
-                <div class="mb-3">
-                    {!! $data->konten !!}
-                </div>
-
-                <div class="mb-3">
-                    <span class="fw-bold">Status :</span> {!! $data->status !!}
-                </div>
-
             </div>
-        </div> <!-- end card -->
-    </div> <!-- end col -->
-
-
+        </div>
+    </div>
 </div>
 <!-- end row -->
 
@@ -53,11 +98,11 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('dasbor.halaman.edit',$data->slug) }}" class="btn btn-lg btn-outline-dark waves-effect waves-light">
-                    <i class="fe-edit"></i> Edit
+                <a href="{{ url('dasbor/link-terkait/' . $data->slug.'/edit') }}" class="btn btn-lg btn-primary waves-effect waves-light border">
+                    <i class="fe-edit"></i> Ubah
                 </a>
-                <a href="{{ route('dasbor.halaman') }}" class="btn btn-light waves-effect waves-light border">
-                    <i class="mdi mdi-arrow-left mr-1"></i>Kembali
+                <a href="{{ route('dasbor.link-terkait') }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                    <i class="fe-arrow-left mr-1"></i>Kembali
                 </a>
             </div>
         </div>
@@ -83,7 +128,6 @@
 <script src="{{ asset('assets/admin/assets/js/pages/add-product.init.js')}}"></script>
 <!-- Init js-->
 <script src="{{ asset('assets/admin/assets/js/pages/form-fileuploads.init.js')}}"></script>
-
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function () {

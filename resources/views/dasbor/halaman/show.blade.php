@@ -28,47 +28,61 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Judul</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->judul_halaman ?? ''}}
                             </div>
                         </div>
                         <!-- item end -->
 
                         <div class="mb-3">
-                            <label for="" class="font-weight-bold">Slug</label>
-                            <div class="border p-3">
-                                {{ $data->slug ?? ''}}
+                            <label for="" class="font-weight-bold">
+                                Slug <i class="fa-solid fa-info-circle" data-toggle="tooltip" data-placement="right" title='Slug merupakan judul yang diubah menjadi huruf kecil dan tanpa spasi. Digunakan untuk alamat url atau link sebuah konten.' role="button"></i>
+                            </label>
+                            <div class="border-bottom py-1">
+                                {{ $data->slug ?? '' }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">
+                                URL <i class="fa-solid fa-info-circle" data-toggle="tooltip" data-placement="right" title='URL merupakan link atau alamat sebuah halaman' role="button"></i>
+                            </label>
+                            <div class="border-bottom py-1">
+                                <a href="{{ url('halaman', $data->slug ?? '') }}" target="_blank">{{ url('halaman/', $data->slug ?? '')}}</a>
                             </div>
                         </div>
                         <!-- item end -->
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Sub Judul</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->sub_judul ?? ''}}
                             </div>
                         </div>
                         <!-- item end -->
 
                         <div class="mb-3">
-                            <label for="" class="font-weight-bold">Konten Singkat</label>
-                            <div class="border p-3">
-                                {{ $data->konten_singkat ?? ''}}
+                            <label for="" class="font-weight-bold">
+                                Konten Singkat <i class="fa-solid fa-info-circle" data-toggle="tooltip" data-placement="right" title='Konten singkat digunakan pada saat menampilkan sebuah konten dalam skala kecil atau ringkas.' role="button"></i>
+                            </label>
+                            <div class="border-bottom py-1">
+                                {!! $data->konten_singkat ?? '' !!}
                             </div>
                         </div>
                         <!-- item end -->
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Konten</label>
-                            <div class="border p-3">
-                                {{ $data->konten ?? ''}}
+                            <div class="border-bottom py-1">
+                                {!! $data->konten ?? '' !!}
                             </div>
                         </div>
                         <!-- item end -->
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Status</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->status }}
                             </div>
                         </div>
@@ -76,15 +90,15 @@
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Tanggal Terbit</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->created_at }}
                             </div>
                         </div>
                         <!-- item end -->
                         
                         <div class="mb-3">
-                            <label for="" class="font-weight-bold">Diubah Terbit</label>
-                            <div class="border p-3">
+                            <label for="" class="font-weight-bold">Tanggal Diubah</label>
+                            <div class="border-bottom py-1">
                                 {{ $data->updated_at }}
                             </div>
                         </div>
@@ -95,12 +109,15 @@
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Gambar</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 @if(empty($data->gambar)) 
                                 <img src="{{ asset('gambar/halaman/00.jpg') }}" alt="Gambar" class="w-100">
                                 @else 
                                 <img src="{{ asset('gambar/halaman/' . $data->gambar ) }}" alt="Gambar" class="w-100">
                                 @endif
+                            </div>
+                            <div>
+
                             </div>
                         </div>
                         <!-- item end -->

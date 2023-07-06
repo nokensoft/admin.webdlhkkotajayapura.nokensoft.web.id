@@ -27,7 +27,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Judul</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->judul }}
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Keterangan Singkat</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->keterangan_singkat }}
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Status</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->status }}
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Tanggal Terbit</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->created_at }}
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Tanggal Diubah</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $data->updated_at }}
                             </div>
                         </div>

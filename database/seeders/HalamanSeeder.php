@@ -37,8 +37,6 @@ class HalamanSeeder extends Seeder
                     <li>Pelaksanaan Tugas lain yang diberikan oleh Walikota sesuai dengan Tugas dan Fungsinya.;</li>
                 </ol>',
 
-
-
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now()
             ],
