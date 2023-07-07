@@ -72,12 +72,6 @@
                                     <a class="linkedin btn btn-outline-success">
                                         <i class="fa-brands fa-linkedin"></i> LinkedIn
                                     </a>
-                                    <a class="btn btn-outline-dark">
-                                        url : {{ json_encode(Request::url()) }}
-                                    </a>
-                                    {{-- <a href="#" class="btn btn-outline-success whatsapp">
-                                        <i class="fa-brands fa-whatsapp"></i> Whatsapp
-                                    </a> --}}
                                 </div>
                             </div>
 
@@ -108,14 +102,17 @@
     // share to facebook
 	const fb = document.querySelector('.facebook');
 	fb.href = `https://www.facebook.com/share.php?u=${link}`;
+    fb.target = `_blank`;
 
     // share to twitter
 	const twitter = document.querySelector('.twitter');
 	twitter.href = `https://www.twitter.com/share?&url=${link}&text=${msg}&hashtags=nokensoft,papuaitconsultant`;
+    twitter.target = `_blank`;
 
     // share to linkedin
 	const linkedin = document.querySelector('.linkedin');
 	linkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${link}`;
+    linkedin.target = `_blank`;
 
 </script>
 
