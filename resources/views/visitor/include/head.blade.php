@@ -1,6 +1,8 @@
     <!-- meta tag -->
     <meta charset="utf-8">
-    <title>{{ $pengaturan->judul_situs }}</title>   
+    <title>{{ $pengaturan->judul_situs }}</title> 
+    
+    @if(isset($data))
 
     <!-- Essential Meta Tags For Social Media -->
     <meta property="og:title" content="{{ $data->judul ?? $pengaturan->judul_situs }}">
@@ -14,6 +16,23 @@
     <meta property="og:description" content="{{ $data->konten_singkat ?? $pengaturan->deskripsi_situs }}">
     <meta property="og:site_name" content="{{ $data->judul ?? $pengaturan->judul_situs }}">
     <meta name="twitter:image:alt" content="Website Cover Image">
+
+    @else
+
+    <!-- Essential Meta Tags For Social Media -->
+    <meta property="og:title" content="{{ $pengaturan->judul_situs }}">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ $pengaturan->logo_meta }}">
+    <meta property="og:url" content="{{ $pengaturan->alamat_web }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="{{ $pengaturan->logo_meta }}">
+
+    <!--  Non-Essential, But Recommended -->
+    <meta property="og:description" content="{{ $pengaturan->deskripsi_situs }}">
+    <meta property="og:site_name" content="{{ $pengaturan->judul_situs }}">
+    <meta name="twitter:image:alt" content="Website Cover Image">
+
+    @endif
 
     <meta name="description" content="">
     <!-- responsive tag -->
