@@ -5,10 +5,10 @@
     <!-- Essential Meta Tags For Social Media -->
     <meta property="og:title" content="{{ $data->judul ?? $pengaturan->judul_situs }}">
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ $data->gambar ?? $pengaturan->logo_meta }}">
+    <meta property="og:image" content="{{ asset('gambar/berita/' . $data->gambar) ?? $pengaturan->logo_meta }}">
     <meta property="og:url" content="{{ Request::url() ?? $pengaturan->alamat_web }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:image" content="{{ $data->gambar ?? $pengaturan->logo_meta }}">
+    <meta property="twitter:image" content="{{ asset('gambar/berita/' . $data->gambar) ?? $pengaturan->logo_meta }}">
 
     <!--  Non-Essential, But Recommended -->
     <meta property="og:description" content="{{ $data->konten_singkat ?? $pengaturan->deskripsi_situs }}">
