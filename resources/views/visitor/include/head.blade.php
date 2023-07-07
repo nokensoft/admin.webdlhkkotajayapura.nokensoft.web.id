@@ -1,15 +1,19 @@
     <!-- meta tag -->
     <meta charset="utf-8">
     <title>{{ $pengaturan->judul_situs }}</title>   
-    <meta property="og:title" content="{{ $pengaturan->judul_situs }}">
+
+    <!-- Essential Meta Tags For Social Media -->
+    <meta property="og:title" content="{{ $data->judul ?? $pengaturan->judul_situs }}">
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ $pengaturan->logo_meta }}">
-    <meta property="og:url" content="{{ $pengaturan->alamat_web }}">
+    <meta property="og:image" content="{{ $data->gambar ?? $pengaturan->logo_meta }}">
+    <meta property="og:url" content="{{ Request::url() ?? $pengaturan->alamat_web }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:image" content="{{ $pengaturan->logo_meta }}">
-    <meta property="og:description" content="{{ $pengaturan->deskripsi_situs }}">
-    <meta property="og:site_name" content="{{ $pengaturan->judul_situs }}">
-    <meta name="twitter:image:alt" content="Cover Website DLHK Kota Jayapura">
+    <meta property="twitter:image" content="{{ $data->gambar ?? $pengaturan->logo_meta }}">
+
+    <!--  Non-Essential, But Recommended -->
+    <meta property="og:description" content="{{ $data->konten_singkat ?? $pengaturan->deskripsi_situs }}">
+    <meta property="og:site_name" content="{{ $data->judul ?? $pengaturan->judul_situs }}">
+    <meta name="twitter:image:alt" content="Website Cover Image">
 
     <meta name="description" content="">
     <!-- responsive tag -->

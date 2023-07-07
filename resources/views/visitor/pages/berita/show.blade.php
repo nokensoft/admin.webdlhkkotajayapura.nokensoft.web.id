@@ -63,14 +63,17 @@
                             <div class="mt-3">
                                 <p class="mb-3 text-muted">Bagikan di media sosial :</p>
                                 <div>
-                                    <a href="#" class="btn btn-outline-success facebook">
+                                    <a class="facebook btn btn-outline-success">
                                         <i class="fa-brands fa-facebook"></i> Facebook
                                     </a>
-                                    <a href="#" class="btn btn-outline-success twitter">
+                                    <a class="twitter btn btn-outline-success">
                                         <i class="fa-brands fa-twitter"></i> Twitter
                                     </a>
-                                    <a href="#" class="btn btn-outline-success linkedin">
+                                    <a class="linkedin btn btn-outline-success">
                                         <i class="fa-brands fa-linkedin"></i> LinkedIn
+                                    </a>
+                                    <a class="btn btn-outline-dark">
+                                        url : {{ json_encode(Request::url()) }}
                                     </a>
                                     {{-- <a href="#" class="btn btn-outline-success whatsapp">
                                         <i class="fa-brands fa-whatsapp"></i> Whatsapp
@@ -95,8 +98,9 @@
 <script type="text/javascript">
 
     // Declare content variables
-	const link = 'https://janzenfaidiban.github.io/html-js-social-media-share-buttons/index.html'; // encodeURI(window.location.href);
-	const msg = encodeURIComponent('Papua Tech Community');
+	// const link = 'https://dlhk.jayapurakota.go.id/berita/serah-terima-jabatan-dan-purna-tugas-penjabat-struktural'; // encodeURI(window.location.href);
+	const link = '{{ Request::url() }}'; // encodeURI(window.location.href);
+	const msg = encodeURIComponent('{!! $pengaturan->judul_situs . ": " !!} {!! $data->judul !!}');
 	const title = encodeURIComponent(document.querySelector('title').textContent);
 
 	console.log([link, msg, title]);

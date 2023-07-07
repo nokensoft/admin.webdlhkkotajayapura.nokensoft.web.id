@@ -223,11 +223,9 @@ class BeritaSeeder extends Seeder
             'judul'             => 'Serah Terima Jabatan dan Purna Tugas Penjabat Struktural',
             'slug'              => 'serah-terima-jabatan-dan-purna-tugas-penjabat-struktural',
             'gambar'            => '09-720X480.jpg',
-            'konten'            => '<p>The Environmental Agency of Jayapura City is a governmental organization responsible for managing and preserving the environment in the city. Its primary objective is to promote sustainable development while ensuring the protection of natural resources, biodiversity, and the overall well-being of the community. The agency works towards achieving this goal through various activities such as implementing environmental regulations, conducting environmental assessments, raising awareness about environmental issues, and collaborating with other stakeholders to develop and implement effective environmental policies and programs. By actively engaging with the public and stakeholders, the Environmental Agency of Jayapura City strives to create a clean and healthy environment for its residents, promoting a sustainable and livable city for present and future generations.</p>
+            'konten'            => '<p>Telah dilaksanakan serah terim jabatan pada lingkungan Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura. Pada kegiatan ini, pejabat yang lema telah diganti dengan pejabat yang baru.</p>',
 
-            <p>In addition to environmental management, the agency also focuses on waste management and pollution control. It coordinates waste collection and disposal systems, aiming to minimize the environmental impact of waste generation and promote recycling and proper waste disposal practices. The agency also monitors air and water quality, implementing measures to reduce pollution levels and protect the health of the population. Through its dedicated efforts, the Environmental Agency of Jayapura City plays a crucial role in safeguarding the environment and enhancing the quality of life for the residents of the city.</p>',
-
-            'konten_singkat'    => 'Berikut adalah enam langkah yang dapat diikuti untuk mengadakan acara penanaman pohon yang sukses',
+            'konten_singkat'    => 'Telah dilaksanakan serah terim jabatan pada lingkungan Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura.',
 
             'status'            => 'Publish',
         ]);
