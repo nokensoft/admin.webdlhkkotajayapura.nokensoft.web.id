@@ -24,7 +24,7 @@
 
                 <div class="mb-3">
                     <label for="" class="font-weight-bold">Nama Lengkap</label>
-                    <div class="border p-3">
+                    <div class="border-bottom py-1">
                         {{ $data->judul_topik ?? ''}}
                     </div>
                 </div>
@@ -32,7 +32,7 @@
 
                 <div class="mb-3">
                     <label for="" class="font-weight-bold">Alamat Email</label>
-                    <div class="border p-3">
+                    <div class="border-bottom py-1">
                         {{ $data->email ?? ''}}
                     </div>
                 </div>
@@ -40,7 +40,7 @@
 
                 <div class="mb-3">
                     <label for="" class="font-weight-bold">Nomor HP / WA</label>
-                    <div class="border p-3">
+                    <div class="border-bottom py-1">
                         {{ $data->no_telf ?? ''}}
                     </div>
                 </div>
@@ -48,7 +48,7 @@
 
                 <div class="mb-3">
                     <label for="" class="font-weight-bold">Judul Pesan</label>
-                    <div class="border p-3">
+                    <div class="border-bottom py-1">
                         {{ $data->judul_topik ?? ''}}
                     </div>
                 </div>
@@ -56,7 +56,7 @@
 
                 <div class="mb-3">
                     <label for="" class="font-weight-bold">Isi Pesan</label>
-                    <div class="border p-3">
+                    <div class="border-bottom py-1">
                         {{ $data->keterangan ?? ''}}
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         
                 <div class="mb-3">
                     <label for="" class="font-weight-bold">Tanggal Kirim</label>
-                    <div class="border p-3">
+                    <div class="border-bottom py-1">
                         {{ $data->created_at }}
                     </div>
                 </div>

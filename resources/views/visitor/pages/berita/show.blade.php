@@ -57,24 +57,24 @@
                             </ul>
 
                             <div class="d-block fs-5">
-                                {!! $data->konten !!}
+                                {!! $data->konten ?? '' !!}
                             </div>
 
                             <div class="mt-3">
                                 <p class="mb-3 text-muted">Bagikan di media sosial :</p>
                                 <div>
-                                    <a href="#" class="btn btn-outline-success">
+                                    <a href="#" class="btn btn-outline-success facebook">
                                         <i class="fa-brands fa-facebook"></i> Facebook
                                     </a>
-                                    <a href="#" class="btn btn-outline-success">
+                                    <a href="#" class="btn btn-outline-success twitter">
                                         <i class="fa-brands fa-twitter"></i> Twitter
                                     </a>
-                                    <a href="#" class="btn btn-outline-success">
+                                    <a href="#" class="btn btn-outline-success linkedin">
                                         <i class="fa-brands fa-linkedin"></i> LinkedIn
                                     </a>
-                                    <a href="#" class="btn btn-outline-success">
+                                    {{-- <a href="#" class="btn btn-outline-success whatsapp">
                                         <i class="fa-brands fa-whatsapp"></i> Whatsapp
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
 
@@ -91,5 +91,29 @@
 
 @include('visitor.sections.banner-3')
 <!-- Newsletter -->
+
+<script type="text/javascript">
+
+    // Declare content variables
+	const link = 'https://janzenfaidiban.github.io/html-js-social-media-share-buttons/index.html'; // encodeURI(window.location.href);
+	const msg = encodeURIComponent('Papua Tech Community');
+	const title = encodeURIComponent(document.querySelector('title').textContent);
+
+	console.log([link, msg, title]);
+
+    // share to facebook
+	const fb = document.querySelector('.facebook');
+	fb.href = `https://www.facebook.com/share.php?u=${link}`;
+
+    // share to twitter
+	const twitter = document.querySelector('.twitter');
+	twitter.href = `https://www.twitter.com/share?&url=${link}&text=${msg}&hashtags=nokensoft,papuaitconsultant`;
+
+    // share to linkedin
+	const linkedin = document.querySelector('.linkedin');
+	linkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${link}`;
+
+</script>
+
 
 @stop
