@@ -44,8 +44,8 @@
                         <tr>
                             <td class="text-center">{{ ++$i }}</td>
                             <td>{{ $data->name ?? ''}}</td>
-                            <td> {{ $data->deskripsi ?? ''}} </td>
-                            <td> {{ $data->user->name ?? '' }} </td>
+                            <td>{{ $data->deskripsi ?? ''}} </td>
+                            <td>{{ $data->user->name ?? '' }}</td>
                             <td> {{ $data->status ?? ''}} </td>
                             <td class="text-center">
                                 <form action="{{ url('dasbor/berita/kategori', $data->id) }}" method="POST">

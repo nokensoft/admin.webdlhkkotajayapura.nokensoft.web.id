@@ -56,8 +56,11 @@
                                 @endif
                             </th>
                             <td>{{ $data->judul ?? ''}}</td>
-                            <td> <a href="{{ url('berita/kategori', $data->kategori->kategori_slug ?? '') }}" target="_blank">{{ $data->kategori->name ?? ''}}</a> </td>
-                            <td> {{ $data->author->name ?? '' }} </td>
+                            <td> 
+                                <i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="{{ $data->kategori->deskripsi ?? '' }}"></i>
+                                {{ $data->kategori->name ?? ''}}
+                            </td>
+                            <td>{{ $data->author->name ?? '' }}</td>
                             <td>
                                 @if($data->status == "Verifikasi")
                                     <a href="{{ route('dasbor.berita.verifikasi') }}"> Terverifikasi </a>

@@ -114,5 +114,14 @@ class KategoriBeritaSeeder extends Seeder
             'user_id' => 1, // created by Admin DLHK
         ]);
 
+        KategoriBerita::create([
+            'id' => 12,
+            'name' => 'Siaran Pers',
+            'kategori_slug' => 'siaran-pers',
+            'deskripsi' => 'Publikasi informasi yang dikategorikan sebagai siaran pers',
+            'status' => 'Draft',
+            'user_id' => 1, // created by Admin DLHK
+        ]);
+
     }
 }

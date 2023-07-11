@@ -37,7 +37,7 @@
                             <th>No</th>
                             <th>Judul Halaman</th>
                             <th>Slug</th>
-                            <th width="210px" class="text-center">Opsi</th>
+                            <th></th>
                         </tr>
                         @foreach ($datas as $data)
                         <tr>
@@ -45,7 +45,8 @@
 
                             <td>{{ $data->judul_halaman }}</td>
                             <td> {{ $data->slug }}</td>
-                            <td class="text-center">
+                            
+                            {{-- <td class="text-center">
                                 <div class="row">
                                     <div class="col-6">
                                         <form action="{{ url('dasbor/halaman/restore',$data->id) }}" method="POST">
@@ -61,9 +62,39 @@
                                         </form>
                                     </div>
                                 </div>
+                            </td> --}}
 
+                            <td class="text-center">
+                                @if (Auth::id() == $data->user_id or Auth::user()->hasRole('administrator'))
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Opsi <i class="mdi mdi-chevron-down"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
 
+                                            <!-- form restore -->                                            
+                                            <form action="{{ url('dasbor/halaman/restore',$data->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item bg-success text-light">
+                                                    <i class="fe-arrow-left"></i> Kembalikan
+                                                </button>
+                                            </form>
+
+                                            <!-- form delete -->
+                                            <form action="{{ url('dasbor/halaman/delete',$data->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item bg-danger text-light show_confirm" data-toggle="tooltip" title='Delete'>
+                                                    <i class="fe-trash"></i> Hapus
+                                                </button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                
+                                @endif
                             </td>
+
                         </tr>
                         @endforeach
 

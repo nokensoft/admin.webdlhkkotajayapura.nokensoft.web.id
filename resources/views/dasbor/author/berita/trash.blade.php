@@ -31,12 +31,14 @@
 
                 <div class="table-responsive">
 
-
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
                             <th>Gambar</th>
                             <th>Judul</th>
+                            <th>Penulis</th>
+                            <th>Diterbitkan</th>
+                            <th>Diubah</th>
                             <th class="text-center" width="210px">Opsi</th>
                         </tr>
                         @foreach ($datas as $data)
@@ -52,6 +54,9 @@
                                 @endif
                             </td>
                             <td>{{ $data->judul ?? '' }}</td>
+                            <td>{{ $data->author->name ?? '' }} </td>
+                            <td>{{ $data->created_at ?? '' }}</td>
+                            <td>{{ $data->updated_at ?? '' }}</td>
 
                             <td class="text-center">
                                 @if (Auth::id() == $data->user_id or Auth::user()->hasRole('administrator'))

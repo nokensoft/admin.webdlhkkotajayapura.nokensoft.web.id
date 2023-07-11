@@ -92,8 +92,8 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('dasbor.informasilingkungan.edit',$data->slug) }}" class="btn btn-lg btn-primary waves-effect waves-light">
-                    <i class="fe-edit"></i> Edit
+                <a href="{{ route('dasbor.informasilingkungan.edit', $data->slug) }}" class="btn btn-lg btn-primary waves-effect waves-light">
+                    <i class="fe-edit"></i> Ubah
                 </a>
                 <a href="{{ route('dasbor.informasilingkungan') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                     <i class="mdi mdi-arrow-left mr-1"></i>Kembali

@@ -14,40 +14,12 @@
                         <img src="{{ asset('gambar/pengguna/' . Auth::user()->picture) }}" alt="user-img" title="{{ Auth::user()->name }}" class="rounded-circle avatar-md">
                         @endif
 
-                        <div class="dropdown">
-                            <a href="{{ url('dasbor/pengguna/akun-saya') }}" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block"
-                                data-toggle="dropdown">{{ Auth::user()->name }}</a>
-                            <div class="dropdown-menu user-pro-dropdown">
-
-                                <!-- item-->
-                                <a href="{{ url('dasbor/akun-saya') }}" class="dropdown-item notify-item">
-                                    <i class="fe-user mr-1"></i>
-                                    <span>Akun Saya</span>
-                                </a>
-
-                                @if (Auth::user()->hasRole('administrator'))
-                                <!-- item-->
-                                <a href="{{ url('dasbor/pengaturan') }}" class="dropdown-item notify-item">
-                                    <i class="fe-settings mr-1"></i>
-                                    <span>Pengaturan</span>
-                                </a>
-                                @endif
-
-                                <!-- item-->
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item notify-item">
-                                    <i class="fe-log-out mr-1"></i>
-                                    <span>Logout</span>
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-
-                            </div>
+                        <div class="text-dark h5 mt-2 mb-1">
+                            {{ Auth::user()->name }}
                         </div>
-                        <p class="text-muted">
-                            {{ implode('', Auth::user()->roles()->pluck('display_name')->toArray()) }}
-                        </p>
+                        <small class="text-muted d-block" role="button" data-toggle="tooltip" data-placement="bottom" title="{{ Auth::user()->description ?? '' }}">
+                            <i class="fa-solid fa-user"></i> {{ implode('', Auth::user()->roles()->pluck('display_name')->toArray()) }}
+                        </small>
                     </div>
 
                     <!--- Sidemenu -->

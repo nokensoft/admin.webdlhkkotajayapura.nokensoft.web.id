@@ -52,7 +52,10 @@
                                 <td>{{ $user->name ?? '' }}</td>
                                 <td>{{ $user->email ?? '' }}</td>
                                 <td>{{ $user->description ?? '' }}</td>
-                                <td>{{ implode('', $user->roles()->pluck('display_name')->toArray()) }}</td>
+                                <td>
+                                    <i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="{{ $user->description ?? '' }}"></i>
+                                    {{ implode('', $user->roles()->pluck('display_name')->toArray()) }}
+                                </td>
                                 <td>{{ $user->status ?? '' }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('dasbor.pengguna.delete',['id' => $user->id]) }}" method="POST">

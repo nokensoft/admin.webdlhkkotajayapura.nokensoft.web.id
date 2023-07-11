@@ -16,17 +16,13 @@
                 </div>
             </div>
         </div>
-        <!-- end page title -->
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong>
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+        <!-- .row end -->
+
+<!--
+| ===============================================
+| FROM START
+| ===============================================
+-->
 
         <form action="{{route('dasbor.kategori.store')}}" method="POST">
         @csrf
@@ -76,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <!-- row end -->
+            <!-- .row end -->
 
             <div class="row">
                 <div class="col-md-6">
@@ -90,8 +86,14 @@
                     </div>
                 </div> <!-- end col -->
             </div>
-            <!-- row end -->
+            <!-- .row end -->
 
-        </form> <!-- end form -->
+{!! Form::close() !!}
+
+<!--
+| ===============================================
+| FROM END
+| ===============================================
+-->
 
 @stop

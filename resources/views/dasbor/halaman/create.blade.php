@@ -15,28 +15,21 @@
         </div>
     </div>
 </div>
-<!-- row end -->
+<!-- .row end -->
 
-@if ($errors->any())
-<div class="mb-3 alert alert-warning">
-    <strong class="d-block mb-2 text-dark">Perhatian!</strong>
-    <ul class="list-group">
-        @foreach ($errors->all() as $error)
-        <li style="list-style: none" class="mb-2">
-            <i class="fe-alert-triangle mr-1"></i> {{ $error }}
-        </li>
-        @endforeach
-    </ul>
-</div>
-@endif
+<!--
+| ===============================================
+| FROM START
+| ===============================================
+-->
+
+{!! Form::open(array('url' => route('dasbor.halaman.store'),'files'=>'true')) !!}
+@csrf
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-
-                {!! Form::open(array('url' => route('dasbor.halaman.store'),'files'=>'true')) !!}
-                @csrf
 
                 <div class="row">
                     <div class="col-md-8">
@@ -112,7 +105,7 @@
                         <!-- input item end -->
 
                     </div> <!-- end col-4 -->
-                </div> <!-- end row -->
+                </div> <!-- .row end -->
 
             </div>
         </div> <!-- end card -->
@@ -120,7 +113,7 @@
 
 
 </div>
-<!-- end row -->
+<!-- .row end -->
 
 <div class="row">
     <div class="col">
@@ -136,9 +129,15 @@
         </div> <!-- end card -->
     </div> <!-- end col -->
 </div>
-<!-- end row -->
+<!-- .row end -->
 
 {!! Form::close() !!}
+
+<!--
+| ===============================================
+| FROM END
+| ===============================================
+-->
 
 @stop
 

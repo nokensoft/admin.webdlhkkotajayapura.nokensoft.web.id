@@ -27,7 +27,7 @@ class HalamanController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','Publish')->latest()->paginate(5);
+        ])->where('status','Publish')->latest()->paginate(10);
 
         $jumlahtrash    = Halaman::onlyTrashed()->count();
 
@@ -49,7 +49,7 @@ class HalamanController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status','Draft')->latest()->paginate(5);
+        ])->where('status','Draft')->latest()->paginate(10);
 
         $jumlahtrash    = Halaman::onlyTrashed()->count();
 
@@ -207,7 +207,7 @@ class HalamanController extends Controller
     // TRASH
     public function trash()
     {
-        $datas          = Halaman::onlyTrashed()->paginate(5);
+        $datas          = Halaman::onlyTrashed()->paginate(10);
 
         $jumlahtrash    = Halaman::onlyTrashed()->count();
         $jumlahdraft    = Halaman::where('status', 'draf')->count();

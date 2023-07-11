@@ -24,7 +24,7 @@ class KategoriController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Publish')->latest()->paginate(5);
+        ])->where('status', 'Publish')->latest()->paginate(10);
 
         $jumlahtrash = KategoriBerita::onlyTrashed()->count();
         $jumlahdraft = KategoriBerita::where('status', 'Draft')->count();
@@ -45,8 +45,8 @@ class KategoriController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Draft')->paginate(5);
-        // $datas = kategori::where('status',1)->latest()->paginate(5);
+        ])->where('status', 'Draft')->paginate(10);
+        // $datas = kategori::where('status',1)->latest()->paginate(10);
 
         $jumlahtrash = KategoriBerita::onlyTrashed()->count();
         $jumlahdraft = KategoriBerita::where('status', 'Draft')->count();

@@ -15,19 +15,13 @@
         </div>
     </div>
 </div>
+<!-- .row end -->
 
-{{-- @if ($errors->any())
-<div class="mb-3 alert alert-warning">
-    <strong class="d-block mb-2 text-dark">Perhatian!</strong>
-    <ul class="list-group">
-        @foreach ($errors->all() as $error)
-        <li style="list-style: none" class="mb-2">
-            <i class="fe-alert-triangle mr-1"></i> {{ $error }}
-        </li>
-        @endforeach
-    </ul>
-</div>
-@endif --}}
+<!--
+| ===============================================
+| FROM START
+| ===============================================
+-->
 
 <div class="row">
     <div class="col-lg-12">
@@ -180,7 +174,7 @@
     </div> <!-- end col -->
 
 </div>
-<!--end wrapper-->
+<!-- .row end -->
 
 <div class="row">
     <div class="col">
@@ -199,8 +193,15 @@
         </div>
     </div>
 </div>
-<!-- end row -->
-</form>
+<!-- .row end -->
+
+{!! Form::close() !!}
+
+<!--
+| ===============================================
+| FROM END
+| ===============================================
+-->
 
 @stop
 

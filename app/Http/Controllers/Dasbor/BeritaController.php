@@ -26,7 +26,7 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Publish')->orWhere('status', 'Verifikasi')->orderBy('id', 'desc')->paginate(5);
+        ])->where('status', 'Publish')->orWhere('status', 'Verifikasi')->orderBy('id', 'desc')->paginate(10);
 
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahrevisi = Berita::where('status', 'Revisi')->count();
@@ -49,7 +49,7 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Draft')->orWhere('status', 'Revisi')->orderBy('id', 'desc')->paginate(5);
+        ])->where('status', 'Draft')->orWhere('status', 'Revisi')->orderBy('id', 'desc')->paginate(10);
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahrevisi = Berita::where('status', 'Revisi')->count();
         $jumlahdraft = Berita::where('status', 'Draft')->count();
@@ -77,7 +77,7 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Revisi')->latest()->paginate(5);
+        ])->where('status', 'Revisi')->latest()->paginate(10);
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahrevisi = Berita::where('status', 'Revisi')->count();
         $jumlahdraft = Berita::where('status', 'Draft')->count();
@@ -105,7 +105,7 @@ class BeritaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Verifikasi')->latest()->paginate(5);
+        ])->where('status', 'Verifikasi')->latest()->paginate(10);
         $jumlahtrash = Berita::onlyTrashed()->count();
         $jumlahrevisi = Berita::where('status', 'Revisi')->count();
         $jumlahdraft = Berita::where('status', 'Draft')->count();

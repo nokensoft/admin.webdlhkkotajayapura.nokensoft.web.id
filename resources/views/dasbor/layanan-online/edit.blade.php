@@ -15,20 +15,7 @@
         </div>
     </div>
 </div>
-<!-- end row -->
-
-@if ($errors->any())
-<div class="mb-3 alert alert-warning">
-    <strong class="d-block mb-2 text-dark">Perhatian!</strong>
-    <ul class="list-group">
-        @foreach ($errors->all() as $error)
-        <li style="list-style: none" class="mb-2">
-            <i class="fe-alert-triangle mr-1"></i> {{ $error }}
-        </li>
-        @endforeach
-    </ul>
-</div>
-@endif
+<!-- .row end -->
 
 <!--
 | ===============================================
@@ -143,7 +130,7 @@
 
                             </div> <!-- end col -->
 
-                        </div> <!-- end row -->
+                        </div> <!-- .row end -->
 
                 </div>
             </div> <!-- end card -->
@@ -151,7 +138,7 @@
 
 
     </div>
-    <!-- end row -->
+    <!-- .row end -->
 
     <div class="row">
         <div class="col">
@@ -167,9 +154,9 @@
             </div> <!-- end card -->
         </div> <!-- end col -->
     </div>
-    <!-- end row -->
+    <!-- .row end -->
 
-</form>
+{!! Form::close() !!}
 
 <!--
 | ===============================================

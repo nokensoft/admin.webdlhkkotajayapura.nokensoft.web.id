@@ -38,14 +38,18 @@
                             <th>No</th>
                             <th>Judul Kategori</th>
                             <th>Deskripsi Kategori</th>
+                            <th>Diterbitkan</th>
+                            <th>Diubah</th>
                             <th class="text-center" width="280px">Opsi</th>
                         </tr>
                         @foreach ($datas as $data)
                         <tr>
                             <td>{{ ++$i }}</td>
 
-                            <td>{{ $data->name }}</td>
-                            <td>{{ $data->deskripsi }}</td>
+                            <td>{{ $data->name ?? '' }}</td>
+                            <td>{{ $data->deskripsi ?? '' }}</td>
+                            <td>{{ $data->created_at ?? '' }}</td>
+                            <td>{{ $data->updated_at ?? '' }}</td>
 
                             <td class="text-center">
                                 @if (Auth::id() == $data->user_id or Auth::user()->hasRole('administrator'))
