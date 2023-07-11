@@ -55,11 +55,7 @@
                                 </a>
                                 @endif
                             </th>
-                            <td>
-                                <a href="{{ url('berita/' . $data->slug) }}" target="_blank">
-                                    {{ $data->judul }}
-                                </a>
-                            </td>
+                            <td>{{ $data->judul ?? ''}}</td>
                             <td> <a href="{{ url('berita/kategori', $data->kategori->kategori_slug ?? '') }}" target="_blank">{{ $data->kategori->name ?? ''}}</a> </td>
                             <td> {{ $data->author->name ?? '' }} </td>
                             <td>
