@@ -59,29 +59,21 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Janzen Faidiban',
             'slug'              => 'janzen-faidiban'.time().Str::random(12),
             'picture'           => '05-janzen.jpg',
-            'email'             => 'janzen.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('janzen.dlhk@jayapurakota.go.id'),
+            'email'             => 'janzen@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('janzen@dlhk.jayapurakota.go.id'),
             'status'           => 'Publish',
+            'description' => 'Akun web developer yang menangani pembuatan website dan maintenance website DLHK',
         ]);
         $adminJanzen->assignRole($adminRole);
-
-        $adminMesalin = User::create([
-            'name'              => 'Mesalin Maimbu',
-            'slug'              => 'mesalin-maimbu'.time().Str::random(12),
-            'picture'           => '06-mesalin.jpg',
-            'email'             => 'mesalin.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('mesalin.dlhk@jayapurakota.go.id'),
-            'status'           => 'Publish',
-        ]);
-        $adminMesalin->assignRole($adminRole);
 
         $adminDLHK = User::create([
             'name'              => 'Admin DLHK',
             'slug'              => 'admin-dlhk'.time().Str::random(12),
-            'picture'           => '01.jpg',
-            'email'             => 'admin.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('admin.dlhk@jayapurakota.go.id'),
+            'picture'           => '00.jpg',
+            'email'             => 'admin@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('4dm1n@DLHK_2023'),
             'status'           => 'Publish',
+            'description' => 'Admin website memiliki tugas mengelolah semua fitur yang ada pada bagian dasbor website. Termasuk mengelola pengguna (user).',
         ]);
         $adminDLHK->assignRole($adminRole);
 
@@ -95,10 +87,11 @@ class RoleUserSeeder extends Seeder
         $editorDLHK = User::create([
             'name'              => 'Editor DLHK',
             'slug'              => 'editor-dlhk'.time().Str::random(12),
-            'picture'           => '04.jpg',
-            'email'             => 'editor.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('editor.dlhk@jayapurakota.go.id'),
+            'picture'           => '00.jpg',
+            'email'             => 'editor@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('3d1t0r@DLHK_2023'),
             'status'           => 'Publish',
+            'description' => 'Editor berita bertugas memeriksa dan melakukan perubahan konten berita, halaman, dan halaman pada bagian informasi lingkungan.',
         ]);
         $editorDLHK->assignRole($editorRole);
 
@@ -127,8 +120,8 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Syakur',
             'slug'              => 'syakur'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'syakur.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('syakur.dlhk@jayapurakota.go.id'),
+            'email'             => 'syakur@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('sy4kur@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Tata Lingkungan',
         ]);
@@ -139,8 +132,8 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Agus Hariyadi',
             'slug'              => 'agus'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'agus.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('agus.dlhk@jayapurakota.go.id'),
+            'email'             => 'agus@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('4gu5@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Pengelolaan Sampah dan Limbah B3',
         ]);
@@ -151,8 +144,8 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Natalia Kristy Merauje',
             'slug'              => 'natalia'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'natalia.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('natalia.dlhk@jayapurakota.go.id'),
+            'email'             => 'natalia@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('n4t4l14@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Pengendalian Pencemaran dan Kerusakan Lingkungan',
         ]);
@@ -163,8 +156,8 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Abdul Jabbar',
             'slug'              => 'jabbar'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'jabbar.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('jabbar.dlhk@jayapurakota.go.id'),
+            'email'             => 'jabbar@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('j4664r@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Penataan dan Peningkatan Kapasitas Lingkukngan',
         ]);
@@ -175,8 +168,8 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Wero Ferbiadi Mandala',
             'slug'              => 'wferbiadi'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'wferbiadi.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('wferbiadi.dlhk@jayapurakota.go.id'),
+            'email'             => 'wferbiadi@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('wf3b1ard1@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Sekretaris Dina Lingkungan Hidup Kota Jayapura',
         ]);
@@ -187,8 +180,8 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Eflantin Berlien Siahaya',
             'slug'              => 'eflantin'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'eflantin.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('eflantin.dlhk@jayapurakota.go.id'),
+            'email'             => 'eflantin@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('3fl4nt1n@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Unit Pelaksana Teknis Dinas Bagian Laboratorium',
         ]);
@@ -199,8 +192,8 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Bernharth Surijin Rumkorem',
             'slug'              => 'bernharth'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'bernharth.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('bernharth.dlhk@jayapurakota.go.id'),
+            'email'             => 'bernharth@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('b3rh4rth@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Unit Pelaksana Teknis Dinas Bagian Tempat Pembuangan Akhir',
         ]);
@@ -211,8 +204,8 @@ class RoleUserSeeder extends Seeder
             'name'              => 'Sammanggas Ronsumbre',
             'slug'              => 'sammanggas'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'sammanggas.dlhk@jayapurakota.go.id',
-            'password'          => bcrypt('sammanggas.dlhk@jayapurakota.go.id'),
+            'email'             => 'sammanggas@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('s4mm4ngg45@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Unit Pelaksana Teknis Dinas Bagian Bank Sampah',
         ]);
@@ -235,6 +228,7 @@ class RoleUserSeeder extends Seeder
             'email'             => 'supervisor.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('supervisor.dlhk@jayapurakota.go.id'),
             'status'           => 'Publish',
+            'description' => 'Akun "Supervisor" adalah akun yang memiliki hak untuk memberikan konfirmasi pada konten yang hendak dipublikasikan di website DLHK Kota Jayapura.',
         ]);
         $supervisorDLHK->assignRole($supervisorRole);
 
@@ -245,6 +239,7 @@ class RoleUserSeeder extends Seeder
             'email'             => 'alex.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('alex.dlhk@jayapurakota.go.id'),
             'status'           => 'Publish',
+            'description' => 'Akun "Sekreataris DLHK" dengan peran sebagai "Supervisor". ',
         ]);
         $supervisorAlex->assignRole($supervisorRole);
 
