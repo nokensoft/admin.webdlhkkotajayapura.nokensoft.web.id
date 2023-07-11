@@ -48,26 +48,36 @@
                             <td>{{ $data->deskripsi }}</td>
 
                             <td class="text-center">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <form action="{{ url('dasbor/berita/kategori/restore',$data->id) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-success">Restore</button>
-                                        </form>
+                                @if (Auth::id() == $data->user_id or Auth::user()->hasRole('administrator'))
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Opsi <i class="mdi mdi-chevron-down"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+
+                                            <!-- form restore -->                                            
+                                            <form action="{{ url('dasbor/berita/kategori/restore',$data->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item bg-success text-light">
+                                                    <i class="fe-arrow-left"></i> Kembalikan
+                                                </button>
+                                            </form>
+
+                                            <!-- form delete -->
+                                            <form action="{{ url('dasbor/berita/kategori/delete',$data->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item bg-danger text-light show_confirm" data-toggle="tooltip" title='Delete'>
+                                                    <i class="fe-trash"></i> Hapus
+                                                </button>
+                                            </form>
+
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        <form action="{{ url('dasbor/berita/kategori/delete',$data->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip"
-                                                title='Delete'>Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
-
-
-
+                                
+                                @endif
                             </td>
+
                         </tr>
                         @endforeach
 

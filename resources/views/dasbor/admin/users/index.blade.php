@@ -74,11 +74,8 @@
                                             </div>
                                         </div>
 
-
                                 </td>
                             </tr>
-
-
 
                             @endforeach
                         </table>
@@ -86,7 +83,7 @@
                     <!-- end .mt-4 -->
 
                     {!! $data->render() !!}
-                    <!-- end row-->
+
                 </div>
                 <!-- end inbox-rightbar-->
 

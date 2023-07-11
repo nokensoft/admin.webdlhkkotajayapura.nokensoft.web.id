@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -55,18 +56,8 @@ class RoleUserSeeder extends Seeder
 
         // ADMIN
 
-        $adminJanzen = User::create([
-            'name'              => 'Janzen Faidiban',
-            'slug'              => 'janzen-faidiban'.time().Str::random(12),
-            'picture'           => '05-janzen.jpg',
-            'email'             => 'janzen@dlhk.jayapurakota.go.id',
-            'password'          => bcrypt('janzen@dlhk.jayapurakota.go.id'),
-            'status'           => 'Publish',
-            'description' => 'Akun web developer yang menangani pembuatan website dan maintenance website DLHK',
-        ]);
-        $adminJanzen->assignRole($adminRole);
-
         $adminDLHK = User::create([
+            'id' => 1,
             'name'              => 'Admin DLHK',
             'slug'              => 'admin-dlhk'.time().Str::random(12),
             'picture'           => '00.jpg',
@@ -74,8 +65,26 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('4dm1n@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Admin website memiliki tugas mengelolah semua fitur yang ada pada bagian dasbor website. Termasuk mengelola pengguna (user).',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $adminDLHK->assignRole($adminRole);
+
+        $adminJanzen = User::create([
+            'id' => 2,
+            'name'              => 'Janzen Faidiban',
+            'slug'              => 'janzen-faidiban'.time().Str::random(12),
+            'picture'           => '05-janzen.jpg',
+            'email'             => 'janzen@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('janzen@dlhk.jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Akun web developer yang menangani pembuatan website dan maintenance website DLHK',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
+        ]);
+        $adminJanzen->assignRole($adminRole);
 
 
         /*
@@ -92,6 +101,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('3d1t0r@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Editor berita bertugas memeriksa dan melakukan perubahan konten berita, halaman, dan halaman pada bagian informasi lingkungan.',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $editorDLHK->assignRole($editorRole);
 
@@ -112,6 +124,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('author.dlhk@jayapurakota.go.id'),
             'status'           => 'Publish',
             'description' => 'Akun "author" untuk developer web',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorDLHK->assignRole($authorRole);
 
@@ -124,6 +139,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('sy4kur@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Tata Lingkungan',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorSyakur->assignRole($authorRole);
 
@@ -136,6 +154,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('4gu5@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Pengelolaan Sampah dan Limbah B3',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorAgus->assignRole($authorRole);
 
@@ -148,6 +169,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('n4t4l14@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Pengendalian Pencemaran dan Kerusakan Lingkungan',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorNatalia->assignRole($authorRole);
 
@@ -160,6 +184,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('j4664r@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Penataan dan Peningkatan Kapasitas Lingkukngan',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorJabbar->assignRole($authorRole);
 
@@ -172,6 +199,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('wf3b1ard1@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Sekretaris Dina Lingkungan Hidup Kota Jayapura',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorWFerbiadi->assignRole($authorRole);
 
@@ -184,6 +214,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('3fl4nt1n@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Unit Pelaksana Teknis Dinas Bagian Laboratorium',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorEflantin->assignRole($authorRole);
 
@@ -196,6 +229,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('b3rh4rth@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Unit Pelaksana Teknis Dinas Bagian Tempat Pembuangan Akhir',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorBernharth->assignRole($authorRole);
 
@@ -208,6 +244,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('s4mm4ngg45@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Unit Pelaksana Teknis Dinas Bagian Bank Sampah',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $authorSammanggas->assignRole($authorRole);
 
@@ -229,6 +268,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('supervisor.dlhk@jayapurakota.go.id'),
             'status'           => 'Publish',
             'description' => 'Akun "Supervisor" adalah akun yang memiliki hak untuk memberikan konfirmasi pada konten yang hendak dipublikasikan di website DLHK Kota Jayapura.',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $supervisorDLHK->assignRole($supervisorRole);
 
@@ -240,6 +282,9 @@ class RoleUserSeeder extends Seeder
             'password'          => bcrypt('alex.dlhk@jayapurakota.go.id'),
             'status'           => 'Publish',
             'description' => 'Akun "Sekreataris DLHK" dengan peran sebagai "Supervisor". ',
+
+            'created_at'        => Carbon::now(),
+            'updated_at'        => Carbon::now()
         ]);
         $supervisorAlex->assignRole($supervisorRole);
 

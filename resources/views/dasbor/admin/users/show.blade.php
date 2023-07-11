@@ -27,7 +27,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Nama Lengkap</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $user->name ?? '' }}
                             </div>
                         </div>
@@ -35,7 +35,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Alamat Email</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $user->email ?? '' }}
                             </div>
                         </div>
@@ -43,7 +43,7 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Peran</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ implode($user->roles()->pluck('display_name')->toArray()) ?? '' }}
                             </div>
                         </div>
@@ -51,18 +51,34 @@
 
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Status</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 {{ $user->status ?? '' }}
                             </div>
                         </div>
-                        <!-- item end -->                  
+                        <!-- item end -->    
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Tanggal Terbit</label>
+                            <div class="border-bottom py-1">
+                                {{ $user->created_at ?? '' }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
+                            <label for="" class="font-weight-bold">Tanggal Diubah</label>
+                            <div class="border-bottom py-1">
+                                {{ $user->updated_at ?? '' }}
+                            </div>
+                        </div>
+                        <!-- item end -->              
 
                     </div>
                     <div class="col-md-4 order-sm-first order-md-last">
                         
                         <div class="mb-3">
                             <label for="" class="font-weight-bold">Gambar</label>
-                            <div class="border p-3">
+                            <div class="border-bottom py-1">
                                 @if(empty($user->picture)) 
                                 <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" class="w-100">
                                 @else 

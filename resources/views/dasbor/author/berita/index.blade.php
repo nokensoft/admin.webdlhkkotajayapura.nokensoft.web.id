@@ -78,13 +78,23 @@
                                             Opsi <i class="mdi mdi-chevron-down"></i>
                                         </button>
                                         <div class="dropdown-menu">
-
-                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/detail') }}"><i class="fe-eye"></i> Detail</a>
-                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/edit') }}"><i class="fe-edit"></i> Ubah</a>
-                                            @if(Auth::user()->hasRole(['administrator','author']))
+                                            @if (Auth::id() == $data->user_id or Auth::user()->hasRole('administrator'))
+                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/detail') }}">
+                                                <i class="fe-eye"></i> Detail
+                                            </a>
+                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/edit') }}">
+                                                <i class="fe-edit"></i> Ubah
+                                            </a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
+                                            <button type="submit" class="dropdown-item bg-danger text-light">
+                                                <i class="fe-trash"></i> Hapus
+                                            </button>
+                                            
+                                            @else
+                                            <a class="dropdown-item" href="{{ url('dasbor/berita/' . $data->slug.'/detail') }}">
+                                                <i class="fe-eye"></i> Detail
+                                            </a>
                                             @endif
                                         </div>
                                     </div>

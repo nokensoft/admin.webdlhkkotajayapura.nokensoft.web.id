@@ -16,88 +16,102 @@ class KategoriBeritaSeeder extends Seeder
     public function run()
     {
         KategoriBerita::create([
-            'name'          => 'Laporan Tahunan',
-            'kategori_slug' => 'laporan-tahunan',
-            'deskripsi'     => 'Laporan tahunan yang dikeluarkan oleh Dinas Lingkungan Hidup Kota Jayapura agar bisa diakses oleh masyarakat luas.',
-            'status'        => 'Publish',
-            'author'        => 1,
+            'id' => 1,
+            'name' => 'Bidang Tata Lingkungan',
+            'kategori_slug' => 'bidang-tata-lingkungan',
+            'deskripsi' => 'Publikasi kegiatan dari Bidang Tata Lingkungan',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'name'          => 'Laporan Berkala',
-            'kategori_slug' => 'laporan-berkala',
-            'deskripsi'     => 'Laporan berkala yang dikeluarkan oleh Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura agar bisa diakses oleh masyarakat luas.',
-            'status'        => 'Publish',
-            'author'        => 1,
+            'id' => 2,
+            'name' => 'Bidang Pengolaan Sampah & Limbah B3',
+            'kategori_slug' => 'bidang-pengolaan-sampah-limbah-b3',
+            'deskripsi' => 'Publikasi kegiatan dari Bidang Pengolaan Sampah & Limbah B3',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'name'          => 'Hari Lingkungan Hidup',
-            'kategori_slug' => 'hari-lingkungan-hidup',
-            'deskripsi'     => 'Hari lingkungan hidup secara lokal, nasional dan internasional yang selalu diselenggarakan.',
-            'status'        => 'Draft',
-            'author'        => 2,
+            'id' => 3,
+            'name' => 'Bidang Pengendalian Pencemaran & Kerusakan Lingkungan',
+            'kategori_slug' => 'bidang-pengendalian-pencemaran-kerusakan-lingkungan',
+            'deskripsi' => 'Publikasi kegiatan dari Bidang Pengendalian Pencermaran & Kerusakan Lingkungan',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'name'          => 'Hari Raya',
-            'kategori_slug' => 'hari-raya',
-            'deskripsi'     => 'Berbagai hari raya yang selalu dirayakan di tingkat lokal, nasional dan internasional.',
-            'status'        => 'Publish',
-            'author'        => 2,
+            'id' => 4,
+            'name' => 'Bidang Penataan & Peningkatan Kapasitas Lingkungan',
+            'kategori_slug' => 'bidang-penataan-peningkatan-kapasitas-lingkungan',
+            'deskripsi' => 'Publikasi kegiatan dari Bidang Penataan & Peningkatan Kapasitas Lingkungan',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'name'          => 'Siaran Pers',
-            'kategori_slug' => 'siaran-pers',
-            'deskripsi'     => 'Siaran pers yang dilakukan oleh Dinas Lingkungan Hidup dan Kebersihan Kota Jayapura kepada khalayak umum.',
-            'status'        => 'Publish',
-            'author'        => 3,
+            'id' => 5,
+            'name' => 'Sekretariat',
+            'kategori_slug' => 'sekretariat',
+            'deskripsi' => 'Publikasi kegiatan dari Sekretariat',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'id'            => 6,
-            'name'          => 'Kelestarian Laut',
-            'kategori_slug' => 'kelestarian-laut',
-            'deskripsi'     => '...',
-            'status'        => 'Publish',
-            'author'        => 3,
+            'id' => 6,
+            'name' => 'UPTD Laboratorium',
+            'kategori_slug' => 'uptd-laboratorium',
+            'deskripsi' => 'Publikasi kegiatan dari UPTD Laboratorium',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'id'            => 7,
-            'name'          => 'Hutan',
-            'kategori_slug' => 'hutan',
-            'deskripsi'     => '...',
-            'status'        => 'Publish',
-            'author'        => 1,
+            'id' => 7,
+            'name' => 'UPTD TPA',
+            'kategori_slug' => 'uptd-tpa',
+            'deskripsi' => 'Publikasi kegiatan dari UPTD TPA',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'id'            => 8,
-            'name'          => 'Kebersihan Kota',
-            'kategori_slug' => 'kebersihan-kota',
-            'deskripsi'     => '...',
-            'status'        => 'Publish',
-            'author'        => 2,
+            'id' => 8,
+            'name' => 'UPTD Bank Sampah',
+            'kategori_slug' => 'uptd-bank-sampah',
+            'deskripsi' => 'Publikasi kegiatan dari UPTD Bank Sampah',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'id'            => 9,
-            'name'          => 'Penghijauan',
-            'kategori_slug' => 'penghijauan',
-            'deskripsi'     => '...',
-            'status'        => 'Publish',
-            'author'        => 3,
+            'id' => 9,
+            'name' => 'Pengumuman',
+            'kategori_slug' => 'pengumuman',
+            'deskripsi' => 'Publikasi informasi yang dikategorikan sebagai pengumuman',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
         KategoriBerita::create([
-            'id'            => 10,
-            'name'          => 'Layanan Online',
+            'id' => 10,
+            'name' => 'Undang-Undang',
+            'kategori_slug' => 'undang-undang',
+            'deskripsi' => 'Publikasi informasi yang dikategorikan sebagai undang-undang',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
+        ]);
+
+        KategoriBerita::create([
+            'id' => 11,
+            'name' => 'Layanan Online',
             'kategori_slug' => 'layanan-online',
-            'deskripsi'     => '...',
-            'status'        => 'Publish',
-            'author'        => 3,
+            'deskripsi' => 'Publikasi informasi yang dikategorikan sebagai layanan-online',
+            'status' => 'Publish',
+            'user_id' => 1, // created by Admin DLHK
         ]);
 
     }

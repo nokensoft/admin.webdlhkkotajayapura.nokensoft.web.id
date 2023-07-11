@@ -81,7 +81,7 @@ class KategoriController extends Controller
         } else {
             try {
                 $kategori = new KategoriBerita();
-                $kategori->author = Auth::user()->id;
+                $kategori->user_id = Auth::user()->id;
                 $kategori->name = $request->name;
                 $kategori->deskripsi = $request->deskripsi;
                 $kategori->kategori_slug = Str::slug($kategori->name);
@@ -133,7 +133,7 @@ class KategoriController extends Controller
         } else {
             try {
                 $kategori = KategoriBerita::find($id);
-                $kategori->author = Auth::user()->id;
+                $kategori->user_id = Auth::user()->id;
                 $kategori->name = $request->name;
                 $kategori->deskripsi = $request->deskripsi;
                 $kategori->status = $request->status;

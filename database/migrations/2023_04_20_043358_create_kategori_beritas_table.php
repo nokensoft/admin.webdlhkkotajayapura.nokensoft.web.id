@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('kategori_beritas', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string('name')->nullable();
             $table->string('kategori_slug')->nullable();
             $table->string('deskripsi')->nullable();
-            $table->bigInteger('author')->unsigned()->nullable();
             $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('author')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
