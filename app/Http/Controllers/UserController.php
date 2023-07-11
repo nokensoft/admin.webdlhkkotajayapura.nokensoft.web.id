@@ -22,12 +22,13 @@ class UserController extends Controller
 
             [function ($query) {
                 if (($s = request()->s)) {
-                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
-                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
+                    $query
+                        ->orWhere('name', 'LIKE', '%' . $s . '%')
+                        ->orWhere('description', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
-        ])->where('status', 'Publish')->latest()->paginate(5);
+        ])->where('status', 'Publish')->latest()->paginate(10);
 
         $jumlahtrash = User::onlyTrashed()->count();
         $jumlahdraft = User::where('status', 'Draft')->count();
@@ -45,12 +46,13 @@ class UserController extends Controller
             ['name', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
-                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
-                        // ->orWhere('subjudul', 'LIKE', '%' . $s . '%')
+                    $query
+                        ->orWhere('name', 'LIKE', '%' . $s . '%')
+                        ->orWhere('description', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
-        ])->where('status', 'draft')->latest()->paginate(5);
+        ])->where('status', 'draft')->latest()->paginate(10);
         $jumlahtrash = User::onlyTrashed()->count();
         $jumlahdraft = User::where('status', 'draft')->count();
         $datapublish = User::where('status', 'publish')->count();

@@ -22,12 +22,8 @@
             <div class="card-body">
                 @include('dasbor.admin.users.menu')
                 <div class="inbox-rightbar">
-                    <form action="{{ url('dasbor/pengguna') }}" method="get">
-                        <div class="input-group mb-3">
-                            <input type="search" name="s" class="form-control" placeholder="Search">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Search</button>
-                        </div>
-                    </form>
+
+                    @include('dasbor.layout.includes.search')
 
                     <div class="mt-3">
                         <table class="table table-bordered">
@@ -36,6 +32,7 @@
                                 <th>Foto</th>
                                 <th>Nama</th>
                                 <th>Email</th>
+                                <th>Keterangan</th>
                                 <th>Peran</th>
                                 <th>Status</th>
                                 <th></th>
@@ -52,10 +49,11 @@
                                     @endif
 
                                 </td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->name ?? '' }}</td>
+                                <td>{{ $user->email ?? '' }}</td>
+                                <td>{{ $user->description ?? '' }}</td>
                                 <td>{{ implode('',$user->roles()->pluck('display_name')->toArray()) }}</td>
-                                <td>{{ $user->status }}</td>
+                                <td>{{ $user->status ?? '' }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('dasbor.pengguna.delete',['id' => $user->id]) }}" method="POST">
                                         <div class="btn-group">

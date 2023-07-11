@@ -85,6 +85,12 @@ class RoleUserSeeder extends Seeder
         ]);
         $adminDLHK->assignRole($adminRole);
 
+
+        /*
+        | =====================================================
+        |
+        */ 
+
         // EDITOR
         $editorDLHK = User::create([
             'name'              => 'Editor DLHK',
@@ -96,6 +102,14 @@ class RoleUserSeeder extends Seeder
         ]);
         $editorDLHK->assignRole($editorRole);
 
+
+
+
+        /*
+        | =====================================================
+        |
+        */ 
+
         // AUTHOR
         $authorDLHK = User::create([
             'name'              => 'Author DLHK',
@@ -104,8 +118,114 @@ class RoleUserSeeder extends Seeder
             'email'             => 'author.dlhk@jayapurakota.go.id',
             'password'          => bcrypt('author.dlhk@jayapurakota.go.id'),
             'status'           => 'Publish',
+            'description' => 'Akun "author" untuk developer web',
         ]);
         $authorDLHK->assignRole($authorRole);
+
+        // AUTHOR > BIDANG TATA LINGKUKNGAN
+        $authorSyakur = User::create([
+            'name'              => 'Syakur',
+            'slug'              => 'syakur'.time().Str::random(12),
+            'picture'           => '00.jpg',
+            'email'             => 'syakur.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('syakur.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Bidang Tata Lingkungan',
+        ]);
+        $authorSyakur->assignRole($authorRole);
+
+        // AUTHOR > BIDANG PENGELOLAAN SAMPAH DAN LIMBAH B3
+        $authorAgus = User::create([
+            'name'              => 'Agus Hariyadi',
+            'slug'              => 'agus'.time().Str::random(12),
+            'picture'           => '00.jpg',
+            'email'             => 'agus.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('agus.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Bidang Pengelolaan Sampah dan Limbah B3',
+        ]);
+        $authorAgus->assignRole($authorRole);
+
+        // AUTHOR > BIDANG PENGENDALIAN PENCEMARAN DAN KERUSAKAN LINGKUNGAN
+        $authorNatalia = User::create([
+            'name'              => 'Natalia Kristy Merauje',
+            'slug'              => 'natalia'.time().Str::random(12),
+            'picture'           => '00.jpg',
+            'email'             => 'natalia.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('natalia.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Bidang Pengendalian Pencemaran dan Kerusakan Lingkungan',
+        ]);
+        $authorNatalia->assignRole($authorRole);
+
+        // AUTHOR > BIDANG PENAATAN DAN PENINGKATAN KAPASITAS LINGKUNGAN
+        $authorJabbar = User::create([
+            'name'              => 'Abdul Jabbar',
+            'slug'              => 'jabbar'.time().Str::random(12),
+            'picture'           => '00.jpg',
+            'email'             => 'jabbar.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('jabbar.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Bidang Penataan dan Peningkatan Kapasitas Lingkukngan',
+        ]);
+        $authorJabbar->assignRole($authorRole);
+
+        // AUTHOR > SEKREATARIAT
+        $authorWFerbiadi = User::create([
+            'name'              => 'Wero Ferbiadi Mandala',
+            'slug'              => 'wferbiadi'.time().Str::random(12),
+            'picture'           => '00.jpg',
+            'email'             => 'wferbiadi.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('wferbiadi.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Sekretaris Dina Lingkungan Hidup Kota Jayapura',
+        ]);
+        $authorWFerbiadi->assignRole($authorRole);
+
+        // AUTHOR > UPTD Laboratorium
+        $authorEflantin = User::create([
+            'name'              => 'Eflantin Berlien Siahaya',
+            'slug'              => 'eflantin'.time().Str::random(12),
+            'picture'           => '00.jpg',
+            'email'             => 'eflantin.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('eflantin.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Unit Pelaksana Teknis Dinas Bagian Laboratorium',
+        ]);
+        $authorEflantin->assignRole($authorRole);
+
+        // AUTHOR > UPTD TPA
+        $authorBernharth = User::create([
+            'name'              => 'Bernharth Surijin Rumkorem',
+            'slug'              => 'bernharth'.time().Str::random(12),
+            'picture'           => '00.jpg',
+            'email'             => 'bernharth.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('bernharth.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Unit Pelaksana Teknis Dinas Bagian Tempat Pembuangan Akhir',
+        ]);
+        $authorBernharth->assignRole($authorRole);
+
+        // AUTHOR > UPTD Bank Sampah
+        $authorSammanggas = User::create([
+            'name'              => 'Sammanggas Ronsumbre',
+            'slug'              => 'sammanggas'.time().Str::random(12),
+            'picture'           => '00.jpg',
+            'email'             => 'sammanggas.dlhk@jayapurakota.go.id',
+            'password'          => bcrypt('sammanggas.dlhk@jayapurakota.go.id'),
+            'status'           => 'Publish',
+            'description' => 'Unit Pelaksana Teknis Dinas Bagian Bank Sampah',
+        ]);
+        $authorSammanggas->assignRole($authorRole);
+
+
+
+
+        /*
+        | =====================================================
+        |
+        */ 
+
 
         // SUPERVISOR
         $supervisorDLHK = User::create([

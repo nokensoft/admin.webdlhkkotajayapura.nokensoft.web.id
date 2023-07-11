@@ -28,13 +28,7 @@
 
                 <div class="inbox-rightbar">
 
-                    <form action="{{ route('dasbor.kategori') }}" method="get">
-                        <div class="input-group mb-3">
-                            <input type="search" name="s" class="form-control" placeholder="Search">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Search</button>
-                        </div>
-                    </form>
-                    <!-- form end -->
+                    @include('dasbor.layout.includes.search')
 
                     <div class="mt-3">
                         <table class="table table-bordered">

@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('password');
             $table->string('picture')->nullable();
             $table->string('slug')->nullable();
+            $table->string('description')->nullable();
 
-            $table->enum('status',['Publish','Draft'])->default('Publish')->nullable();
+            $table->enum('status', ['Publish','Draft'])->default('Publish')->nullable();
 
             $table->rememberToken();
             $table->softDeletes();
