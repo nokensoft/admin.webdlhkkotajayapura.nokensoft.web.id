@@ -13,7 +13,7 @@ class KategoriBerita extends Model
     public $guarded = [];
 
     public function user(){
-        return $this->belongsTo(User::class,'author',);
+        return $this->belongsTo(User::class,'user_id',);
     }
 
     public function berita(){
