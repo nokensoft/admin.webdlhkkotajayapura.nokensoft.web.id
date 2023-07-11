@@ -37,7 +37,7 @@ var chart = c3.generate({
         columns: [
             ['Publish', dasbor_jml_berita],
             ['Draft', dasbor_jml_berita_draft],
-            ['Total semua', dasbor_jml_berita_semua]
+            ['Total semua', dasbor_jml_berita_semua],
         ],
         type: 'bar'
     },

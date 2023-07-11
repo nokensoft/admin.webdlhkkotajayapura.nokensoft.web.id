@@ -11,14 +11,13 @@
             @foreach ($linkTerkaits as $linkTerkait)
             <div class="partner-item border py-4 my-4 bg-white shadow" data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);" role="button">
                 <div data-tilt data-tilt-reverse="true" data-tilt-scale="1.1" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
-
-                <a href="{{ $linkTerkait->url }}" target="_blank">
-                    @if(empty($linkTerkait->gambar))
-                    <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar">
-                    @else
-                    <img src="{{ asset('gambar/link-terkait/' . $linkTerkait->gambar ) }}" alt="Gambar">
-                    @endif
-                </a>
+                    <a href="{{ $linkTerkait->url }}" target="_blank">
+                        @if(empty($linkTerkait->gambar))
+                        <img src="{{ asset('gambar/link-terkait/00.jpg') }}" alt="Gambar">
+                        @else
+                        <img src="{{ asset('gambar/link-terkait/' . $linkTerkait->gambar ) }}" alt="Gambar">
+                        @endif
+                    </a>
                 </div>
             </div>
             @endforeach

@@ -1,4 +1,4 @@
-<div class="rs-faq-part style1 pt-100 pb-100 md-pt-70 md-pb-70">
+<div class="rs-faq-part style1 pt-100 pb-100 md-pt-70 md-pb-70" id="faq">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 padding-0 col-md-12 md-mb-40">

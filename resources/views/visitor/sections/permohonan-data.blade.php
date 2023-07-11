@@ -18,29 +18,29 @@
 
                 <div class="services-part mb-20">
                     <div class="services-icon">
-                        <img src="{{ asset('assets/visitor/assets/images/choose/home12/icon/1.png') }}" alt="">
+                        <span class="display-1 text-success fw-bold">1</span>
                     </div>
                     <div class="services-text">
                         <h2 class="title"> Kunjungi Website DLHK Kota Jayapura</h2>
-                        <p class="services-txt"> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.</p>
+                        <p class="services-txt">Berbagai informasi atau pengumuman dan publikasi kegiatan kini sudah bisa dikunjungi melalui website kami.</p>
                     </div>
                 </div>
                 <div class="services-part mb-20">
                     <div class="services-icon">
-                        <img src="{{ asset('assets/visitor/assets/images/choose/home12/icon/2.png') }}" alt="">
+                        <span class="display-1 text-success fw-bold">2</span>
                     </div>
                     <div class="services-text">
-                        <h2 class="title"> Melengkapi Form Online Permintaan Data</h2>
-                        <p class="services-txt"> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.</p>
+                        <h2 class="title"> Kirim Pesan Melalui Formulir Kontak</h2>
+                        <p class="services-txt"> Fitur <a href="#faq" class="link-success fw-bold">Kirim Pesan</a> atau juga pada halaman <a href="{{ url('kontak') }}" class="link-success fw-bold">Kontak</a>.</p>
                     </div>
                 </div>
                 <div class="services-part">
                     <div class="services-icon">
-                        <img src="{{ asset('assets/visitor/assets/images/choose/home12/icon/3.png') }}" alt="">
+                        <span class="display-1 text-success fw-bold">3</span>
                     </div>
                     <div class="services-text">
-                        <h2 class="title">Dapatkan Data Melalui Email</h2>
-                        <p class="services-txt"> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.</p>
+                        <h2 class="title">Dapatkan Balasan Melalui Email atau Whatsapp</h2>
+                        <p class="services-txt">Admin web kami akan membalas pesan melalui email atau melalui Whatsapp yang telah dikirimkan pada formulir kontak pesan.</p>
                     </div>
                 </div>
             </div>
