@@ -90,21 +90,6 @@
                         </div>
                         <!-- input item end-->
 
-                        {{-- <div class="form-group">
-                            <label for="status" class="form-label">Status</label>
-                            <select name="status" class="form-control">
-                                <option value="" hidden>Pilih</option>
-                                <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
-                                <option value="Draft" @if(old('status') == 'Draft' ?? 'Selected') Selected @endif>Draft</option>
-                            </select>
-                            @if ($errors->has('status'))
-                                <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
-                                </span>
-                            @endif
-                        </div>
-                        <!-- input item end --> --}}
-
                     </div>
                     <!-- .col end-->
 

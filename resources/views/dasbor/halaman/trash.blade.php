@@ -23,11 +23,10 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ url('dasbor/halaman') }}" class="btn btn-danger mb-2 waves-effect waves-light"><i class="mdi mdi-arrow-left me-2"></i> Kembali</a>
+                        <a href="{{ url('dasbor/halaman') }}" class="btn btn-primary mb-2 waves-effect waves-light">
+                            <i class="mdi mdi-arrow-left me-2"></i> Kembali
+                        </a>
                     </div>
-                    <div class="col-sm-8">
-
-                    </div><!-- end col-->
                 </div>
 
                 <div class="table-responsive">
@@ -45,24 +44,6 @@
 
                             <td>{{ $data->judul_halaman }}</td>
                             <td> {{ $data->slug }}</td>
-                            
-                            {{-- <td class="text-center">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <form action="{{ url('dasbor/halaman/restore',$data->id) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-success">Restore</button>
-                                        </form>
-                                    </div>
-                                    <div class="col-6">
-                                        <form action="{{ url('dasbor/halaman/delete',$data->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </td> --}}
 
                             <td class="text-center">
                                 @if (Auth::id() == $data->user_id or Auth::user()->hasRole('administrator'))

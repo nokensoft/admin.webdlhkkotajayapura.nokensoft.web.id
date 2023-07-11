@@ -248,15 +248,8 @@ class BeritaController extends Controller
 
                 $data->save();
 
-                Alert::toast('Berita Berhasil dibuat!', 'success');
+                Alert::toast('Berhasil dibuat!', 'success');
                 return redirect('dasbor/berita/' . $data->slug . '/detail');
-
-                // if ($data->status == 'Publish') {
-                //     return redirect()->route('dasbor.berita');
-                // }
-                // else {
-                //     return redirect()->route('dasbor.berita.draft');
-                // }
 
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
@@ -337,7 +330,7 @@ class BeritaController extends Controller
 
                 $data->update();
 
-                Alert::toast('Berita Berhasil diperbarui!', 'success');
+                Alert::toast('Berhasil diperbarui!', 'success');
                 return redirect('dasbor/berita/' . $data->slug . '/detail');
 
                 // if ($data->status == 'Publish') {

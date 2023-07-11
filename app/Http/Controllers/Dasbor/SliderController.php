@@ -22,9 +22,7 @@ class SliderController extends Controller
      */
     public function index(Request $request)
     {
-        // $datas = Slider::where('status',1)->when(request()->q, function($datas) {
-        //     $datas = $datas->where('judul', 'like', '%'. request()->s . '%');
-        // })->latest()->paginate(5);
+        
         $datas = Slider::where([
             ['judul', '!=', Null],
             [function ($query) use ($request) {
@@ -34,7 +32,7 @@ class SliderController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status',1)->latest()->paginate(5);
+        ])->where('status', 'Publish')->latest()->paginate(5);
         // $datas = Slider::where('status',1)->latest()->paginate(5);
 
         $jumlahtrash = Slider::onlyTrashed()->count();
@@ -46,9 +44,6 @@ class SliderController extends Controller
 
     public function draft(Request $request)
     {
-        // $datas = Slider::where('status',1)->when(request()->q, function($datas) {
-        //     $datas = $datas->where('judul', 'like', '%'. request()->s . '%');
-        // })->latest()->paginate(5);
 
         $datas = Slider::where([
             ['judul', '!=', Null],
@@ -59,7 +54,7 @@ class SliderController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status',0)->latest()->paginate(5);
+        ])->where('status', 'Draft')->latest()->paginate(5);
         // $datas = Slider::where('status',1)->latest()->paginate(5);
 
         $jumlahtrash = Slider::onlyTrashed()->count();
@@ -92,35 +87,40 @@ class SliderController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'judul'            => 'required',
-                // 'gambar'              => 'image|mimes:png,jpeg,jpg|max:4096',
-                // 'status'                    => 'required',
+                'judul' => 'required',
+                // 'gambar' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
-                'judul.required'   => 'Bagian ini tidak boleh kosong',
-                // 'status.required'           => 'Status tidak boleh kosong',
-                // 'gambar.required'     => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                'judul.required' => 'Bagian ini tidak boleh kosong',
+                // 'gambar.required' => 'Gambar harus dengan jenis PNG,JPG,JPEG',
             ]
         );
+
         if ($validator->fails()) {
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $slider = new Slider();
-                $slider->judul = $request->judul;
-                $slider->deskripsi = $request->deskripsi;
-                $slider->status = $request->status;
+                $data = new Slider();
+                $data->judul = $request->judul;
+                $data->slug = Str::slug($data->judul);
+                $data->deskripsi = $request->deskripsi;
+                $data->status = $request->status;
+                $data->user_id = Auth::user()->id;
 
                 if ($request->gambar) {
-                    $imageName = $slider->slug . '.' . $request->gambar->extension();
+                    $imageName = $data->slug . '.' . $request->gambar->extension();
                     $path = public_path('gambar/slider');
-                    if (!empty($slider->gambar) && file_exists($path . '/' . $slider->gambar)) :
-                        unlink($path . '/' . $slider->gambar);
+                    if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
+                        unlink($path . '/' . $data->gambar);
                     endif;
-                    $slider->gambar = $imageName;
+                    $data->gambar = $imageName;
                     $request->gambar->move(public_path('gambar/slider'), $imageName);
                 }
-                $slider->save();
+
+                $data->save();
+
+                Alert::toast('Berhasil dibuat!', 'success');
+                return redirect('dasbor/slider/' . $data->slug . '/detail');
 
                 Alert::toast('Berhasil!', 'success');
                 return redirect()->route('dasbor.slider');
@@ -140,11 +140,10 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-      $data = Slider::whereId($id)->first();
-
-      return view('dasbor.slider.detail',compact('data'));
+      $data = Slider::where('slug', $slug)->first();
+      return view('dasbor.slider.show', compact('data'));
     }
 
     /**
@@ -153,11 +152,11 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $data = Slider::whereId($id)->first();
+        $data = Slider::where('slug', $slug)->first();
 
-      return view('dasbor.slider.edit',compact('data'));
+      return view('dasbor.slider.edit', compact('data'));
     }
 
     /**
@@ -170,52 +169,50 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(!empty( $request->file('image'))){
+       
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul' => 'required',
+                // 'gambar' => 'image|mimes:png,jpeg,jpg|max:4096',
+            ],
+            [
+                'judul.required' => 'Bagian ini tidak boleh kosong',
+                // 'gambar.required' => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+            ]
+        );
 
-            $filename  = 'nokensoft'.'-'.date('Y-m-d-H-i-s').$request->file('image')->getClientOriginalName();
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+                $data = Slider::find($id);
+                $data->judul = $request->judul;
+                $data->slug = Str::slug($data->judul);
+                $data->deskripsi = $request->deskripsi;
+                $data->status = $request->status;
+                $data->user_id = Auth::user()->id;
 
-        //    Input::file('foto')->move(public_path().'/source/upload',$filename);
+                if ($request->gambar) {
+                    $imageName = $data->slug . '.' . $request->gambar->extension();
+                    $path = public_path('gambar/slider');
+                    if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
+                        unlink($path . '/' . $data->gambar);
+                    endif;
+                    $data->gambar = $imageName;
+                    $request->gambar->move(public_path('gambar/slider'), $imageName);
+                }
 
-        $request->file('image')->storeAs('public/resource/sliders',$filename);
-           //    $image->storeAs('public/resource/sliders', $image->hashName());
+                $data->update();
 
-           $datalama = Slider::findOrFail($id);
-           if($datalama->image){
-            File::delete($datalama->image);
+                Alert::toast('Berhasil diubah!', 'success');
+                return redirect('dasbor/slider/' . $data->slug . '/detail');
 
+            } catch (\Throwable $th) {
+                Alert::toast('Gagal', 'error');
+                return redirect()->back();
+            }
         }
-
-           $data = $request->all();
-           $data = array(
-
-
-             'image'=> $filename,
-             'judul' => $request->judul,
-             'deskripsi' => $request->deskripsi,
-             'status' => $request->status,
-
-            );
-
-
-
-     $Slider = Slider::find($id);
-        $Slider->update($data);
-             }
-              else {
-                  $data = $request->all();
-                  $data = array(
-                    'judul' => $request->judul,
-                    'deskripsi' => $request->deskripsi,
-                    'status' => $request->status,);
-
-
-
-
-     $Slider = Slider::find($id);
-        $Slider->update($data);
-              }
-              alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-              return redirect('dasbor/slider');
     }
 
     /**
@@ -224,61 +221,50 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // DESTROY
     public function destroy($id)
     {
-
         $data = Slider::find($id);
-
-
-
-
-        if($data->delete()) {
+        if ($data->delete()) {
             //return success with Api Resource
-            alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
+            alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+            return redirect()->back();
+        }
+    }
+
+    // TRASH
+    public function trash()
+    {
+        $datas = Slider::onlyTrashed()->paginate(5);
+        $jumlahtrash = Slider::onlyTrashed()->count();
+        $jumlahdraft = Slider::where('status', 'Draf')->count();
+        $datapublish = Slider::where('status', 'Publish')->count();
+        return view('dasbor.slider.trash', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    // RESTORE
+    public function restore($id)
+    {
+        $data = Slider::onlyTrashed()->where('id', $id);
+        $data->restore();
+        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+        return redirect()->route('dasbor.slider');
+    }
+
+    // DELETE
+    public function delete($id)
+    {
+        $data = Slider::onlyTrashed()->findOrFail($id);
+        
+        $path = public_path('gambar/slider/' . $data->gambar);
+
+        if (file_exists($path)) {
+            File::delete($path);
         }
 
+        $data->forceDelete();
+        alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
+        return to_route('dasbor.slider.trash');
     }
-
-
-
-    public function trash()
-{
-    $datas = Slider::onlyTrashed()->paginate(10);
-
-    return view('dasbor.slider.trash',compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
-}
-
-
-
-
-
-public function restore($id)
-{
-    $data = Slider::onlyTrashed()->findOrFail($id);
-    $data->restore();
-
-    return to_route('dasbor.slider.trash')->with('success','Data restored successfully');
-}
-
-
-
-
-public function delete($id)
-{
-    $data = Slider::onlyTrashed()->findOrFail($id);
-
-    //dd($data);
-    if($data->image){
-        Storage::delete('public/resource/sliders/'.$data->image);
-
-
-    }
-
-    $data->forceDelete();
-
-    alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-    return to_route('dasbor.slider.trash');
-
-}
 
 }

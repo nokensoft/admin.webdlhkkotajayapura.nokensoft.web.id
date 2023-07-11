@@ -24,14 +24,14 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ route('dasbor.pengguna') }}" class="btn btn-danger mb-2 waves-effect waves-light"><i class="mdi mdi-arrow-left me-2"></i> Kembali
+                        <a href="{{ route('dasbor.pengguna') }}" class="btn btn-primary mb-2 waves-effect waves-light">
+                            <i class="mdi mdi-arrow-left me-2"></i> Kembali
                         </a>
                     </div>
 
                 </div>
 
                 <div class="table-responsive">
-
 
                     <table class="table table-bordered">
                         <tr>
@@ -53,7 +53,7 @@
                             </td>
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
-                            <td class="text-center">
+                            {{-- <td class="text-center">
                                 <div class="row">
                                     <div class="col-6">
                                         <form action="{{ route('dasbor.pengguna.restore',['id' => $data->id]) }}" method="POST">
@@ -71,7 +71,39 @@
                                         </form>
                                     </div>
                                 </div>
+                            </td> --}}
+
+                            <td class="text-center">
+                                @if (Auth::id() == $data->user_id or Auth::user()->hasRole('administrator'))
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Opsi <i class="mdi mdi-chevron-down"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+
+                                            <!-- form restore -->                                            
+                                            <form action="{{ url('dasbor/pengguna/restore', $data->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item bg-success text-light">
+                                                    <i class="fe-arrow-left"></i> Kembalikan
+                                                </button>
+                                            </form>
+
+                                            <!-- form delete -->
+                                            <form action="{{ url('dasbor/pengguna/delete',$data->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item bg-danger text-light show_confirm" data-toggle="tooltip" title='Delete'>
+                                                    <i class="fe-trash"></i> Hapus
+                                                </button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                
+                                @endif
                             </td>
+
                         </tr>
                         @endforeach
 

@@ -18,7 +18,7 @@ class UserController extends Controller
     // INDEX
     public function index(Request $request)
     {
-        $data = User::where([
+        $datas = User::where([
 
             [function ($query) {
                 if (($s = request()->s)) {
@@ -34,15 +34,14 @@ class UserController extends Controller
         $jumlahdraft = User::where('status', 'Draft')->count();
         $datapublish = User::where('status', 'Publish')->count();
 
-        return view('dasbor.admin.users.index', compact('data', 'jumlahtrash', 'jumlahdraft', 'datapublish'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('dasbor.admin.users.index', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     // DRAFT
     public function draft()
     {
 
-        $data = User::where([
+        $datas = User::where([
             ['name', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
@@ -58,7 +57,7 @@ class UserController extends Controller
         $datapublish = User::where('status', 'publish')->count();
 
         return view('dasbor.admin.users.index', compact(
-            'data',
+            'datas',
             'jumlahtrash',
             'jumlahdraft',
             'datapublish'
@@ -93,17 +92,18 @@ class UserController extends Controller
                 'password'       => 'required|confirmed|min:8',
                 'peran'          => 'required',
                 'slug'           => 'unique:users,slug',
-                'picture'        => 'required|image|mimes:jpeg,png,jpg|max:4096',
+                // 'picture'        => 'required|image|mimes:jpeg,png,jpg|max:4096',
 
-            ],[
+            ],
+            [
                 'slug.unique'                  => 'Data sudah ada!',
                 'name.required'                => 'Nama  tidak boleh kosong!',
                 'status.required'              => 'Status  tidak boleh kosong!',
                 'peran.required'               => 'Peran  tidak boleh kosong!',
                 'email.required'               => 'Email  tidak boleh kosong!',
                 'email.unique'                 => 'Email  sudah digunakan,Silakan gunakan email yang lain!',
-                'picture.mimes'                => 'Gambar harus dengan jenis PNG,JPG,JPEG!',
-                'picture.required'             => 'Gambar tidak  boleh kosong!',
+                // 'picture.mimes'                => 'Gambar harus dengan jenis PNG,JPG,JPEG!',
+                // 'picture.required'             => 'Gambar tidak  boleh kosong!',
 
                 'password.required'                => 'Kata sandi  tidak boleh kosong!',
                 'password.confirmed'               => 'Konfirmasi kata sandi tidak cocok!',
@@ -116,31 +116,33 @@ class UserController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $account = new User();
-                $account->name = $request->name;
-                $account->email = $request->email;
-                $account->status = $request->status;
-                $account->password = bcrypt($request->password);
-                $account->slug = Str::slug($request->name).'-'.time();
+                $data = new User();
+                $data->name = $request->name;
+                $data->slug = Str::slug($data->name).'-'.time();
+                $data->email = $request->email;
+                $data->status = $request->status;
+                $data->password = bcrypt($request->password);
 
-                $posterName = Str::slug($request->name) . '.' . $request->picture->extension();
-                $path = public_path('gambar/pengguna');
-                if (!empty($account->picture) && file_exists($path . '/' . $account->picture)) :
-                    unlink($path . '/' . $account->picture);
-                endif;
-                $account->picture = $posterName;
+                if(!empty($request->picture)) {
 
-                $account->save();
-                $request->picture->move(public_path('gambar/pengguna'), $posterName);
-                $account->assignRole($request->peran);
-                Alert::toast('Pengguna Berhasil dibuat!', 'success');
-                if ($account->status == 'Publish') {
-                    return redirect()->route('dasbor.pengguna');
-                } else {
-                    return redirect()->route('dasbor.pengguna.draft');
+                    $posterName = Str::slug($request->name) . '.' . $request->picture->extension();
+                    $path = public_path('gambar/pengguna');
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
+                    endif;
+                    $data->picture = $posterName;
+
+                    $request->picture->move(public_path('gambar/pengguna'), $posterName);
                 }
+
+                $data->assignRole($request->peran);
+                $data->save();
+
+                Alert::toast('Berhasil dibuat!', 'success');
+                return redirect('dasbor/pengguna/' . $data->slug . '/detail');
+
             } catch (\Throwable $th) {
-                dd($th);
+                // dd($th);
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
             }
@@ -170,24 +172,29 @@ class UserController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required',
-                'status' => 'required',
-                'email' => 'required|email|unique:users,email,' . $id,
-                'password' => 'confirmed',
-                'peran'     => 'required',
-                'slug'      => 'unique:users,slug,'.$id,
-                'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
-            ],[
+                'name'           => 'required',
+                'status'         => 'required',
+                // 'email'          => 'required|email|unique:users,email',
+                'password'       => 'confirmed',
+                // 'peran'          => 'required',
+                // 'slug'           => 'unique:users,slug',
+                // 'picture'        => 'required|image|mimes:jpeg,png,jpg|max:4096',
 
-                'name.required'             => 'Nama  tidak boleh kosong!',
-                'status.required'           => 'Status  tidak boleh kosong!',
-                'peran.required'            => 'Peran  tidak boleh kosong!',
-                'email.required'            => 'Email  tidak boleh kosong!',
-                'email.unique'              => 'Email  sudah digunakan,Silakan gunakan email yang lain!',
-                'picture.mimes'             => 'Gambar harus dengan jenis PNG,JPG,JPEG!',
+            ],
+            [
+                'slug.unique'                  => 'Data sudah ada!',
+                'name.required'                => 'Nama  tidak boleh kosong!',
+                'status.required'              => 'Status  tidak boleh kosong!',
+                'peran.required'               => 'Peran  tidak boleh kosong!',
+                // 'email.required'               => 'Email  tidak boleh kosong!',
+                // 'email.unique'                 => 'Email  sudah digunakan,Silakan gunakan email yang lain!',
+                // 'picture.mimes'                => 'Gambar harus dengan jenis PNG,JPG,JPEG!',
+                // 'picture.required'             => 'Gambar tidak  boleh kosong!',
 
-                'password.confirmed'        => 'Konfirmasi kata sandi tidak cocok!',
-                'password.min'              => 'Kata sandi minimal 8 karakter',
+                // 'password.required'                => 'Kata sandi  tidak boleh kosong!',
+                'password.confirmed'               => 'Konfirmasi kata sandi tidak cocok!',
+                // 'password_confirmation.required'   => 'Konfirmasi Kata sandi  tidak boleh kosong!',
+                // 'password.min'                     => 'Kata sandi minimal 8 karakter',
             ]
         );
 
@@ -195,33 +202,32 @@ class UserController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $account = User::find($id);
-                $account->name = $request->name;
-                $account->email = $request->email;
-                $account->status = $request->status;
-                $account->slug = Str::slug($request->name).'-'.time();
-                if ($request->password) {
-                    $account->password = Hash::make($request->password);
+                $data = User::find($id);
+                $data->name = $request->name;
+                $data->email = $request->email;
+                $data->status = $request->status;
+                $data->slug = Str::slug($request->name).'-'.time();
 
+                if (!empty($request->password)) {
+                    $data->password = bcrypt($request->password);
                 }
+
                 if ($request->picture) {
 
                     $imageName = Str::slug($request->name) . '.' . $request->picture->extension();
                     $path = public_path('gambar/pengguna');
-                    if (!empty($account->picture) && file_exists($path . '/' . $account->picture)) :
-                        unlink($path . '/' . $account->picture);
+                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                        unlink($path . '/' . $data->picture);
                     endif;
-                    $account->picture = $imageName;
+                    $data->picture = $imageName;
                     $request->picture->move(public_path('gambar/pengguna'), $imageName);
                 }
-                $account->update();
-                $account->syncRoles(explode(',', $request->peran));
-                Alert::toast('Pengguna Berhasil diperbarui!', 'success');
-                if ($account->status == 'Publish') {
-                    return redirect()->route('dasbor.pengguna');
-                } else {
-                    return redirect()->route('dasbor.pengguna.draft');
-                }
+                
+                $data->assignRole($request->peran);
+                $data->update();
+
+                Alert::toast('Berhasil diubah!', 'success');
+                return redirect('dasbor/pengguna/' . $data->slug . '/detail');
             } catch (\Throwable $th) {
                 dd($th);
                 Alert::toast('Failed', 'error');
@@ -230,41 +236,42 @@ class UserController extends Controller
         }
     }
 
+    // DESTROY
+    public function destroy($id)
+    {
+        $data = User::find($id);
+        if ($data->delete()) {
+            //return success with Api Resource
+            alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+            return redirect()->back();
+        }
+    }
+
+
     // RESTORE
     public function restore($id)
     {
         $data = User::onlyTrashed()->where('id', $id);
         $data->restore();
         alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('dasbor.pengguna');
+        return redirect()->back();
     }
 
     // DELETE
     public function delete($id)
     {
-        $data = User::findOrFail($id);
-        $data->delete();
-        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->route('dasbor.pengguna');
-    }
+        $data = User::onlyTrashed()->findOrFail($id);
+        
+        $path = public_path('gambar/pengguna/' . $data->picture);
 
-    // DESTROY
-    public function destroy($id)
-    {
-        try {
-            $user = User::onlyTrashed()->findOrFail($id);
-            $path = public_path('gambar/pengguna/' . $user->picture);
-
-            if (file_exists($path)) {
-                File::delete($path);
-            }
-            $user->forceDelete();
-            Alert::toast('Pengguna Berhasil dihapus', 'success');
-            return redirect()->back();
-        } catch (\Throwable $e) {
-            dd($e);
-            Alert::toast('Failed', ['error' => $e->getMessage()], 'error');
-            return redirect()->back();
+        if (file_exists($path)) {
+            File::delete($path);
         }
+
+        $data->forceDelete();
+        alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
+        return to_route('dasbor.pengguna.trash');
     }
+
+
 }

@@ -70,7 +70,7 @@
                     <a href="{{ url('dasbor/kategori/' . $data->slug . '/detail')  }}" class="btn btn-lg btn-light waves-effect waves-light border">
                         <i class="fe-eye mr-1"></i> Detail
                     </a>
-                    <a href="{{ url('dasbor/kategori') }}" class="btn btn-light waves-effect waves-light border">
+                    <a href="{{ url('dasbor/berita/kategori') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                         <i class="fe-arrow-left"></i> Kembali
                     </a>
                 </div>

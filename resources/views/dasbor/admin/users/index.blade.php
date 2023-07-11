@@ -20,7 +20,9 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                @include('dasbor.admin.users.menu')
+
+                @include('dasbor.layout.includes.leftbar-menu')
+
                 <div class="inbox-rightbar">
 
                     @include('dasbor.layout.includes.search')
@@ -37,47 +39,57 @@
                                 <th>Status</th>
                                 <th></th>
                             </tr>
-                            @foreach ($data as $key => $user)
+                            @foreach ($datas as $data)
                             <tr>
                                 <td class="text-center">{{ ++$i }}</td>
                                 <td class="align-middle">
-                                    @if ($user->picture)
-                                    <img src="{{ asset('gambar/pengguna/' . $user->picture) }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
+                                    @if ($data->picture)
+                                    <img src="{{ asset('gambar/pengguna/' . $data->picture) }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
                                     @else
                                     <img src="{{ asset('gambar/pengguna/00.jpg') }}" alt="Gambar" class="img img-circle rounded mr-1" style="height: 75px;width:75px;">
 
                                     @endif
 
                                 </td>
-                                <td>{{ $user->name ?? '' }}</td>
-                                <td>{{ $user->email ?? '' }}</td>
-                                <td>{{ $user->description ?? '' }}</td>
+                                <td>{{ $data->name ?? '' }}</td>
+                                <td>{{ $data->email ?? '' }}</td>
+                                <td>{{ $data->description ?? '' }}</td>
                                 <td>
-                                    <i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="{{ $user->description ?? '' }}"></i>
-                                    {{ implode('', $user->roles()->pluck('display_name')->toArray()) }}
+                                    <i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="{{ $data->description ?? '' }}"></i>
+                                    {{ implode('', $data->roles()->pluck('display_name')->toArray()) }}
                                 </td>
-                                <td>{{ $user->status ?? '' }}</td>
+                                <td>{{ $data->status ?? '' }}</td>
+
                                 <td class="text-center">
-                                    <form action="{{ route('dasbor.pengguna.delete',['id' => $user->id]) }}" method="POST">
+                                    <form action="{{ url('dasbor/pengguna', $data->id) }}" method="POST">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Opsi <i class="mdi mdi-chevron-down"></i>
                                             </button>
                                             <div class="dropdown-menu">
-                                                @if (Auth::id() == $user->id)
-                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->slug) }}"><i class="fe-eye"></i> Detail</a>
-                                                <a class="dropdown-item" href="{{ route('dasbor.akunsaya') }}"><i class="fe-edit"></i> Edit</a>
-                                                @else
-                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.show',$user->slug) }}"><i class="fe-eye"></i> Detail</a>
-                                                <a class="dropdown-item" href="{{ route('dasbor.pengguna.edit',$user->slug) }}"><i class="fe-edit"></i> Ubah</a>
+                                                @if (Auth::id() == $data->user_id or Auth::user()->hasRole('administrator'))
+                                                <a class="dropdown-item" href="{{ url('dasbor/pengguna/' . $data->slug.'/detail') }}">
+                                                    <i class="fe-eye"></i> Detail
+                                                </a>
+                                                <a class="dropdown-item" href="{{ url('dasbor/pengguna/' . $data->slug.'/edit') }}">
+                                                    <i class="fe-edit"></i> Ubah
+                                                </a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item bg-danger text-light"><i class="fe-trash"></i> Hapus</button>
+                                                <button type="submit" class="dropdown-item bg-danger text-light">
+                                                    <i class="fe-trash"></i> Hapus
+                                                </button>
+                                                
+                                                @else
+                                                <a class="dropdown-item" href="{{ url('dasbor/pengguna/' . $data->slug.'/detail') }}">
+                                                    <i class="fe-eye"></i> Detail
+                                                </a>
                                                 @endif
                                             </div>
                                         </div>
-
+                                    </form>
                                 </td>
+
                             </tr>
 
                             @endforeach
@@ -85,7 +97,7 @@
                     </div>
                     <!-- end .mt-4 -->
 
-                    {!! $data->render() !!}
+                    {!! $datas->render() !!}
 
                 </div>
                 <!-- end inbox-rightbar-->

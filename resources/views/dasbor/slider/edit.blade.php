@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/slider') }}">Link Terkait</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/slider') }}">Slider</a></li>
                     <li class="breadcrumb-item active">Ubah</li>
                 </ol>
             </div>
@@ -37,35 +37,35 @@
                         <div class="col-md-8">
 
                             <div class="form-group">
-                                <label for="judul_link" class="form-label">Judul Link <span class="text-danger">*</span></label>
-                                <input type="text" id="judul_link" name="judul_link" class="form-control" placeholder="Judul Link" value="{{ old('judul_link') ?? $data->judul_link }}">
+                                <label for="judul" class="form-label">Judul <span class="text-danger">*</span></label>
+                                <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul slider" value="{{ old('judul') ?? $data->judul }}">
 
-                                @if ($errors->has('judul_link'))
+                                @if ($errors->has('judul'))
                                     <span class="text-danger" role="alert">
-                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul_link') }}</small>
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('judul') }}</small>
                                     </span>
                                 @endif
                             </div>
                             <!-- input item end -->
 
                             <div class="form-group">
-                                <label for="url" class="form-label">URL <span class="text-danger">*</span></label>
-                                <input type="text" id="url" name="url" class="form-control" placeholder="URL" value="{{ old('url') ?? $data->url }}">
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                <input type="text" id="deskripsi" name="deskripsi" class="form-control" placeholder="Deskripsi singkat" value="{{ old('deskripsi') ?? $data->deskripsi }}">
 
                                 @if ($errors->has('url'))
                                     <span class="text-danger" role="alert">
-                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('url') }}</small>
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('deskripsi') }}</small>
                                     </span>
                                 @endif
                             </div>
                             <!-- input item end -->
 
                             <div class="form-group">
-                                <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
+                                <label for="status" class="form-label d-block">Status</label>
                                 <select class="form-control" name="status" id="exampleFormControlSelect1">
                                     <option value="" hidden>Pilih</option>
-                                    <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish</option>
-                                    <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft</option>
+                                    <option value="Publish" @if(old('status', $data->status) == $data->status) Selected @endif>Publish</option>
+                                    <option value="Draft" @if(old('status', $data->status) ==   $data->status ) Selected @endif>Draft</option>
                                 </select>
 
                                 @if ($errors->has('status'))
@@ -90,7 +90,7 @@
                                     <img src="{{ asset('gambar/slider/' . $data->gambar ?? '') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
                                     @endif
                                 </div>
-                                <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span> {{ asset('gambar/slider/' . $data->gambar ?? '') }}</label>
+                                <label for="gambar" class="form-label d-block">Gambar</label>
                                 @if ($errors->has('gambar'))
                                     <span class="text-danger" role="alert">
                                         <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>
@@ -123,7 +123,7 @@
                     <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light waves-effect waves-light border">
                         <i class="fe-save mr-1"></i> Simpan
                     </button>
-                    <a href="{{ route('dasbor.slider') }}" class="btn btn-lg btn-light waves-effect waves-light border">
+                    <a href="{{ route('dasbor.link-terkait') }}" class="btn btn-lg btn-light waves-effect waves-light border">
                         <i class="fe-arrow-left mr-1"></i> Kembali
                     </a>
                 </div>

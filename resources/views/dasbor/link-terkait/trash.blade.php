@@ -23,7 +23,9 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-sm-4">
-                        <a href="{{ url('dasbor/link-terkait') }}" class="btn btn-danger mb-2 waves-effect waves-light"><i class="mdi mdi-arrow-left me-2"></i> Kembali</a>
+                        <a href="{{ url('dasbor/link-terkait') }}" class="btn btn-primary mb-2 waves-effect waves-light">
+                            <i class="mdi mdi-arrow-left me-2"></i> Kembali
+                        </a>
                     </div>
                     <div class="col-sm-8">
 

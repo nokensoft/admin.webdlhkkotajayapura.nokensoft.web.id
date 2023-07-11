@@ -17,18 +17,6 @@
 </div>
 <!-- end row -->
 
-@if ($errors->any())
-<div class="mb-3 alert alert-warning">
-    <strong class="d-block mb-2 text-dark">Perhatian!</strong>
-    <ul class="list-group">
-        @foreach ($errors->all() as $error)
-        <li style="list-style: none" class="mb-2">
-            <i class="fe-alert-triangle mr-1"></i> {{ $error }}
-        </li>
-        @endforeach
-    </ul>
-</div>
-@endif
 
 <form action="{{ route('dasbor.pengguna.store') }}" method="POST" enctype="multipart/form-data">
 @csrf
@@ -90,23 +78,23 @@
                                 <select name="peran" class="form-control">
                                     <option value="" hidden>Pilih</option>
                                     @foreach ($roles as $role)
-                                    <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                                    <option value="{{ $role->id }}" @if(old('peran') == $role->id) Selected @endif>{{ $role->display_name }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('peran'))
                                     <span class="text-danger" role="alert">
-                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('status') }}</small>
+                                        <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('peran') }}</small>
                                     </span>
                                 @endif
                             </div>
                             <!-- input item end -->
 
                         <div class="form-group">
-                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                            <label for="status" class="form-label">Status</label>
                             <select name="status" class="form-control">
                                 <option value="" hidden>Pilih</option>
                                 <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
-                                <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
+                                <option value="Draft" Selected>Draft</option>
                             </select>
                             @if ($errors->has('status'))
                                 <span class="text-danger" role="alert">
@@ -125,7 +113,7 @@
                                 <div class="mb-2">
                                     <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid">
                                 </div>
-                                <label for="picture" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                                <label for="picture" class="form-label d-block">Gambar</label>
                                 <div class="custom-file w-100">
                                     <input type="file" name="picture" class="custom-file-input" id="picture" accept="image/*">
                                     <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>

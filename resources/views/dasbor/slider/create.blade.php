@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ url('dasbor') }}">Dasbor</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('dasbor/slider') }}">Link Terkait</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dasbor/slider') }}">Slider</a></li>
                     <li class="breadcrumb-item active">Tambah</li>
                 </ol>
             </div>
@@ -60,11 +60,11 @@
                         <!-- input item end -->
 
                         <div class="form-group">
-                            <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
+                            <label for="status" class="form-label d-block">Status</label>
                             <select class="form-control" name="status" id="exampleFormControlSelect1">
                                 <option value="" hidden>Pilih</option>
                                 <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
-                                <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
+                                <option value="Draft" Selected>Draft</option>
                             </select>
 
                             @if ($errors->has('status'))
@@ -85,7 +85,7 @@
                             <div class="mb-2">
                                 <img src="{{ asset('gambar/slider/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
                             </div>
-                            <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                            <label for="gambar" class="form-label d-block">Gambar</label>
                             @if ($errors->has('gambar'))
                                 <span class="text-danger" role="alert">
                                     <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('gambar') }}</small>

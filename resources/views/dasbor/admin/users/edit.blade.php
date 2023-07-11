@@ -77,11 +77,11 @@
                             <!-- inpute item end -->
 
                             <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi </label>
-                                <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Konfirmasi Kata Sandi">
-                                @if ($errors->has('confirm-password'))
+                                <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi </label>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Kata Sandi">
+                                @if ($errors->has('password_confirmation'))
                                 <span class="text-danger" role="alert">
-                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('confirm-password') }}</small>
+                                    <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('password_confirmation') }}</small>
                                 </span>
                                 @endif
                             </div>
@@ -132,7 +132,7 @@
                                     <img src="{{ asset('gambar/pengguna/' . $data->picture) }}" alt="Gambar" alt="Gambar" id="preview-picture" class="img-thumbnail img-fluid" >
                                     @endif
                                 </div>
-                                <label for="picture" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                                <label for="picture" class="form-label d-block">Gambar</label>
                                 <div class="custom-file w-100">
                                     <input type="file" name="picture" class="custom-file-input" id="picture" accept="image/*">
                                     <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>

@@ -40,11 +40,11 @@ use Illuminate\Support\Facades\Route;
         Route::post('slider','store')->name('dasbor.slider.store');
 
         // show / detail
-        Route::get('slider/{id}/detail','show')
+        Route::get('slider/{slug}/detail','show')
             ->name('dasbor.slider.show');
 
         // edit
-        Route::get('slider/{id}/edit','edit')
+        Route::get('slider/{slug}/edit','edit')
             ->name('dasbor.slider.edit');
 
         // update

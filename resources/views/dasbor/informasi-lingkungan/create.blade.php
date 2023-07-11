@@ -48,7 +48,7 @@
                             <!-- input item end -->
 
                             <div class="mb-3">
-                                <label for="url" class="form-label">Tautan / URL  <span class="text-danger">*</span></label>
+                                <label for="url" class="form-label">Tautan / URL</label>
                                 <input type="text" id="url" name="url" class="form-control" placeholder="Misal : halaman/informasi-lingkungan " value="{{ old('url') }}">
 
                                 @if ($errors->has('url'))
@@ -72,7 +72,7 @@
                             <!-- input item end -->
 
                             <div class="mb-3">
-                                <label for="keterangan_lengkap" class="form-label">Keterangan Lengkap <span class="text-danger">*</span></label>
+                                <label for="keterangan_lengkap" class="form-label">Keterangan Lengkap</label>
                                 <textarea name="keterangan_lengkap" class="ckeditor form-control" id="keterangan_lengkap" cols="30" rows="10">{{ old('keterangan_lengkap') }}</textarea>
                                 @if ($errors->has('keterangan_lengkap'))
                                 <span class="text-danger" role="alert">
@@ -83,11 +83,11 @@
                             <!-- input item end -->
 
                             <div class="form-group">
-                                <label for="status" class="form-label d-block">Status <span class="text-danger">*</span></label>
+                                <label for="status" class="form-label d-block">Status</label>
                                 <select class="form-control" name="status" id="exampleFormControlSelect1">
                                     <option value="" hidden>Pilih</option>
-                                    <option value="publish" @if(old('status') == 'publish') Selected @endif>Active</option>
-                                    <option value="draft" @if(old('status') == 'draft') Selected @endif>Inactive</option>
+                                    <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
+                                    <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
                                 </select>
 
                                 @if ($errors->has('status'))
@@ -109,7 +109,7 @@
                                 <div class="mb-2">
                                     <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" accept="image/*" id="preview-gambar" class="img-thumbnail w-100">
                                 </div>
-                                <label for="gambar" class="form-label d-block">Gambar <span class="text-danger">*</span></label>
+                                <label for="gambar" class="form-label d-block">Gambar</label>
                                 @if ($errors->has('gambar'))
                                     <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('gambar') }}</small>

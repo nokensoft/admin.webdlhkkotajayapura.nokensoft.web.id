@@ -21,9 +21,8 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <!-- Left sidebar -->
-                @include('dasbor.halaman.menu')
-                <!-- End Left sidebar -->
+
+                @include('dasbor.layout.includes.leftbar-menu')
 
                 <div class="inbox-rightbar">
 

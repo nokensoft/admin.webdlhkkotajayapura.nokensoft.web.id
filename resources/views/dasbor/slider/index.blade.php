@@ -20,9 +20,8 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <!-- Left sidebar -->
-                @include('dasbor.slider.menu')
-                <!-- End Left sidebar -->
+
+                @include('dasbor.layout.includes.leftbar-menu')
 
                 <div class="inbox-rightbar">
 
@@ -44,10 +43,10 @@
                                 <td>{{ ++$i }}</td>
                                 <td>
                                     @if(empty($data->gambar))
-                                    <img src="{{ asset('gambar/slider/00.jpg') }}" class="img-thumbnail" alt="Gambar">
+                                    <img src="{{ asset('gambar/slider/00.jpg') }}" class="img-thumbnail" alt="Gambar" width="300px">
                                     @else
                                     <a href="{{ asset('gambar/slider/' . $data->gambar) }}" target="_blank">
-                                        <img src="{{ asset('gambar/slider/' . $data->gambar) }}" class="img-thumbnail" alt="Gambar">
+                                        <img src="{{ asset('gambar/slider/' . $data->gambar) }}" class="img-thumbnail" alt="Gambar" width="300px">
                                     </a>
                                     @endif
                                 </td>

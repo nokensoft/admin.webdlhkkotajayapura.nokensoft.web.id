@@ -134,26 +134,33 @@ class BerandaController extends Controller
     // BERITA > SHOW
     public function beritaShow($slug)
     {
-        $data = Berita::where('slug', $slug)->first();
+        $data = Berita::where('slug', $slug)->where('status', 'Publish')->first();
 
         // data link terkait di halaman beranda
-        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
+        $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'Publish')->paginate();
 
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
         $banner_3 = Banner::whereId(3)->first();
 
-        return  view(
-            'visitor.pages.berita.show',
-            compact(
-                'data',
-                'linkTerkaits',
-                'banner_1',
-                'banner_2',
-                'banner_3',
-            )
-        );
+        if(!empty($data)) {
+
+            return  view(
+                'visitor.pages.berita.show',
+                compact(
+                    'data',
+                    'linkTerkaits',
+                    'banner_1',
+                    'banner_2',
+                    'banner_3',
+                )
+            );
+
+        } else {
+            // abort(404);
+            return view('visitor.pages.404');
+        }
     }
 
     // BERITA > CATEGORY

@@ -88,24 +88,24 @@ class InformasiLingkunganController extends Controller
             $request->all(),
             [
                 'judul'                     => 'required',
-                'keterangan_singkat'        => 'required',
-                'keterangan_lengkap'        => 'required|string|max:255',
-                'url'                       => 'required',
-                'status'                    => 'required',
-                'slug'                      => 'unique:informasi_lingkungans,slug',
-                'gambar'                    => 'required|image|mimes:jpeg,png,jpg|max:2024',
+                // 'keterangan_singkat'        => 'required',
+                // 'keterangan_lengkap'        => 'required|string|max:255',
+                // 'url'                       => 'required',
+                // 'status'                    => 'required',
+                // 'slug'                      => 'unique:informasi_lingkungans,slug',
+                // 'gambar'                    => 'required|image|mimes:jpeg,png,jpg|max:2024',
             ],
             [
-                'slug.unique'                   => 'Data sudah ada!',
-
+                
                 'judul.required'                => 'Judul  tidak boleh kosong',
-                'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
-                'keterangan_lengkap.required'   => 'Keterangan Lengkap tidak boleh kosong',
-                'keterangan_lengkap.max'   => 'Keterangan Lengkap tidak boleh lebih dari 255 karakter.',
-                'gambar.required'               => 'Gambar tidak boleh kosong',
-                'gambar.mimes'                  => 'Gambar harus dengan jenis PNG,JPG,JPEG',
-                'status.required'               => 'Status tidak boleh kosong',
-                'url.required'                  => 'Tautan / URL tidak boleh kosong',
+                // 'keterangan_singkat.required'   => 'Keterangan Singkat tidak boleh kosong',
+                // 'keterangan_lengkap.required'   => 'Keterangan Lengkap tidak boleh kosong',
+                // 'keterangan_lengkap.max'   => 'Keterangan Lengkap tidak boleh lebih dari 255 karakter.',
+                // 'url.required'                  => 'Tautan / URL tidak boleh kosong',
+                // 'gambar.required'               => 'Gambar tidak boleh kosong',
+                // 'gambar.mimes'                  => 'Gambar harus dengan jenis PNG,JPG,JPEG',
+                // 'status.required'               => 'Status tidak boleh kosong',
+                // 'slug.unique'                   => 'Data sudah ada!',
             ]
         );
         if ($validator->fails()) {
