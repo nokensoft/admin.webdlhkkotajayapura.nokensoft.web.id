@@ -177,11 +177,11 @@ class RoleUserSeeder extends Seeder
 
         // AUTHOR > BIDANG PENAATAN DAN PENINGKATAN KAPASITAS LINGKUNGAN
         $authorJabbar = User::create([
-            'name'              => 'Abdul Jabbar',
-            'slug'              => 'jabbar'.time().Str::random(12),
+            'name'              => 'Abdul Jabbaar',
+            'slug'              => 'jabbaar'.time().Str::random(12),
             'picture'           => '00.jpg',
-            'email'             => 'jabbar@dlhk.jayapurakota.go.id',
-            'password'          => bcrypt('j4664r@DLHK_2023'),
+            'email'             => 'jabbaar@dlhk.jayapurakota.go.id',
+            'password'          => bcrypt('j46644r@DLHK_2023'),
             'status'           => 'Publish',
             'description' => 'Bidang Penataan dan Peningkatan Kapasitas Lingkukngan',
 
