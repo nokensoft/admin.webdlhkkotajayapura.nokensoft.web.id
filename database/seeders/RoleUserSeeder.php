@@ -207,7 +207,7 @@ class RoleUserSeeder extends Seeder
 
         // AUTHOR > UPTD Laboratorium
         $authorEflantin = User::create([
-            'name'              => 'Eflantin Berlien Siahaya',
+            'name'              => 'Eflantin B. Siahaya',
             'slug'              => 'eflantin'.time().Str::random(12),
             'picture'           => '00.jpg',
             'email'             => 'eflantin@dlhk.jayapurakota.go.id',
