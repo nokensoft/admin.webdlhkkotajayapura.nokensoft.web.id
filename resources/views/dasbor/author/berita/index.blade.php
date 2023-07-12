@@ -27,7 +27,7 @@
 
                     @include('dasbor.layout.includes.search')
 
-                    <div class="mt-3">
+                    <div class="table-responsive mt-3">
                         <table class="table table-bordered">
                         <tr>
                             <th class="text-center">No</th>
