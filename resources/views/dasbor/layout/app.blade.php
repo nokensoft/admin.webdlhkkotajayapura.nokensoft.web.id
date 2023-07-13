@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
 
-        <title> {{ $pengaturan->judul_situs }} </title>
+        <title> Dasbor - {{ $pengaturan->judul_situs }} </title>
 
         <!-- HTML METAS -->
         <meta property="og:locale" content="id_ID" />

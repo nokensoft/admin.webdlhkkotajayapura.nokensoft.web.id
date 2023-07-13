@@ -102,7 +102,7 @@ class BerandaController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'publish')->paginate();
+        ])->where('status', 'publish')->orderBy('id', 'desc')->paginate();
 
 
         $kategoris = KategoriBerita::where('status', 'publish')->paginate(6);
