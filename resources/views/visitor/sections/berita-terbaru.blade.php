@@ -29,18 +29,24 @@
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span class="date"><i class="fa fa-calendar-check-o"></i>{{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }}</span>
-                        <span class="admin"><i class="fa fa-user"></i>{{ $data->author->name ?? '' }}</span>
+                        <span class="text-dark">
+                            <i class="fa-solid fa-book"></i>
+                            <a href="{{ url('berita/kategori/'), $data->kategori->kategori_slug ?? ''  }}" class="link-dark">
+                                {{ $data->kategori->name ?? '' }}
+                            </a>
+                        </span>
+                        <span class="text-dark">
+                            <i class="fa-solid fa-calendar-check-o"></i>
+                            {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }}
+                        </span>
+                        {{-- <span class="admin"><i class="fa fa-user"></i>{{ $data->author->name ?? '' }}</span> --}}
                     </div>
-                    <h3 class="title text-capitalize"><a href="{{ url('berita/' . $data->slug ?? '') }}"> {{ $data->judul ?? '' }} </a></h3>
+                    <h3 class="text-capitalize"><a href="{{ url('berita/' . $data->slug ?? '') }}" class="link-success"> 
+                        {{ $data->judul ?? '' }} </a>
+                    </h3>
                     <div class="btn-btm">
-                        <div class="cat-list">
-                            <ul class="post-categories">
-                                <li><a href="{{ url('berita/kategori/'), $data->kategori->kategori_slug ?? ''  }}">{{ $data->kategori->name ?? '' }}</a></li>
-                            </ul>
-                        </div>
                         <div class="rs-view-btn">
-                            <a href="{{ url('berita/' . $data->slug ?? '') }}">Selengkapnya</a>
+                            <a href="{{ url('berita/' . $data->slug ?? '') }}">Selengkapnya </a>
                         </div>
                     </div>
                 </div>

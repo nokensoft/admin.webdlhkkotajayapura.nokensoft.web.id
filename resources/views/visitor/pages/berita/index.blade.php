@@ -15,7 +15,7 @@
 
                         @if ($slug != null)
                             <li>
-                                    <a class="active" href="{{ route('berita') }}">{{ $pageTitle }} </a>
+                                <a class="active" href="{{ route('berita') }}">{{ $pageTitle }} </a>
                             </li>
                             <li id="slug" data-value="{{$slug}}">
                                 <div id="kategori"></div>
@@ -65,21 +65,31 @@
                                             </a>
                                         </div>
                                         <div class="blog-content">
-                                            <h3 class="blog-title text-capitalize"><a href="{{ url('berita/' . $data->slug) }}">{{ $data->judul ?? '' }} </a></h3>
+                                            <h3 class="text-capitalize mb-3">
+                                                <a href="{{ url('berita/' . $data->slug) }}" class="link-success">{{ $data->judul ?? '' }} </a>
+                                            </h3>
                                             <div class="blog-meta">
                                                 <ul class="btm-cate">
                                                     <li>
-                                                        <div class="tag-line">
-                                                            <i class="fa fa-book"></i>
-                                                            <a href="/berita/kategori/{{ $data->kategori->kategori_slug ?? '' }} ">{{ $data->kategori->name ?? '' }} </a>
+                                                        <div class="text-dark">
+                                                            <i class="fa-solid fa-book"></i>
+                                                            <a href="/berita/kategori/{{ $data->kategori->kategori_slug ?? '' }}" class="link-dark">
+                                                                {{ $data->kategori->name ?? '' }}
+                                                            </a>
                                                         </div>
                                                     </li>
+                                                    <li>
+                                                        <div class="text-dark">
+                                                            <i class="fa-solid fa-calendar-check-o"></i>
+                                                            {{ Carbon\Carbon::parse($data->created_at)->format('d F Y') }}
+                                                        </div>
+                                                    </li>
+                                                    {{-- 
                                                     <li>
                                                         <div class="blog-date">
                                                             <i class="fa fa-calendar-check-o"></i> {{ $data->created_at ?? '' }}
                                                         </div>
-                                                    </li>
-                                                    {{-- <li>
+                                                    </li><li>
                                                         <div class="blog-date">
                                                             <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d F Y') }}
                                                         </div>
