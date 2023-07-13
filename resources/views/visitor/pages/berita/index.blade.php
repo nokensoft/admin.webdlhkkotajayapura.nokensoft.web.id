@@ -84,28 +84,15 @@
                                                             {{ Carbon\Carbon::parse($data->created_at)->format('d F Y') }}
                                                         </div>
                                                     </li>
-                                                    {{-- 
-                                                    <li>
-                                                        <div class="blog-date">
-                                                            <i class="fa fa-calendar-check-o"></i> {{ $data->created_at ?? '' }}
-                                                        </div>
-                                                    </li><li>
-                                                        <div class="blog-date">
-                                                            <i class="fa fa-calendar-check-o"></i> {{ Carbon\Carbon::parse($data->created_at)->format('d F Y') }}
-                                                        </div>
-                                                    </li> --}}
-                                                    {{-- <li>
-                                                        <div class="author">
-                                                            <i class="fa fa-user-o"></i> {{ $data->author->name ?? '' }}
-                                                        </div>
-                                                    </li> --}}
                                                 </ul>
                                             </div>
                                             <div class="blog-desc">
                                                 {{ $data->konten_singkat ?? '' }}
                                             </div>
-                                            <div class="blog-button">
-                                                <a class="blog-btn" href="{{ url('berita/' . $data->slug) }}">Selengkapnya</a>
+                                            <div class="">
+                                                <a class="btn btn-link link-success p-0" href="{{ url('berita/' . $data->slug) }}">
+                                                    Selengkapnya <i class="fa-solid fa-arrow-right ms-2"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

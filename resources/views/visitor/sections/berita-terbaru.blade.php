@@ -45,9 +45,12 @@
                         {{ $data->judul ?? '' }} </a>
                     </h3>
                     <div class="btn-btm">
-                        <div class="rs-view-btn">
-                            <a href="{{ url('berita/' . $data->slug ?? '') }}">Selengkapnya </a>
+                        <div class="">
+                            <a class="btn btn-link link-success p-0" href="{{ url('berita/' . $data->slug) }}">
+                                Selengkapnya <i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
                         </div>
+                        
                     </div>
                 </div>
             </div>
