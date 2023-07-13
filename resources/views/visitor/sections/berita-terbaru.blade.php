@@ -29,13 +29,13 @@
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span class="text-dark">
+                        <span class="text-success">
                             <i class="fa-solid fa-book"></i>
-                            <a href="{{ url('berita/kategori/'), $data->kategori->kategori_slug ?? ''  }}" class="link-dark">
+                            <a href="{{ url('berita/kategori/'), $data->kategori->kategori_slug ?? ''  }}" class="link-success">
                                 {{ $data->kategori->name ?? '' }}
                             </a>
                         </span>
-                        <span class="text-dark">
+                        <span class="text-success">
                             <i class="fa-solid fa-calendar-check-o"></i>
                             {{ Carbon\Carbon::parse($data->created_at)->format('d M Y') }}
                         </span>

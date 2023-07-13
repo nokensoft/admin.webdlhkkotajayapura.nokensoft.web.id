@@ -71,15 +71,15 @@
                                             <div class="blog-meta">
                                                 <ul class="btm-cate">
                                                     <li>
-                                                        <div class="text-dark">
+                                                        <div class="text-success">
                                                             <i class="fa-solid fa-book"></i>
-                                                            <a href="/berita/kategori/{{ $data->kategori->kategori_slug ?? '' }}" class="link-dark">
+                                                            <a href="/berita/kategori/{{ $data->kategori->kategori_slug ?? '' }}" class="link-success">
                                                                 {{ $data->kategori->name ?? '' }}
                                                             </a>
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <div class="text-dark">
+                                                        <div class="text-success">
                                                             <i class="fa-solid fa-calendar-check-o"></i>
                                                             {{ Carbon\Carbon::parse($data->created_at)->format('d F Y') }}
                                                         </div>

@@ -39,22 +39,22 @@
                        <div class="blog-full">
 
                             <div class="d-block">
-                                <h1>
+                                <h1 class="text-success">
                                     {!! $data->judul !!}
                                 </h1>
                             </div>
 
                             <ul class="single-post-meta">
                                 <li>
-                                    <div class="text-dark">
+                                    <div class="text-success">
                                         <i class="fa-solid fa-book"></i>
-                                        <a href="/berita/kategori/{{ $data->kategori->kategori_slug ?? '' }}" class="link-dark">
+                                        <a href="/berita/kategori/{{ $data->kategori->kategori_slug ?? '' }}" class="link-success">
                                             {{ $data->kategori->name ?? '' }}
                                         </a>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="text-dark ps-2">
+                                    <div class="text-success ps-2">
                                         <i class="fa-solid fa-calendar-check-o"></i>
                                         {{ Carbon\Carbon::parse($data->created_at)->format('d F Y') }}
                                     </div>
