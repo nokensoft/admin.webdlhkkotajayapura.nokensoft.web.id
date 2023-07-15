@@ -107,8 +107,8 @@ class AppServiceProvider extends ServiceProvider
             | Jumlah data untuk ditampilkan di bagian dasbor
             |
             */
-            'dasbor_jml_berita'                 => Berita::where('status','Publish')->count(),
             'dasbor_jml_berita_semua'           => Berita::count(),
+            'dasbor_jml_berita'                 => Berita::where('status','Publish')->count(),
             'dasbor_jml_berita_draft'           => Berita::where('status','Draft')->count(),
 
             'dasbor_jml_kategori'               => KategoriBerita::where('status','Publish')->count(),
