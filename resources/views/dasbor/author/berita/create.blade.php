@@ -67,8 +67,7 @@
                         <!-- input item end-->
 
                         <div class="form-group">
-                            <label for="konten_singkat" class="form-label">Konten Singkat</label>
-                            <span class="ml-1 cursor" role="button" title="Konten singkat akan ditampilkan dibagian intro dari sebuah berita."><i class="fa-solid fa-info-circle"></i></span>
+                            <label for="konten_singkat" class="form-label">Konten Singkat {!! $tooltip_berita_konten_singkat ?? '' !!}</label> 
 
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3">{{ old('konten_singkat') }}</textarea>
                             @if ($errors->has('konten_singkat'))
@@ -99,7 +98,9 @@
                             <div class="mb-2">
                                 <img src="{{ asset('gambar/berita/00.jpg') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                             </div>
-                            <label for="gambar" class="form-label d-block">Gambar</label>
+                            <label for="gambar" class="form-label d-block">
+                                Gambar {!! $tooltip_berita_gambar ?? '' !!}
+                            </label>
                             <div class="custom-file w-100">
                                 <input type="file" name="gambar" class="custom-file-input" id="gambar" value="">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>

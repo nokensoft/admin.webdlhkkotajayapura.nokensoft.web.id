@@ -71,7 +71,6 @@
 
                         <div class="mb-3">
                             <label for="konten_singkat" class="form-label">Konten Singkat {!! $tooltip_berita_konten_singkat ?? '' !!}</label> 
-                        
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3"  @if (Auth::user()->hasRole('supervisor'))
                                 readonly
                                 @endif>{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
