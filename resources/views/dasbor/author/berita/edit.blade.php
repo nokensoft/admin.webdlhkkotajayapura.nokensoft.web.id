@@ -71,7 +71,7 @@
 
                         <div class="mb-3">
                             <label for="konten_singkat" class="form-label">Konten Singkat</label> 
-                            <span class="ml-1 cursor" role="button" title="Konten singkat akan ditampilkan dibagian intro dari sebuah berita."><i class="fa-solid fa-info-circle"></i></span>
+                            <i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="Konten singkat akan ditampilkan dibagian intro dari sebuah berita."></i>
 
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3"  @if (Auth::user()->hasRole('supervisor'))
                                 readonly
@@ -149,8 +149,14 @@
                                 @else
                                 <img src="{{ asset('gambar/berita/'.$data->gambar) }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @endif
+
+                                
+
                             </div>
-                            <label for="gambar" class="form-label d-block">Gambar</label>
+                            <label for="gambar" class="form-label d-block">
+                                Gambar 
+                                <i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="Format file harus *.jpg atau *.png; File gambar tidak lebih dari 1MB atau 1000kb; Ukuran gambar 720px X 480px."></i>
+                            </label>
                             <div class="custom-file w-100">
                                 <input type="file" name="gambar" class="custom-file-input" id="gambar">
                                 <small class="text-muted mt-2 d-block">Pilih gambar baru dari komputer Anda</small>
