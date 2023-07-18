@@ -70,9 +70,8 @@
                         <!-- input item end-->
 
                         <div class="mb-3">
-                            <label for="konten_singkat" class="form-label">Konten Singkat</label> 
-                            <i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="Konten singkat akan ditampilkan dibagian intro dari sebuah berita."></i>
-
+                            <label for="konten_singkat" class="form-label">Konten Singkat {!! $tooltip_berita_konten_singkat ?? '' !!}</label> 
+                        
                             <textarea name="konten_singkat" class="form-control" placeholder="Konten singkat berita" rows="3"  @if (Auth::user()->hasRole('supervisor'))
                                 readonly
                                 @endif>{{ old('konten_singkat',$data->konten_singkat) }}</textarea>
@@ -154,8 +153,7 @@
 
                             </div>
                             <label for="gambar" class="form-label d-block">
-                                Gambar 
-                                <i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="Format file harus *.jpg atau *.png; File gambar tidak lebih dari 1MB atau 1000kb; Ukuran gambar 720px X 480px."></i>
+                                Gambar {!! $tooltip_berita_gambar ?? '' !!}
                             </label>
                             <div class="custom-file w-100">
                                 <input type="file" name="gambar" class="custom-file-input" id="gambar">

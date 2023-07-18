@@ -126,6 +126,19 @@ class AppServiceProvider extends ServiceProvider
             'dasbor_jml_pesan'                  => Pesan::count(),
             'dasbor_jml_pengguna'               => User::where('status','Publish')->count(),
 
+            /*
+            | TOOLTIPS
+            |
+            | Info panduan pada setiap field input di halaman dasbor
+            |
+            */
+
+            // BERITA
+            'tooltip_berita_konten_singkat' => '<i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="Konten singkat akan ditampilkan dibagian intro dari sebuah berita."></i>',
+            'tooltip_berita_gambar' => '<i class="fa-solid fa-info-circle" role="button" data-toggle="tooltip" data-placement="bottom" title="Format file harus *.jpg atau *.png; File gambar tidak lebih dari 1MB atau 1000kb; Ukuran gambar 720px X 480px."></i>',
+
+
+
         ]);
 
     }
