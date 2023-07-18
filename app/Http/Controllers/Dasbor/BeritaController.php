@@ -264,25 +264,25 @@ class BeritaController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'judul'                     => 'required|max:255',
+                'judul' => 'required|max:255',
+                'gambar' => 'image|mimes:jpg|max:1000000',
+                'category_id' => 'required|integer',
                 // 'konten'                    => 'required',
                 // 'konten_singkat'            => 'required|max:255',
                 // 'gambar'                    => 'required',
-                // 'gambar'                    => 'image|mimes:jpeg,png,jpg|max:2097',
-                'category_id'               => 'required|integer',
                 // 'status'                    => 'required',
 
             ],
             [
-                'judul.required'                => 'Bagian ini tidak boleh kosong',
+                'judul.required' => 'Bagian ini tidak boleh kosong',
+                'category_id.integer' => 'Bagian ini tidak boleh kosong',
+                'gambar.mimes' => 'Gambar harus dengan format *.jpg',
+                'gambar.max' => 'Gambar ukuran maksimal 1MB',
                 // 'judul.max'                 => 'Judul maximal 255 Karakter',
-                'category_id.integer'           => 'Bagian ini tidak boleh kosong',
                 // 'konten.required'           => 'Konten tidak boleh kosong',
                 // 'konten_singkat.max'        => 'Keterangan singkat maximal 255 Karakter',
                 // 'konten_singkat.required'   => 'Keterangan singkat tidak boleh kosong',
                 // 'gambar.required'           => 'Gambar tidak boleh kosong',
-                // 'gambar.mimes'              => 'Gambar harus dengan format PNG,JPG,JPEG',
-                // 'gambar.max'                => 'Gambar ukuran maksimal 2MB',
                 // 'status.required'           => 'Status tidak boleh kosong',
             ]
         );
