@@ -261,11 +261,14 @@ class BeritaController extends Controller
     // UPDATE
     public function update(Request $request, $id)
     {
+        // dd($request->gambar->extension());
+        // dd($request->gambar->getSize());
+        
         $validator = Validator::make(
             $request->all(),
             [
                 'judul' => 'required|max:255',
-                'gambar' => 'image|mimes:jpg|max:1000000',
+                'gambar' => 'image|mimes:jpg,png|max:1000', // max 1000kb
                 'category_id' => 'required|integer',
                 // 'konten'                    => 'required',
                 // 'konten_singkat'            => 'required|max:255',
@@ -276,13 +279,14 @@ class BeritaController extends Controller
             [
                 'judul.required' => 'Bagian ini tidak boleh kosong',
                 'category_id.integer' => 'Bagian ini tidak boleh kosong',
-                'gambar.mimes' => 'Gambar harus dengan format *.jpg',
-                'gambar.max' => 'Gambar ukuran maksimal 1MB',
+                // 'gambar.required' => 'Gambar tidak boleh kosong',
+                'gambar.image' => 'Harus berupa gambar',
+                'gambar.mimes' => 'Gambar harus dengan format *.jpg atau *.png',
+                'gambar.max' => 'Ukuran gambar terlalu besar',
                 // 'judul.max'                 => 'Judul maximal 255 Karakter',
                 // 'konten.required'           => 'Konten tidak boleh kosong',
                 // 'konten_singkat.max'        => 'Keterangan singkat maximal 255 Karakter',
                 // 'konten_singkat.required'   => 'Keterangan singkat tidak boleh kosong',
-                // 'gambar.required'           => 'Gambar tidak boleh kosong',
                 // 'status.required'           => 'Status tidak boleh kosong',
             ]
         );
