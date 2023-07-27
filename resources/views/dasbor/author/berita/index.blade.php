@@ -37,7 +37,6 @@
                             <th>Penulis</th>
                             <th>Status</th>
                             @if(Auth::user()->hasRole(['administrator','author']))
-                            <th>Keterangan</th>
                             @endif
                             <th class="text-center"></th>
                         </tr>
@@ -70,7 +69,6 @@
 
                             </td>
                             @if(Auth::user()->hasRole(['administrator','author']))
-                            <td> {{ $data->ket  }} </td>
                             @endif
                             <td class="text-center">
                                 <form action="{{ url('dasbor/berita', $data->id) }}" method="POST">
