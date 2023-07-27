@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Banner;
 use App\Models\Faq;
 use App\Models\Halaman;
+use App\Models\Slider;
 use App\Models\LayananOnline;
 use App\Models\LinkTerkait;
 use App\Models\Pengaturan;
@@ -122,6 +123,10 @@ class AppServiceProvider extends ServiceProvider
             'dasbor_jml_halaman'                => Halaman::where('status','Publish')->count(),
             'dasbor_jml_halaman_semua'          => Halaman::count(),
             'dasbor_jml_halaman_draft'          => Halaman::where('status','Draft')->count(),
+            
+            'dasbor_jml_slider_semua'           => Slider::count(),
+            'dasbor_jml_slider'                 => Slider::where('status','Publish')->count(),
+            'dasbor_jml_slider_draft'           => Slider::where('status','Draft')->count(),
 
             'dasbor_jml_pesan'                  => Pesan::count(),
             'dasbor_jml_pengguna'               => User::where('status','Publish')->count(),

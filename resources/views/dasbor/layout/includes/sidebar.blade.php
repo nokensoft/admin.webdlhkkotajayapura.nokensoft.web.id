@@ -80,7 +80,7 @@
                                     <a href="{{ url('dasbor/slider') }}">
                                         <i class="mdi mdi-image-area"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ '0' }}
+                                            {{ $dasbor_jml_slider ?? '' }}
                                         </span>
                                         <span> Slider </span>
                                     </a>
