@@ -35,6 +35,14 @@
                         <!-- item end -->
                         
                         <div class="mb-3">
+                            <label for="" class="font-weight-bold">Posisi</label>
+                            <div class="border-bottom py-1">
+                                {{ $data->posisi }}
+                            </div>
+                        </div>
+                        <!-- item end -->
+                        
+                        <div class="mb-3">
                             <label for="" class="font-weight-bold">Status</label>
                             <div class="border-bottom py-1">
                                 {{ $data->status }}

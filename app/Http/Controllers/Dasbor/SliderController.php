@@ -32,8 +32,7 @@ class SliderController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Publish')->latest()->paginate(5);
-        // $datas = Slider::where('status',1)->latest()->paginate(5);
+        ])->where('status', 'Publish')->latest('id')->paginate(5);
 
         $jumlahtrash = Slider::onlyTrashed()->count();
         $jumlahdraft = Slider::where('status', 'Draft')->count();
@@ -104,6 +103,7 @@ class SliderController extends Controller
                 $data->judul = $request->judul;
                 $data->slug = Str::slug($data->judul);
                 $data->deskripsi = $request->deskripsi;
+                $data->posisi = $request->posisi;
                 $data->status = $request->status;
                 $data->user_id = Auth::user()->id;
 
@@ -190,6 +190,7 @@ class SliderController extends Controller
                 $data->judul = $request->judul;
                 $data->slug = Str::slug($data->judul);
                 $data->deskripsi = $request->deskripsi;
+                $data->posisi = $request->posisi;
                 $data->status = $request->status;
                 $data->user_id = Auth::user()->id;
 

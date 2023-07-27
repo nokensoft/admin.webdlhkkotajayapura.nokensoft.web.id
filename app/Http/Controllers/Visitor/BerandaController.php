@@ -15,6 +15,7 @@ use App\Models\Berita\KategoriBerita;
 use App\Models\Halaman;
 use App\Models\Banner;
 use App\Models\Pesan;
+use App\Models\Slider;
 
 use App\Models\LinkTerkait;
 use App\Models\LayananOnline;
@@ -53,6 +54,10 @@ class BerandaController extends Controller
         // data link terkait di halaman beranda
         $linkTerkaits = LinkTerkait::orderBy('id', 'desc')->where('status', 'publish')->paginate();
 
+        // slider atas
+        $sliderAtas = Slider::orderBy('id', 'desc')->where('posisi', 'Atas')->where('status', 'publish')->paginate();
+        $sliderTengah = Slider::orderBy('id', 'desc')->where('posisi', 'Tengah')->where('status', 'publish')->paginate();
+
         // data banner
         $banner_1 = Banner::whereId(1)->first();
         $banner_2 = Banner::whereId(2)->first();
@@ -69,6 +74,8 @@ class BerandaController extends Controller
                 'banner_1',
                 'banner_2',
                 'banner_3',
+                'sliderAtas',
+                'sliderTengah',
             )
         );
     }

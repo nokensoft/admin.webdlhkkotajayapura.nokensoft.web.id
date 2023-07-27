@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('slug')->unique()->nullable();
             $table->string('deskripsi')->nullable();
             $table->string('gambar')->nullable();
+            $table->enum('posisi',['Atas','Tengah'])->default('Atas')->nullable();
           
             $table->enum('status',['Publish','Draft','Revisi','Verifikasi'])->default('Draft')->nullable();
      

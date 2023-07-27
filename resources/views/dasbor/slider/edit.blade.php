@@ -61,11 +61,28 @@
                             <!-- input item end -->
 
                             <div class="form-group">
+                                <label for="posisi" class="form-label d-block">Posisi</label>
+                                <select class="form-control" name="posisi" id="exampleFormControlSelect1">
+                                    <option value="" hidden>Pilih</option>
+                                    <option value="Atas" @if(old('posisi', $data->posisi) == 'Atas') Selected @endif>Atas</option>
+                                    <option value="Tengah" @if(old('posisi', $data->posisi) == 'Tengah') Selected @endif>Tengah</option>
+                                </select>
+
+                                @if ($errors->has('posisi'))
+                                    <span class="text-danger" role="alert">
+                                        <small>{{ $errors->first('posisi') }}</small>
+                                    </span>
+                                @endif
+                                <!-- error message end -->
+                            </div>
+                            <!-- input item end -->
+
+                            <div class="form-group">
                                 <label for="status" class="form-label d-block">Status</label>
                                 <select class="form-control" name="status" id="exampleFormControlSelect1">
                                     <option value="" hidden>Pilih</option>
-                                    <option value="Publish" @if(old('status', $data->status) == $data->status) Selected @endif>Publish</option>
-                                    <option value="Draft" @if(old('status', $data->status) ==   $data->status ) Selected @endif>Draft</option>
+                                    <option value="Publish" @if(old('status', $data->status) == 'Publish') Selected @endif>Publish</option>
+                                    <option value="Draft" @if(old('status', $data->status) ==   'Draft') Selected @endif>Draft</option>
                                 </select>
 
                                 @if ($errors->has('status'))

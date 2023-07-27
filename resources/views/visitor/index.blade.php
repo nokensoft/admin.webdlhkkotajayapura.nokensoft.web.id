@@ -1,6 +1,9 @@
 @extends('visitor.layout.app')
 @section('content')
 
+@include('visitor.sections.slider-1')
+<!-- Banner 1 -->
+
 @include('visitor.sections.banner-1')
 <!-- Banner 1 -->
 
@@ -11,7 +14,7 @@
 <!-- Sekilas Profil -->
 
 {{-- @include('visitor.sections.banner-2') --}}
-@include('visitor.sections.slider-1')
+@include('visitor.sections.slider-2')
 <!-- Banner 2 -->
 
 @include('visitor.sections.layanan-online')
