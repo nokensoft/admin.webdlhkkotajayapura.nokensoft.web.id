@@ -58,7 +58,7 @@
                                 <td>
                                     <a href="{{ url('halaman/' . $data->slug) }}" target="_blank">{{ $data->judul_halaman }}</a>
                                 </td>
-                                <td>{!! Str::limit($data->sub_judul, 50) !!}</td>
+                                <td>{!! Str::limit($data->sub_judul, 50) !!} | {{ $data->gambar }}</td>
                                 <td>{{ $data->user->name ?? '' }}</td>
                                 <td>
                                     <input type="text" value="{{ 'halaman/' . $data->slug }}" class="form-control">

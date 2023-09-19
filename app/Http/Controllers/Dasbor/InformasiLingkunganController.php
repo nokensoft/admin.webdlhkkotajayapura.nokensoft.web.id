@@ -134,7 +134,6 @@ class InformasiLingkunganController extends Controller
                     $request->gambar->move(public_path('gambar/informasi-lingkungan'), $posterName);
                 }
 
-
                 $data->save();
                 Alert::toast('Linkungan Hidup Berhasil dibuat!', 'success');
                 if ($data->status == 'Publish') {
@@ -142,6 +141,7 @@ class InformasiLingkunganController extends Controller
                 } else {
                     return redirect()->route('dasbor.informasilingkungan.draft');
                 }
+
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();

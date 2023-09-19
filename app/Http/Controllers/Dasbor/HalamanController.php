@@ -91,32 +91,35 @@ class HalamanController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-               $halaman = new Halaman();
+                $data = new Halaman();
 
-               $halaman->judul_halaman      = $request->judul_halaman;
-               $halaman->sub_judul          = $request->sub_judul;
-               $halaman->konten             = $request->konten;
-               $halaman->status             = $request->status;
+                $data->judul_halaman      = $request->judul_halaman;
+                $data->sub_judul          = $request->sub_judul;
+                $data->konten             = $request->konten;
+                $data->status             = $request->status;
 
-               $halaman->slug = Str::slug($request->judul_halaman);
+                $data->slug = Str::slug($request->judul_halaman);
 
-               if ($request->gambar) {
-                    $imageName = $halaman->slug . '.' . $request->gambar->extension();
-                    $path = 'gambar/halaman/';
+                if (isset($request->gambar)) {
 
-                    if (!empty($halaman->gambar) && file_exists($path, $halaman->gambar)) :
-                        unlink($path, $halaman->gambar);
+                    $posterName = $data->slug . Str::random(10) . '.' . $request->gambar->extension();
+                    $path = public_path('gambar/halaman');
+                    if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
+                        unlink($path . '/' . $data->gambar);
                     endif;
 
-                    $halaman->gambar = $path . $imageName;
-                    $request->gambar->move($path, $imageName);
-               }
+                    $data->gambar = $posterName;
 
-               $halaman->save();
+                    $request->gambar->move(public_path('gambar/halaman'), $posterName);
+                }
 
-               Alert::toast('Halaman Berhasil dibuat!', 'success');
-
-               return redirect()->route('dasbor.halaman');
+                $data->save();
+                Alert::toast('Halaman Berhasil dibuat!', 'success');
+                if ($data->status == 'Publish') {
+                    return redirect()->route('dasbor.halaman');
+                } else {
+                    return redirect()->route('dasbor.halaman.draft');
+                }
 
             } catch (\Throwable $th) {
 
@@ -162,29 +165,36 @@ class HalamanController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $halaman = Halaman::find($id);
+                $data = Halaman::find($id);
 
-                $halaman->judul_halaman     = $request->judul_halaman;
-                $halaman->sub_judul         = $request->sub_judul;
-                $halaman->konten            = $request->konten;
-                $halaman->status            = $request->status;
+                $data->judul_halaman     = $request->judul_halaman;
+                $data->sub_judul         = $request->sub_judul;
+                $data->konten            = $request->konten;
+                $data->status            = $request->status;
 
-                $halaman->slug              = Str::slug($request->judul_halaman);
+                $data->slug              = Str::slug($request->judul_halaman);
 
-                if ($request->gambar) {
-                    $imageName = $halaman->slug . '.' . $request->gambar->extension();
-                    $path = 'gambar/halaman/';
-                    if (!empty($halaman->gambar) && file_exists($path, $halaman->gambar)) :
-                        unlink($path, $halaman->gambar);
+                if (isset($request->gambar)) {
+
+                    $posterName = $data->slug . Str::random(10) . '.' . $request->gambar->extension();
+                    $path = public_path('gambar/halaman');
+                    if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
+                        unlink($path . '/' . $data->gambar);
                     endif;
-                    $halaman->gambar = $path . $imageName;
-                    $request->gambar->move($path, $imageName);
+
+                    $data->gambar = $posterName;
+
+                    $request->gambar->move(public_path('gambar/halaman'), $posterName);
+                }                
+
+                $data->update();
+                Alert::toast('Halaman Berhasil diperbarui!', 'success');
+                if ($data->status == 'Publish') {
+                    return redirect()->route('dasbor.halaman');
+                } else {
+                    return redirect()->route('dasbor.halaman.draft');
                 }
 
-                $halaman->update();
-
-                Alert::toast('Halaman Berhasil diperbarui!', 'success');
-                return redirect()->route('dasbor.halaman');
             } catch (\Throwable $th) {
 
                 Alert::toast('Gagal', 'error');
@@ -230,18 +240,22 @@ class HalamanController extends Controller
     // DELETE
     public function delete($id)
     {
-        $data           = Halaman::onlyTrashed()->findOrFail($id);
+        try {
+            $data = Halaman::onlyTrashed()->findOrFail($id);
+            $path = public_path('gambar/halaman/' . $data->gambar);
 
-        if($data->gambar){
-            File::delete($data->gambar);
+            if (file_exists($path)) {
+                File::delete($path);
+            }
+            
+            $data->forceDelete();
+            Alert::toast('Halaman Berhasil dihapus!', 'success');
+            return redirect()->back();
+        } catch (\Throwable $e) {
+            dd($e);
+            Alert::toast('Gagal', ['error' => $e->getMessage()], 'error');
+            return redirect()->back();
         }
-
-        $data->forceDelete();
-
-        alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-
-        return to_route('dasbor.halaman.trash');
-
     }
 
 }
