@@ -86,8 +86,8 @@
                                 <label for="status" class="form-label d-block">Status</label>
                                 <select class="form-control" name="status" id="exampleFormControlSelect1">
                                     <option value="" hidden>Pilih</option>
-                                    <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
-                                    <option value="Draft" @if(old('status') == 'Draft') Selected @endif>Draft</option>
+                                    <option value="Publish">Publish</option>
+                                    <option value="Draft" Selected>Draft</option>
                                 </select>
 
                                 @if ($errors->has('status'))

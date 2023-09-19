@@ -34,6 +34,7 @@ class BeritaController extends Controller
         $datapublish = Berita::where('status', 'Publish')->count();
 
         return view('dasbor.author.berita.index', compact('datas', 'jumlahtrash', 'jumlahdraft', 'datapublish', 'jumlahrevisi'))->with('i', (request()->input('page', 1) - 1) * 5);
+        
     }
 
     // DRAFT

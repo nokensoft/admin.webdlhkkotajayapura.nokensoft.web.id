@@ -55,7 +55,7 @@
                                 <td>{{ $data->keterangan_singkat ?? '' }}</td>
 
                                 <td>
-                                    <a href="{{ url($data->url) }}" target="_blank"> {{ $data->url ?? '' }}</a>
+                                    <a href="{{ url($data->url ?? '') }}" target="_blank"> {{ $data->url ?? '' }}</a>
                                 </td>
                                 <td> {{ $data->user->name ?? '' }} </td>
                                 <td>{{ $data->status ?? '' }}</td>

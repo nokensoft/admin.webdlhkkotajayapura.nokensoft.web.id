@@ -112,28 +112,32 @@ class InformasiLingkunganController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $linkunganinfo = new InformasiLingkungan();
-                $linkunganinfo->judul = $request->judul;
-                $linkunganinfo->keterangan_singkat = $request->keterangan_singkat;
-                $linkunganinfo->keterangan_lengkap = $request->keterangan_lengkap;
-                $linkunganinfo->status = $request->status;
-                $linkunganinfo->url = $request->url;
-                $linkunganinfo->author = Auth::user()->id;
-                $linkunganinfo->slug = Str::slug($request->judul).'-'.time();
+                $data = new InformasiLingkungan();
+                $data->judul = $request->judul;
+                $data->keterangan_singkat = $request->keterangan_singkat;
+                $data->keterangan_lengkap = $request->keterangan_lengkap;
+                $data->status = $request->status;
+                $data->url = $request->url;
+                $data->author = Auth::user()->id;
+                $data->slug = Str::slug($request->judul).'-'.time();
 
-                if ($request->gambar) {
-                    $imageName = Str::random(8) . '.' . $request->gambar->extension();
-                    $path = 'gambar/informasi-lingkungan/';
+                if (isset($request->gambar)) {
 
-                    if (!empty($linkunganinfo->gambar) && file_exists($path, $linkunganinfo->gambar)) :
-                        unlink($path, $linkunganinfo->gambar);
+                    $posterName = $data->slug . Str::random(10) . '.' . $request->gambar->extension();
+                    $path = public_path('gambar/informasi-lingkungan');
+                    if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
+                        unlink($path . '/' . $data->gambar);
                     endif;
-                    $linkunganinfo->gambar = $path . $imageName;
-                    $request->gambar->move($path, $imageName);
+
+                    $data->gambar = $posterName;
+
+                    $request->gambar->move(public_path('gambar/informasi-lingkungan'), $posterName);
                 }
-                $linkunganinfo->save();
+
+
+                $data->save();
                 Alert::toast('Linkungan Hidup Berhasil dibuat!', 'success');
-                if ($linkunganinfo->status == 'Publish') {
+                if ($data->status == 'Publish') {
                     return redirect()->route('dasbor.informasilingkungan');
                 } else {
                     return redirect()->route('dasbor.informasilingkungan.draft');
@@ -188,28 +192,41 @@ class InformasiLingkunganController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $linkunganinfo = InformasiLingkungan::find($id);
-                $linkunganinfo->judul = $request->judul;
-                $linkunganinfo->keterangan_singkat = $request->keterangan_singkat;
-                $linkunganinfo->keterangan_lengkap = $request->keterangan_lengkap;
-                $linkunganinfo->status = $request->status;
-                $linkunganinfo->url = $request->url;
-                $linkunganinfo->author = Auth::user()->id;
-                $linkunganinfo->slug = Str::slug($request->judul).'-'.time();
+                $data = InformasiLingkungan::find($id);
+                $data->judul = $request->judul;
+                $data->keterangan_singkat = $request->keterangan_singkat;
+                $data->keterangan_lengkap = $request->keterangan_lengkap;
+                $data->status = $request->status;
+                $data->url = $request->url;
+                $data->author = Auth::user()->id;
+                $data->slug = Str::slug($request->judul).'-'.time();
 
-                if ($request->gambar) {
-                    $imageName =  Str::random(8) . '.' . $request->gambar->extension();
-                    $path = 'gambar/informasi-lingkungan/';
-                    if (!empty($linkunganinfo->gambar) && file_exists($path, $linkunganinfo->gambar)) :
-                        unlink($path, $linkunganinfo->gambar);
+                // if ($request->gambar) {
+                //     $imageName =  Str::random(8) . '.' . $request->gambar->extension();
+                //     $path = 'gambar/informasi-lingkungan/';
+                //     if (!empty($data->gambar) && file_exists($path, $data->gambar)) :
+                //         unlink($path, $data->gambar);
+                //     endif;
+                //     $data->gambar = $imageName;
+                //     $request->gambar->move($path, $imageName);
+                // }
+
+                if (isset($request->gambar)) {
+
+                    $posterName = $data->slug . Str::random(10) . '.' . $request->gambar->extension();
+                    $path = public_path('gambar/informasi-lingkungan');
+                    if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
+                        unlink($path . '/' . $data->gambar);
                     endif;
-                    $linkunganinfo->gambar = $path . $imageName;
-                    $request->gambar->move($path, $imageName);
+
+                    $data->gambar = $posterName;
+
+                    $request->gambar->move(public_path('gambar/informasi-lingkungan'), $posterName);
                 }
 
-                $linkunganinfo->update();
+                $data->update();
                 Alert::toast('Informasi Lingkungan Berhasil diperbarui!', 'success');
-                if ($linkunganinfo->status == 'Publish') {
+                if ($data->status == 'Publish') {
                     return redirect()->route('dasbor.informasilingkungan');
                 } else {
                     return redirect()->route('dasbor.informasilingkungan.draft');
@@ -247,18 +264,25 @@ class InformasiLingkunganController extends Controller
     }
 
     // DELETE
+
     public function delete($id)
     {
-        $data = InformasiLingkungan::onlyTrashed()->findOrFail($id);
+        try {
+            $data = InformasiLingkungan::onlyTrashed()->findOrFail($id);
+            $path = public_path('gambar/informasi-lingkungan/' . $data->gambar);
 
-        if ($data->gambar) {
-            File::delete($data->gambar);
+            if (file_exists($path)) {
+                File::delete($path);
+            }
+            
+            $data->forceDelete();
+            Alert::toast('Informasi Lingkungan Berhasil dihapus!', 'success');
+            return redirect()->back();
+        } catch (\Throwable $e) {
+            dd($e);
+            Alert::toast('Gagal', ['error' => $e->getMessage()], 'error');
+            return redirect()->back();
         }
-
-        $data->forceDelete();
-
-        alert()->success('Proses Berhasil', 'Sukses!!')->autoclose(1500);
-
-        return to_route('dasbor.informasilingkungan.trash');
     }
+
 }

@@ -19,11 +19,11 @@ class LinkTerkaitFactory extends Factory
     {
         $judul_link = $this->faker->sentence(5);
         return [
-            'judul_link'    => $judul_link,
-            'slug'          => Str::slug($judul_link) ,
-            'gambar'         => $this->faker->randomElement(['gambar/link-terkait/00.jpg']),
-            'url'           => $this->faker->randomElement(['https://nokensoft.com']),
-            'status'        => $this->faker->randomElement(['publish']),
+            'judul_link' => $judul_link,
+            'slug' => Str::slug($judul_link) ,
+            'gambar' => $this->faker->randomElement(['gambar/link-terkait/00.jpg']),
+            'url' => $this->faker->randomElement(['https://nokensoft.com']),
+            'status' => $this->faker->randomElement(['publish']),
         ];
     }
 }

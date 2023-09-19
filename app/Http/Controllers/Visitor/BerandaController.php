@@ -180,6 +180,7 @@ class BerandaController extends Controller
                 'kategori_beritas.id', '=', 'beritas.category_id'
             )
             ->where('kategori_beritas.kategori_slug', $kategori_slug)
+            ->where('berita.status', 'Publish')
             ->paginate();
         
         // // =======================
