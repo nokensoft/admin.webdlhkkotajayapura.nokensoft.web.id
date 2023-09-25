@@ -152,6 +152,104 @@ class BeritaController extends Controller
         return view('dasbor.author.berita.edit', compact('kategoris', 'data'));
     }
 
+    // UPDATE
+    public function update(Request $request, $id)
+    {
+        // dd($request->gambar->extension());
+        // dd($request->gambar->getSize());
+        
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul' => 'required|max:255',
+                'gambar' => 'image|mimes:jpg,png|max:1000', // max 1000kb
+                'category_id' => 'required|integer',
+                // 'konten'                    => 'required',
+                // 'konten_singkat'            => 'required|max:255',
+                // 'gambar'                    => 'required',
+                // 'status'                    => 'required',
+
+            ],
+            [
+                'judul.required' => 'Bagian ini tidak boleh kosong',
+                'category_id.integer' => 'Bagian ini tidak boleh kosong',
+                // 'gambar.required' => 'Gambar tidak boleh kosong',
+                'gambar.image' => 'Harus berupa gambar',
+                'gambar.mimes' => 'Gambar harus dengan format *.jpg atau *.png',
+                'gambar.max' => 'Ukuran gambar terlalu besar',
+                // 'judul.max'                 => 'Judul maximal 255 Karakter',
+                // 'konten.required'           => 'Konten tidak boleh kosong',
+                // 'konten_singkat.max'        => 'Keterangan singkat maximal 255 Karakter',
+                // 'konten_singkat.required'   => 'Keterangan singkat tidak boleh kosong',
+                // 'status.required'           => 'Status tidak boleh kosong',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+                $data                       = Berita::find($id);
+                $data->judul                = $request->judul;
+                $data->slug                 = Str::slug($data->judul);
+
+                $data->konten               = $request->konten;
+                $data->konten_singkat       = $request->konten_singkat;
+
+                $data->category_id          = $request->category_id;
+                $data->status               = $request->status;
+
+                $data->ket_verfikasi        = $request->ket_verfikasi;
+                $data->ket_revisi           = $request->ket_revisi;
+                // $data->user_id              = Auth::user()->id;
+
+                if (isset($request->gambar)) {
+
+                    $posterName = $data->slug . Str::random(10) . '.' . $request->gambar->extension();
+                    $path = public_path('gambar/berita');
+                    if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
+                        unlink($path . '/' . $data->gambar);
+                    endif;
+
+                    $data->gambar = $posterName;
+
+                    $request->gambar->move(public_path('gambar/berita'), $posterName);
+                }
+
+                // if ($request->gambar) {
+                //     $posterName = Str::random(10) . '.' . $request->gambar->extension();
+                //     $path = public_path('gambar/berita');
+                //     if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
+                //         unlink($path . '/' . $data->gambar);
+                //     endif;
+                //     $data->gambar = $posterName;
+                //     $request->gambar->move(public_path('gambar/berita'), $posterName);
+                // }
+
+                $data->update();
+
+                Alert::toast('Berhasil diperbarui!', 'success');
+                return redirect('dasbor/berita/' . $data->slug . '/detail');
+
+                // if ($data->status == 'Publish') {
+                //     return redirect()->route('dasbor.berita');
+
+                // } else if($data->status == 'Verifikasi') {
+                //     return redirect()->route('dasbor.berita.verifikasi');
+
+                // } else if($data->status == 'Revisi') {
+                //     return redirect()->route('dasbor.berita.revisi');
+                // }
+                // else {
+                //     return redirect()->route('dasbor.berita.draft');
+                // }
+            } catch (\Throwable $th) {
+                Alert::toast('Gagal', 'error');
+                return redirect()->back();
+            }
+        }
+    }
+
     //  Delete
     public function destroy($id)
     {
@@ -252,104 +350,6 @@ class BeritaController extends Controller
                 Alert::toast('Berhasil dibuat!', 'success');
                 return redirect('dasbor/berita/' . $data->slug . '/detail');
 
-            } catch (\Throwable $th) {
-                Alert::toast('Gagal', 'error');
-                return redirect()->back();
-            }
-        }
-    }
-
-    // UPDATE
-    public function update(Request $request, $id)
-    {
-        // dd($request->gambar->extension());
-        // dd($request->gambar->getSize());
-        
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'judul' => 'required|max:255',
-                'gambar' => 'image|mimes:jpg,png|max:1000', // max 1000kb
-                'category_id' => 'required|integer',
-                // 'konten'                    => 'required',
-                // 'konten_singkat'            => 'required|max:255',
-                // 'gambar'                    => 'required',
-                // 'status'                    => 'required',
-
-            ],
-            [
-                'judul.required' => 'Bagian ini tidak boleh kosong',
-                'category_id.integer' => 'Bagian ini tidak boleh kosong',
-                // 'gambar.required' => 'Gambar tidak boleh kosong',
-                'gambar.image' => 'Harus berupa gambar',
-                'gambar.mimes' => 'Gambar harus dengan format *.jpg atau *.png',
-                'gambar.max' => 'Ukuran gambar terlalu besar',
-                // 'judul.max'                 => 'Judul maximal 255 Karakter',
-                // 'konten.required'           => 'Konten tidak boleh kosong',
-                // 'konten_singkat.max'        => 'Keterangan singkat maximal 255 Karakter',
-                // 'konten_singkat.required'   => 'Keterangan singkat tidak boleh kosong',
-                // 'status.required'           => 'Status tidak boleh kosong',
-            ]
-        );
-
-        if ($validator->fails()) {
-            return redirect()->back()->withInput($request->all())->withErrors($validator);
-        } else {
-            try {
-                $data                       = Berita::find($id);
-                $data->judul                = $request->judul;
-                $data->slug                 = Str::slug($data->judul);
-
-                $data->konten               = $request->konten;
-                $data->konten_singkat       = $request->konten_singkat;
-
-                $data->category_id          = $request->category_id;
-                $data->status               = $request->status;
-
-                $data->ket_verfikasi        = $request->ket_verfikasi;
-                $data->ket_revisi           = $request->ket_revisi;
-                $data->user_id              = Auth::user()->id;
-
-                if (isset($request->gambar)) {
-
-                    $posterName = $data->slug . Str::random(10) . '.' . $request->gambar->extension();
-                    $path = public_path('gambar/berita');
-                    if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
-                        unlink($path . '/' . $data->gambar);
-                    endif;
-
-                    $data->gambar = $posterName;
-
-                    $request->gambar->move(public_path('gambar/berita'), $posterName);
-                }
-
-                // if ($request->gambar) {
-                //     $posterName = Str::random(10) . '.' . $request->gambar->extension();
-                //     $path = public_path('gambar/berita');
-                //     if (!empty($data->gambar) && file_exists($path . '/' . $data->gambar)) :
-                //         unlink($path . '/' . $data->gambar);
-                //     endif;
-                //     $data->gambar = $posterName;
-                //     $request->gambar->move(public_path('gambar/berita'), $posterName);
-                // }
-
-                $data->update();
-
-                Alert::toast('Berhasil diperbarui!', 'success');
-                return redirect('dasbor/berita/' . $data->slug . '/detail');
-
-                // if ($data->status == 'Publish') {
-                //     return redirect()->route('dasbor.berita');
-
-                // } else if($data->status == 'Verifikasi') {
-                //     return redirect()->route('dasbor.berita.verifikasi');
-
-                // } else if($data->status == 'Revisi') {
-                //     return redirect()->route('dasbor.berita.revisi');
-                // }
-                // else {
-                //     return redirect()->route('dasbor.berita.draft');
-                // }
             } catch (\Throwable $th) {
                 Alert::toast('Gagal', 'error');
                 return redirect()->back();
