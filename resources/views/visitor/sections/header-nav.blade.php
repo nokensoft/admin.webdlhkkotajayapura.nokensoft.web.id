@@ -91,10 +91,6 @@
                                                             <ul class="sub-menu last-sub-menu">
                                                                 <li><a href="{{ url('halaman/visi-misi') }}">Visi-Misi</a></li>
                                                                 <li><a href="{{ url('halaman/struktur-organisasi') }}">Struktur Organisasi</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="single-megamenu">
-                                                            <ul class="sub-menu last-sub-menu">
                                                                 <li><a href="{{ url('halaman/bidang-layanan') }}">Bidang Layanan</a> </li>
                                                                 <li><a href="{{ url('halaman/tugas-pokok') }}">Tugas Pokok & Fungsi</a> </li>
                                                             </ul>
@@ -103,6 +99,12 @@
                                                             <ul class="sub-menu last-sub-menu">
                                                                 <li><a href="{{ url('halaman/profil-pimpinan') }}">Profil Pimpinan</a> </li>
                                                                 <li><a href="{{ url('halaman/profil-pejabat') }}">Profil Pejabat</a> </li>
+                                                                <li><a href="{{ url('halaman/asn') }}">ASN</a> </li>
+                                                                <li><a href="{{ url('halaman/non-asn') }}">Non ASN</a> </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="single-megamenu">
+                                                            <ul class="sub-menu last-sub-menu">
                                                                 <li><a href="{{ url('halaman/galeri-kegiatan') }}">Galeri Kegiatan</a> </li>
                                                             </ul>
                                                         </div>

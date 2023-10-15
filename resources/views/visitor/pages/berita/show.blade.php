@@ -39,12 +39,12 @@
                        <div class="blog-full">
 
                             <div class="d-block">
-                                <h1 class="text-success">
+                                <h1 class="text-success h1 fw-bold">
                                     {!! $data->judul !!}
                                 </h1>
                             </div>
 
-                            <ul class="single-post-meta">
+                            <ul class="single-post-meta gap-2">
                                 <li>
                                     <div class="text-success">
                                         <i class="fa-solid fa-book"></i>
@@ -54,7 +54,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="text-success ps-2">
+                                    <div class="text-success">
                                         <i class="fa-solid fa-calendar-check-o"></i>
                                         {{ Carbon\Carbon::parse($data->created_at)->format('d F Y') }}
                                     </div>

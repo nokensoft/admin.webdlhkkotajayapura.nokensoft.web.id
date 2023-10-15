@@ -67,7 +67,7 @@
                                 <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_sm_light) }}" alt="gambar logo sm light" height="38">
                             </span>
                             <span class="logo-lg">
-                                    <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_lg_light) }}" alt="gambar logo lg light" height="38">
+                                <img src="{{ asset('gambar/pengaturan/' . $pengaturan->logo_dasbor_lg_light) }}" alt="gambar logo lg light" height="38">
                             </span>
                         </a>
                     </div>
